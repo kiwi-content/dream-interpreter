@@ -15,24 +15,26 @@ export async function POST(request: NextRequest) {
     const apiKey = process.env.GEMINI_API_KEY
     
     if (!apiKey) {
-      // API 키 없으면 데모 응답
+      console.log('No API key - using demo mode')
       return NextResponse.json({
         interpretation: getEnhancedDemoInterpretation(dream)
       })
     }
 
     // Gemini API 호출
-    const response = await fetch(
-      `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${apiKey}`,
-      {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          contents: [{
-            parts: [{
-              text: `당신은 30년 경력의 꿈 해석 전문가입니다.
+    try {
+      console.log('Calling Gemini API...')
+      const response = await fetch(
+        `https://generativelanguage.googleapis.com/v1beta/models/gemini-flash-latest:generateContent?key=${apiKey}`,
+        {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+            contents: [{
+              parts: [{
+                text: `당신은 30년 경력의 꿈 해석 전문가입니다.
 
 동양의 전통 꿈해몽(한국, 중국)과 서양 심리학(프로이트, 융)을 종합하여 해석합니다.
 
@@ -64,35 +66,37 @@ export async function POST(request: NextRequest) {
 다음 꿈을 해석해주세요:
 
 ${dream}`
-            }]
-          }],
-          generationConfig: {
-            temperature: 0.7,
-            maxOutputTokens: 2000,
-          }
-        })
-      }
-    )
+              }]
+            }],
+            generationConfig: {
+              temperature: 0.7,
+              maxOutputTokens: 2000,
+            }
+          })
+        }
+      )
 
-    if (!response.ok) {
-      const error = await response.json()
-      console.error('Gemini API Error:', error)
-      
-      // API 에러 시 데모로 fallback
+      if (!response.ok) {
+        const error = await response.json()
+        console.error('Gemini API Error:', error)
+        throw new Error(`API returned ${response.status}`)
+      }
+
+      const data = await response.json()
+      console.log('Gemini API success!')
+      const interpretation = data.candidates[0].content.parts[0].text
+
+      return NextResponse.json({ interpretation })
+
+    } catch (apiError) {
+      console.error('API call failed, using demo mode:', apiError)
       return NextResponse.json({
         interpretation: getEnhancedDemoInterpretation(dream)
       })
     }
 
-    const data = await response.json()
-    const interpretation = data.candidates[0].content.parts[0].text
-
-    return NextResponse.json({ interpretation })
-
   } catch (error) {
     console.error('Error:', error)
-    
-    // 에러 시 데모 응답
     const { dream } = await request.json().catch(() => ({ dream: '' }))
     return NextResponse.json({
       interpretation: getEnhancedDemoInterpretation(dream || '알 수 없는 꿈')
