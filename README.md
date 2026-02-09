@@ -257,7 +257,6 @@ vercel
 MIT License
 
 ---
-
 **만든 사람**: Claude와 함께 ❤️
 **버전**: SEO 최적화 + Claude API 연동
 **날짜**: 2026년 2월
