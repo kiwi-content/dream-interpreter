@@ -11,17 +11,17 @@ export async function POST(request: NextRequest) {
       )
     }
 
-    // API key confirmation
+    // API 키 확인
     const apiKey = process.env.ANTHROPIC_API_KEY
     
     if (!apiKey) {
-      // when no API improved response
+      // API 키 없으면 향상된 데모 응답
       return NextResponse.json({
         interpretation: getEnhancedDemoInterpretation(dream)
       })
     }
 
-    // Claude API call
+    // Claude API 호출
     const response = await fetch('https://api.anthropic.com/v1/messages', {
       method: 'POST',
       headers: {
@@ -72,7 +72,7 @@ export async function POST(request: NextRequest) {
       const error = await response.json()
       console.error('Claude API Error:', error)
       
-      // API error improved demo fallback
+      // API 에러 시 향상된 데모로 fallback
       return NextResponse.json({
         interpretation: getEnhancedDemoInterpretation(dream)
       })
@@ -86,7 +86,7 @@ export async function POST(request: NextRequest) {
   } catch (error) {
     console.error('Error:', error)
     
-    // Error demo response
+    // 에러 시 데모 응답
     const { dream } = await request.json()
     return NextResponse.json({
       interpretation: getEnhancedDemoInterpretation(dream)
@@ -94,7 +94,7 @@ export async function POST(request: NextRequest) {
   }
 }
 
-// improved demo interpretation (no API)
+// 향상된 데모 해석 (API 없을 때)
 function getEnhancedDemoInterpretation(dream: string): string {
   const keywords = extractKeywords(dream)
   
@@ -102,41 +102,41 @@ function getEnhancedDemoInterpretation(dream: string): string {
   let meaning = ''
   let reality = ''
   
-  // snake dream
+  // 뱀 꿈
   if (dream.includes('뱀')) {
-    intro = '당신은 마치 새로운 변화의 문턱에 서 있는 여행자와도 같아요. 한 걸음 한 걸음이 조심스럽지만, 그 너머에 있을 보물을 향해 나아가고 있는 모습이에요.'
-    meaning = '**뱀**은 동양에서 가장 강력한 길몽 중 하나예요. 한국 전통 꿈해몽에서는 재물과 행운, 특히 금전적 기회를 상징하죠. 서양 심리학에서 융은 뱀을 '변화와 재생의 원형'으로 보았어요. 프로이트는 지혜와 생명력의 상징으로 해석했고요.'
-    reality = '현실에서 곧 좋은 소식이나 예상치 못한 수입이 있을 수 있어요. 사업이나 투자를 고민 중이라면 긍정적인 신호예요. 하지만 뱀이 공격적이었다면, 주변 인간관계에서 조심해야 할 사람이 있다는 경고일 수 있어요.'
+    intro = `당신은 마치 새로운 변화의 문턱에 서 있는 여행자와도 같아요. 한 걸음 한 걸음이 조심스럽지만, 그 너머에 있을 보물을 향해 나아가고 있는 모습이에요.`
+    meaning = `**뱀**은 동양에서 가장 강력한 길몽 중 하나예요. 한국 전통 꿈해몽에서는 재물과 행운, 특히 금전적 기회를 상징하죠. 서양 심리학에서 융은 뱀을 변화와 재생의 원형으로 보았어요. 프로이트는 지혜와 생명력의 상징으로 해석했고요.`
+    reality = `현실에서 곧 좋은 소식이나 예상치 못한 수입이 있을 수 있어요. 사업이나 투자를 고민 중이라면 긍정적인 신호예요. 하지만 뱀이 공격적이었다면, 주변 인간관계에서 조심해야 할 사람이 있다는 경고일 수 있어요.`
   }
-  // water dream
+  // 물 꿈
   else if (dream.includes('물') || dream.includes('바다') || dream.includes('강')) {
-    intro = '당신은 마치 깊은 바다 속을 탐험하는 잠수부와도 같아요. 수면 위로는 잔잔해 보이지만, 그 아래엔 풍부한 감정의 세계가 펼쳐져 있어요.'
-    meaning = '**물**은 동서양 모두에서 감정과 무의식을 상징해요. 맑은 물은 마음의 평화와 정화를, 탁한 물은 혼란스러운 감정 상태를 나타내죠. 융은 물을 "집단 무의식의 바다"라고 표현했어요.'
-    reality = '지금 당신의 감정 상태를 돌아볼 시간이에요. 물이 맑았다면 마음의 안정을 찾아가고 있다는 신호이고, 거칠었다면 억눌린 감정을 표현할 필요가 있어요.'
+    intro = `당신은 마치 깊은 바다 속을 탐험하는 잠수부와도 같아요. 수면 위로는 잔잔해 보이지만, 그 아래엔 풍부한 감정의 세계가 펼쳐져 있어요.`
+    meaning = `**물**은 동서양 모두에서 감정과 무의식을 상징해요. 맑은 물은 마음의 평화와 정화를, 탁한 물은 혼란스러운 감정 상태를 나타내죠. 융은 물을 집단 무의식의 바다라고 표현했어요.`
+    reality = `지금 당신의 감정 상태를 돌아볼 시간이에요. 물이 맑았다면 마음의 안정을 찾아가고 있다는 신호이고, 거칠었다면 억눌린 감정을 표현할 필요가 있어요.`
   }
-  // poop or toilet dream
+  // 똥/화장실 꿈
   else if (dream.includes('똥') || dream.includes('화장실') || dream.includes('대변')) {
-    intro = '당신은 마치 황금 광산을 발견한 탐험가와도 같아요. 처음엔 더럽다고 생각했던 것이 사실은 가장 귀한 보물이었던 거죠.'
-    meaning = '**배설물**은 한국 전통에서 최고의 길몽이에요! 재물운이 크게 상승한다는 신호죠. 명리학에서는 "분변몽(糞便夢)"을 부귀를 얻는 꿈으로 봐요. 프로이트는 배설물을 소유욕과 금전의 상징으로 해석했어요.'
-    reality = '곧 예상치 못한 수입이나 재물운이 찾아올 거예요. 복권을 사거나, 투자 기회를 잡거나, 승진 소식이 있을 수 있어요. 특히 똥을 밟거나 만졌다면 더 강력한 길몽이에요!'
+    intro = `당신은 마치 황금 광산을 발견한 탐험가와도 같아요. 처음엔 더럽다고 생각했던 것이 사실은 가장 귀한 보물이었던 거죠.`
+    meaning = `**배설물**은 한국 전통에서 최고의 길몽이에요! 재물운이 크게 상승한다는 신호죠. 명리학에서는 분변몽을 부귀를 얻는 꿈으로 봐요. 프로이트는 배설물을 소유욕과 금전의 상징으로 해석했어요.`
+    reality = `곧 예상치 못한 수입이나 재물운이 찾아올 거예요. 복권을 사거나, 투자 기회를 잡거나, 승진 소식이 있을 수 있어요. 특히 똥을 밟거나 만졌다면 더 강력한 길몽이에요!`
   }
-  // decede person dream
+  // 돌아가신 분 꿈
   else if (dream.includes('할머니') || dream.includes('할아버지') || dream.includes('돌아가') || dream.includes('고인')) {
-    intro = '당신은 마치 오래된 나무의 뿌리를 더듬어 찾아가는 사람과도 같아요. 과거와 현재가 만나는 그 지점에서, 잊고 있던 소중한 것을 발견하게 될 거예요.'
-    meaning = '**돌아가신 분**이 꿈에 나타나는 것은 동양에서 조상님의 보호와 축복으로 봐요. 특히 웃는 모습이었다면 좋은 일이 생긴다는 신호죠. 융은 이를 "현명한 노인 원형"으로 보았어요. 무의식이 중요한 조언을 주는 거예요.'
-    reality = '지금 중요한 결정을 앞두고 있지 않나요? 조상님이 당신을 지켜보고 있다는 뜻이에요. 직관을 믿고 나아가세요. 가족과의 연락이나 고향 방문도 좋아요.'
+    intro = `당신은 마치 오래된 나무의 뿌리를 더듬어 찾아가는 사람과도 같아요. 과거와 현재가 만나는 그 지점에서, 잊고 있던 소중한 것을 발견하게 될 거예요.`
+    meaning = `**돌아가신 분**이 꿈에 나타나는 것은 동양에서 조상님의 보호와 축복으로 봐요. 특히 웃는 모습이었다면 좋은 일이 생긴다는 신호죠. 융은 이를 현명한 노인 원형으로 보았어요. 무의식이 중요한 조언을 주는 거예요.`
+    reality = `지금 중요한 결정을 앞두고 있지 않나요? 조상님이 당신을 지켜보고 있다는 뜻이에요. 직관을 믿고 나아가세요. 가족과의 연락이나 고향 방문도 좋아요.`
   }
-  // pregnant dream
+  // 임신 꿈
   else if (dream.includes('임신') || dream.includes('아기') || dream.includes('출산')) {
-    intro = '당신은 마치 씨앗을 품은 대지와도 같아요. 겉으로는 조용해 보이지만, 그 안에서는 새로운 생명이 싹트고 있어요.'
-    meaning = '**임신**은 창조와 새로운 시작의 상징이에요. 실제 임신이 아니더라도, 새로운 프로젝트나 아이디어가 무르익고 있다는 뜻이죠. 융은 이를 "자기실현의 과정"으로 봤어요.'
-    reality = '새로운 계획이나 꿈을 키우고 있지 않나요? 지금은 그것을 세상에 내놓을 준비를 하는 시기예요. 조급해하지 말고 충분히 준비하세요.'
+    intro = `당신은 마치 씨앗을 품은 대지와도 같아요. 겉으로는 조용해 보이지만, 그 안에서는 새로운 생명이 싹트고 있어요.`
+    meaning = `**임신**은 창조와 새로운 시작의 상징이에요. 실제 임신이 아니더라도, 새로운 프로젝트나 아이디어가 무르익고 있다는 뜻이죠. 융은 이를 자기실현의 과정으로 봤어요.`
+    reality = `새로운 계획이나 꿈을 키우고 있지 않나요? 지금은 그것을 세상에 내놓을 준비를 하는 시기예요. 조급해하지 말고 충분히 준비하세요.`
   }
-  // general dream
+  // 일반 꿈
   else {
-    intro = '당신은 마치 안개 낀 숲길을 걷는 여행자와도 같아요. 앞이 잘 보이지 않지만, 그 불확실함 속에서도 묵묵히 발걸음을 옮기고 있어요.'
-    meaning = '이 꿈은 변화와 새로운 시작을 의미해요. 융은 꿈을 "무의식의 편지"라고 했죠. 당신의 마음 깊은 곳에서 보내는 메시지를 읽어야 할 때예요.'
-    reality = '지금 당신이 느끼는 불안이나 기대감은 모두 정상이에요. 변화 앞에서 누구나 두렵지만, 그 너머엔 성장이 있어요.'
+    intro = `당신은 마치 안개 낀 숲길을 걷는 여행자와도 같아요. 앞이 잘 보이지 않지만, 그 불확실함 속에서도 묵묵히 발걸음을 옮기고 있어요.`
+    meaning = `이 꿈은 변화와 새로운 시작을 의미해요. 융은 꿈을 무의식의 편지라고 했죠. 당신의 마음 깊은 곳에서 보내는 메시지를 읽어야 할 때예요.`
+    reality = `지금 당신이 느끼는 불안이나 기대감은 모두 정상이에요. 변화 앞에서 누구나 두렵지만, 그 너머엔 성장이 있어요.`
   }
   
   const dreamPreview = dream.length > 50 ? dream.slice(0, 50) + '...' : dream
