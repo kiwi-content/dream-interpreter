@@ -1,0 +1,51 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-gradient-to-br from-dream-dark via-purple-900 to-dream-dark text-white;
+    min-height: 100vh;
+  }
+}
+
+@layer components {
+  .dream-card {
+    @apply bg-white/10 backdrop-blur-lg rounded-2xl p-8 shadow-2xl border border-white/20;
+  }
+  
+  .dream-button {
+    @apply bg-gradient-to-r from-dream-purple to-dream-pink text-white font-bold py-4 px-8 rounded-full 
+           hover:scale-105 transition-transform duration-300 shadow-lg hover:shadow-2xl;
+  }
+  
+  .dream-input {
+    @apply w-full bg-white/5 border-2 border-white/30 rounded-xl px-6 py-4 text-white 
+           placeholder-white/50 focus:outline-none focus:border-dream-pink transition-colors;
+  }
+}
+
+/* 별 애니메이션 배경 */
+.stars {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.star {
+  position: absolute;
+  width: 2px;
+  height: 2px;
+  background: white;
+  border-radius: 50%;
+  animation: twinkle 3s infinite;
+}
+
+@keyframes twinkle {
+  0%, 100% { opacity: 0.3; }
+  50% { opacity: 1; }
+}
