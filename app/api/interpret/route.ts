@@ -11,29 +11,28 @@ export async function POST(request: NextRequest) {
       )
     }
 
-    // API 키 확인
-    const apiKey = process.env.ANTHROPIC_API_KEY
+    // Gemini API 키 확인
+    const apiKey = process.env.GEMINI_API_KEY
     
     if (!apiKey) {
-      // API 키 없으면 향상된 데모 응답
+      // API 키 없으면 데모 응답
       return NextResponse.json({
         interpretation: getEnhancedDemoInterpretation(dream)
       })
     }
 
-    // Claude API 호출
-    const response = await fetch('https://api.anthropic.com/v1/messages', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        'x-api-key': apiKey,
-        'anthropic-version': '2023-06-01',
-      },
-      body: JSON.stringify({
-        model: 'claude-sonnet-4-20250514',
-        max_tokens: 2000,
-        temperature: 0.7,
-        system: `당신은 30년 경력의 꿈 해석 전문가입니다.
+    // Gemini API 호출
+    const response = await fetch(
+      `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${apiKey}`,
+      {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          contents: [{
+            parts: [{
+              text: `당신은 30년 경력의 꿈 해석 전문가입니다.
 
 동양의 전통 꿈해몽(한국, 중국)과 서양 심리학(프로이트, 융)을 종합하여 해석합니다.
 
@@ -60,26 +59,33 @@ export async function POST(request: NextRequest) {
 - 사용자의 꿈 내용을 정확히 읽고 반영
 - 구체적인 상징들을 모두 언급
 - 막연한 일반론 금지
-- 반드시 희망적으로 마무리`,
-        messages: [{
-          role: 'user',
-          content: `다음 꿈을 해석해주세요:\n\n${dream}`
-        }]
-      })
-    })
+- 반드시 희망적으로 마무리
+
+다음 꿈을 해석해주세요:
+
+${dream}`
+            }]
+          }],
+          generationConfig: {
+            temperature: 0.7,
+            maxOutputTokens: 2000,
+          }
+        })
+      }
+    )
 
     if (!response.ok) {
       const error = await response.json()
-      console.error('Claude API Error:', error)
+      console.error('Gemini API Error:', error)
       
-      // API 에러 시 향상된 데모로 fallback
+      // API 에러 시 데모로 fallback
       return NextResponse.json({
         interpretation: getEnhancedDemoInterpretation(dream)
       })
     }
 
     const data = await response.json()
-    const interpretation = data.content[0].text
+    const interpretation = data.candidates[0].content.parts[0].text
 
     return NextResponse.json({ interpretation })
 
@@ -87,20 +93,18 @@ export async function POST(request: NextRequest) {
     console.error('Error:', error)
     
     // 에러 시 데모 응답
-    const { dream } = await request.json()
+    const { dream } = await request.json().catch(() => ({ dream: '' }))
     return NextResponse.json({
-      interpretation: getEnhancedDemoInterpretation(dream)
+      interpretation: getEnhancedDemoInterpretation(dream || '알 수 없는 꿈')
     })
   }
 }
 
 // 향상된 데모 해석 (API 없을 때)
 function getEnhancedDemoInterpretation(dream: string): string {
-  const keywords = extractKeywords(dream)
-  
-  let intro = ''
-  let meaning = ''
-  let reality = ''
+  let intro = ``
+  let meaning = ``
+  let reality = ``
   
   // 뱀 꿈
   if (dream.includes('뱀')) {
@@ -149,32 +153,7 @@ ${reality}
 
 당신이 꾼 꿈: "${dreamPreview}"
 
-프로이트는 "꿈은 무의식의 왕도"라고 했어요. 지금 이 꿈은 현실에서 마주하고 있는 상황에 대한 당신만의 답을 찾아가는 과정이에요. 명리학적으로 보면, 인생의 중요한 전환점에서 무의식이 방향을 알려주는 거죠.
+프로이트는 꿈은 무의식의 왕도라고 했어요. 지금 이 꿈은 현실에서 마주하고 있는 상황에 대한 당신만의 답을 찾아가는 과정이에요. 명리학적으로 보면, 인생의 중요한 전환점에서 무의식이 방향을 알려주는 거죠.
 
 오늘 하루, 작은 변화라도 두려워하지 마세요. 당신은 이미 충분히 준비되어 있어요. 다만 아직 그걸 모르고 있을 뿐이죠. **당신의 무의식은 이미 답을 알고 있어요.** ✨`
-}
-
-function extractKeywords(dream: string): string[] {
-  const symbolMap: Record<string, string> = {
-    '뱀': '뱀(변화와 재물)',
-    '물': '물(감정과 무의식)',
-    '불': '불(열정과 변화)',
-    '집': '집(자아와 안정)',
-    '차': '차(인생의 방향)',
-    '돈': '돈(가치와 자존감)',
-    '시험': '시험(평가와 불안)',
-    '죽': '죽음(끝과 새로운 시작)',
-    '임신': '임신(창조와 가능성)',
-    '화장실': '화장실(정화와 재물)',
-    '똥': '배설물(재물운)',
-  }
-  
-  const found: string[] = []
-  for (const key in symbolMap) {
-    if (dream.includes(key)) {
-      found.push(symbolMap[key])
-    }
-  }
-  
-  return found
 }
