@@ -26,8 +26,7 @@ export default function Home() {
       })
 
       if (!response.ok) {
-        const errorData = await response.json().catch(() => ({}))
-        throw new Error(errorData.error || `API 오류: ${response.status}`)
+        throw new Error(`API 오류: ${response.status}`)
       }
 
       const data = await response.json()
