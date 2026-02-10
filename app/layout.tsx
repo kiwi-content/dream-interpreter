@@ -48,7 +48,7 @@ export const metadata: Metadata = {
   verification: {
     google: 'qRhK_TW2QITIO35Vcuf1N_jHEcgQBd9cGtk42YXvdNo',  // ← 이렇게
     other: {
-      naver: 'your-naver-verification-code',
+      naver: '905a53fdac6e821bb53a7ebad7a8be28028e8eba',
     }
   },
 }
