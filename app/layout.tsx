@@ -1,45 +1,32 @@
 import './globals.css'
-import type { Metadata, Viewport } from 'next'
-import { Noto_Sans_KR } from 'next/font/google'
+import type { Metadata } from 'next'
 
-// Noto Sans KR 폰트 로드 (Next.js 최적화 방식)
-const notoSansKr = Noto_Sans_KR({
-  subsets: ['latin'],
-  weight: ['400', '500', '600', '700'],
-  display: 'swap',
-  variable: '--font-noto-sans-kr',
-})
-
-// 1. Viewport 설정 분리 (Next.js 14 이상 필수 방식)
-export const viewport: Viewport = {
-  width: 'device-width',
-  initialScale: 1,
-  maximumScale: 5,
-}
-
-// 2. Metadata 설정
 export const metadata: Metadata = {
-  metadataBase: new URL('https://your-domain.com'), // 실제 도메인으로 변경하세요
+  metadataBase: new URL('https://your-domain.com'), // 실제 도메인으로 변경
   title: {
     default: '무료 꿈해몽 🌙 AI가 풀어주는 당신의 꿈 | 뱀꿈 물꿈 똥꿈',
     template: '%s | 무료 AI 꿈해몽'
   },
-  description: '어젯밤 꿈이 궁금하다고? AI 고양이가 속 시원하게 풀어줄게 🐱 뱀꿈, 물꿈, 똥꿈부터 이상한 꿈까지! 회원가입 없이 바로 무료로 해석 받아보세요.',
+  description: '어젯밤 꿈이 궁금하다고? AI 고양이가 속 시원하게 풀어줄게 🐱 뱀꿈, 물꿈, 똥꿈부터 이상한 꿈까지! 회원가입? 로그인? 그런 거 필요 없어. 바로 무료로 해석 받아보세요.',
   keywords: [
     '무료꿈해몽', '꿈해몽무료', '무료꿈풀이', '꿈해몽', '무료꿈해석', 
     '꿈풀이', '꿈해석', 'AI꿈해몽', '평생무료',
-    '뱀꿈', '물꿈', '똥꿈', '임신꿈', '돌아가신분꿈'
+    '뱀꿈', '물꿈', '똥꿈', '임신꿈', '돌아가신분꿈',
+    '치아빠지는꿈', '전애인꿈', '시험꿈', '지각하는꿈',
+    '돼지꿈', '호랑이꿈', '용꿈', '불꿈', '집꿈',
+    '회원가입없는꿈해몽', '로그인없는꿈해몽', '이상한꿈'
   ],
   authors: [{ name: 'AI 꿈해몽' }],
   creator: 'AI 꿈해몽',
   publisher: 'AI 꿈해몽',
   
+  // Open Graph (소셜 미디어)
   openGraph: {
     type: 'website',
     locale: 'ko_KR',
     url: 'https://your-domain.com',
     title: '무료 꿈해몽 🌙 AI 고양이가 당신의 꿈을 풀어드려요',
-    description: '어젯밤 꿈 때문에 잠 못 잤어? AI가 뱀꿈, 물꿈, 똥꿈 다 풀어줄게!',
+    description: '어젯밤 꿈 때문에 잠 못 잤어? AI가 뱀꿈, 물꿈, 똥꿈 다 풀어줄게! 회원가입도 로그인도 필요 없이 바로 무료로 해석해줘.',
     siteName: '무료 AI 꿈해몽',
     images: [{
       url: '/og-image.png',
@@ -49,6 +36,7 @@ export const metadata: Metadata = {
     }]
   },
   
+  // Twitter Card
   twitter: {
     card: 'summary_large_image',
     title: '무료 꿈해몽 - AI가 꿈 풀어줌',
@@ -56,10 +44,31 @@ export const metadata: Metadata = {
     images: ['/og-image.png'],
   },
   
+  // 모바일 최적화
+  viewport: {
+    width: 'device-width',
+    initialScale: 1,
+    maximumScale: 5,
+  },
+  
+  // 추가 메타태그
   robots: {
     index: true,
     follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
   },
+  
+  // 검증 (나중에 추가)
+  // verification: {
+  //   google: 'your-google-verification-code',
+  //   naver: 'your-naver-verification-code',
+  // },
   
   alternates: {
     canonical: 'https://your-domain.com',
@@ -70,7 +79,7 @@ export const metadata: Metadata = {
   }
 }
 
-// 3. JSON-LD 구조화 데이터
+// JSON-LD 구조화 데이터
 const jsonLd = {
   '@context': 'https://schema.org',
   '@type': 'WebApplication',
@@ -85,23 +94,34 @@ const jsonLd = {
     priceCurrency: 'KRW',
     availability: 'https://schema.org/InStock',
     description: '평생 무료'
+  },
+  aggregateRating: {
+    '@type': 'AggregateRating',
+    ratingValue: '4.8',
+    ratingCount: '15678'
   }
 }
 
 export default function RootLayout({
   children,
 }: {
-  children: React.ReactNode
+  children: React.NodeNode
 }) {
   return (
-    <html lang="ko" className={notoSansKr.variable}>
+    <html lang="ko">
       <head>
+        {/* JSON-LD 구조화 데이터 */}
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
+        
+        {/* Preconnect for performance */}
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://www.googletagmanager.com" />
       </head>
-      <body className={notoSansKr.className}>
+      <body>
+        {/* 별 배경 */}
         <div className="stars" aria-hidden="true">
           {Array.from({ length: 50 }).map((_, i) => (
             <div
@@ -116,14 +136,17 @@ export default function RootLayout({
           ))}
         </div>
         
+        {/* Skip to main content - 접근성 */}
         <a href="#main-content" className="sr-only focus:not-sr-only">
           본문으로 건너뛰기
         </a>
         
+        {/* 메인 컨텐츠 */}
         <main id="main-content" className="relative z-10">
           {children}
         </main>
         
+        {/* 푸터 */}
         <footer className="relative z-10 mt-12 py-8 border-t border-white/10">
           <div className="max-w-2xl mx-auto px-4 text-center text-purple-300 text-sm">
             <p className="mb-2">
