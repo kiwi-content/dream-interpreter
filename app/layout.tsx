@@ -92,7 +92,23 @@ export default function RootLayout({
         <main id="main-content" className="relative z-10">
           {children}
         </main>
-        
+        {/* 카카오 애드핏 광고 */}
+        <div className="relative z-10 mt-12 mb-8">
+          <div className="max-w-5xl mx-auto px-6">
+            <div className="text-center mb-3">
+              <p className="text-white/40 text-xs">광고</p>
+            </div>
+            <div className="flex justify-center">
+              <ins 
+                className="kakao_ad_area" 
+                style={{ display: 'none' }}
+                data-ad-unit="DAN-tkfllXc9QoFQY7oJ"
+                data-ad-width="320"
+                data-ad-height="100"
+              />
+            </div>
+          </div>
+        </div>
         {/* 푸터 */}
         <footer className="relative z-10 mt-20 py-12 border-t border-white/10">
           <div className="max-w-4xl mx-auto px-6 text-center">
@@ -104,6 +120,11 @@ export default function RootLayout({
             </p>
           </div>
         </footer>
+        <script 
+          type="text/javascript" 
+          src="//t1.daumcdn.net/kas/static/ba.min.js" 
+          async
+        />
       </body>
     </html>
   )
