@@ -44,9 +44,9 @@ export const metadata: Metadata = {
     follow: true,
   },
   
-  // 검색엔진 인증 (배포 후 실제 코드로 교체)
+  // 검색엔진 인증
   verification: {
-    google: 'qRhK_TW2QITIO35Vcuf1N_jHEcgQBd9cGtk42YXvdNo',  // ← 이렇게
+    google: 'qRhK_TW2QITIO35Vcuf1N_jHEcgQBd9cGtk42YXvdNo',
     other: {
       naver: '905a53fdac6e821bb53a7ebad7a8be28028e8eba',
     }
@@ -58,7 +58,7 @@ const jsonLd = {
   '@type': 'WebApplication',
   name: '무료 AI 꿈해몽',
   description: '완전 무료 인공지능 꿈해석 서비스',
-  url: 'https://dream-free.vercel.app',  // ← 이렇게
+  url: 'https://dream-free.vercel.app',
   applicationCategory: 'LifestyleApplication',
   offers: {
     '@type': 'Offer',
@@ -112,6 +112,24 @@ export default function RootLayout({
           {children}
         </main>
         
+        {/* 카카오 애드핏 광고 */}
+        <div className="relative z-10 mt-12 mb-8">
+          <div className="max-w-5xl mx-auto px-6">
+            <div className="text-center mb-3">
+              <p className="text-white/40 text-xs">광고</p>
+            </div>
+            <div className="flex justify-center">
+              <ins 
+                className="kakao_ad_area" 
+                style={{ display: 'none' }}
+                data-ad-unit="DAN-tkfllXc9QoFQY7oJ"
+                data-ad-width="320"
+                data-ad-height="100"
+              />
+            </div>
+          </div>
+        </div>
+        
         {/* 푸터 */}
         <footer className="relative z-10 mt-20 py-12 border-t border-white/10">
           <div className="max-w-4xl mx-auto px-6 text-center">
@@ -123,6 +141,13 @@ export default function RootLayout({
             </p>
           </div>
         </footer>
+        
+        {/* 카카오 애드핏 스크립트 */}
+        <script 
+          type="text/javascript" 
+          src="//t1.daumcdn.net/kas/static/ba.min.js" 
+          async
+        />
       </body>
     </html>
   )
