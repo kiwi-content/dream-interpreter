@@ -1,13 +1,13 @@
 import './globals.css'
 import type { Metadata, Viewport } from 'next'
-import { Noto_Serif_KR } from 'next/font/google'
+import { Noto_Sans_KR } from 'next/font/google'
 
-// Noto Serif KR 폰트 설정 (명조체)
-const notoSerifKr = Noto_Serif_KR({
+// Noto Sans KR 폰트 설정
+const notoSansKr = Noto_Sans_KR({
   subsets: ['latin'],
   weight: ['400', '500', '600', '700'],
   display: 'swap',
-  variable: '--font-noto-serif-kr',
+  variable: '--font-noto-sans-kr',
 })
 
 // Viewport 설정 분리 (Next.js 14+ 필수)
@@ -73,7 +73,7 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="ko" className={notoSerifKr.variable}>
+    <html lang="ko" className={notoSansKr.variable}>
       <head>
         <meta name="naver-site-verification" content="905a53fdac6e821bb53a7ebad7a8be28028e8eba" />
         <script
@@ -81,7 +81,7 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
       </head>
-      <body className={notoSerifKr.className}>
+      <body className={notoSansKr.className}>
         {/* 배경 플로팅 셰이프 */}
         <div className="floating-shape shape-1" aria-hidden="true" />
         <div className="floating-shape shape-2" aria-hidden="true" />

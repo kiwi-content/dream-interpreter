@@ -102,26 +102,12 @@ export default function Home() {
             className="cta-button w-full disabled:opacity-50 disabled:cursor-not-allowed"
           >
             <span>
-              {isLoading ? '✍️ 꿈을 해석하고 있어요...' : '🌙 이야기 들려주기'}
+              {isLoading ? '당신의 이야기를 듣고 있어요...' : '🌙 이야기 들려주기'}
             </span>
           </button>
         </div>
 
         {/* 결과 섹션 */}
-        {isLoading && (
-          <div className="glass-card animate-fade-in-up text-center">
-            <div className="flex flex-col items-center gap-4">
-              <div className="animate-spin text-4xl">🌙</div>
-              <p className="text-white/90 text-lg font-medium">
-                꿈을 해석하고 있어요...
-              </p>
-              <p className="text-white/60 text-sm">
-                잠시만 기다려주세요
-              </p>
-            </div>
-          </div>
-        )}
-        
         {result && (
           <div className="glass-card animate-fade-in-up">
             <h2 className="text-2xl md:text-3xl font-bold mb-6 text-white">
