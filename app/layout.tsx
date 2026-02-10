@@ -1,8 +1,24 @@
 import './globals.css'
-import type { Metadata } from 'next'
+import type { Metadata, Viewport } from 'next'
+import { Noto_Sans_KR } from 'next/font/google'
+
+// Noto Sans KR 폰트 설정
+const notoSansKr = Noto_Sans_KR({
+  subsets: ['latin'],
+  weight: ['400', '500', '600', '700'],
+  display: 'swap',
+  variable: '--font-noto-sans-kr',
+})
+
+// Viewport 설정 분리 (Next.js 14+ 필수)
+export const viewport: Viewport = {
+  width: 'device-width',
+  initialScale: 1,
+  maximumScale: 5,
+}
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://your-domain.com'),
+  metadataBase: new URL('https://dream-free.vercel.app'),
   title: {
     default: '무료 꿈해몽 AI - 뱀꿈 물꿈 똥꿈 무료 풀이',
     template: '%s | 무료 AI 꿈해몽'
@@ -17,21 +33,23 @@ export const metadata: Metadata = {
   openGraph: {
     type: 'website',
     locale: 'ko_KR',
-    url: 'https://your-domain.com',
+    url: 'https://dream-free.vercel.app',
     title: '무료 꿈해몽 AI - 당신의 꿈을 즉시 무료로 해석',
     description: '완전 무료! 회원가입 없이 뱀꿈, 물꿈, 똥꿈 등 모든 꿈을 AI가 무료로 해석해드립니다.',
     siteName: '무료 AI 꿈해몽',
   },
   
-  viewport: {
-    width: 'device-width',
-    initialScale: 1,
-    maximumScale: 5,
-  },
-  
   robots: {
     index: true,
     follow: true,
+  },
+  
+  // 검색엔진 인증 (배포 후 실제 코드로 교체)
+  verification: {
+    google: 'qRhK_TW2QITIO35Vcuf1N_jHEcgQBd9cGtk42YXvdNo',  // ← 이렇게
+    other: {
+      naver: 'your-naver-verification-code',
+    }
   },
 }
 
@@ -40,7 +58,7 @@ const jsonLd = {
   '@type': 'WebApplication',
   name: '무료 AI 꿈해몽',
   description: '완전 무료 인공지능 꿈해석 서비스',
-  url: 'https://your-domain.com',
+  url: 'https://dream-free.vercel.app',  // ← 이렇게
   applicationCategory: 'LifestyleApplication',
   offers: {
     '@type': 'Offer',
@@ -55,14 +73,14 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="ko">
+    <html lang="ko" className={notoSansKr.variable}>
       <head>
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
       </head>
-      <body>
+      <body className={notoSansKr.className}>
         {/* 배경 플로팅 셰이프 */}
         <div className="floating-shape shape-1" aria-hidden="true" />
         <div className="floating-shape shape-2" aria-hidden="true" />
