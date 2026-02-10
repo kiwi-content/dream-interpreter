@@ -1,5 +1,14 @@
 import './globals.css'
 import type { Metadata, Viewport } from 'next'
+import { Noto_Sans_KR } from 'next/font/google'
+
+// Noto Sans KR 폰트 로드 (Next.js 최적화 방식)
+const notoSansKr = Noto_Sans_KR({
+  subsets: ['latin'],
+  weight: ['400', '500', '600', '700'],
+  display: 'swap',
+  variable: '--font-noto-sans-kr',
+})
 
 // 1. Viewport 설정 분리 (Next.js 14 이상 필수 방식)
 export const viewport: Viewport = {
@@ -85,21 +94,14 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="ko">
+    <html lang="ko" className={notoSansKr.variable}>
       <head>
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
-        {/* Noto Sans KR 폰트 추가 */}
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        <link 
-          href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;600;700&display=swap" 
-          rel="stylesheet" 
-        />
       </head>
-      <body style={{ fontFamily: "'Noto Sans KR', sans-serif" }}>
+      <body className={notoSansKr.className}>
         <div className="stars" aria-hidden="true">
           {Array.from({ length: 50 }).map((_, i) => (
             <div
