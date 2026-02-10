@@ -20,8 +20,8 @@ export const viewport: Viewport = {
 export const metadata: Metadata = {
   metadataBase: new URL('https://dream-free.vercel.app'),
   title: {
-    default: '무료 꿈해몽 AI - 뱀꿈 물꿈 똥꿈 무료 풀이',
-    template: '%s | 무료 AI 꿈해몽'
+    default: '무료 꿈해몽 - 당신의 꿈 이야기를 들려주세요',
+    template: '%s | 무료 꿈해몽'
   },
   description: '완전 무료! 회원가입 없이 AI가 즉시 해석하는 꿈해몽. 뱀꿈, 물꿈, 똥꿈, 임신꿈 등 모든 꿈을 동양 전통과 서양 심리학으로 무료 분석합니다.',
   keywords: [
@@ -34,9 +34,9 @@ export const metadata: Metadata = {
     type: 'website',
     locale: 'ko_KR',
     url: 'https://dream-free.vercel.app',
-    title: '무료 꿈해몽 AI - 당신의 꿈을 즉시 무료로 해석',
-    description: '완전 무료! 회원가입 없이 뱀꿈, 물꿈, 똥꿈 등 모든 꿈을 AI가 무료로 해석해드립니다.',
-    siteName: '무료 AI 꿈해몽',
+    title: '무료 꿈해몽 - 당신의 꿈 이야기를 들어드려요',
+    description: '완전 무료! 회원가입 없이 뱀꿈, 물꿈, 똥꿈 등 모든 꿈을 무료로 해석해드립니다.',
+    siteName: '무료 꿈해몽',
   },
   
   robots: {
@@ -56,8 +56,8 @@ export const metadata: Metadata = {
 const jsonLd = {
   '@context': 'https://schema.org',
   '@type': 'WebApplication',
-  name: '무료 AI 꿈해몽',
-  description: '완전 무료 인공지능 꿈해석 서비스',
+  name: '무료 꿈해몽',
+  description: '완전 무료 꿈해석 서비스',
   url: 'https://dream-free.vercel.app',
   applicationCategory: 'LifestyleApplication',
   offers: {
