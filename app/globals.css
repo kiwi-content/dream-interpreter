@@ -1,336 +1,119 @@
-@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@300;400;500;600;700;900&family=Gowun+Batang:wght@400;700&display=swap');
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 @layer base {
-  :root {
-    --color-primary: #4F46E5;
-    --color-secondary: #EC4899;
-    --color-accent: #F59E0B;
-    --gradient-start: #3B82F6;
-    --gradient-mid: #8B5CF6;
-    --gradient-end: #EC4899;
-  }
-  
   * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+    font-family: 'Noto Serif KR', Georgia, 'Times New Roman', serif;
   }
   
   body {
-    font-family: 'Gowun Batang', 'Noto Serif KR', serif;
-    background: linear-gradient(180deg, 
-      #0f172a 0%,
-      #1e293b 30%,
-      #334155 60%,
-      #1e293b 100%
-    );
-    background-size: 100% 200%;
-    animation: nightSky 20s ease infinite;
-    background-attachment: fixed;
+    @apply bg-gradient-to-br from-dream-dark via-purple-900 to-dream-dark text-white;
     min-height: 100vh;
-    color: #f8f9fa;
-    overflow-x: hidden;
-    position: relative;
   }
   
-  body::before {
-    content: '';
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-image: 
-      radial-gradient(2px 2px at 20% 30%, white, transparent),
-      radial-gradient(2px 2px at 60% 70%, white, transparent),
-      radial-gradient(1px 1px at 50% 50%, white, transparent),
-      radial-gradient(1px 1px at 80% 10%, white, transparent),
-      radial-gradient(2px 2px at 90% 60%, white, transparent),
-      radial-gradient(1px 1px at 33% 75%, white, transparent),
-      radial-gradient(1px 1px at 79% 53%, white, transparent);
-    background-size: 200% 200%;
-    background-position: 0% 0%;
-    animation: stars 50s linear infinite;
-    opacity: 0.5;
-    pointer-events: none;
-    z-index: 1;
+  /* 기본 텍스트 가독성 개선 */
+  p {
+    line-height: 2;
+    margin-bottom: 1.5rem;
+    letter-spacing: -0.01em;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    line-height: 1.5;
+    font-weight: 600;
   }
 }
 
 @layer components {
-  .hero-title {
-    font-family: 'Noto Serif KR', serif;
-    font-size: clamp(2rem, 6vw, 3.5rem);
-    font-weight: 700;
-    line-height: 1.4;
-    letter-spacing: 0.05em;
-    color: #fef3c7;
-    text-shadow: 
-      0 0 20px rgba(254, 243, 199, 0.3),
-      0 2px 4px rgba(0, 0, 0, 0.3);
-    margin: 0;
-    padding: 0;
+  .dream-card {
+    @apply bg-white/95 backdrop-blur-lg rounded-2xl p-8 shadow-2xl border border-white/20;
   }
   
-  .subtitle {
-    font-family: 'Gowun Batang', serif;
-    font-size: clamp(0.95rem, 1.8vw, 1.15rem);
-    font-weight: 400;
-    letter-spacing: 0.03em;
-    color: rgba(248, 249, 250, 0.85);
-    line-height: 1.8;
+  /* AI 응답 영역 - 가독성 대폭 개선 */
+  .dream-card.ai-response {
+    @apply bg-white/98;
   }
   
-  .glass-card {
-    background: linear-gradient(135deg, 
-      rgba(120, 90, 70, 0.4) 0%, 
-      rgba(80, 60, 50, 0.35) 100%
-    );
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
-    border: 2px solid rgba(254, 243, 199, 0.2);
-    border-radius: 16px;
-    padding: 3rem;
-    box-shadow: 
-      0 8px 32px rgba(0, 0, 0, 0.4),
-      inset 0 1px 0 rgba(254, 243, 199, 0.1),
-      0 20px 60px rgba(0, 0, 0, 0.3);
-    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-    position: relative;
-    overflow: hidden;
+  .dream-card.ai-response p {
+    @apply text-gray-800;
+    line-height: 2.1;
+    margin-bottom: 1.75rem;
+    font-size: 1.0625rem; /* 17px */
   }
   
-  .glass-card::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 3px;
-    background: linear-gradient(90deg, 
-      transparent 0%,
-      rgba(254, 243, 199, 0.3) 50%,
-      transparent 100%
-    );
+  .dream-card.ai-response h3 {
+    @apply text-purple-700 font-bold;
+    font-size: 1.375rem;
+    margin-bottom: 1.5rem;
+    padding-bottom: 0.75rem;
+    border-bottom: 2px solid #e2e8f0;
   }
   
-  .glass-card:hover {
-    transform: translateY(-8px);
-    box-shadow: 
-      0 16px 48px rgba(0, 0, 0, 0.5),
-      inset 0 1px 0 rgba(254, 243, 199, 0.2),
-      0 30px 90px rgba(0, 0, 0, 0.4);
-    border-color: rgba(254, 243, 199, 0.35);
+  .dream-card.ai-response strong {
+    @apply text-purple-600 font-semibold;
+  }
+  
+  /* 입력 카드 */
+  .dream-card.input-card {
+    @apply bg-white/95;
+  }
+  
+  .dream-card.input-card h2 {
+    @apply text-gray-800 font-bold text-2xl mb-4;
+  }
+  
+  .dream-card.input-card label {
+    @apply text-gray-700 font-medium text-base mb-3 block;
+  }
+  
+  .dream-card.input-card .hint {
+    @apply text-gray-600 text-sm mt-2;
+  }
+  
+  .dream-button {
+    @apply bg-gradient-to-r from-dream-purple to-dream-pink text-white font-bold py-4 px-8 rounded-full 
+           hover:scale-105 transition-transform duration-300 shadow-lg hover:shadow-2xl;
+    font-size: 1.125rem;
   }
   
   .dream-input {
-    width: 100%;
-    background: rgba(255, 255, 255, 0.06);
-    border: 2px solid rgba(255, 255, 255, 0.15);
-    border-radius: 20px;
-    padding: 1.5rem 2rem;
-    font-size: 1.1rem;
-    color: white;
-    font-family: 'Space Grotesk', sans-serif;
-    transition: all 0.3s ease;
-    outline: none;
-  }
-  
-  .dream-input::placeholder {
-    color: rgba(255, 255, 255, 0.4);
+    @apply w-full bg-white border-2 border-gray-300 rounded-xl px-6 py-4 text-gray-800
+           placeholder-gray-400 focus:outline-none focus:border-dream-pink transition-colors;
+    line-height: 1.75;
+    font-size: 1.0625rem;
+    min-height: 140px;
+    resize: vertical;
   }
   
   .dream-input:focus {
-    background: rgba(255, 255, 255, 0.1);
-    border-color: rgba(255, 255, 255, 0.3);
-    box-shadow: 0 0 0 4px rgba(255, 255, 255, 0.1);
-  }
-  
-  .cta-button {
-    position: relative;
-    background: linear-gradient(135deg, #d4a574 0%, #c69563 100%);
-    color: #1e293b;
-    font-family: 'Noto Serif KR', serif;
-    font-size: 1.2rem;
-    font-weight: 600;
-    padding: 1.5rem 3rem;
-    border-radius: 12px;
-    border: 2px solid rgba(254, 243, 199, 0.5);
-    cursor: pointer;
-    overflow: hidden;
-    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-    box-shadow: 
-      0 8px 24px rgba(0, 0, 0, 0.4),
-      inset 0 1px 0 rgba(255, 255, 255, 0.3);
-    text-shadow: 0 1px 2px rgba(255, 255, 255, 0.3);
-  }
-  
-  .cta-button::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: -100%;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(90deg, 
-      transparent 0%,
-      rgba(255, 255, 255, 0.2) 50%,
-      transparent 100%
-    );
-    transition: left 0.5s ease;
-  }
-  
-  .cta-button:hover {
-    transform: translateY(-4px);
-    box-shadow: 
-      0 16px 32px rgba(0, 0, 0, 0.5),
-      inset 0 1px 0 rgba(255, 255, 255, 0.4);
-    border-color: rgba(254, 243, 199, 0.8);
-  }
-  
-  .cta-button:hover::before {
-    left: 100%;
-  }
-  
-  .cta-button:active {
-    transform: translateY(-2px);
-  }
-  
-  .cta-button span {
-    position: relative;
-    z-index: 1;
-  }
-  
-  .floating-shape {
-    position: absolute;
-    border-radius: 50%;
-    filter: blur(60px);
-    opacity: 0.3;
-    animation: float 20s ease-in-out infinite;
-    pointer-events: none;
-  }
-  
-  .shape-1 {
-    width: 300px;
-    height: 300px;
-    background: radial-gradient(circle, rgba(254, 243, 199, 0.15) 0%, transparent 70%);
-    top: 10%;
-    left: -10%;
-    animation-delay: 0s;
-    filter: blur(40px);
-  }
-  
-  .shape-2 {
-    width: 250px;
-    height: 250px;
-    background: radial-gradient(circle, rgba(191, 219, 254, 0.1) 0%, transparent 70%);
-    bottom: 20%;
-    right: -5%;
-    animation-delay: 5s;
-    filter: blur(40px);
-  }
-  
-  .shape-3 {
-    width: 200px;
-    height: 200px;
-    background: radial-gradient(circle, rgba(254, 243, 199, 0.12) 0%, transparent 70%);
-    top: 50%;
-    right: 15%;
-    animation-delay: 10s;
-    filter: blur(35px);
+    box-shadow: 0 0 0 4px rgba(236, 72, 153, 0.1);
   }
 }
 
-@keyframes nightSky {
-  0%, 100% {
-    background-position: 0% 0%;
-  }
-  50% {
-    background-position: 0% 100%;
-  }
-}
-
-@keyframes stars {
-  0% {
-    background-position: 0% 0%;
-  }
-  100% {
-    background-position: 100% 100%;
-  }
-}
-
-@keyframes float {
-  0%, 100% {
-    transform: translate(0, 0) scale(1);
-  }
-  25% {
-    transform: translate(50px, -50px) scale(1.1);
-  }
-  50% {
-    transform: translate(-30px, 30px) scale(0.9);
-  }
-  75% {
-    transform: translate(40px, 60px) scale(1.05);
-  }
-}
-
-@keyframes gradientShift {
-  0% {
-    background-position: 0% 50%;
-  }
-  50% {
-    background-position: 100% 50%;
-  }
-  100% {
-    background-position: 0% 50%;
-  }
-}
-
-/* 별 반짝임 애니메이션 */
-.sparkle {
-  position: absolute;
-  width: 4px;
-  height: 4px;
-  background: white;
-  border-radius: 50%;
-  box-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
-  animation: sparkle 2s ease-in-out infinite;
-}
-
-@keyframes sparkle {
-  0%, 100% {
-    opacity: 0;
-    transform: scale(0);
-  }
-  50% {
-    opacity: 1;
-    transform: scale(1);
-  }
-}
-
-@keyframes shimmer {
-  0% {
-    transform: translateX(-100%) translateY(-100%) rotate(45deg);
-  }
-  100% {
-    transform: translateX(100%) translateY(100%) rotate(45deg);
-  }
-}
-
-/* 스크롤 진행 표시 */
-.scroll-indicator {
+/* 별 애니메이션 배경 */
+.stars {
   position: fixed;
   top: 0;
   left: 0;
-  height: 4px;
-  background: linear-gradient(90deg, #FFFFFF 0%, #F0F9FF 100%);
-  transform-origin: left;
-  z-index: 9999;
-  box-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.star {
+  position: absolute;
+  width: 2px;
+  height: 2px;
+  background: white;
+  border-radius: 50%;
+  animation: twinkle 3s infinite;
+}
+
+@keyframes twinkle {
+  0%, 100% { opacity: 0.3; }
+  50% { opacity: 1; }
 }
 
 /* 접근성 */
@@ -346,56 +129,40 @@
   border-width: 0;
 }
 
-.focus\:not-sr-only:focus {
+.sr-only:focus {
   position: static;
   width: auto;
   height: auto;
-  padding: 1rem;
+  padding: 0.5rem 1rem;
   margin: 0;
   overflow: visible;
   clip: auto;
   white-space: normal;
 }
 
-/* 반응형 */
-@media (max-width: 768px) {
-  .glass-card {
-    padding: 2rem;
-    border-radius: 24px;
+/* 모바일 최적화 */
+@media (max-width: 640px) {
+  .dream-card {
+    @apply p-6;
   }
   
-  .cta-button {
-    font-size: 1.1rem;
-    padding: 1.25rem 2.5rem;
+  .dream-card.ai-response p {
+    font-size: 1rem;
+    line-height: 1.95;
+    margin-bottom: 1.5rem;
   }
   
-  .floating-shape {
-    filter: blur(40px);
+  .dream-card.ai-response h3 {
+    font-size: 1.25rem;
   }
   
-  .shape-1, .shape-2, .shape-3 {
-    width: 200px;
-    height: 200px;
+  .dream-input {
+    font-size: 1rem;
+    padding: 1rem 1.25rem;
+  }
+  
+  .dream-button {
+    font-size: 1rem;
+    padding: 1rem 2rem;
   }
 }
-
-/* 페이드인 애니메이션 */
-@keyframes fadeInUp {
-  from {
-    opacity: 0;
-    transform: translateY(30px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-.animate-fade-in-up {
-  animation: fadeInUp 0.8s ease-out forwards;
-}
-
-.delay-100 { animation-delay: 0.1s; }
-.delay-200 { animation-delay: 0.2s; }
-.delay-300 { animation-delay: 0.3s; }
-.delay-400 { animation-delay: 0.4s; }
