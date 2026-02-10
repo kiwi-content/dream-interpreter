@@ -17,7 +17,7 @@ export default function Home() {
     setResult('')
 
     try {
-      const response = await fetch('/api/interpret/route', {
+      const response = await fetch('/api/interpret', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
