@@ -17,39 +17,21 @@ export default function Home() {
     setResult('')
 
     try {
-      const response = await fetch('https://api.anthropic.com/v1/messages', {
+      const response = await fetch('/api/interpret/route', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify({
-          model: 'claude-sonnet-4-20250514',
-          max_tokens: 1000,
-          messages: [
-            {
-              role: 'user',
-              content: `다음 꿈을 해석해주세요. 동양의 전통 꿈해몽과 서양의 심리학적 관점을 모두 포함해서 친근하고 이해하기 쉽게 설명해주세요.
-
-꿈 내용: ${dream}
-
-다음 형식으로 답변해주세요:
-1. 전통 꿈해몽 (동양적 관점)
-2. 심리학적 해석 (서양적 관점)  
-3. 종합 의미
-
-각 섹션은 2-3문장으로 간결하게 작성해주세요.`
-            }
-          ]
-        })
+        body: JSON.stringify({ dream })
       })
 
+      if (!response.ok) {
+        throw new Error(`API 오류: ${response.status}`)
+      }
+
       const data = await response.json()
-      const interpretation = data.content
-        .filter((item: any) => item.type === 'text')
-        .map((item: any) => item.text)
-        .join('\n')
+      setResult(data.interpretation)
       
-      setResult(interpretation)
     } catch (error) {
       console.error('Error:', error)
       setResult('죄송합니다. 해석 중 오류가 발생했습니다. 다시 시도해주세요.')
