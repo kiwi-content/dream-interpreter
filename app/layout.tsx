@@ -75,6 +75,7 @@ export default function RootLayout({
   return (
     <html lang="ko" className={notoSansKr.variable}>
       <head>
+        <meta name="naver-site-verification" content="905a53fdac6e821bb53a7ebad7a8be28028e8eba" />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
