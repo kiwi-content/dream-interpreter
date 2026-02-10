@@ -4,17 +4,17 @@ import type { Metadata } from 'next'
 export const metadata: Metadata = {
   metadataBase: new URL('https://your-domain.com'), // 실제 도메인으로 변경
   title: {
-    default: '무료 꿈해몽 - 평생 무료 AI 꿈 해석 | 뱀꿈 물꿈 똥꿈 풀이',
+    default: '무료 꿈해몽 🌙 AI가 풀어주는 당신의 꿈 | 뱀꿈 물꿈 똥꿈',
     template: '%s | 무료 AI 꿈해몽'
   },
-  description: '완전 무료! 회원가입 없이 즉시 이용하는 AI 꿈해몽 서비스. 뱀꿈, 물꿈, 똥꿈, 임신꿈, 돌아가신분꿈 등 모든 꿈을 동양 전통과 서양 심리학으로 무료 분석합니다. 지금 바로 평생 무료로 꿈풀이를 받아보세요.',
+  description: '어젯밤 꿈이 궁금하다고? AI 고양이가 속 시원하게 풀어줄게 🐱 뱀꿈, 물꿈, 똥꿈부터 이상한 꿈까지! 회원가입? 로그인? 그런 거 필요 없어. 바로 무료로 해석 받아보세요.',
   keywords: [
     '무료꿈해몽', '꿈해몽무료', '무료꿈풀이', '꿈해몽', '무료꿈해석', 
     '꿈풀이', '꿈해석', 'AI꿈해몽', '평생무료',
     '뱀꿈', '물꿈', '똥꿈', '임신꿈', '돌아가신분꿈',
     '치아빠지는꿈', '전애인꿈', '시험꿈', '지각하는꿈',
     '돼지꿈', '호랑이꿈', '용꿈', '불꿈', '집꿈',
-    '회원가입없는꿈해몽', '로그인없는꿈해몽'
+    '회원가입없는꿈해몽', '로그인없는꿈해몽', '이상한꿈'
   ],
   authors: [{ name: 'AI 꿈해몽' }],
   creator: 'AI 꿈해몽',
@@ -25,8 +25,8 @@ export const metadata: Metadata = {
     type: 'website',
     locale: 'ko_KR',
     url: 'https://your-domain.com',
-    title: '무료 꿈해몽 - 평생 무료 AI가 해석하는 당신의 꿈',
-    description: '완전 무료! 회원가입 없이 뱀꿈, 물꿈, 똥꿈 등 모든 꿈을 AI가 무료로 해석해드립니다. 동양 전통과 서양 심리학을 결합한 정확한 무료 꿈풀이.',
+    title: '무료 꿈해몽 🌙 AI 고양이가 당신의 꿈을 풀어드려요',
+    description: '어젯밤 꿈 때문에 잠 못 잤어? AI가 뱀꿈, 물꿈, 똥꿈 다 풀어줄게! 회원가입도 로그인도 필요 없이 바로 무료로 해석해줘.',
     siteName: '무료 AI 꿈해몽',
     images: [{
       url: '/og-image.png',
@@ -39,8 +39,8 @@ export const metadata: Metadata = {
   // Twitter Card
   twitter: {
     card: 'summary_large_image',
-    title: '무료 꿈해몽 - AI 꿈 해석',
-    description: '뱀꿈, 물꿈, 똥꿈 등 모든 꿈을 AI가 무료로 해석해드립니다.',
+    title: '무료 꿈해몽 - AI가 꿈 풀어줌',
+    description: '뱀꿈, 물꿈, 똥꿈 궁금해? AI가 무료로 속 시원하게 풀어줄게!',
     images: ['/og-image.png'],
   },
   
@@ -84,7 +84,7 @@ const jsonLd = {
   '@context': 'https://schema.org',
   '@type': 'WebApplication',
   name: '무료 AI 꿈해몽',
-  description: '완전 무료 인공지능 꿈해석 서비스 - 회원가입 없음',
+  description: '완전 무료 AI 꿈 해석 - 회원가입 없이 바로 이용',
   url: 'https://your-domain.com',
   applicationCategory: 'LifestyleApplication',
   operatingSystem: 'Any',
@@ -93,7 +93,7 @@ const jsonLd = {
     price: '0',
     priceCurrency: 'KRW',
     availability: 'https://schema.org/InStock',
-    description: '평생 무료 사용'
+    description: '평생 무료'
   },
   aggregateRating: {
     '@type': 'AggregateRating',
@@ -105,7 +105,7 @@ const jsonLd = {
 export default function RootLayout({
   children,
 }: {
-  children: React.ReactNode
+  children: React.NodeNode
 }) {
   return (
     <html lang="ko">
@@ -146,14 +146,14 @@ export default function RootLayout({
           {children}
         </main>
         
-        {/* 푸터 - SEO 추가 링크 */}
+        {/* 푸터 */}
         <footer className="relative z-10 mt-12 py-8 border-t border-white/10">
           <div className="max-w-2xl mx-auto px-4 text-center text-purple-300 text-sm">
             <p className="mb-2">
-              © 2026 AI 꿈해몽. 무료 꿈 해석 서비스.
+              © 2026 AI 꿈해몽 🌙 평생 무료로 꿈 풀어드려요
             </p>
             <p className="text-xs">
-              본 서비스는 AI 기반 해석으로 참고용이며, 전문적인 심리 상담을 대체하지 않습니다.
+              AI 해석이라 참고용이에요. 진지한 고민은 전문가와 상담하세요!
             </p>
           </div>
         </footer>
