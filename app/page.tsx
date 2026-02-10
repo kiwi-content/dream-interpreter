@@ -71,8 +71,8 @@ export default function Home() {
         
         {/* 히어로 섹션 */}
 <div className="text-center mb-12 md:mb-16 animate-fade-in-up">
-          <div className="inline-block mb-6 px-6 py-2 rounded-full bg-white/10 backdrop-blur-sm border border-white/20">
-            <span className="text-sm font-medium text-white/90">
+          <div className="inline-block mb-6 px-6 py-2 rounded-full bg-amber-900/20 backdrop-blur-sm border border-amber-200/30">
+            <span className="text-sm font-medium text-amber-100">
               ✨ 평생 무료 · 회원가입 없음
             </span>
           </div>
@@ -142,7 +142,7 @@ export default function Home() {
                 <button
                   key={keyword}
                   onClick={() => setDream(keyword)}
-                  className="group px-6 py-3 rounded-full bg-white/10 hover:bg-white/25 border-2 border-white/20 hover:border-white/40 text-white/80 hover:text-white transition-all duration-300 text-sm font-medium hover:scale-110 hover:-translate-y-1 shadow-lg hover:shadow-2xl backdrop-blur-sm"
+                  className="group px-6 py-3 rounded-lg bg-amber-900/20 hover:bg-amber-800/30 border border-amber-200/30 hover:border-amber-200/50 text-amber-50/90 hover:text-amber-50 transition-all duration-300 text-sm font-medium hover:scale-105 hover:-translate-y-1 shadow-lg hover:shadow-xl backdrop-blur-sm"
                   style={{ animationDelay: `${0.5 + i * 0.05}s` }}
                 >
                   <span className="group-hover:scale-110 inline-block transition-transform">
