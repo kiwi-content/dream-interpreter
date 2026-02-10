@@ -82,7 +82,7 @@ const jsonLd = {
 export default function RootLayout({
   children,
 }: {
-  children: React.ReactNode // 오타 수정됨
+  children: React.ReactNode
 }) {
   return (
     <html lang="ko">
@@ -91,9 +91,15 @@ export default function RootLayout({
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
+        {/* Noto Sans KR 폰트 추가 */}
         <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        <link 
+          href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;600;700&display=swap" 
+          rel="stylesheet" 
+        />
       </head>
-      <body>
+      <body style={{ fontFamily: "'Noto Sans KR', sans-serif" }}>
         <div className="stars" aria-hidden="true">
           {Array.from({ length: 50 }).map((_, i) => (
             <div
