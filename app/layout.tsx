@@ -33,7 +33,7 @@ export const metadata: Metadata = {
     other: {
       naver: '905a53fdac6e821bb53a7ebad7a8be28028e8eba',
     }
-  },
+  }
 }
   viewport: {
     width: 'device-width',
