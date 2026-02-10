@@ -2,5 +2,4 @@
 
 User-agent: *
 Allow: /
-
-Sitemap: https://your-domain.com/sitemap.xml
+Sitemap: https://dream-free.vercel.app/sitemap.xml
