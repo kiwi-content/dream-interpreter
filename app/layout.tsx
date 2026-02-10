@@ -97,10 +97,10 @@ export default function RootLayout({
         <footer className="relative z-10 mt-20 py-12 border-t border-white/10">
           <div className="max-w-4xl mx-auto px-6 text-center">
             <p className="text-white/60 text-sm mb-3">
-              © 2026 AI 꿈해몽. 평생 무료 서비스.
+              당신의 이야기를 들어주는 곳. 언제나 여기 있습니다.
             </p>
             <p className="text-white/40 text-xs">
-              AI 기반 해석은 참고용이며, 전문 심리 상담을 대체하지 않습니다.
+              이 해석은 참고용이며, 전문 상담을 대체하지 않아요.
             </p>
           </div>
         </footer>

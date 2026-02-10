@@ -70,7 +70,7 @@ export default function Home() {
       <div className="max-w-5xl mx-auto">
         
         {/* 히어로 섹션 */}
-        <div className="text-center mb-12 md:mb-16 animate-fade-in-up">
+<div className="text-center mb-12 md:mb-16 animate-fade-in-up">
           <div className="inline-block mb-6 px-6 py-2 rounded-full bg-white/10 backdrop-blur-sm border border-white/20">
             <span className="text-sm font-medium text-white/90">
               ✨ 평생 무료 · 회원가입 없음
@@ -84,8 +84,8 @@ export default function Home() {
           </h1>
           
           <p className="subtitle max-w-2xl mx-auto delay-200">
-            AI가 동양 전통과 서양 심리학을 결합하여<br className="hidden md:block" />
-            당신의 꿈에 숨겨진 의미를 찾아드립니다
+            몇 마디만 적어도 괜찮아요<br className="hidden md:block" />
+            당신의 이야기를 들려주세요
           </p>
         </div>
 
@@ -93,14 +93,14 @@ export default function Home() {
         <div className="glass-card mb-12 animate-fade-in-up delay-300">
           <div className="mb-6">
             <label htmlFor="dream-input" className="block text-lg font-semibold mb-4 text-white/90">
-              어떤 꿈을 꾸셨나요?
+              당신의 꿈 이야기를 들려주세요
             </label>
             <textarea
               id="dream-input"
               value={dream}
               onChange={(e) => setDream(e.target.value)}
               onKeyPress={handleKeyPress}
-              placeholder="예: 뱀이 나타나서 날 쫓아왔어요..."
+              placeholder="예: 뱀이 나를 쫓아왔어요..."
               className="dream-input min-h-[150px] resize-none"
               disabled={isLoading}
             />
@@ -112,7 +112,7 @@ export default function Home() {
             className="cta-button w-full disabled:opacity-50 disabled:cursor-not-allowed"
           >
             <span>
-              {isLoading ? '해석 중...' : '🔮 무료로 해석받기'}
+              {isLoading ? '당신의 이야기를 듣고 있어요...' : '🌙 이야기 들려주기'}
             </span>
           </button>
         </div>
@@ -121,7 +121,7 @@ export default function Home() {
         {result && (
           <div className="glass-card animate-fade-in-up">
             <h2 className="text-2xl md:text-3xl font-bold mb-6 text-white">
-              🌙 꿈 해석 결과
+              💌 당신에게 보내는 답장
             </h2>
             <div className="prose prose-invert max-w-none">
               <div className="whitespace-pre-wrap text-white/90 leading-relaxed text-base md:text-lg">
@@ -135,16 +135,19 @@ export default function Home() {
         {!result && (
           <div className="text-center mt-16 animate-fade-in-up delay-400">
             <h3 className="text-xl font-semibold mb-6 text-white/80">
-              자주 찾는 꿈
+              💭 다른 분들은 이런 꿈을 물어보셨어요
             </h3>
             <div className="flex flex-wrap justify-center gap-3">
-              {['뱀꿈', '물꿈', '똥꿈', '임신꿈', '치아빠지는꿈', '전애인꿈', '돌아가신분꿈', '시험꿈'].map((keyword) => (
+              {['뱀꿈', '물꿈', '똥꿈', '임신꿈', '치아빠지는꿈', '전애인꿈', '돌아가신분꿈', '시험꿈'].map((keyword, i) => (
                 <button
                   key={keyword}
                   onClick={() => setDream(keyword)}
-                  className="px-5 py-2.5 rounded-full bg-white/5 hover:bg-white/15 border border-white/20 hover:border-white/30 text-white/80 hover:text-white transition-all duration-300 text-sm font-medium"
+                  className="group px-6 py-3 rounded-full bg-white/10 hover:bg-white/25 border-2 border-white/20 hover:border-white/40 text-white/80 hover:text-white transition-all duration-300 text-sm font-medium hover:scale-110 hover:-translate-y-1 shadow-lg hover:shadow-2xl backdrop-blur-sm"
+                  style={{ animationDelay: `${0.5 + i * 0.05}s` }}
                 >
-                  {keyword}
+                  <span className="group-hover:scale-110 inline-block transition-transform">
+                    {keyword}
+                  </span>
                 </button>
               ))}
             </div>
@@ -155,29 +158,35 @@ export default function Home() {
         <div className="grid md:grid-cols-3 gap-6 mt-20 animate-fade-in-up delay-400">
           {[
             {
-              icon: '🎯',
-              title: '정확한 해석',
-              desc: '동서양 관점을 통합한 깊이있는 분석'
+              icon: '💌',
+              title: '진심을 담아',
+              desc: '당신의 이야기를 끝까지 들어드려요'
             },
             {
-              icon: '⚡',
-              title: '즉시 확인',
-              desc: '몇 초 만에 받아보는 꿈 해석'
+              icon: '✨',
+              title: '지금 바로',
+              desc: '기다림 없이 답장을 받아보세요'
             },
             {
-              icon: '🆓',
-              title: '평생 무료',
-              desc: '회원가입 없이 무제한 이용'
+              icon: '🎁',
+              title: '언제나 무료',
+              desc: '부담 없이 언제든 찾아와주세요'
             }
           ].map((feature, i) => (
             <div 
               key={i}
-              className="glass-card text-center"
+              className="glass-card text-center group cursor-pointer"
               style={{ animationDelay: `${0.5 + i * 0.1}s` }}
             >
-              <div className="text-4xl mb-4">{feature.icon}</div>
-              <h3 className="text-xl font-bold mb-2 text-white">{feature.title}</h3>
-              <p className="text-white/70 text-sm">{feature.desc}</p>
+              <div className="text-5xl mb-4 group-hover:scale-125 group-hover:rotate-12 transition-all duration-300 inline-block">
+                {feature.icon}
+              </div>
+              <h3 className="text-xl font-bold mb-2 text-white group-hover:text-yellow-200 transition-colors">
+                {feature.title}
+              </h3>
+              <p className="text-white/70 text-sm group-hover:text-white/90 transition-colors">
+                {feature.desc}
+              </p>
             </div>
           ))}
         </div>
