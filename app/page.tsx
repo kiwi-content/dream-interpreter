@@ -1,157 +1,187 @@
 'use client'
 
 import { useState } from 'react'
-import { useRouter } from 'next/navigation'
 
 export default function Home() {
   const [dream, setDream] = useState('')
+  const [result, setResult] = useState('')
   const [isLoading, setIsLoading] = useState(false)
-  const router = useRouter()
 
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault()
-    if (!dream.trim()) return
+  const analyzeDream = async () => {
+    if (!dream.trim()) {
+      alert('꿈 내용을 입력해주세요!')
+      return
+    }
 
     setIsLoading(true)
-    
-    localStorage.setItem('currentDream', dream)
-    
-    router.push('/result')
+    setResult('')
+
+    try {
+      const response = await fetch('https://api.anthropic.com/v1/messages', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          model: 'claude-sonnet-4-20250514',
+          max_tokens: 1000,
+          messages: [
+            {
+              role: 'user',
+              content: `다음 꿈을 해석해주세요. 동양의 전통 꿈해몽과 서양의 심리학적 관점을 모두 포함해서 친근하고 이해하기 쉽게 설명해주세요.
+
+꿈 내용: ${dream}
+
+다음 형식으로 답변해주세요:
+1. 전통 꿈해몽 (동양적 관점)
+2. 심리학적 해석 (서양적 관점)  
+3. 종합 의미
+
+각 섹션은 2-3문장으로 간결하게 작성해주세요.`
+            }
+          ]
+        })
+      })
+
+      const data = await response.json()
+      const interpretation = data.content
+        .filter((item: any) => item.type === 'text')
+        .map((item: any) => item.text)
+        .join('\n')
+      
+      setResult(interpretation)
+    } catch (error) {
+      console.error('Error:', error)
+      setResult('죄송합니다. 해석 중 오류가 발생했습니다. 다시 시도해주세요.')
+    } finally {
+      setIsLoading(false)
+    }
+  }
+
+  const handleKeyPress = (e: React.KeyboardEvent) => {
+    if (e.key === 'Enter' && !e.shiftKey) {
+      e.preventDefault()
+      analyzeDream()
+    }
   }
 
   return (
-    <>
-      {/* SEO를 위한 구조화된 마크업 */}
-      <article className="min-h-screen flex items-center justify-center p-4">
-        <div className="max-w-2xl w-full">
-          {/* 메인 헤딩 - SEO 최적화 */}
-          <header className="text-center mb-12 animate-float">
-            <div className="inline-block mb-4 px-6 py-2 bg-gradient-to-r from-pink-500 to-purple-500 rounded-full shadow-lg animate-pulse">
-              <span className="text-white font-bold text-base">💯 평생 무료 · 회원가입 없음</span>
-            </div>
-            <h1 className="text-5xl md:text-6xl font-bold mb-4 bg-gradient-to-r from-purple-300 via-pink-300 to-purple-300 bg-clip-text text-transparent">
-              무료 꿈해몽 - AI 꿈 해석
-            </h1>
-            <p className="text-xl md:text-2xl text-purple-200 mb-2">
-              당신의 무의식이 말하는 것 🌙
-            </p>
-            <p className="text-base text-purple-300">
-              완전 무료! 동양 전통 꿈풀이와 서양 심리학으로 해석하는 AI 꿈해석 서비스
-            </p>
-          </header>
-
-          {/* 메인 폼 - 시맨틱 마크업 */}
-          <section className="dream-card">
-            <h2 className="text-2xl font-bold mb-4 text-purple-200">
-              💫 무료로 오늘 꿈을 해석해보세요
-            </h2>
-            
-            <form onSubmit={handleSubmit} className="space-y-6">
-              <div>
-                <label htmlFor="dream-input" className="block text-lg font-semibold mb-3 text-purple-200">
-                  어떤 꿈을 꾸셨나요?
-                </label>
-                <textarea
-                  id="dream-input"
-                  name="dream"
-                  value={dream}
-                  onChange={(e) => setDream(e.target.value)}
-                  placeholder="예: 뱀이 나오는 꿈, 돌아가신 할머니 꿈, 물에 빠지는 꿈, 임신하는 꿈 등 자유롭게 입력하세요"
-                  className="dream-input min-h-[200px] resize-none"
-                  disabled={isLoading}
-                  aria-label="꿈 내용 입력"
-                />
-                <p className="text-sm text-purple-300 mt-2">
-                  💡 꿈의 상황, 느낌, 주변 환경을 자세히 적어주시면 더 정확한 해석을 받을 수 있어요
-                </p>
-              </div>
-
-              <button
-                type="submit"
-                disabled={!dream.trim() || isLoading}
-                className="dream-button w-full disabled:opacity-50 disabled:cursor-not-allowed"
-                aria-label="꿈 해석 시작하기"
-              >
-                {isLoading ? (
-                  <span className="flex items-center justify-center gap-2">
-                    <svg className="animate-spin h-5 w-5" viewBox="0 0 24 24" aria-hidden="true">
-                      <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" fill="none" />
-                      <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z" />
-                    </svg>
-                    AI가 해석 중...
-                  </span>
-                ) : (
-                  '💯 무료로 꿈 해석하기 ✨'
-                )}
-              </button>
-            </form>
-          </section>
-
-          {/* 통계 정보 - 신뢰성 강화 */}
-          <section className="mt-8 grid grid-cols-3 gap-4 text-center" aria-label="서비스 통계">
-            <div className="dream-card py-4">
-              <p className="text-2xl font-bold text-purple-300">1,234</p>
-              <p className="text-sm text-purple-200">오늘의 해석</p>
-            </div>
-            <div className="dream-card py-4">
-              <p className="text-2xl font-bold text-pink-300">⭐ 4.8</p>
-              <p className="text-sm text-purple-200">평균 만족도</p>
-            </div>
-            <div className="dream-card py-4">
-              <p className="text-2xl font-bold text-purple-300">15,678</p>
-              <p className="text-sm text-purple-200">누적 해석</p>
-            </div>
-          </section>
-
-          {/* 인기 꿈 키워드 - 내부 링크 */}
-          <section className="mt-8 dream-card">
-            <h3 className="text-lg font-semibold mb-4 text-purple-200">
-              🔥 많이 찾는 꿈해몽 키워드
-            </h3>
-            <nav aria-label="인기 꿈 키워드">
-              <ul className="flex flex-wrap gap-2">
-                {[
-                  '뱀꿈', '물꿈', '돌아가신분꿈', '치아빠지는꿈', 
-                  '임신꿈', '시험꿈', '전애인꿈', '집꿈', '돈꿈', 
-                  '똥꿈', '불꿈', '죽는꿈'
-                ].map((keyword) => (
-                  <li key={keyword}>
-                    <button
-                      onClick={() => setDream(keyword.replace('꿈', '') + ' 꿈')}
-                      className="px-4 py-2 bg-white/10 rounded-full text-sm hover:bg-white/20 transition-colors"
-                      type="button"
-                    >
-                      #{keyword}
-                    </button>
-                  </li>
-                ))}
-              </ul>
-            </nav>
-          </section>
-
-          {/* SEO를 위한 설명 섹션 */}
-          <section className="mt-8 dream-card prose prose-invert max-w-none">
-            <h2 className="text-xl font-bold text-purple-200 mb-4">
-              무료 AI 꿈해몽이란?
-            </h2>
-            <p className="text-purple-100 leading-relaxed mb-4">
-              무료 AI 꿈해몽은 인공지능 Claude가 한국 전통 꿈풀이와 서양 심리학(프로이트, 융)을 결합하여 
-              당신의 꿈을 분석하는 <strong>완전 무료</strong> 꿈 해석 서비스입니다. 회원가입, 로그인, 
-              결제가 일절 필요 없어요. 뱀꿈, 물꿈, 똥꿈, 임신꿈 등 
-              다양한 꿈의 의미를 지금 바로 무료로 확인할 수 있습니다.
-            </p>
-            <h3 className="text-lg font-bold text-purple-200 mb-3">
-              이런 꿈을 무료로 해석할 수 있어요
-            </h3>
-            <ul className="text-purple-100 space-y-2 list-disc list-inside">
-              <li>길몽: 뱀꿈, 돼지꿈, 똥꿈, 용꿈, 호랑이꿈</li>
-              <li>흉몽: 치아빠지는꿈, 죽는꿈, 추락하는꿈</li>
-              <li>심리: 시험꿈, 지각하는꿈, 쫓기는꿈</li>
-              <li>관계: 전애인꿈, 돌아가신분꿈, 임신꿈</li>
-            </ul>
-          </section>
+    <div className="min-h-screen px-6 py-12 md:py-20">
+      <div className="max-w-5xl mx-auto">
+        
+        {/* 히어로 섹션 */}
+        <div className="text-center mb-16 md:mb-24 animate-fade-in-up">
+          <div className="inline-block mb-6 px-6 py-2 rounded-full bg-white/10 backdrop-blur-sm border border-white/20">
+            <span className="text-sm font-medium text-white/90">
+              ✨ 평생 무료 · 회원가입 없음
+            </span>
+          </div>
+          
+          <h1 className="hero-title mb-8">
+            당신의<br />
+            꿈을<br />
+            해석합니다
+          </h1>
+          
+          <p className="subtitle max-w-2xl mx-auto delay-200">
+            AI가 동양 전통과 서양 심리학을 결합하여<br className="hidden md:block" />
+            당신의 꿈에 숨겨진 의미를 찾아드립니다
+          </p>
         </div>
-      </article>
-    </>
+
+        {/* 입력 섹션 */}
+        <div className="glass-card mb-12 animate-fade-in-up delay-300">
+          <div className="mb-6">
+            <label htmlFor="dream-input" className="block text-lg font-semibold mb-4 text-white/90">
+              어떤 꿈을 꾸셨나요?
+            </label>
+            <textarea
+              id="dream-input"
+              value={dream}
+              onChange={(e) => setDream(e.target.value)}
+              onKeyPress={handleKeyPress}
+              placeholder="예: 뱀이 나타나서 날 쫓아왔어요..."
+              className="dream-input min-h-[150px] resize-none"
+              disabled={isLoading}
+            />
+          </div>
+          
+          <button
+            onClick={analyzeDream}
+            disabled={isLoading}
+            className="cta-button w-full disabled:opacity-50 disabled:cursor-not-allowed"
+          >
+            <span>
+              {isLoading ? '해석 중...' : '🔮 무료로 해석받기'}
+            </span>
+          </button>
+        </div>
+
+        {/* 결과 섹션 */}
+        {result && (
+          <div className="glass-card animate-fade-in-up">
+            <h2 className="text-2xl md:text-3xl font-bold mb-6 text-white">
+              🌙 꿈 해석 결과
+            </h2>
+            <div className="prose prose-invert max-w-none">
+              <div className="whitespace-pre-wrap text-white/90 leading-relaxed text-base md:text-lg">
+                {result}
+              </div>
+            </div>
+          </div>
+        )}
+
+        {/* 인기 꿈 키워드 */}
+        {!result && (
+          <div className="text-center mt-16 animate-fade-in-up delay-400">
+            <h3 className="text-xl font-semibold mb-6 text-white/80">
+              자주 찾는 꿈
+            </h3>
+            <div className="flex flex-wrap justify-center gap-3">
+              {['뱀꿈', '물꿈', '똥꿈', '임신꿈', '치아빠지는꿈', '전애인꿈', '돌아가신분꿈', '시험꿈'].map((keyword) => (
+                <button
+                  key={keyword}
+                  onClick={() => setDream(keyword)}
+                  className="px-5 py-2.5 rounded-full bg-white/5 hover:bg-white/15 border border-white/20 hover:border-white/30 text-white/80 hover:text-white transition-all duration-300 text-sm font-medium"
+                >
+                  {keyword}
+                </button>
+              ))}
+            </div>
+          </div>
+        )}
+
+        {/* 특징 섹션 */}
+        <div className="grid md:grid-cols-3 gap-6 mt-20 animate-fade-in-up delay-400">
+          {[
+            {
+              icon: '🎯',
+              title: '정확한 해석',
+              desc: '동서양 관점을 통합한 깊이있는 분석'
+            },
+            {
+              icon: '⚡',
+              title: '즉시 확인',
+              desc: '몇 초 만에 받아보는 꿈 해석'
+            },
+            {
+              icon: '🆓',
+              title: '평생 무료',
+              desc: '회원가입 없이 무제한 이용'
+            }
+          ].map((feature, i) => (
+            <div 
+              key={i}
+              className="glass-card text-center"
+              style={{ animationDelay: `${0.5 + i * 0.1}s` }}
+            >
+              <div className="text-4xl mb-4">{feature.icon}</div>
+              <h3 className="text-xl font-bold mb-2 text-white">{feature.title}</h3>
+              <p className="text-white/70 text-sm">{feature.desc}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
   )
 }
