@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@300;400;500;600;700;900&family=Gowun+Batang:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Syne:wght@400;500;600;700;800&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -16,7 +16,7 @@
   }
   
   body {
-    font-family: 'Gowun Batang', 'Noto Serif KR', serif;
+    font-family: 'Space Grotesk', -apple-system, sans-serif;
     background: linear-gradient(180deg, 
       #0f172a 0%,
       #1e293b 30%,
@@ -58,26 +58,27 @@
 
 @layer components {
   .hero-title {
-    font-family: 'Noto Serif KR', serif;
-    font-size: clamp(2.5rem, 8vw, 4.5rem);
-    font-weight: 700;
-    line-height: 1.2;
-    letter-spacing: 0.02em;
-    color: #fef3c7;
-    text-shadow: 
-      0 0 20px rgba(254, 243, 199, 0.3),
-      0 2px 4px rgba(0, 0, 0, 0.3);
+    font-family: 'Syne', sans-serif;
+    font-size: clamp(3rem, 12vw, 8rem);
+    font-weight: 800;
+    line-height: 0.95;
+    letter-spacing: -0.02em;
+    background: linear-gradient(135deg, #FFFFFF 0%, #F0F9FF 50%, #E0E7FF 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-shadow: 0 0 80px rgba(255,255,255,0.3);
     margin: 0;
     padding: 0;
   }
   
   .subtitle {
-    font-family: 'Gowun Batang', serif;
-    font-size: clamp(0.95rem, 2vw, 1.25rem);
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: clamp(1rem, 2.5vw, 1.5rem);
     font-weight: 400;
-    letter-spacing: 0.02em;
-    color: rgba(248, 249, 250, 0.85);
-    line-height: 1.7;
+    letter-spacing: 0.01em;
+    color: rgba(255, 255, 255, 0.85);
+    line-height: 1.6;
   }
   
   .glass-card {
