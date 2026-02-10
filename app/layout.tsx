@@ -2,10 +2,10 @@ import './globals.css'
 import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://your-domain.com'),
+  metadataBase: new URL('https://dream-free.vercel.app'),
   title: {
-    default: '무료 꿈해몽 AI - 뱀꿈 물꿈 똥꿈 무료 풀이',
-    template: '%s | 무료 AI 꿈해몽'
+    default: '무료 꿈해몽 - 뱀꿈 물꿈 똥꿈 무료 풀이',
+    template: '%s | 무료 꿈해몽'
   },
   description: '완전 무료! 회원가입 없이 AI가 즉시 해석하는 꿈해몽. 뱀꿈, 물꿈, 똥꿈, 임신꿈 등 모든 꿈을 동양 전통과 서양 심리학으로 무료 분석합니다.',
   keywords: [
@@ -17,12 +17,24 @@ export const metadata: Metadata = {
   openGraph: {
     type: 'website',
     locale: 'ko_KR',
-    url: 'https://your-domain.com',
-    title: '무료 꿈해몽 AI - 당신의 꿈을 즉시 무료로 해석',
-    description: '완전 무료! 회원가입 없이 뱀꿈, 물꿈, 똥꿈 등 모든 꿈을 AI가 무료로 해석해드립니다.',
-    siteName: '무료 AI 꿈해몽',
+    url: 'https://dream-free.vercel.app',
+    title: '무료 꿈해몽 - 당신의 꿈을 즉시 무료로 해석',
+    description: '완전 무료! 회원가입 없이 뱀꿈, 물꿈, 똥꿈 등 모든 꿈을 무료로 해석해드립니다.',
+    siteName: '무료 꿈해몽',
+  },
+
+  robots: {
+    index: true,
+    follow: true,
   },
   
+  verification: {
+    google: 'qRhK_TW2QITIO35Vcuf1N_jHEcgQBd9cGtk42YXvdNo',
+    other: {
+      naver: '905a53fdac6e821bb53a7ebad7a8be28028e8eba',
+    }
+  },
+}
   viewport: {
     width: 'device-width',
     initialScale: 1,
@@ -61,6 +73,7 @@ export default function RootLayout({
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
+         <meta name="naver-site-verification" content="905a53fdac6e821bb53a7ebad7a8be28028e8eba" />
       </head>
       <body>
         {/* 배경 플로팅 셰이프 */}
