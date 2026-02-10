@@ -70,23 +70,31 @@ export default function Home() {
       <div className="max-w-5xl mx-auto">
         
         {/* 히어로 섹션 */}
-<div className="text-center mb-12 md:mb-16 animate-fade-in-up">
-          <div className="inline-block mb-6 px-6 py-2 rounded-full bg-amber-900/20 backdrop-blur-sm border border-amber-200/30">
+<div className="text-center mb-10 md:mb-12 animate-fade-in-up">
+          <div className="inline-block mb-4 px-6 py-2 rounded-full bg-amber-900/20 backdrop-blur-sm border border-amber-200/30">
             <span className="text-sm font-medium text-amber-100">
               ✨ 평생 무료 · 회원가입 없음
             </span>
           </div>
           
-          <h1 className="hero-title mb-8">
+          <h1 className="hero-title mb-4">
             당신의<br />
             꿈을<br />
             해석합니다
           </h1>
           
-          <p className="subtitle max-w-2xl mx-auto delay-200">
+          <p className="subtitle max-w-2xl mx-auto mb-4 delay-200">
             몇 마디만 적어도 괜찮아요<br className="hidden md:block" />
             당신의 이야기를 들려주세요
           </p>
+          
+          <div className="max-w-xl mx-auto mt-6 px-6 py-4 rounded-xl bg-amber-900/10 backdrop-blur-sm border border-amber-200/20 animate-fade-in-up delay-300">
+            <p className="text-amber-100/70 text-sm leading-relaxed">
+              밤이 되면 이곳에 편지가 도착합니다<br />
+              당신의 꿈 이야기를 우체통에 넣어주세요<br />
+              곧 답장을 받으실 수 있을 거예요
+            </p>
+          </div>
         </div>
 
         {/* 입력 섹션 */}
