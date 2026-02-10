@@ -1,52 +1,52 @@
-import './globals.css'
-import type { Metadata } from 'next'
+import `./globals.css`
+import type { Metadata } from `next`
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://your-domain.com'), // 실제 도메인으로 변경
+  metadataBase: new URL(`https://your-domain.com`), // 실제 도메인으로 변경
   title: {
-    default: '무료 꿈해몽 🌙 AI가 풀어주는 당신의 꿈 | 뱀꿈 물꿈 똥꿈',
-    template: '%s | 무료 AI 꿈해몽'
+    default: `무료 꿈해몽 🌙 AI가 풀어주는 당신의 꿈 | 뱀꿈 물꿈 똥꿈`,
+    template: `%s | 무료 AI 꿈해몽`
   },
-  description: '어젯밤 꿈이 궁금하다고? AI 고양이가 속 시원하게 풀어줄게 🐱 뱀꿈, 물꿈, 똥꿈부터 이상한 꿈까지! 회원가입? 로그인? 그런 거 필요 없어. 바로 무료로 해석 받아보세요.',
+  description: `어젯밤 꿈이 궁금하다고? AI 고양이가 속 시원하게 풀어줄게 🐱 뱀꿈, 물꿈, 똥꿈부터 이상한 꿈까지! 회원가입? 로그인? 그런 거 필요 없어. 바로 무료로 해석 받아보세요.`,
   keywords: [
-    '무료꿈해몽', '꿈해몽무료', '무료꿈풀이', '꿈해몽', '무료꿈해석', 
-    '꿈풀이', '꿈해석', 'AI꿈해몽', '평생무료',
-    '뱀꿈', '물꿈', '똥꿈', '임신꿈', '돌아가신분꿈',
-    '치아빠지는꿈', '전애인꿈', '시험꿈', '지각하는꿈',
-    '돼지꿈', '호랑이꿈', '용꿈', '불꿈', '집꿈',
-    '회원가입없는꿈해몽', '로그인없는꿈해몽', '이상한꿈'
+    `무료꿈해몽`, `꿈해몽무료`, `무료꿈풀이`, `꿈해몽`, `무료꿈해석`, 
+    `꿈풀이`, `꿈해석`, `AI꿈해몽`, `평생무료`,
+    `뱀꿈`, `물꿈`, `똥꿈`, `임신꿈`, `돌아가신분꿈`,
+    `치아빠지는꿈`, `전애인꿈`, `시험꿈`, `지각하는꿈`,
+    `돼지꿈`, `호랑이꿈`, `용꿈`, `불꿈`, `집꿈`,
+    `회원가입없는꿈해몽`, `로그인없는꿈해몽`, `이상한꿈`
   ],
-  authors: [{ name: 'AI 꿈해몽' }],
-  creator: 'AI 꿈해몽',
-  publisher: 'AI 꿈해몽',
+  authors: [{ name: `AI 꿈해몽` }],
+  creator: `AI 꿈해몽`,
+  publisher: `AI 꿈해몽`,
   
   // Open Graph (소셜 미디어)
   openGraph: {
-    type: 'website',
-    locale: 'ko_KR',
-    url: 'https://your-domain.com',
-    title: '무료 꿈해몽 🌙 AI 고양이가 당신의 꿈을 풀어드려요',
-    description: '어젯밤 꿈 때문에 잠 못 잤어? AI가 뱀꿈, 물꿈, 똥꿈 다 풀어줄게! 회원가입도 로그인도 필요 없이 바로 무료로 해석해줘.',
-    siteName: '무료 AI 꿈해몽',
+    type: `website`,
+    locale: `ko_KR`,
+    url: `https://your-domain.com`,
+    title: `무료 꿈해몽 🌙 AI 고양이가 당신의 꿈을 풀어드려요`,
+    description: `어젯밤 꿈 때문에 잠 못 잤어? AI가 뱀꿈, 물꿈, 똥꿈 다 풀어줄게! 회원가입도 로그인도 필요 없이 바로 무료로 해석해줘.`,
+    siteName: `무료 AI 꿈해몽`,
     images: [{
-      url: '/og-image.png',
+      url: `/og-image.png`,
       width: 1200,
       height: 630,
-      alt: 'AI 꿈해몽 - 무료 꿈 해석 서비스'
+      alt: `AI 꿈해몽 - 무료 꿈 해석 서비스`
     }]
   },
   
   // Twitter Card
   twitter: {
-    card: 'summary_large_image',
-    title: '무료 꿈해몽 - AI가 꿈 풀어줌',
-    description: '뱀꿈, 물꿈, 똥꿈 궁금해? AI가 무료로 속 시원하게 풀어줄게!',
-    images: ['/og-image.png'],
+    card: `summary_large_image`,
+    title: `무료 꿈해몽 - AI가 꿈 풀어줌`,
+    description: `뱀꿈, 물꿈, 똥꿈 궁금해? AI가 무료로 속 시원하게 풀어줄게!`,
+    images: [`/og-image.png`],
   },
   
   // 모바일 최적화
   viewport: {
-    width: 'device-width',
+    width: `device-width`,
     initialScale: 1,
     maximumScale: 5,
   },
@@ -58,47 +58,47 @@ export const metadata: Metadata = {
     googleBot: {
       index: true,
       follow: true,
-      'max-video-preview': -1,
-      'max-image-preview': 'large',
-      'max-snippet': -1,
+      `max-video-preview`: -1,
+      `max-image-preview`: `large`,
+      `max-snippet`: -1,
     },
   },
   
   // 검증 (나중에 추가)
   // verification: {
-  //   google: 'your-google-verification-code',
-  //   naver: 'your-naver-verification-code',
+  //   google: `your-google-verification-code`,
+  //   naver: `your-naver-verification-code`,
   // },
   
   alternates: {
-    canonical: 'https://your-domain.com',
+    canonical: `https://your-domain.com`,
   },
   
   other: {
-    'naver-site-verification': 'your-naver-code',
+    `naver-site-verification`: `your-naver-code`,
   }
 }
 
 // JSON-LD 구조화 데이터
 const jsonLd = {
-  '@context': 'https://schema.org',
-  '@type': 'WebApplication',
-  name: '무료 AI 꿈해몽',
-  description: '완전 무료 AI 꿈 해석 - 회원가입 없이 바로 이용',
-  url: 'https://your-domain.com',
-  applicationCategory: 'LifestyleApplication',
-  operatingSystem: 'Any',
+  `@context`: `https://schema.org`,
+  `@type`: `WebApplication`,
+  name: `무료 AI 꿈해몽`,
+  description: `완전 무료 AI 꿈 해석 - 회원가입 없이 바로 이용`,
+  url: `https://your-domain.com`,
+  applicationCategory: `LifestyleApplication`,
+  operatingSystem: `Any`,
   offers: {
-    '@type': 'Offer',
-    price: '0',
-    priceCurrency: 'KRW',
-    availability: 'https://schema.org/InStock',
-    description: '평생 무료'
+    `@type`: `Offer`,
+    price: `0`,
+    priceCurrency: `KRW`,
+    availability: `https://schema.org/InStock`,
+    description: `평생 무료`
   },
   aggregateRating: {
-    '@type': 'AggregateRating',
-    ratingValue: '4.8',
-    ratingCount: '15678'
+    `@type`: `AggregateRating`,
+    ratingValue: `4.8`,
+    ratingCount: `15678`
   }
 }
 
