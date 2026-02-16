@@ -31,7 +31,6 @@ export default function Home() {
 
       const data = await response.json()
       setResult(data.interpretation)
-      
     } catch (error) {
       console.error('Error:', error)
       setResult('죄송합니다. 해석 중 오류가 발생했습니다. 다시 시도해주세요.')
@@ -50,150 +49,117 @@ export default function Home() {
   return (
     <div className="min-h-screen px-6 py-12 md:py-20">
       <div className="max-w-5xl mx-auto">
-        
-        {/* 히어로 섹션 */}
-<div className="text-center mb-10 md:mb-12 animate-fade-in-up">
-          <div className="inline-block mb-4 px-6 py-2 rounded-full bg-amber-900/20 backdrop-blur-sm border border-amber-200/30">
-            <span className="text-sm font-medium text-amber-100">
-              ✨ 평생 무료 · 회원가입 없음
-            </span>
-          </div>
-          
-          <h1 className="hero-title mb-4">
-            당신의<br />
-            꿈을<br />
-            해석합니다
+
+        {/* 히어로 */}
+        <div className="text-center mb-12">
+          <h1 className="text-4xl md:text-5xl font-bold mb-4 text-white">
+            무료 AI 꿈해몽
           </h1>
-          
-          <p className="subtitle max-w-2xl mx-auto mb-4 delay-200">
-            몇 마디만 적어도 괜찮아요<br className="hidden md:block" />
-            당신의 이야기를 들려주세요
+          <p className="text-white/70 max-w-2xl mx-auto">
+            뱀꿈, 물꿈, 똥꿈, 임신꿈 등 당신의 꿈을 무료로 해석해드립니다.
           </p>
-          
-          <div className="max-w-xl mx-auto mt-6 px-6 py-4 rounded-xl bg-amber-900/10 backdrop-blur-sm border border-amber-200/20 animate-fade-in-up delay-300">
-            <p className="text-amber-100/70 text-sm leading-relaxed">
-              밤이 되면 이곳에 편지가 도착합니다<br />
-              당신의 꿈 이야기를 우체통에 넣어주세요<br />
-              곧 답장을 받으실 수 있을 거예요
-            </p>
-          </div>
         </div>
 
-        {/* 입력 섹션 */}
-        <div className="glass-card mb-12 animate-fade-in-up delay-300">
-          <div className="mb-6">
-            <label htmlFor="dream-input" className="block text-lg font-semibold mb-4 text-white/90">
-              당신의 꿈 이야기를 들려주세요
-            </label>
-            <textarea
-              id="dream-input"
-              value={dream}
-              onChange={(e) => setDream(e.target.value)}
-              onKeyPress={handleKeyPress}
-              placeholder="예: 뱀이 나를 쫓아왔어요..."
-              className="dream-input min-h-[150px] resize-none"
-              disabled={isLoading}
-            />
-          </div>
-          
+        {/* 입력 */}
+        <div className="glass-card mb-12">
+          <textarea
+            value={dream}
+            onChange={(e) => setDream(e.target.value)}
+            onKeyPress={handleKeyPress}
+            placeholder="예: 뱀이 나를 쫓아왔어요..."
+            className="dream-input min-h-[150px] resize-none"
+            disabled={isLoading}
+          />
           <button
             onClick={analyzeDream}
             disabled={isLoading}
-            className="cta-button w-full disabled:opacity-50 disabled:cursor-not-allowed"
+            className="cta-button w-full mt-4"
           >
-            <span>
-              {isLoading ? '✍️ 꿈을 해석하고 있어요...' : '🌙 이야기 들려주기'}
-            </span>
+            {isLoading ? '꿈을 해석 중...' : '꿈 해석하기'}
           </button>
         </div>
 
-        {/* 결과 섹션 */}
-        {isLoading && (
-          <div className="glass-card animate-fade-in-up text-center">
-            <div className="flex flex-col items-center gap-4">
-              <div className="animate-spin text-4xl">🌙</div>
-              <p className="text-white/90 text-lg font-medium">
-                꿈을 해석하고 있어요...
-              </p>
-              <p className="text-white/60 text-sm">
-                잠시만 기다려주세요
-              </p>
-            </div>
-          </div>
-        )}
-
+        {/* 결과 */}
         {result && (
-          <div className="glass-card animate-fade-in-up">
-            <h2 className="text-2xl md:text-3xl font-bold mb-6 text-white">
-              💌 당신에게 보내는 답장
+          <div className="glass-card mb-16">
+            <h2 className="text-2xl font-bold mb-6 text-white">
+              꿈 해석 결과
             </h2>
-            <div className="prose prose-invert max-w-none">
-              <div className="whitespace-pre-wrap text-white/90 leading-relaxed text-base md:text-lg">
-                {result}
-              </div>
+            <div className="whitespace-pre-wrap text-white/90 leading-relaxed">
+              {result}
             </div>
           </div>
         )}
 
-        {/* 인기 꿈 키워드 */}
-        {!result && (
-          <div className="text-center mt-16 animate-fade-in-up delay-400">
-            <h3 className="text-xl font-semibold mb-6 text-white/80">
-              💭 다른 분들은 이런 꿈을 물어보셨어요
-            </h3>
-            <div className="flex flex-wrap justify-center gap-3">
-              {['뱀꿈', '물꿈', '똥꿈', '임신꿈', '치아빠지는꿈', '전애인꿈', '돌아가신분꿈', '시험꿈'].map((keyword, i) => (
-                <button
-                  key={keyword}
-                  onClick={() => setDream(keyword)}
-                  className="group px-6 py-3 rounded-lg bg-amber-900/20 hover:bg-amber-800/30 border border-amber-200/30 hover:border-amber-200/50 text-amber-50/90 hover:text-amber-50 transition-all duration-300 text-sm font-medium hover:scale-105 hover:-translate-y-1 shadow-lg hover:shadow-xl backdrop-blur-sm"
-                  style={{ animationDelay: `${0.5 + i * 0.05}s` }}
-                >
-                  <span className="group-hover:scale-110 inline-block transition-transform">
-                    {keyword}
-                  </span>
-                </button>
-              ))}
-            </div>
-          </div>
-        )}
+        {/* SEO 콘텐츠 */}
+        <section className="max-w-4xl mx-auto text-white/90 leading-relaxed space-y-16">
 
-        {/* 특징 섹션 */}
-        <div className="grid md:grid-cols-3 gap-6 mt-20 animate-fade-in-up delay-400">
-          {[
-            {
-              icon: '💌',
-              title: '진심을 담아',
-              desc: '당신의 이야기를 끝까지 들어드려요'
-            },
-            {
-              icon: '✨',
-              title: '지금 바로',
-              desc: '기다림 없이 답장을 받아보세요'
-            },
-            {
-              icon: '🎁',
-              title: '언제나 무료',
-              desc: '부담 없이 언제든 찾아와주세요'
-            }
-          ].map((feature, i) => (
-            <div 
-              key={i}
-              className="glass-card text-center group cursor-pointer"
-              style={{ animationDelay: `${0.5 + i * 0.1}s` }}
-            >
-              <div className="text-5xl mb-4 group-hover:scale-125 group-hover:rotate-12 transition-all duration-300 inline-block">
-                {feature.icon}
-              </div>
-              <h3 className="text-xl font-bold mb-2 text-white group-hover:text-yellow-200 transition-colors">
-                {feature.title}
-              </h3>
-              <p className="text-white/70 text-sm group-hover:text-white/90 transition-colors">
-                {feature.desc}
-              </p>
-            </div>
-          ))}
-        </div>
+          <div>
+            <h2 className="text-2xl font-bold mb-6">
+              무료 꿈해몽이란 무엇인가요?
+            </h2>
+            <p className="mb-4">
+              꿈해몽은 인간의 무의식과 심리를 해석하려는 전통에서 시작되었습니다.
+              뱀꿈, 물꿈, 똥꿈, 임신꿈, 이빨 빠지는 꿈처럼 자주 등장하는 상징은
+              각기 다른 의미를 가질 수 있습니다.
+            </p>
+            <p>
+              이 사이트는 단순한 상징 풀이가 아닌, 사용자가 작성한
+              꿈의 맥락을 분석하는 AI 기반 무료 꿈해몽 서비스입니다.
+            </p>
+          </div>
+
+          <div>
+            <h2 className="text-2xl font-bold mb-6">
+              많이 찾는 꿈해몽 유형
+            </h2>
+
+            <h3 className="text-xl font-semibold mt-6 mb-2">뱀꿈 해몽</h3>
+            <p>
+              뱀은 변화, 재물, 인간관계 갈등을 상징할 수 있으며
+              꿈속 상황에 따라 해석이 달라집니다.
+            </p>
+
+            <h3 className="text-xl font-semibold mt-6 mb-2">물꿈 해몽</h3>
+            <p>
+              물은 감정과 무의식을 의미합니다. 맑은 물은 긍정,
+              흐린 물은 혼란을 상징할 수 있습니다.
+            </p>
+
+            <h3 className="text-xl font-semibold mt-6 mb-2">똥꿈 해몽</h3>
+            <p>
+              재물운과 연결되는 경우가 많지만,
+              감정적 해소를 뜻하기도 합니다.
+            </p>
+
+            <h3 className="text-xl font-semibold mt-6 mb-2">임신꿈 해몽</h3>
+            <p>
+              새로운 시작이나 아이디어의 탄생을 의미하는 경우가 많습니다.
+            </p>
+
+            <h3 className="text-xl font-semibold mt-6 mb-2">이빨 빠지는 꿈</h3>
+            <p>
+              불안감이나 관계 변화를 반영하는 심리적 꿈일 수 있습니다.
+            </p>
+          </div>
+
+          <div>
+            <h2 className="text-2xl font-bold mb-6">
+              자주 묻는 질문
+            </h2>
+
+            <h3 className="font-semibold mt-4">무료인가요?</h3>
+            <p>네, 회원가입 없이 무료로 이용할 수 있습니다.</p>
+
+            <h3 className="font-semibold mt-4">입력 내용은 저장되나요?</h3>
+            <p>별도의 회원 데이터로 저장되지 않습니다.</p>
+
+            <h3 className="font-semibold mt-4">AI 해석은 정확한가요?</h3>
+            <p>AI는 맥락을 분석하지만 꿈은 개인 상황에 따라 달라질 수 있습니다.</p>
+          </div>
+
+        </section>
+
       </div>
     </div>
   )
