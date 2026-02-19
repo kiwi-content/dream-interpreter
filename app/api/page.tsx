@@ -182,20 +182,5 @@ export default function Home() {
         </div>
       </div>
     </div>
-    {/* 꿈해몽 가이드 섹션 */}
-    <div className="mt-24 text-center animate-fade-in-up delay-400">
-      <h3 className="text-xl font-semibold mb-6 text-white/80">
-        📖 대표 꿈 해몽 미리보기
-      </h3>
-
-      <div className="flex flex-wrap justify-center gap-4 text-sm">
-        <a
-          href="/dream-talk-test"
-          className="text-amber-200 hover:text-yellow-300 underline underline-offset-4 transition"
-        >
-          뱀 나오는 꿈 해몽
-        </a>
-      </div>
-    </div>
   )
 }
