@@ -5,12 +5,12 @@ export const metadata: Metadata = {
   metadataBase: new URL('https://dream-free.vercel.app'),
 
   title: {
-    default: '꿈해몽 AI | 꿈 의미 무료 해석 서비스',
+    default: '꿈해몽 | 꿈 의미 무료 해석 서비스',
     template: '%s | Dream'
   },
 
   description:
-    '꿈해몽 AI 서비스. 뱀꿈, 이빨빠지는꿈, 쫓기는꿈 등 상황별 꿈 의미를 무료로 해석해드립니다.',
+    '꿈해몽 서비스. 뱀꿈, 이빨빠지는꿈, 쫓기는꿈 등 상황별 꿈 의미를 무료로 해석해드립니다.',
 
   keywords: [
     '꿈해몽',
@@ -24,7 +24,7 @@ export const metadata: Metadata = {
   ],
 
   openGraph: {
-    title: '꿈해몽 AI | Dream',
+    title: '꿈해몽 | Dream',
     description:
       '상황별 꿈해몽을 무료로 확인하세요.',
     url: 'https://dream-free.vercel.app',
@@ -55,8 +55,8 @@ export const viewport: Viewport = {
 const jsonLd = {
   '@context': 'https://schema.org',
   '@type': 'WebApplication',
-  name: '무료 AI 꿈해몽',
-  description: '완전 무료 인공지능 꿈해석 서비스',
+  name: '무료 꿈해몽',
+  description: '완전 무료 꿈해석 서비스',
   url: 'https://dream-free.vercel.app',
   applicationCategory: 'LifestyleApplication',
   offers: {
