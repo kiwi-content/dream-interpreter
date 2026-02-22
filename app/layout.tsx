@@ -5,7 +5,7 @@ export const metadata: Metadata = {
   metadataBase: new URL('https://dream-free.vercel.app'),
 
   title: {
-    default: '꿈해몽 | 꿈 의미 무료 해석 서비스',
+    default: '무료 꿈해몽 | 어젯밤 꿈, 무슨 뜻일까?',
     template: '%s | Dream'
   },
 
@@ -24,7 +24,7 @@ export const metadata: Metadata = {
   ],
 
   openGraph: {
-    title: '꿈해몽 | Dream',
+    title: '무료 꿈해몽 | 어젯밤 꿈, 무슨 뜻일까?',
     description:
       '상황별 꿈해몽을 무료로 확인하세요.',
     url: 'https://dream-free.vercel.app',
