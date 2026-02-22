@@ -1,7 +1,7 @@
 import Link from 'next/link'
+import type { ReactNode } from 'react'
 import type { Metadata } from 'next'
 import { notFound } from 'next/navigation'
-import ReactMarkdown from 'react-markdown'
 
 type DreamEntry = {
   title: string
@@ -801,6 +801,58 @@ function extractFAQs(content: string): FAQItem[] {
   return faqs
 }
 
+function buildFAQs(config: DreamConfig): FAQItem[] {
+  return [
+    {
+      question: `${config.name}은 무조건 길몽인가요?`,
+      answer: `무조건 한쪽으로 단정하기는 어려워요. 다만 꿈 전체의 분위기와 감정이 안정적이었다면 좋은 흐름으로 해석하는 경우가 많습니다. 불안한 느낌이 강했다면 스트레스 관리가 먼저라는 신호로 받아들이면 됩니다.`,
+    },
+    {
+      question: `같은 꿈을 반복해서 꾸면 안 좋은 건가요?`,
+      answer: `반복 꿈은 대개 "아직 정리되지 않은 주제"가 남아 있다는 뜻입니다. 나쁜 징조라기보다 마음이 같은 메시지를 다시 보여주는 과정에 가까워요. 현실에서 작은 행동 하나라도 바꾸면 반복 강도가 줄어드는 경우가 많습니다.`,
+    },
+    {
+      question: `꿈이 너무 생생하면 예지몽일 가능성이 있나요?`,
+      answer: `감각이 선명한 꿈이 꼭 예지몽이라는 뜻은 아닙니다. 다만 무의식의 경고나 바람이 강하게 작동하고 있다는 해석은 충분히 가능해요. 특히 ${config.sensory}처럼 감각이 또렷했다면 내 감정 에너지가 높다는 신호로 보시면 됩니다.`,
+    },
+    {
+      question: `꿈해몽을 믿고 바로 큰 결정을 해도 될까요?`,
+      answer: `꿈은 방향을 점검하는 참고자료로 쓰는 게 가장 안전합니다. 중요한 결정은 현실 데이터와 일정, 관계 상황을 함께 보고 판단하는 게 좋아요. 꿈이 준 힌트는 "무엇을 먼저 점검할지"를 알려주는 나침반으로 활용해 보세요.`,
+    },
+    {
+      question: `꿈을 꾼 뒤에 바로 하면 좋은 행동이 있을까요?`,
+      answer: `아침에 꿈 장면과 감정을 짧게 기록해 두는 것만으로도 해석 정확도가 크게 올라갑니다. 그다음 오늘 하루의 행동 하나를 정해 실행해 보세요. ${config.actionTip}`,
+    },
+  ]
+}
+
+function AiAvatar() {
+  return (
+    <div className="w-8 h-8 rounded-full bg-amber-900/50 border border-amber-200/30 flex items-center justify-center text-base flex-shrink-0 mt-0.5 shadow-md">
+      🌙
+    </div>
+  )
+}
+
+function SectionCard({
+  label,
+  icon,
+  children,
+}: {
+  label: string
+  icon: string
+  children: ReactNode
+}) {
+  return (
+    <div className="bg-slate-800/40 border border-white/[0.08] rounded-2xl p-4">
+      <p className="text-white/40 text-[11px] font-semibold uppercase tracking-wider mb-3">
+        {icon} {label}
+      </p>
+      {children}
+    </div>
+  )
+}
+
 export async function generateMetadata({
   params,
 }: {
@@ -821,31 +873,187 @@ export default function DreamPage({
   params: { slug: string }
 }) {
   const dream = dreamData[params.slug]
-  if (!dream) return notFound()
+  const config = dreamConfigs.find((c) => c.slug === params.slug)
+  if (!dream || !config) return notFound()
 
-  const faqs = extractFAQs(dream.content)
+  const faqs = buildFAQs(config)
   const relatedDreams = (relatedDreamMap[params.slug] ?? [])
     .map((slug) => ({ slug, name: dreamNameBySlug[slug] }))
     .filter((item) => Boolean(item.name))
 
   return (
-    <div className="min-h-screen px-6 py-16 relative z-10">
-      <div className="max-w-2xl mx-auto text-white">
+    <div className="min-h-screen px-4 py-14 relative z-10">
+      <div className="max-w-xl mx-auto">
+        {/* 뒤로가기 */}
         <div className="mb-8">
           <Link
             href="/"
-            className="inline-block px-4 py-2 rounded-lg bg-amber-900/30 hover:bg-amber-800/40 border border-amber-200/40 text-amber-100 text-sm transition"
+            className="inline-flex items-center gap-1.5 px-4 py-2 rounded-lg bg-amber-900/30 hover:bg-amber-800/40 border border-amber-200/40 text-amber-100 text-sm transition"
           >
             ← 메인으로 돌아가기
           </Link>
         </div>
 
-        <h1 className="text-3xl font-bold mb-10">{dream.title}</h1>
+        {/* 페이지 제목 (SEO용 h1) */}
+        <h1 className="text-2xl md:text-3xl font-bold mb-10 text-white/90">
+          {config.name} 해몽
+        </h1>
 
-        <ReactMarkdown className="prose prose-invert max-w-none text-white/90">
-          {dream.content}
-        </ReactMarkdown>
+        {/* ══════════════════════════════════════
+            채팅 스트림
+        ══════════════════════════════════════ */}
+        <div className="space-y-5">
+          {/* 사용자 질문 버블 */}
+          <div className="flex justify-end">
+            <div className="bg-amber-400 text-slate-900 px-4 py-3 rounded-2xl rounded-br-sm max-w-[78%] text-sm font-medium shadow-lg leading-relaxed">
+              어젯밤에 {config.name}을 꿨어요. 어떤 의미일까요? 😅
+            </div>
+          </div>
 
+          {/* AI 인트로 버블 */}
+          <div className="flex items-start gap-3">
+            <AiAvatar />
+            <div className="bg-slate-800/70 backdrop-blur-sm border border-white/10 text-white/85 px-4 py-3.5 rounded-2xl rounded-tl-sm max-w-[88%] text-sm leading-[1.85] shadow-md space-y-2.5">
+              <p>
+                {config.name} 이야기를 꺼내면, 마음 한쪽이 먼저 반응하죠.
+                어떤 분은 기분 좋은 예감이 들었다고 말하고, 어떤 분은 잠에서 깬 뒤에도
+                가슴이 두근거렸다고 말해요. 꿈은 늘 정답을 딱 잘라 주지는 않지만,
+                지금 내 마음이 어디를 향하고 있는지 아주 솔직하게 보여줍니다.
+                특히{' '}
+                <span className="text-amber-300/90">{config.symbol}</span>의
+                상징은 일, 관계, 돈, 건강처럼 삶의 중요한 축과 연결될 때가 많습니다.
+              </p>
+              <p className="text-white/65">
+                꿈 장면이 유난히 생생했다면 그 자체가 메시지예요.{' '}
+                <em className="not-italic text-amber-200/75">{config.sensory}</em>{' '}
+                같은 감각이 또렷하게 남아 있다면, 무의식이 &ldquo;이 부분은 그냥
+                지나치지 말아 줘&rdquo;라고 신호를 보낸 것에 가깝습니다.
+              </p>
+            </div>
+          </div>
+
+          {/* 상황별 해석 카드 */}
+          <div className="ml-11">
+            <SectionCard label="상황별 해석" icon="🔍">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
+                {config.caseStudies.map((c, i) => (
+                  <div
+                    key={i}
+                    className="bg-slate-900/50 border border-white/[0.07] rounded-xl px-3 py-3"
+                  >
+                    <p className="text-white/90 text-sm font-semibold mb-1.5">
+                      {c.title}
+                    </p>
+                    <p className="text-white/50 text-xs leading-relaxed">
+                      {c.description}
+                    </p>
+                  </div>
+                ))}
+              </div>
+            </SectionCard>
+          </div>
+
+          {/* 심리학 버블 */}
+          <div className="flex items-start gap-3">
+            <AiAvatar />
+            <div className="bg-slate-800/70 backdrop-blur-sm border border-white/10 text-white/85 px-4 py-3.5 rounded-2xl rounded-tl-sm max-w-[88%] text-sm leading-[1.85] shadow-md space-y-2.5">
+              <p className="text-blue-300/70 text-[11px] font-semibold uppercase tracking-wide">
+                🧠 심리학적으로 보면
+              </p>
+              <p>
+                프로이트(Freud)는 꿈을 억눌린 욕망과 불안을 우회적으로 드러내는
+                통로로 봤습니다. 그래서 {config.name}은 단순한 상징이 아니라, 내가
+                말로는 표현하지 못한{' '}
+                <span className="text-blue-300/80">{config.focus}</span>의 감정을
+                비유적으로 보여주는 장면일 수 있어요.
+              </p>
+              <p className="text-white/65">
+                융(Jung)의 관점에서는 꿈이 무의식과 의식을 연결하는 다리입니다.
+                꿈에 반복되는 이미지가 있다면 그것은 지금 내 삶의 방향을 조정하라는
+                요청으로 볼 수 있어요. 결국 이 꿈은 나를 겁주려는 경고문이 아니라,
+                더 나은 균형으로 이동하라는 안내문에 가깝습니다.
+              </p>
+            </div>
+          </div>
+
+          {/* 한국 전통 해몽 카드 */}
+          <div className="ml-11">
+            <div className="bg-amber-950/40 border border-amber-400/20 rounded-2xl px-4 py-3.5">
+              <p className="text-amber-300/65 text-[11px] font-semibold uppercase tracking-wide mb-2">
+                📜 한국 전통 꿈해몽에서는
+              </p>
+              <p className="text-white/70 text-sm leading-relaxed">
+                한국 전통 꿈해몽에서는 {config.name}을{' '}
+                <span className="text-amber-200/90">{config.tradition}</span>이라고
+                봤습니다. 같은 꿈이라도 꿈꾼 사람의 처지와 그날의 기운, 꿈속 감정에
+                따라 풀이가 달라진다고 봤기 때문에 &ldquo;하나의 정답&rdquo;보다
+                &ldquo;상황에 맞는 해석&rdquo;을 더 중시했어요.
+              </p>
+            </div>
+          </div>
+
+          {/* 이런 분들 버블 */}
+          <div className="flex items-start gap-3">
+            <AiAvatar />
+            <div className="bg-slate-800/70 backdrop-blur-sm border border-white/10 text-white/85 px-4 py-3.5 rounded-2xl rounded-tl-sm max-w-[88%] text-sm leading-[1.85] shadow-md">
+              <p className="text-purple-300/70 text-[11px] font-semibold uppercase tracking-wide mb-3">
+                💭 이런 분들이 자주 꾸는 꿈이에요
+              </p>
+              <ul className="space-y-2">
+                {config.relatable.map((r, i) => (
+                  <li key={i} className="flex gap-2">
+                    <span className="text-amber-400 mt-0.5 flex-shrink-0 text-xs">●</span>
+                    <span className="text-white/70 text-sm">{r}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+
+          {/* FAQ (채팅 형식으로) */}
+          <div className="ml-11">
+            <SectionCard label="자주 묻는 질문" icon="❓">
+              <div className="space-y-4">
+                {faqs.map((faq, i) => (
+                  <div key={i} className="space-y-2">
+                    {/* Q: 사용자 스타일 */}
+                    <div className="flex justify-end">
+                      <div className="bg-amber-400/20 border border-amber-400/25 text-amber-100 px-3 py-2 rounded-xl rounded-br-sm text-xs max-w-[88%] leading-relaxed">
+                        {faq.question}
+                      </div>
+                    </div>
+                    {/* A: AI 스타일 */}
+                    <div className="bg-slate-900/50 text-white/60 px-3 py-2.5 rounded-xl rounded-tl-sm text-xs leading-relaxed max-w-[90%]">
+                      {faq.answer}
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </SectionCard>
+          </div>
+
+          {/* 오늘의 한 마디 버블 (마무리) */}
+          <div className="flex items-start gap-3">
+            <AiAvatar />
+            <div className="bg-gradient-to-br from-amber-900/50 to-slate-800/50 backdrop-blur-sm border border-amber-300/25 text-white/90 px-4 py-3.5 rounded-2xl rounded-tl-sm max-w-[88%] text-sm leading-[1.85] shadow-md">
+              <p className="text-amber-300/75 text-[11px] font-semibold uppercase tracking-wide mb-2.5">
+                ✨ 오늘의 한 마디
+              </p>
+              <p>
+                당신의 꿈은 당신을 불안하게 만들려고 온 게 아니에요. 지금의 마음을
+                더 잘 돌보고, 더 나은 쪽으로 방향을 조정하라고 다정하게 건네는
+                신호에 가깝습니다. 오늘은 꿈에서 받은 힌트를 너무 무겁게 들지 말고,
+                생활 속 작은 선택 하나에 따뜻하게 반영해 보세요.
+              </p>
+              <div className="mt-3 pt-2.5 border-t border-amber-300/20 text-amber-200/60 text-xs">
+                💡 {config.actionTip}
+              </div>
+            </div>
+          </div>
+        </div>
+        {/* ══ 채팅 스트림 끝 ══ */}
+
+        {/* FAQ JSON-LD (SEO 스키마) */}
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
@@ -864,14 +1072,15 @@ export default function DreamPage({
           }}
         />
 
-        <div className="mt-12 p-6 rounded-2xl bg-amber-900/20 border border-amber-200/20">
-          <h2 className="text-lg font-semibold text-white/80 mb-4">관련 꿈해몽</h2>
-          <div className="flex flex-wrap gap-3">
+        {/* 관련 꿈해몽 */}
+        <div className="mt-12 p-5 rounded-2xl bg-amber-900/15 border border-amber-200/15">
+          <h2 className="text-sm font-semibold text-white/50 mb-3">관련 꿈해몽</h2>
+          <div className="flex flex-wrap gap-2">
             {relatedDreams.map((d) => (
               <Link
                 key={d.slug}
                 href={`/dream/${d.slug}`}
-                className="px-4 py-2 rounded-lg bg-amber-900/30 hover:bg-amber-800/40 border border-amber-200/40 text-amber-100 text-sm transition"
+                className="px-3 py-1.5 rounded-lg bg-amber-900/30 hover:bg-amber-800/40 border border-amber-200/30 text-amber-100/75 text-xs transition hover:text-amber-100"
               >
                 {d.name}
               </Link>
@@ -879,10 +1088,11 @@ export default function DreamPage({
           </div>
         </div>
 
+        {/* 하단 뒤로가기 */}
         <div className="mt-8">
           <Link
             href="/"
-            className="inline-block px-4 py-2 rounded-lg bg-amber-900/30 hover:bg-amber-800/40 border border-amber-200/40 text-amber-100 text-sm transition"
+            className="inline-flex items-center gap-1.5 px-4 py-2 rounded-lg bg-amber-900/30 hover:bg-amber-800/40 border border-amber-200/40 text-amber-100 text-sm transition"
           >
             ← 메인으로 돌아가기
           </Link>
