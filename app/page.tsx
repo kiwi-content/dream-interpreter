@@ -102,13 +102,11 @@ export default function Home() {
 
         </div>
 
-        {/* 역술인 채팅 버블 */}
-        <div className="mb-8 animate-fade-in-up delay-200 flex items-end gap-3 px-1">
-          <div className="flex-shrink-0 text-5xl crystal-glow">🔮</div>
-          <div className="bg-white/10 backdrop-blur-sm border border-amber-200/25 rounded-2xl rounded-bl-sm px-5 py-4 shadow-lg">
-            <p className="text-white font-bold text-base leading-snug">꿈은 거짓말을 안 해</p>
-            <p className="text-white/60 text-sm mt-1">꺼내봐</p>
-          </div>
+        {/* 역술인 캐릭터 */}
+        <div className="mb-6 animate-fade-in-up delay-200 text-center">
+          <div className="text-7xl crystal-glow inline-block mb-3">🔮</div>
+          <p className="text-white font-bold text-base leading-snug">꿈은 거짓말을 안 해</p>
+          <p className="text-white/60 text-sm mt-1">꺼내봐</p>
         </div>
 
         {/* 입력 섹션 */}
@@ -120,7 +118,7 @@ export default function Home() {
               onChange={(e) => setDream(e.target.value)}
               onKeyDown={handleKeyDown}
               placeholder="예: 뱀이 나를 쫓아왔어요..."
-              className="dream-input min-h-[150px] resize-none"
+              className="dream-input min-h-[100px] resize-none"
               disabled={isLoading}
             />
           </div>
