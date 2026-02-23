@@ -100,10 +100,19 @@ export default function Home() {
           </h1>
           
           <p className="subtitle max-w-2xl mx-auto mb-4 delay-200">
-            몇 마디만 적어도 괜찮아요<br className="hidden md:block" />
-            당신의 이야기를 들려주세요
+            짧아도 돼<br className="hidden md:block" />
+            꿈 내용을 꺼내봐
           </p>
           
+        </div>
+
+        {/* 역술인 캐릭터 소개 */}
+        <div className="glass-card mb-8 animate-fade-in-up delay-200 flex items-center gap-5">
+          <div className="text-5xl flex-shrink-0">🔮</div>
+          <div>
+            <p className="text-white font-bold text-lg leading-snug">수만 명의 꿈을 봐왔어.</p>
+            <p className="text-white/60 text-sm leading-relaxed mt-1">딱 보면 알아. 틀린 적 없어. 그래서 말이 짧아.</p>
+          </div>
         </div>
 
         {/* 입력 섹션 */}
@@ -126,7 +135,7 @@ export default function Home() {
             className="cta-button w-full disabled:opacity-50 disabled:cursor-not-allowed"
           >
             <span>
-              {isLoading ? '✍️ 꿈을 해석하고 있어요...' : '🌙 이야기 들려주기'}
+              {isLoading ? '보고 있어...' : '🔮 꿈 꺼내보기'}
             </span>
           </button>
         </div>
@@ -137,10 +146,10 @@ export default function Home() {
             <div className="flex flex-col items-center gap-4">
               <div className="animate-spin text-4xl">🌙</div>
               <p className="text-white/90 text-lg font-medium">
-                꿈을 해석하고 있어요...
+                보고 있어...
               </p>
               <p className="text-white/60 text-sm">
-                잠시만 기다려주세요
+                잠깐만
               </p>
             </div>
           </div>
