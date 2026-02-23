@@ -10,7 +10,7 @@ type DreamEntry = {
 const dreamData: Record<string, DreamEntry> = {
 
   'snake-dream': {
-    title: '뱀 나오는 꿈 해몽 | 꿈해몽 AI 무료 해석',
+    title: '뱀 나오는 꿈 해몽 | 꿈해몽 무료 해석',
     description:
       '뱀 나오는 꿈의 의미를 상황별, 색깔별, 심리학적으로 깊이 있게 해석합니다.',
     content: `
