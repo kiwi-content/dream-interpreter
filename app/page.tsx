@@ -100,8 +100,8 @@ export default function Home() {
           </h1>
           
           <p className="subtitle max-w-2xl mx-auto mb-4 delay-200">
-            짧아도 돼<br className="hidden md:block" />
-            꿈 내용을 꺼내봐
+            꿈은 거짓말을 안 해<br className="hidden md:block" />
+            꺼내봐
           </p>
           
         </div>
