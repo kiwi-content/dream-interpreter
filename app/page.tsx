@@ -88,28 +88,26 @@ export default function Home() {
       <div className="max-w-5xl mx-auto">
         
         {/* 히어로 섹션 */}
-        <div className="text-center mb-10 md:mb-12 animate-fade-in-up">
+        <div className="text-center mb-6 md:mb-10 animate-fade-in-up">
           <div className="inline-block mb-4 px-6 py-2 rounded-full bg-amber-900/20 backdrop-blur-sm border border-amber-200/30">
             <span className="text-sm font-medium text-amber-100">
               ✨ 평생 무료 · 회원가입 없음
             </span>
           </div>
-          
+
           <h1 className="hero-title mb-4">
-            당신의<br />
-            꿈을<br />
+            당신의 꿈을<br />
             해석합니다
           </h1>
-          
 
         </div>
 
-        {/* 역술인 캐릭터 소개 */}
-        <div className="glass-card mb-8 animate-fade-in-up delay-200 flex items-center gap-5">
-          <div className="text-5xl flex-shrink-0">🔮</div>
-          <div>
-            <p className="text-white font-bold text-lg leading-snug">꿈은 거짓말을 안 해</p>
-            <p className="text-white/60 text-sm leading-relaxed mt-1">꺼내봐</p>
+        {/* 역술인 채팅 버블 */}
+        <div className="mb-8 animate-fade-in-up delay-200 flex items-end gap-3 px-1">
+          <div className="flex-shrink-0 text-5xl crystal-glow">🔮</div>
+          <div className="bg-white/10 backdrop-blur-sm border border-amber-200/25 rounded-2xl rounded-bl-sm px-5 py-4 shadow-lg">
+            <p className="text-white font-bold text-base leading-snug">꿈은 거짓말을 안 해</p>
+            <p className="text-white/60 text-sm mt-1">꺼내봐</p>
           </div>
         </div>
 
