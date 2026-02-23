@@ -732,6 +732,48 @@ const dreamConfigs: DreamConfig[] = [
       '주고받는 균형이 깨졌다고 느낄 때 정리 신호로 선명해집니다.',
     ],
   },
+  {
+    slug: 'love-dream',
+    name: '사랑하는 사람 나오는 꿈',
+    keyword: '사랑하는 사람 나오는 꿈',
+    symbol: '연결과 그리움',
+    sensory: '꿈에서 그 얼굴이 생생하게 보이던 느낌',
+    focus: '이어지고 싶거나 표현 못 한 감정',
+    actionTip: '오늘은 오래 연락 못한 사람에게 짧은 인사를 먼저 건네 보세요.',
+    tradition: '인연 변화와 감정 해소의 신호',
+    caseStudies: [
+      { title: '사랑하는 사람과 함께하는 꿈', description: '현재 관계에서 더 깊은 연결을 원하는 마음이 꿈으로 나타납니다.' },
+      { title: '사랑하는 사람이 멀어지는 꿈', description: '관계에서 거리감이나 불안을 느끼는 마음이 반영된 장면입니다.' },
+      { title: '사랑하는 사람과 싸우는 꿈', description: '말하지 못한 감정이나 해소되지 않은 갈등이 꿈 속에서 표출된 것입니다.' },
+      { title: '사랑하는 사람이 나타났다 사라지는 꿈', description: '상실에 대한 두려움이나 이별 후 그리움이 투영된 장면으로 읽힙니다.' },
+    ],
+    relatable: [
+      '소중한 사람과의 관계에서 말 못 한 감정이 쌓인 분들이 자주 꿉니다.',
+      '오랜 시간 만나지 못한 사람을 그리워하는 시기에 자주 나타납니다.',
+      '관계의 변화 앞에서 불안하거나 설레는 마음이 클 때 선명해집니다.',
+    ],
+  },
+  {
+    slug: 'romance-dream',
+    name: '연애하는 꿈',
+    keyword: '연애하는 꿈',
+    symbol: '친밀감과 욕구',
+    sensory: '꿈속에서 누군가와 가까워지던 따뜻한 감각',
+    focus: '인정받고 싶거나 연결되고 싶은 내면의 욕구',
+    actionTip: '오늘은 좋아하는 사람에게 먼저 연락해보거나, 자신을 돌보는 시간을 한 가지 만들어 보세요.',
+    tradition: '인연운과 감정 해소의 신호',
+    caseStudies: [
+      { title: '모르는 사람과 연애하는 꿈', description: '현실에서 채워지지 않은 친밀감이나 새로운 인연에 대한 기대가 반영됩니다.' },
+      { title: '좋아하는 사람과 연애하는 꿈', description: '그 감정이 이미 충분히 쌓인 상태로, 표현의 타이밍이 왔다는 신호일 수 있습니다.' },
+      { title: '연애하다 헤어지는 꿈', description: '관계에 대한 불안이나 과거 이별 경험이 아직 정리되지 않은 상태를 보여줍니다.' },
+      { title: '연애하는 꿈인데 감정이 복잡한 꿈', description: '기대와 두려움이 공존하는 상태로, 관계에서 무언가 결정을 앞두고 있을 때 자주 나타납니다.' },
+    ],
+    relatable: [
+      '외로움이나 인정받고 싶은 마음이 커진 분들이 자주 꿉니다.',
+      '좋아하는 사람이 생겼지만 표현을 망설이는 시기에 선명하게 나타납니다.',
+      '오랜 연애 공백 후 다시 누군가를 만나고 싶다는 마음이 생길 때 나오기도 합니다.',
+    ],
+  },
 ]
 
 const dreamData: Record<string, DreamEntry> = Object.fromEntries(
@@ -780,6 +822,8 @@ const relatedDreamMap: Record<string, string[]> = {
   'ocean-dream': ['water-dream', 'rainbow-dream', 'moon-dream', 'flying-dream', 'earthquake-dream'],
   'moon-dream': ['rainbow-dream', 'deceased-dream', 'baby-dream', 'flying-dream', 'wedding-dream'],
   'gift-dream': ['money-dream', 'wedding-dream', 'ex-dream', 'dog-dream', 'cat-dream'],
+  'love-dream': ['romance-dream', 'ex-dream', 'wedding-dream', 'ghost-dream', 'moon-dream'],
+  'romance-dream': ['love-dream', 'ex-dream', 'wedding-dream', 'cat-dream', 'gift-dream'],
 }
 
 function extractFAQs(content: string): FAQItem[] {

@@ -79,6 +79,8 @@ export default function Home() {
     { name: '달 꿈 해몽', slug: 'moon-dream' },
     { name: '무지개 꿈 해몽', slug: 'rainbow-dream' },
     { name: '선물 꿈 해몽', slug: 'gift-dream' },
+    { name: '사랑하는 사람 꿈 해몽', slug: 'love-dream' },
+    { name: '연애하는 꿈 해몽', slug: 'romance-dream' },
   ]
 
   return (
@@ -99,19 +101,15 @@ export default function Home() {
             해석합니다
           </h1>
           
-          <p className="subtitle max-w-2xl mx-auto mb-4 delay-200">
-            꿈은 거짓말을 안 해<br className="hidden md:block" />
-            꺼내봐
-          </p>
-          
+
         </div>
 
         {/* 역술인 캐릭터 소개 */}
         <div className="glass-card mb-8 animate-fade-in-up delay-200 flex items-center gap-5">
           <div className="text-5xl flex-shrink-0">🔮</div>
           <div>
-            <p className="text-white font-bold text-lg leading-snug">수만 명의 꿈을 봐왔어.</p>
-            <p className="text-white/60 text-sm leading-relaxed mt-1">딱 보면 알아. 틀린 적 없어. 그래서 말이 짧아.</p>
+            <p className="text-white font-bold text-lg leading-snug">꿈은 거짓말을 안 해</p>
+            <p className="text-white/60 text-sm leading-relaxed mt-1">꺼내봐</p>
           </div>
         </div>
 
