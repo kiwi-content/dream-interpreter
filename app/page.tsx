@@ -41,7 +41,7 @@ export default function Home() {
     }
   }
 
-  const handleKeyPress = (e: React.KeyboardEvent) => {
+  const handleKeyDown = (e: React.KeyboardEvent) => {
     if (e.key === 'Enter' && !e.shiftKey) {
       e.preventDefault()
       analyzeDream()
@@ -104,26 +104,16 @@ export default function Home() {
             당신의 이야기를 들려주세요
           </p>
           
-          <div className="max-w-xl mx-auto mt-6 px-6 py-4 rounded-xl bg-amber-900/10 backdrop-blur-sm border border-amber-200/20 animate-fade-in-up delay-300">
-            <p className="text-amber-100/70 text-sm leading-relaxed">
-              밤이 되면 이곳에 편지가 도착합니다<br />
-              당신의 꿈 이야기를 우체통에 넣어주세요<br />
-              곧 답장을 받으실 수 있을 거예요
-            </p>
-          </div>
         </div>
 
         {/* 입력 섹션 */}
         <div className="glass-card mb-12 animate-fade-in-up delay-300">
           <div className="mb-6">
-            <label htmlFor="dream-input" className="block text-lg font-semibold mb-4 text-white/90">
-              당신의 꿈 이야기를 들려주세요
-            </label>
             <textarea
               id="dream-input"
               value={dream}
               onChange={(e) => setDream(e.target.value)}
-              onKeyPress={handleKeyPress}
+              onKeyDown={handleKeyDown}
               placeholder="예: 뱀이 나를 쫓아왔어요..."
               className="dream-input min-h-[150px] resize-none"
               disabled={isLoading}
@@ -160,7 +150,7 @@ export default function Home() {
         {result && (
           <div className="glass-card animate-fade-in-up">
             <h2 className="text-2xl md:text-3xl font-bold mb-6 text-white">
-              💌 당신에게 보내는 답장
+              꿈 해석
             </h2>
             <div className="prose prose-invert max-w-none">
               <div className="whitespace-pre-wrap text-white/90 leading-relaxed text-base md:text-lg">
@@ -211,42 +201,6 @@ export default function Home() {
           </div>
         </div>
 
-        {/* 특징 섹션 */}
-        <div className="grid md:grid-cols-3 gap-6 mt-20 animate-fade-in-up delay-400">
-          {[
-            {
-              icon: '💌',
-              title: '진심을 담아',
-              desc: '당신의 이야기를 끝까지 들어드려요'
-            },
-            {
-              icon: '✨',
-              title: '지금 바로',
-              desc: '기다림 없이 답장을 받아보세요'
-            },
-            {
-              icon: '🎁',
-              title: '언제나 무료',
-              desc: '부담 없이 언제든 찾아와주세요'
-            }
-          ].map((feature, i) => (
-            <div 
-              key={i}
-              className="glass-card text-center group cursor-pointer"
-              style={{ animationDelay: `${0.5 + i * 0.1}s` }}
-            >
-              <div className="text-5xl mb-4 group-hover:scale-125 group-hover:rotate-12 transition-all duration-300 inline-block">
-                {feature.icon}
-              </div>
-              <h3 className="text-xl font-bold mb-2 text-white group-hover:text-yellow-200 transition-colors">
-                {feature.title}
-              </h3>
-              <p className="text-white/70 text-sm group-hover:text-white/90 transition-colors">
-                {feature.desc}
-              </p>
-            </div>
-          ))}
-        </div>
 
       </div>
     </div>
