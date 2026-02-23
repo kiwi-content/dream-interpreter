@@ -50,34 +50,34 @@ export default function Home() {
 
   const dreamKeywords = [
     { name: '뱀 나오는 꿈 해몽', slug: 'snake-dream' },
-    { name: '이빨 빠지는 꿈 해몽', slug: 'teeth-dream' },
-    { name: '쫓기는 꿈 해몽', slug: 'chasing-dream' },
-    { name: '돈 줍는 꿈 해몽', slug: 'money-dream' },
-    { name: '임신하는 꿈 해몽', slug: 'pregnancy-dream' },
-    { name: '물에 빠지는 꿈 해몽', slug: 'water-dream' },
+    { name: '똥 나오는 꿈 해몽', slug: 'poop-dream' },
     { name: '죽는 꿈 해몽', slug: 'death-dream' },
-    { name: '시험 보는 꿈 해몽', slug: 'exam-dream' },
+    { name: '고양이 꿈 해몽', slug: 'cat-dream' },
+    { name: '불 나오는 꿈 해몽', slug: 'fire-dream' },
+    { name: '돈 줍는 꿈 해몽', slug: 'money-dream' },
+    { name: '이빨 빠지는 꿈 해몽', slug: 'teeth-dream' },
+    { name: '물에 빠지는 꿈 해몽', slug: 'water-dream' },
+    { name: '임신하는 꿈 해몽', slug: 'pregnancy-dream' },
     { name: '귀신 나오는 꿈 해몽', slug: 'ghost-dream' },
     { name: '전애인 나오는 꿈 해몽', slug: 'ex-dream' },
-    { name: '똥 나오는 꿈 해몽', slug: 'poop-dream' },
-    { name: '불 나오는 꿈 해몽', slug: 'fire-dream' },
-    { name: '호랑이 나오는 꿈 해몽', slug: 'tiger-dream' },
+    { name: '쫓기는 꿈 해몽', slug: 'chasing-dream' },
+    { name: '시험 보는 꿈 해몽', slug: 'exam-dream' },
     { name: '아기 꿈 해몽', slug: 'baby-dream' },
     { name: '결혼하는 꿈 해몽', slug: 'wedding-dream' },
-    { name: '하늘을 나는 꿈 해몽', slug: 'flying-dream' },
-    { name: '집 꿈 해몽', slug: 'house-dream' },
-    { name: '도둑 꿈 해몽', slug: 'thief-dream' },
-    { name: '사고 꿈 해몽', slug: 'car-accident-dream' },
-    { name: '고양이 꿈 해몽', slug: 'cat-dream' },
     { name: '개 꿈 해몽', slug: 'dog-dream' },
     { name: '돌아가신 분 꿈 해몽', slug: 'deceased-dream' },
-    { name: '무지개 꿈 해몽', slug: 'rainbow-dream' },
-    { name: '복권 꿈 해몽', slug: 'lottery-dream' },
-    { name: '머리카락 꿈 해몽', slug: 'hair-dream' },
     { name: '피 꿈 해몽', slug: 'blood-dream' },
-    { name: '지진 꿈 해몽', slug: 'earthquake-dream' },
+    { name: '머리카락 꿈 해몽', slug: 'hair-dream' },
+    { name: '하늘을 나는 꿈 해몽', slug: 'flying-dream' },
+    { name: '호랑이 나오는 꿈 해몽', slug: 'tiger-dream' },
+    { name: '사고 꿈 해몽', slug: 'car-accident-dream' },
+    { name: '집 꿈 해몽', slug: 'house-dream' },
+    { name: '복권 꿈 해몽', slug: 'lottery-dream' },
     { name: '바다 꿈 해몽', slug: 'ocean-dream' },
+    { name: '도둑 꿈 해몽', slug: 'thief-dream' },
+    { name: '지진 꿈 해몽', slug: 'earthquake-dream' },
     { name: '달 꿈 해몽', slug: 'moon-dream' },
+    { name: '무지개 꿈 해몽', slug: 'rainbow-dream' },
     { name: '선물 꿈 해몽', slug: 'gift-dream' },
   ]
 
@@ -176,7 +176,7 @@ export default function Home() {
               💭 다른 분들은 이런 꿈을 물어보셨어요
             </h3>
             <div className="flex flex-wrap justify-center gap-3">
-              {['뱀꿈', '물꿈', '똥꿈', '임신꿈', '치아빠지는꿈', '전애인꿈', '돌아가신분꿈', '시험꿈'].map((keyword, i) => (
+              {['뱀 나오는 꿈', '똥 나오는 꿈', '죽는 꿈', '고양이 꿈', '불나는 꿈', '돈 줍는 꿈', '사랑하는 사람 나오는 꿈', '연애하는 꿈'].map((keyword, i) => (
                 <button
                   key={keyword}
                   onClick={() => setDream(keyword)}
