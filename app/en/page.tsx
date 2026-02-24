@@ -8,9 +8,9 @@ type Message = {
   content: string
 }
 
-export default function Home() {
+export default function EnHome() {
   const [messages, setMessages] = useState<Message[]>([
-    { role: 'assistant', content: '왔어? 지난 밤에 무슨 꿈 꿨는지 얘기해봐.' }
+    { role: 'assistant', content: "You're here. Tell me what you dreamed last night." }
   ])
   const [input, setInput] = useState('')
   const [isLoading, setIsLoading] = useState(false)
@@ -33,7 +33,7 @@ export default function Home() {
     setIsLoading(true)
 
     try {
-      const response = await fetch('/api/interpret', {
+      const response = await fetch('/api/interpret-en', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ dream: userMessage }),
@@ -41,7 +41,7 @@ export default function Home() {
       const data = await response.json()
       setMessages(prev => [...prev, { role: 'assistant', content: data.interpretation }])
     } catch {
-      setMessages(prev => [...prev, { role: 'assistant', content: '지금은 안 보여. 다시 해봐.' }])
+      setMessages(prev => [...prev, { role: 'assistant', content: "Can't see it right now. Try again." }])
     } finally {
       setIsLoading(false)
     }
@@ -69,7 +69,7 @@ export default function Home() {
   const shareMessage = async (content: string) => {
     const url = window.location.href
     if (navigator.share) {
-      await navigator.share({ title: '꿈 해석 결과', text: content, url })
+      await navigator.share({ title: 'My Dream Interpretation', text: content, url })
     } else {
       await navigator.clipboard.writeText(url)
       setShared(true)
@@ -77,68 +77,50 @@ export default function Home() {
     }
   }
 
-  const quickKeywords = ['뱀 꿈', '이빨 빠지는 꿈', '쫓기는 꿈', '죽는 꿈', '돈 줍는 꿈', '전 애인 꿈']
+  const quickKeywords = ['Snake dream', 'Teeth falling out', 'Being chased', 'Falling dream', 'Ex partner dream', 'Flying dream']
 
   const dreamKeywords = [
-    { name: '뱀 나오는 꿈 해몽', slug: 'snake-dream' },
-    { name: '똥 나오는 꿈 해몽', slug: 'poop-dream' },
-    { name: '죽는 꿈 해몽', slug: 'death-dream' },
-    { name: '고양이 꿈 해몽', slug: 'cat-dream' },
-    { name: '불 나오는 꿈 해몽', slug: 'fire-dream' },
-    { name: '돈 줍는 꿈 해몽', slug: 'money-dream' },
-    { name: '이빨 빠지는 꿈 해몽', slug: 'teeth-dream' },
-    { name: '물에 빠지는 꿈 해몽', slug: 'water-dream' },
-    { name: '임신하는 꿈 해몽', slug: 'pregnancy-dream' },
-    { name: '귀신 나오는 꿈 해몽', slug: 'ghost-dream' },
-    { name: '전애인 나오는 꿈 해몽', slug: 'ex-dream' },
-    { name: '쫓기는 꿈 해몽', slug: 'chasing-dream' },
-    { name: '시험 보는 꿈 해몽', slug: 'exam-dream' },
-    { name: '아기 꿈 해몽', slug: 'baby-dream' },
-    { name: '결혼하는 꿈 해몽', slug: 'wedding-dream' },
-    { name: '개 꿈 해몽', slug: 'dog-dream' },
-    { name: '돌아가신 분 꿈 해몽', slug: 'deceased-dream' },
-    { name: '피 꿈 해몽', slug: 'blood-dream' },
-    { name: '머리카락 꿈 해몽', slug: 'hair-dream' },
-    { name: '하늘을 나는 꿈 해몽', slug: 'flying-dream' },
-    { name: '호랑이 나오는 꿈 해몽', slug: 'tiger-dream' },
-    { name: '사고 꿈 해몽', slug: 'car-accident-dream' },
-    { name: '집 꿈 해몽', slug: 'house-dream' },
-    { name: '복권 꿈 해몽', slug: 'lottery-dream' },
-    { name: '바다 꿈 해몽', slug: 'ocean-dream' },
-    { name: '도둑 꿈 해몽', slug: 'thief-dream' },
-    { name: '지진 꿈 해몽', slug: 'earthquake-dream' },
-    { name: '달 꿈 해몽', slug: 'moon-dream' },
-    { name: '무지개 꿈 해몽', slug: 'rainbow-dream' },
-    { name: '선물 꿈 해몽', slug: 'gift-dream' },
-    { name: '사랑하는 사람 꿈 해몽', slug: 'love-dream' },
-    { name: '연애하는 꿈 해몽', slug: 'romance-dream' },
+    { name: 'Snake dream', slug: 'snake-dream' },
+    { name: 'Teeth falling out', slug: 'teeth-dream' },
+    { name: 'Being chased', slug: 'chasing-dream' },
+    { name: 'Flying dream', slug: 'flying-dream' },
+    { name: 'Falling dream', slug: 'fall-dream' },
+    { name: 'Death dream', slug: 'death-dream' },
+    { name: 'Pregnancy dream', slug: 'pregnancy-dream' },
+    { name: 'Ex partner dream', slug: 'ex-dream' },
+    { name: 'Wedding dream', slug: 'wedding-dream' },
+    { name: 'Fire dream', slug: 'fire-dream' },
+    { name: 'Water dream', slug: 'water-dream' },
+    { name: 'Ghost dream', slug: 'ghost-dream' },
+    { name: 'Exam dream', slug: 'exam-dream' },
+    { name: 'Money dream', slug: 'money-dream' },
+    { name: 'Baby dream', slug: 'baby-dream' },
   ]
 
   return (
     <div className="min-h-screen flex flex-col max-w-2xl mx-auto">
 
-      {/* 언어 전환 */}
+      {/* Language switch */}
       <div className="flex justify-end px-6 pt-6">
-        <Link href="/en" className="text-amber-200/60 hover:text-amber-200 text-sm transition-colors">
-          English →
+        <Link href="/" className="text-amber-200/60 hover:text-amber-200 text-sm transition-colors">
+          한국어 →
         </Link>
       </div>
 
-      {/* 히어로 섹션 */}
+      {/* Hero */}
       <div className="text-center px-6 pt-6 pb-8 animate-fade-in-up">
         <div className="inline-block mb-4 px-6 py-2 rounded-full bg-amber-900/20 backdrop-blur-sm border border-amber-200/30">
           <span className="text-sm font-medium text-amber-100">
-            ✨ 평생 무료 · 회원가입 없음
+            ✨ Always free · No sign-up
           </span>
         </div>
         <h1 className="hero-title mb-6">
-          당신의 꿈을<br />
-          해석합니다
+          What is your<br />dream telling you?
         </h1>
         <div className="text-7xl crystal-glow inline-block">🔮</div>
       </div>
 
-      {/* 메시지 + 인라인 입력 영역 */}
+      {/* Messages + inline input */}
       <div className="flex-1 px-4 pb-6 space-y-4">
 
         {messages.map((msg, i) => (
@@ -161,13 +143,13 @@ export default function Home() {
                     onClick={() => copyMessage(msg.content, i)}
                     className="text-white/35 hover:text-white/60 text-xs transition-colors"
                   >
-                    {copiedIndex === i ? '✓ 복사됨' : '복사'}
+                    {copiedIndex === i ? '✓ Copied' : 'Copy'}
                   </button>
                   <button
                     onClick={() => shareMessage(msg.content)}
                     className="text-white/35 hover:text-white/60 text-xs transition-colors"
                   >
-                    {shared ? '✓ 공유됨' : '공유'}
+                    {shared ? '✓ Shared' : 'Share'}
                   </button>
                 </div>
               )}
@@ -175,7 +157,7 @@ export default function Home() {
           </div>
         ))}
 
-        {/* 타이핑 인디케이터 */}
+        {/* Typing indicator */}
         {isLoading && (
           <div className="flex items-end gap-2 justify-start">
             <div className="text-xl crystal-glow mb-1 shrink-0">🔮</div>
@@ -189,7 +171,7 @@ export default function Home() {
           </div>
         )}
 
-        {/* 인라인 입력창 — 오른쪽 정렬 */}
+        {/* Inline input — right aligned */}
         {!isLoading && (
           <div className="flex items-end gap-2 justify-end mt-2">
             <textarea
@@ -197,7 +179,7 @@ export default function Home() {
               value={input}
               onChange={handleInput}
               onKeyDown={handleKeyDown}
-              placeholder="얘기해봐..."
+              placeholder="Tell me..."
               className="w-[72%] bg-white/8 border border-white/15 rounded-2xl rounded-br-md px-4 py-2.5 text-white text-sm placeholder:text-white/35 resize-none outline-none focus:border-white/30 transition-colors overflow-hidden"
               style={{ minHeight: '44px', maxHeight: '120px' }}
             />
@@ -211,7 +193,7 @@ export default function Home() {
           </div>
         )}
 
-        {/* 퀵 키워드 — 입력창 아래 */}
+        {/* Quick keywords — below input */}
         {messages.length === 1 && !isLoading && (
           <div className="flex flex-wrap gap-2 justify-end pt-1">
             {quickKeywords.map(kw => (
@@ -229,10 +211,10 @@ export default function Home() {
         <div ref={bottomRef} />
       </div>
 
-      {/* SEO 키워드 섹션 */}
+      {/* SEO keywords */}
       <div className="text-center px-6 pt-8 pb-40 animate-fade-in-up">
         <h2 className="text-xl font-bold mb-6 text-white/80">
-          📖 많이 찾는 꿈해몽
+          📖 Popular Dream Meanings
         </h2>
         <div className="flex flex-wrap justify-center gap-3">
           {dreamKeywords.map((item) => (

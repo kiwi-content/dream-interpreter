@@ -85,7 +85,7 @@ export default function RootLayout({
         <div className="floating-shape shape-1" aria-hidden="true" />
         <div className="floating-shape shape-2" aria-hidden="true" />
         <div className="floating-shape shape-3" aria-hidden="true" />
-        
+
         {/* 반짝이는 별들 */}
         <div className="fixed inset-0 pointer-events-none z-0" aria-hidden="true">
           {Array.from({ length: 30 }).map((_, i) => (
@@ -100,7 +100,7 @@ export default function RootLayout({
             />
           ))}
         </div>
-        
+
         {/* 접근성 스킵 링크 */}
         <a href="#main-content" className="sr-only focus:not-sr-only">
           본문으로 건너뛰기

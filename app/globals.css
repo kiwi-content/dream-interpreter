@@ -13,16 +13,16 @@
     --gradient-mid: #8B5CF6;
     --gradient-end: #EC4899;
   }
-  
+
   * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
   }
-  
+
   body {
     font-family: 'Gowun Batang', 'Noto Serif KR', serif;
-    background: linear-gradient(180deg, 
+    background: linear-gradient(180deg,
       #0f172a 0%,
       #1e293b 30%,
       #334155 60%,
@@ -36,7 +36,7 @@
     overflow-x: hidden;
     position: relative;
   }
-  
+
   body::before {
     content: '';
     position: fixed;
@@ -44,7 +44,7 @@
     left: 0;
     right: 0;
     bottom: 0;
-    background-image: 
+    background-image:
       radial-gradient(2px 2px at 20% 30%, white, transparent),
       radial-gradient(2px 2px at 60% 70%, white, transparent),
       radial-gradient(1px 1px at 50% 50%, white, transparent),
@@ -69,13 +69,13 @@
     line-height: 1.4;
     letter-spacing: 0.05em;
     color: #fef3c7;
-    text-shadow: 
+    text-shadow:
       0 0 20px rgba(254, 243, 199, 0.3),
       0 2px 4px rgba(0, 0, 0, 0.3);
     margin: 0;
     padding: 0;
   }
-  
+
   .subtitle {
     font-family: 'Gowun Batang', serif;
     font-size: clamp(0.95rem, 1.8vw, 1.15rem);
@@ -84,10 +84,10 @@
     color: rgba(248, 249, 250, 0.85);
     line-height: 1.8;
   }
-  
+
   .glass-card {
-    background: linear-gradient(135deg, 
-      rgba(120, 90, 70, 0.4) 0%, 
+    background: linear-gradient(135deg,
+      rgba(120, 90, 70, 0.4) 0%,
       rgba(80, 60, 50, 0.35) 100%
     );
     backdrop-filter: blur(20px);
@@ -95,7 +95,7 @@
     border: 2px solid rgba(254, 243, 199, 0.2);
     border-radius: 16px;
     padding: 3rem;
-    box-shadow: 
+    box-shadow:
       0 8px 32px rgba(0, 0, 0, 0.4),
       inset 0 1px 0 rgba(254, 243, 199, 0.1),
       0 20px 60px rgba(0, 0, 0, 0.3);
@@ -103,7 +103,7 @@
     position: relative;
     overflow: hidden;
   }
-  
+
   .glass-card::before {
     content: '';
     position: absolute;
@@ -111,22 +111,22 @@
     left: 0;
     right: 0;
     height: 3px;
-    background: linear-gradient(90deg, 
+    background: linear-gradient(90deg,
       transparent 0%,
       rgba(254, 243, 199, 0.3) 50%,
       transparent 100%
     );
   }
-  
+
   .glass-card:hover {
     transform: translateY(-8px);
-    box-shadow: 
+    box-shadow:
       0 16px 48px rgba(0, 0, 0, 0.5),
       inset 0 1px 0 rgba(254, 243, 199, 0.2),
       0 30px 90px rgba(0, 0, 0, 0.4);
     border-color: rgba(254, 243, 199, 0.35);
   }
-  
+
   .dream-input {
     width: 100%;
     background: rgba(255, 255, 255, 0.06);
@@ -139,17 +139,17 @@
     transition: all 0.3s ease;
     outline: none;
   }
-  
+
   .dream-input::placeholder {
     color: rgba(255, 255, 255, 0.4);
   }
-  
+
   .dream-input:focus {
     background: rgba(255, 255, 255, 0.1);
     border-color: rgba(255, 255, 255, 0.3);
     box-shadow: 0 0 0 4px rgba(255, 255, 255, 0.1);
   }
-  
+
   .cta-button {
     position: relative;
     background: linear-gradient(135deg, #d4a574 0%, #c69563 100%);
@@ -163,12 +163,12 @@
     cursor: pointer;
     overflow: hidden;
     transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-    box-shadow: 
+    box-shadow:
       0 8px 24px rgba(0, 0, 0, 0.4),
       inset 0 1px 0 rgba(255, 255, 255, 0.3);
     text-shadow: 0 1px 2px rgba(255, 255, 255, 0.3);
   }
-  
+
   .cta-button::before {
     content: '';
     position: absolute;
@@ -176,35 +176,35 @@
     left: -100%;
     width: 100%;
     height: 100%;
-    background: linear-gradient(90deg, 
+    background: linear-gradient(90deg,
       transparent 0%,
       rgba(255, 255, 255, 0.2) 50%,
       transparent 100%
     );
     transition: left 0.5s ease;
   }
-  
+
   .cta-button:hover {
     transform: translateY(-4px);
-    box-shadow: 
+    box-shadow:
       0 16px 32px rgba(0, 0, 0, 0.5),
       inset 0 1px 0 rgba(255, 255, 255, 0.4);
     border-color: rgba(254, 243, 199, 0.8);
   }
-  
+
   .cta-button:hover::before {
     left: 100%;
   }
-  
+
   .cta-button:active {
     transform: translateY(-2px);
   }
-  
+
   .cta-button span {
     position: relative;
     z-index: 1;
   }
-  
+
   .floating-shape {
     position: absolute;
     border-radius: 50%;
@@ -213,7 +213,7 @@
     animation: float 20s ease-in-out infinite;
     pointer-events: none;
   }
-  
+
   .shape-1 {
     width: 300px;
     height: 300px;
@@ -223,7 +223,7 @@
     animation-delay: 0s;
     filter: blur(40px);
   }
-  
+
   .shape-2 {
     width: 250px;
     height: 250px;
@@ -233,7 +233,7 @@
     animation-delay: 5s;
     filter: blur(40px);
   }
-  
+
   .shape-3 {
     width: 200px;
     height: 200px;
@@ -363,16 +363,16 @@
     padding: 2rem;
     border-radius: 24px;
   }
-  
+
   .cta-button {
     font-size: 1.1rem;
     padding: 1.25rem 2.5rem;
   }
-  
+
   .floating-shape {
     filter: blur(40px);
   }
-  
+
   .shape-1, .shape-2, .shape-3 {
     width: 200px;
     height: 200px;
