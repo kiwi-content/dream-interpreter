@@ -412,3 +412,34 @@
 .crystal-glow {
   animation: crystalGlow 3s ease-in-out infinite;
 }
+
+@keyframes amberGlow {
+  0%, 100% {
+    border-color: rgba(217, 119, 6, 0.4);
+    box-shadow: 0 0 0 0 rgba(217, 119, 6, 0);
+  }
+  50% {
+    border-color: rgba(251, 191, 36, 0.85);
+    box-shadow: 0 0 20px 6px rgba(217, 119, 6, 0.28);
+  }
+}
+
+@keyframes inputShimmer {
+  0%, 100% {
+    background-position: 200% center;
+  }
+  50% {
+    background-position: -200% center;
+  }
+}
+
+.input-amber-glow {
+  background: linear-gradient(
+    90deg,
+    rgb(255, 251, 235) 0%,
+    rgb(254, 243, 199) 50%,
+    rgb(255, 251, 235) 100%
+  );
+  background-size: 200% 100%;
+  animation: amberGlow 2.5s ease-in-out infinite, inputShimmer 3.5s ease-in-out infinite;
+}

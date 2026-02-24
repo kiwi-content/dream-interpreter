@@ -17,10 +17,16 @@ export default function Home() {
   const [copiedIndex, setCopiedIndex] = useState<number | null>(null)
   const [shared, setShared] = useState(false)
   const bottomRef = useRef<HTMLDivElement>(null)
+  const lastMsgRef = useRef<HTMLDivElement>(null)
   const textareaRef = useRef<HTMLTextAreaElement>(null)
 
   useEffect(() => {
-    bottomRef.current?.scrollIntoView({ behavior: 'smooth' })
+    if (messages.length <= 1) return
+    if (isLoading) {
+      bottomRef.current?.scrollIntoView({ behavior: 'smooth' })
+    } else {
+      lastMsgRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' })
+    }
   }, [messages, isLoading])
 
   const sendMessage = async () => {
@@ -142,7 +148,7 @@ export default function Home() {
       <div className="flex-1 px-4 pb-6 space-y-4">
 
         {messages.map((msg, i) => (
-          <div key={i} className={`flex items-end gap-2 ${msg.role === 'user' ? 'justify-end' : 'justify-start'}`}>
+          <div key={i} ref={i === messages.length - 1 ? lastMsgRef : null} className={`flex items-end gap-2 ${msg.role === 'user' ? 'justify-end' : 'justify-start'}`}>
             {msg.role === 'assistant' && (
               <div className="text-xl crystal-glow mb-1 shrink-0">🔮</div>
             )}
@@ -189,6 +195,8 @@ export default function Home() {
           </div>
         )}
 
+        <div ref={bottomRef} />
+
         {/* 인라인 입력창 — 오른쪽 정렬 */}
         {!isLoading && (
           <div className="flex items-end gap-2 justify-end mt-2">
@@ -198,7 +206,7 @@ export default function Home() {
               onChange={handleInput}
               onKeyDown={handleKeyDown}
               placeholder="얘기해봐..."
-              className="w-[72%] bg-white/8 border border-white/15 rounded-2xl rounded-br-md px-4 py-2.5 text-white text-sm placeholder:text-white/35 resize-none outline-none focus:border-white/30 transition-colors overflow-hidden"
+              className={`${messages.length === 1 ? 'w-[88%] input-amber-glow border-amber-300/70' : 'w-[72%] bg-amber-50/90 border-amber-200/50 focus:border-amber-400'} border rounded-2xl rounded-br-md px-4 py-2.5 text-gray-900 text-sm placeholder:text-amber-900/50 resize-none outline-none transition-all overflow-hidden`}
               style={{ minHeight: '44px', maxHeight: '120px' }}
             />
             <button
@@ -226,7 +234,6 @@ export default function Home() {
           </div>
         )}
 
-        <div ref={bottomRef} />
       </div>
 
       {/* SEO 키워드 섹션 */}
