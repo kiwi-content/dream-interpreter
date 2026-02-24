@@ -23,7 +23,7 @@ export default function EnHome() {
   useEffect(() => {
     if (messages.length <= 1) return
     if (isLoading) {
-      bottomRef.current?.scrollIntoView({ behavior: 'smooth' })
+      bottomRef.current?.scrollIntoView({ behavior: 'smooth', block: 'end' })
     } else {
       lastMsgRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' })
     }
