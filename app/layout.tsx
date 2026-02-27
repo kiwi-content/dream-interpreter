@@ -5,12 +5,12 @@ export const metadata: Metadata = {
   metadataBase: new URL('https://dream-free.vercel.app'),
 
   title: {
-    default: '무료 꿈해몽 | 어젯밤 꿈, 무슨 뜻일까?',
+    default: '무료 꿈해몽 | 그 꿈 꾸고 로또 산 사람 실화임',
     template: '%s | Dream'
   },
 
   description:
-    '꿈해몽 서비스. 뱀꿈, 이빨빠지는꿈, 쫓기는꿈 등 상황별 꿈 의미를 무료로 해석해드립니다.',
+    '뱀꿈 꾸면 진짜 돈 들어올까? 이빨 빠지는 꿈은 누가 아프다는 뜻? 모르고 넘기면 손해. 3초면 확인 가능.',
 
   keywords: [
     '꿈해몽',
@@ -24,9 +24,9 @@ export const metadata: Metadata = {
   ],
 
   openGraph: {
-    title: '무료 꿈해몽 | 어젯밤 꿈, 무슨 뜻일까?',
+    title: '무료 꿈해몽 | 그 꿈 꾸고 로또 산 사람 실화임',
     description:
-      '상황별 꿈해몽을 무료로 확인하세요.',
+      '뱀꿈 꾸면 진짜 돈 들어올까? 이빨 빠지는 꿈은 누가 아프다는 뜻? 모르고 넘기면 손해.',
     url: 'https://dream-free.vercel.app',
     siteName: 'Dream',
     locale: 'ko_KR',
@@ -56,7 +56,7 @@ const jsonLd = {
   '@context': 'https://schema.org',
   '@type': 'WebApplication',
   name: '무료 꿈해몽',
-  description: '완전 무료 꿈해석 서비스',
+  description: '그 꿈 꾸고 로또 산 사람 실화임. 모르고 넘기면 손해, 3초면 확인 가능.',
   url: 'https://dream-free.vercel.app',
   applicationCategory: 'LifestyleApplication',
   offers: {
