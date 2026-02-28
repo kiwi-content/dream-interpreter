@@ -1,6 +1,7 @@
 'use client'
 
 import { useState, useRef, useEffect } from 'react'
+import { useSearchParams } from 'next/navigation'
 import Link from 'next/link'
 
 type Message = {
@@ -42,6 +43,17 @@ export default function Home() {
   const bottomRef = useRef<HTMLDivElement>(null)
   const lastMsgRef = useRef<HTMLDivElement>(null)
   const textareaRef = useRef<HTMLTextAreaElement>(null)
+  const searchParams = useSearchParams()
+
+  // URL ?q= 파라미터로 input 미리 채우기
+  useEffect(() => {
+    const q = searchParams.get('q')
+    if (q) {
+      setInput(q)
+      // URL에서 q 파라미터 제거 (히스토리 깔끔하게)
+      window.history.replaceState({}, '', '/')
+    }
+  }, [searchParams])
 
   // 타이핑 애니메이션
   useEffect(() => {

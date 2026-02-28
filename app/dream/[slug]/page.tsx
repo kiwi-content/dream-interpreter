@@ -2,6 +2,7 @@ import Link from 'next/link'
 import type { ReactNode } from 'react'
 import type { Metadata } from 'next'
 import { notFound } from 'next/navigation'
+import DreamInput from './DreamInput'
 
 type DreamEntry = {
   title: string
@@ -23,6 +24,7 @@ type DreamConfig = {
   focus: string
   actionTip: string
   tradition: string
+  metaDescription: string
   caseStudies: [DreamCase, DreamCase, DreamCase, DreamCase]
   relatable: [string, string, string]
 }
@@ -111,6 +113,7 @@ const dreamConfigs: DreamConfig[] = [
     focus: '긴장과 기대가 동시에 올라오는 상태',
     actionTip: '오늘은 미뤄 둔 금전 정리나 중요한 연락 하나를 먼저 처리해 보세요.',
     tradition: '재물운과 귀인운의 징조',
+    metaDescription: '큰 뱀이 지나갔는데 돈이 들어왔다는 사람, 실화입니다. 뱀꿈은 색깔·크기·행동에 따라 해석이 완전히 달라요. 흰뱀은 대박, 쫓기면 경고? 4가지 상황별 정확한 풀이.',
     caseStudies: [
       { title: '큰 뱀이 조용히 지나가는 꿈', description: '당장 충돌은 없지만 큰 흐름이 바뀌고 있다는 신호로 해석합니다.' },
       { title: '뱀에게 쫓기는 꿈', description: '회피하던 과제가 가까워졌다는 뜻이 강하고, 마주할 준비가 필요합니다.' },
@@ -132,6 +135,7 @@ const dreamConfigs: DreamConfig[] = [
     focus: '평가받는 상황에서의 압박감',
     actionTip: '오늘 하루는 나를 깎아내리는 말 대신, 스스로 칭찬할 근거를 하나 적어두세요.',
     tradition: '가까운 관계 변화의 징후',
+    metaDescription: '앞니가 우수수 빠지는 꿈, 진짜 가족한테 안 좋은 일 생기는 걸까? 피가 나면 더 심각한 건지, 다시 끼우면 괜찮은 건지. 앞니·어금니·피 유무별 해석이 전부 다릅니다.',
     caseStudies: [
       { title: '앞니가 빠지는 꿈', description: '대인관계와 체면 이슈가 커질 때 자주 등장하는 상징입니다.' },
       { title: '어금니가 빠지는 꿈', description: '가족 또는 오래된 책임 문제를 재정비해야 한다는 신호로 읽습니다.' },
@@ -153,6 +157,7 @@ const dreamConfigs: DreamConfig[] = [
     focus: '끝내지 못한 일에 대한 부담',
     actionTip: '오늘은 가장 부담되는 할 일을 20분만 먼저 시작해 보세요.',
     tradition: '피해야 할 갈등의 경고',
+    metaDescription: '도망치는데 다리가 안 움직여서 식은땀 흘리며 깬 적 있나요? 모르는 사람이 쫓으면 원인 모를 불안, 아는 사람이면 그 관계가 문제. 멈춰 서는 꿈은 오히려 좋은 신호입니다.',
     caseStudies: [
       { title: '모르는 사람에게 쫓기는 꿈', description: '원인을 설명하기 어려운 불안이 커졌을 때 나타나기 쉽습니다.' },
       { title: '아는 사람에게 쫓기는 꿈', description: '해당 관계에서 쌓인 감정이나 미해결 대화가 있다는 신호입니다.' },
@@ -174,6 +179,7 @@ const dreamConfigs: DreamConfig[] = [
     focus: '내가 가진 가능성을 다시 평가하려는 마음',
     actionTip: '오늘은 들어온 제안 중 하나를 구체적인 숫자로 검토해 보세요.',
     tradition: '재물운 상승의 대표 길몽',
+    metaDescription: '길에서 만원짜리 줍는 꿈 꾸고 진짜 입금 들어온 사람 있습니다. 지폐냐 동전이냐, 줍고 잃었느냐에 따라 재물운 해석이 정반대. 돈꿈 꿨으면 지금 바로 확인하세요.',
     caseStudies: [
       { title: '길에서 지폐를 줍는 꿈', description: '현실적인 기회가 예상보다 빠르게 들어올 가능성을 나타냅니다.' },
       { title: '동전을 주머니에 모으는 꿈', description: '작은 성과를 꾸준히 쌓아야 할 시기라는 메시지가 강합니다.' },
@@ -195,6 +201,7 @@ const dreamConfigs: DreamConfig[] = [
     focus: '새 계획을 키워내는 과정에서의 기대와 부담',
     actionTip: '오늘은 머릿속 아이디어를 문서로 옮겨 첫 단계를 눈에 보이게 만들어 보세요.',
     tradition: '새 복이 들어오는 길몽',
+    metaDescription: '임신 계획도 없는데 임신하는 꿈? 놀라지 마세요, 태몽이 아니라 "새로운 시작"의 신호일 수 있어요. 기쁜 마음이면 길몽, 불안했다면 숨은 뜻이 다릅니다. 상황별 정확 해석.',
     caseStudies: [
       { title: '기쁜 마음으로 임신을 확인하는 꿈', description: '준비해 온 일이 좋은 방향으로 자리를 잡는 흐름을 상징합니다.' },
       { title: '불안한 마음으로 임신하는 꿈', description: '책임이 커질 변화 앞에서 자신을 의심하는 심리가 반영됩니다.' },
@@ -216,6 +223,7 @@ const dreamConfigs: DreamConfig[] = [
     focus: '감정 기복 속에서 균형을 찾으려는 상태',
     actionTip: '오늘은 과한 일정 하나를 줄이고, 몸이 진짜 쉬는 시간을 확보해 보세요.',
     tradition: '감정운과 재물운의 변동',
+    metaDescription: '물속으로 가라앉는데 숨을 못 쉬어서 벌떡 일어난 적 있나요? 맑은 물이면 회복 신호, 흙탕물이면 경고. 빠졌다가 스스로 나왔다면 의외로 좋은 꿈입니다.',
     caseStudies: [
       { title: '깊은 물에 갑자기 빠지는 꿈', description: '예상 못 한 감정 사건이 생기며 중심이 흔들릴 때 자주 등장합니다.' },
       { title: '맑은 물에서 수영하는 꿈', description: '감정을 다룰 여유가 생기고 관계 회복 가능성이 높아졌다는 뜻입니다.' },
@@ -237,6 +245,7 @@ const dreamConfigs: DreamConfig[] = [
     focus: '낡은 패턴을 끊고 싶어 하는 마음',
     actionTip: '오늘은 더 이상 맞지 않는 습관 하나를 정리하고 새 루틴을 작게 시작해 보세요.',
     tradition: '수명장수와 반전운의 길몽',
+    metaDescription: '내가 죽는 꿈 꿨는데 불길한 거 아닌가요? 반대입니다. 전통 해몽에서 죽는 꿈은 장수·반전운의 대표 길몽. 단, 가족이 죽는 꿈은 해석이 다릅니다. 상황별 정확한 뜻 확인.',
     caseStudies: [
       { title: '내가 죽는 꿈', description: '정체성이나 생활 방식이 크게 바뀔 전환기를 상징합니다.' },
       { title: '가까운 사람이 죽는 꿈', description: '그 사람 자체보다 관계의 단계가 달라지는 신호일 때가 많습니다.' },
@@ -258,6 +267,7 @@ const dreamConfigs: DreamConfig[] = [
     focus: '스스로를 검증받는다고 느끼는 상태',
     actionTip: '오늘은 준비 부족이 두려운 영역을 쪼개서 체크리스트로 정리해 보세요.',
     tradition: '문서운과 관운의 점검',
+    metaDescription: '졸업한 지 10년 됐는데 아직도 시험 꿈 꾸시나요? 당신만 그런 게 아닙니다. 시험에 늦는 꿈, 문제가 안 풀리는 꿈, 답안지 못 내는 꿈 — 각각 뜻이 전부 다릅니다.',
     caseStudies: [
       { title: '시험장에 늦는 꿈', description: '기회를 놓칠까 하는 초조함이 높을 때 자주 나타납니다.' },
       { title: '공부를 못 하고 시험 보는 꿈', description: '자기효능감이 떨어져 있고 기준이 과도하게 높아진 상태를 보여줍니다.' },
@@ -279,6 +289,7 @@ const dreamConfigs: DreamConfig[] = [
     focus: '끝내지 못한 감정의 재등장',
     actionTip: '오늘은 피했던 대화 주제를 메모로 정리해 보고, 가능한 범위에서 표현해 보세요.',
     tradition: '액운 경계와 제사운 점검',
+    metaDescription: '귀신이 뒤에 서 있는 꿈, 심장 터지는 줄 알았죠? 근데 무섭지 않았다면 오히려 좋은 신호. 쫓기면 과거 미련, 대화하면 감정 정리 시작. 귀신꿈 4가지 유형별 정확한 해석.',
     caseStudies: [
       { title: '귀신이 멀리서 지켜보는 꿈', description: '바로 터지지는 않지만 정리되지 않은 감정이 남아 있음을 뜻합니다.' },
       { title: '귀신에게 쫓기는 꿈', description: '과거 문제를 회피하는 패턴이 한계에 왔다는 신호로 읽을 수 있습니다.' },
@@ -300,6 +311,7 @@ const dreamConfigs: DreamConfig[] = [
     focus: '현재 관계에서의 비교와 점검',
     actionTip: '오늘은 과거 상대가 아니라 "그때의 나"를 기준으로 감정 변화를 적어보세요.',
     tradition: '인연운 재정리의 신호',
+    metaDescription: '헤어진 지 오래됐는데 왜 자꾸 꿈에 나올까? 미련이 아닙니다. 다시 만나는 꿈, 싸우는 꿈, 무감정으로 스치는 꿈 — 해석이 완전히 다릅니다. 지금 내 감정 상태가 보여요.',
     caseStudies: [
       { title: '전애인과 다시 만나는 꿈', description: '재회 예고보다 과거 감정 패턴을 점검하는 상징에 가깝습니다.' },
       { title: '전애인과 다투는 꿈', description: '끝나지 않은 감정 문장이 마음속에 남아 있음을 보여줍니다.' },
@@ -321,6 +333,7 @@ const dreamConfigs: DreamConfig[] = [
     focus: '쌓인 에너지를 밖으로 내보내려는 움직임',
     actionTip: '오늘은 돈, 일정, 감정 중 하나를 반드시 정리해서 공간을 비워 보세요.',
     tradition: '대표적인 재물 길몽',
+    metaDescription: '똥꿈 꾸면 로또 사라는 말, 근거 있습니다. 똥 밟는 꿈은 횡재운, 손으로 만지면 성과 직전 신호. 근데 화장실 못 찾는 꿈은 정반대 해석이에요. 어떤 똥꿈이었나요?',
     caseStudies: [
       { title: '똥을 밟는 꿈', description: '뜻밖의 기회가 발밑에서 들어오는 재물운 신호로 자주 풀이됩니다.' },
       { title: '손으로 똥을 만지는 꿈', description: '성과와 보상을 직접 다루게 되는 시기가 가까워졌다는 의미입니다.' },
@@ -342,6 +355,7 @@ const dreamConfigs: DreamConfig[] = [
     focus: '강한 욕구와 전환 욕망',
     actionTip: '오늘은 충동적으로 시작하기보다, 우선순위 한 가지만 끝까지 밀어보세요.',
     tradition: '명예운과 재물운의 급상승',
+    metaDescription: '집에 불나는 꿈 꾸면 진짜 안 좋은 걸까? 전통 해몽에선 오히려 명예·재물 급상승 신호. 불을 끄면 문제 해결, 불꽃을 바라보면 새 목표 시작. 불꿈 유형별 완전 해석.',
     caseStudies: [
       { title: '집에 불이 나는 꿈', description: '생활 기반이 재정비되는 큰 변화 국면을 암시하는 경우가 많습니다.' },
       { title: '산불이 크게 번지는 꿈', description: '작은 감정이 빠르게 커지는 시기라 대화 방식 점검이 필요합니다.' },
@@ -363,6 +377,7 @@ const dreamConfigs: DreamConfig[] = [
     focus: '리더십과 두려움의 공존',
     actionTip: '오늘은 물러서던 자리에서 한 번은 분명하게 내 의견을 말해 보세요.',
     tradition: '권세운과 귀인운 상승',
+    metaDescription: '호랑이가 나를 뚫어지게 쳐다보는 꿈, 무서웠지만 의미는 강력합니다. 호랑이를 타면 출세운, 새끼 호랑이면 기회 시작. 쫓기는 꿈은 도전 회피 경고. 당신의 호랑이꿈은?',
     caseStudies: [
       { title: '호랑이가 나를 지켜보는 꿈', description: '강한 기회가 가까이 있지만 태도가 중요하다는 신호입니다.' },
       { title: '호랑이에게 쫓기는 꿈', description: '권위적 상황에 대한 부담과 도전 회피 심리가 반영됩니다.' },
@@ -384,6 +399,7 @@ const dreamConfigs: DreamConfig[] = [
     focus: '새로운 책임을 받아들이는 마음',
     actionTip: '오늘은 새로 시작한 일의 초반 루틴을 더 가볍고 꾸준하게 설계해 보세요.',
     tradition: '새 복과 집안 경사',
+    metaDescription: '아기를 안는 꿈은 새 기회, 아기가 우는 꿈은 놓치고 있는 것의 경고. 잃어버리면 불안 신호, 웃으면 방향이 맞다는 확인. 태몽인지 심리몽인지, 상황별로 해석이 달라요.',
     caseStudies: [
       { title: '아기를 안는 꿈', description: '새 기회나 관계를 조심스럽게 키우는 시기임을 보여줍니다.' },
       { title: '아기가 우는 꿈', description: '돌보지 못한 감정이나 미뤄 둔 과제가 도움을 요청하는 신호입니다.' },
@@ -405,6 +421,7 @@ const dreamConfigs: DreamConfig[] = [
     focus: '관계와 선택에 대한 결심',
     actionTip: '오늘은 관계에서 원하는 기준을 한 문장으로 정리해 보세요.',
     tradition: '인연운과 계약운의 변동',
+    metaDescription: '모르는 사람과 결혼하는 꿈, 소름 돋았죠? 이건 연애 예고가 아니라 인생 변화의 신호입니다. 행복한 식이면 안정기, 혼란스러우면 확신 부족. 결혼 꿈의 진짜 의미.',
     caseStudies: [
       { title: '행복한 결혼식을 올리는 꿈', description: '관계나 프로젝트가 안정 단계에 들어갈 가능성을 나타냅니다.' },
       { title: '결혼식이 혼란스러운 꿈', description: '선택 앞에서 확신이 부족한 심리가 강하게 반영됩니다.' },
@@ -426,6 +443,7 @@ const dreamConfigs: DreamConfig[] = [
     focus: '제약을 벗어나고 싶은 욕구',
     actionTip: '오늘은 내 가능성을 줄이는 습관 하나를 끊고, 작은 도전을 실행해 보세요.',
     tradition: '상승운과 출세운',
+    metaDescription: '하늘을 훨훨 나는데 기분이 최고였다면 상승운 폭발. 그런데 떨어질까 봐 불안했다면? 성공 직전 공포입니다. 혼자 날면 독립, 같이 날면 협업운. 하늘 꿈 완전 해석.',
     caseStudies: [
       { title: '높이 안정적으로 나는 꿈', description: '자신감과 통제력이 동시에 올라온 좋은 흐름으로 해석합니다.' },
       { title: '날다가 떨어질까 불안한 꿈', description: '성공 직전의 부담과 실패 공포가 반영될 수 있습니다.' },
@@ -447,6 +465,7 @@ const dreamConfigs: DreamConfig[] = [
     focus: '안정감과 경계의 재설정',
     actionTip: '오늘은 생활 공간 한 구역을 정리해서 마음의 안정 루틴을 만들어 보세요.',
     tradition: '가택운과 가족운',
+    metaDescription: '집이 무너지는 꿈 꿔서 불안한가요? 새 집 이사 꿈은 인생 전환기 신호. 청소하면 감정 정리 중, 낯선 집 탐색은 숨겨진 가능성 발견. 집꿈의 숨은 뜻 확인하세요.',
     caseStudies: [
       { title: '새 집으로 이사하는 꿈', description: '자기 정체성과 생활 패턴이 바뀌는 전환기 신호입니다.' },
       { title: '집이 무너지는 꿈', description: '안정 기반이 흔들리는 불안과 피로가 누적된 상태를 비춥니다.' },
@@ -468,6 +487,7 @@ const dreamConfigs: DreamConfig[] = [
     focus: '소중한 것을 지키고 싶은 마음',
     actionTip: '오늘은 계정 보안, 계약 조건, 감정 경계 중 하나를 꼭 점검해 보세요.',
     tradition: '재물 손재수 경계',
+    metaDescription: '도둑이 집에 들어오는 꿈, 진짜 돈 잃을까 걱정되시죠? 도둑을 잡으면 주도권 회복, 빼앗기면 에너지 소모 경고. 아무것도 못 훔쳐갔다면 걱정만 큰 상태. 정확한 해석.',
     caseStudies: [
       { title: '집에 도둑이 드는 꿈', description: '사생활과 경계가 침범당한다는 불안이 반영됩니다.' },
       { title: '도둑을 잡는 꿈', description: '불안 요소를 통제하고 주도권을 회복하는 긍정 신호입니다.' },
@@ -489,6 +509,7 @@ const dreamConfigs: DreamConfig[] = [
     focus: '지나치게 빠른 삶의 리듬',
     actionTip: '오늘은 일정 속도를 의도적으로 늦추고, 중요한 판단을 한 번 더 검토하세요.',
     tradition: '이동수와 관재수 점검',
+    metaDescription: '브레이크 안 밟혀서 심장 쿵 내려앉으며 깬 적 있나요? 직접 사고 내면 속도 조절 경고, 당하면 남에게 휘둘리는 중. 사고 후 무사했다면 위기 극복 능력 신호입니다.',
     caseStudies: [
       { title: '차 사고를 직접 내는 꿈', description: '내가 감당하는 속도가 한계에 가까워졌다는 경고일 수 있습니다.' },
       { title: '차에 타고 있다가 사고를 당하는 꿈', description: '타인의 결정에 휘둘린다는 무력감이 반영되기 쉽습니다.' },
@@ -510,6 +531,7 @@ const dreamConfigs: DreamConfig[] = [
     focus: '거리 조절이 필요한 관계',
     actionTip: '오늘은 내 직감을 무시하지 말고, 불편한 경계는 부드럽게 표현해 보세요.',
     tradition: '여성운과 비밀운',
+    metaDescription: '고양이가 도망가는 꿈은 놓치는 기회, 할퀴는 꿈은 관계 갈등 경고. 쓰다듬으면 직감 회복 중. 고양이꿈은 여성운·비밀운과 직결돼서 무시하면 안 됩니다.',
     caseStudies: [
       { title: '고양이를 쓰다듬는 꿈', description: '정서적 안정과 직감 회복이 진행되는 따뜻한 신호입니다.' },
       { title: '고양이가 도망가는 꿈', description: '붙잡고 싶은 관계나 기회가 멀어진다는 불안이 반영됩니다.' },
@@ -531,6 +553,7 @@ const dreamConfigs: DreamConfig[] = [
     focus: '관계 안정과 충성의 문제',
     actionTip: '오늘은 믿을 사람과 믿지 않을 선을 분명히 정해보세요.',
     tradition: '귀인운과 충직한 인연',
+    metaDescription: '개한테 물리는 꿈, 배신 경고일 수 있습니다. 반갑게 다가오면 귀인 등장 신호, 여러 마리가 짖으면 주변 소음 경고. 개꿈은 내 인간관계 상태를 그대로 보여주는 꿈이에요.',
     caseStudies: [
       { title: '개가 반갑게 다가오는 꿈', description: '도움이 되는 인연과 협력 기회가 가까워졌다는 뜻입니다.' },
       { title: '개에게 물리는 꿈', description: '신뢰 문제나 배신 불안을 점검하라는 메시지일 수 있습니다.' },
@@ -552,6 +575,7 @@ const dreamConfigs: DreamConfig[] = [
     focus: '상실 이후 마음의 정리',
     actionTip: '오늘은 그분이 남긴 가치 하나를 현재 삶에서 실천해 보세요.',
     tradition: '조상몽과 보호의 신호',
+    metaDescription: '돌아가신 분이 웃으며 나오셨다면 보호받고 있다는 뜻. 말없이 바라보면 생활 점검 신호, 뭔가를 건네주면 중요한 선택 앞이라는 메시지. 조상몽은 그냥 넘기면 안 됩니다.',
     caseStudies: [
       { title: '돌아가신 분이 웃으며 나오는 꿈', description: '마음의 안정과 보호받는 감각이 커지는 길몽으로 보는 경우가 많습니다.' },
       { title: '아무 말 없이 바라보는 꿈', description: '놓친 감정이나 생활 태도를 점검하라는 조용한 신호일 수 있습니다.' },
@@ -573,6 +597,7 @@ const dreamConfigs: DreamConfig[] = [
     focus: '회복 후 찾아오는 기대감',
     actionTip: '오늘은 작은 성취를 기념하며 다음 단계를 구체적으로 계획해 보세요.',
     tradition: '귀인운과 소원성취',
+    metaDescription: '무지개 꿈은 힘든 시기가 끝나고 좋은 일이 온다는 가장 강력한 길몽 중 하나. 쌍무지개면 관계운+재물운 동시 상승. 단, 금방 사라졌다면 기회를 놓치지 말라는 경고입니다.',
     caseStudies: [
       { title: '선명한 무지개를 보는 꿈', description: '막혔던 흐름이 풀리며 좋은 소식이 들어올 가능성을 시사합니다.' },
       { title: '무지개를 향해 걸어가는 꿈', description: '목표가 분명해지고 실행 의지가 강화되는 상태입니다.' },
@@ -594,6 +619,7 @@ const dreamConfigs: DreamConfig[] = [
     focus: '한 번에 반전시키고 싶은 욕구',
     actionTip: '오늘은 운에만 기대기보다 수입 구조를 안정화하는 계획도 함께 세워보세요.',
     tradition: '횡재운 상징',
+    metaDescription: '복권 당첨되는 꿈 꾸고 진짜 사야 할까? 번호가 기억나는 꿈은 집중력 폭발 신호, 당첨 직전 놓치는 꿈은 기회 상실 경고. 복권꿈의 진짜 뜻과 행동 가이드.',
     caseStudies: [
       { title: '복권에 당첨되는 꿈', description: '성과 기대가 커진 시기이며 자신감 회복 신호일 수 있습니다.' },
       { title: '복권을 사는 꿈', description: '새 기회를 시험하고 싶은 도전 욕구가 강해졌다는 의미입니다.' },
@@ -615,6 +641,7 @@ const dreamConfigs: DreamConfig[] = [
     focus: '외적 이미지와 내적 힘의 균형',
     actionTip: '오늘은 외모 평가보다 에너지 관리에 집중하는 선택을 해보세요.',
     tradition: '수명운과 재물운의 척도',
+    metaDescription: '머리카락이 한 움큼씩 빠지는 꿈, 스트레스가 한계라는 몸의 경고. 자르는 꿈은 과거 정리 결심, 윤기 나면 자신감 회복 중. 머리카락꿈은 건강·재물운과 직결됩니다.',
     caseStudies: [
       { title: '머리카락이 빠지는 꿈', description: '스트레스와 자신감 저하가 누적되었음을 시사하는 경우가 많습니다.' },
       { title: '긴 머리카락을 자르는 꿈', description: '과거 이미지나 관계를 정리하는 결단 신호로 볼 수 있습니다.' },
@@ -636,6 +663,7 @@ const dreamConfigs: DreamConfig[] = [
     focus: '소진과 회복 욕구의 충돌',
     actionTip: '오늘은 무리한 약속 하나를 줄이고 회복 루틴을 먼저 챙기세요.',
     tradition: '재물운과 기운 전환',
+    metaDescription: '피가 줄줄 나오는 꿈, 충격적이지만 뜻은 의외입니다. 내 피면 에너지 소진 경고, 남의 피면 주변 갈등 흡수 중. 피가 멈추는 꿈은 상황 통제 가능 신호. 지금 확인하세요.',
     caseStudies: [
       { title: '내 피가 나는 꿈', description: '에너지 소모가 크고 휴식이 필요하다는 직접적인 신호일 수 있습니다.' },
       { title: '남의 피를 보는 꿈', description: '주변 갈등의 영향을 과하게 흡수하고 있음을 뜻할 수 있습니다.' },
@@ -657,6 +685,7 @@ const dreamConfigs: DreamConfig[] = [
     focus: '안정 기반의 재점검',
     actionTip: '오늘은 재정, 일정, 인간관계 중 가장 흔들리는 기반부터 점검해 보세요.',
     tradition: '대운 변화의 전조',
+    metaDescription: '발밑이 무너지는 지진 꿈, 예지몽일까요? 대부분은 삶의 기반이 흔들린다는 심리 신호. 건물 무너지면 기존 방식 한계, 지진 후 고요해지면 새 질서 시작. 대운 변화 전조.',
     caseStudies: [
       { title: '강한 지진을 겪는 꿈', description: '삶의 우선순위를 근본적으로 바꿔야 한다는 신호일 수 있습니다.' },
       { title: '건물이 무너지는 지진 꿈', description: '기존 신념이나 구조가 더는 유효하지 않다는 메시지입니다.' },
@@ -678,6 +707,7 @@ const dreamConfigs: DreamConfig[] = [
     focus: '큰 감정과 큰 가능성의 공존',
     actionTip: '오늘은 마음을 넓히되, 현실 목표는 한 가지로 선명하게 좁혀 보세요.',
     tradition: '원정운과 재물운',
+    metaDescription: '잔잔한 바다면 감정 안정기, 거센 파도면 내면 폭풍 경고. 바다에서 수영하면 감정을 다루는 힘이 생긴 것, 수평선을 바라보면 인생 방향 전환 시기. 바다꿈 완전 해석.',
     caseStudies: [
       { title: '잔잔한 바다를 보는 꿈', description: '감정이 안정되고 큰 그림을 보는 시기임을 보여줍니다.' },
       { title: '거센 파도를 만나는 꿈', description: '외부 변수와 내적 불안이 동시에 커졌다는 신호일 수 있습니다.' },
@@ -699,6 +729,7 @@ const dreamConfigs: DreamConfig[] = [
     focus: '내면 리듬을 듣는 힘',
     actionTip: '오늘은 결과보다 컨디션 주기를 기록하며 내 리듬을 먼저 파악해 보세요.',
     tradition: '태몽과 귀인운의 상징',
+    metaDescription: '보름달 꿈은 소원성취 직전 신호, 초승달은 확실한 시작의 징조. 구름에 가린 달이면 직감을 믿기 어려운 시기. 달꿈은 태몽·귀인운의 강력한 상징이니 꼭 확인하세요.',
     caseStudies: [
       { title: '밝은 보름달을 보는 꿈', description: '완성 단계에 가까워진 성과와 소원 성취 흐름을 나타냅니다.' },
       { title: '초승달을 보는 꿈', description: '아직 작지만 확실한 시작 신호로 읽을 수 있습니다.' },
@@ -720,6 +751,7 @@ const dreamConfigs: DreamConfig[] = [
     focus: '받고 주는 관계의 균형',
     actionTip: '오늘은 도움받은 관계에 짧은 감사 표현을 먼저 전해 보세요.',
     tradition: '인복과 귀인운',
+    metaDescription: '선물 받는 꿈은 인정받고 싶은 마음 + 실제 기회 유입 신호. 잃어버리면 기회 놓칠 불안, 내가 주는 꿈은 관계 주도권 확보. 선물꿈은 인복·귀인운의 직접적인 메시지.',
     caseStudies: [
       { title: '선물을 받는 꿈', description: '인정받고 싶은 마음과 실제 기회 유입이 함께 작동하는 신호입니다.' },
       { title: '선물을 고르는 꿈', description: '관계에서 어떤 태도로 다가갈지 고민이 깊어진 상태를 보여줍니다.' },
@@ -741,6 +773,7 @@ const dreamConfigs: DreamConfig[] = [
     focus: '이어지고 싶거나 표현 못 한 감정',
     actionTip: '오늘은 오래 연락 못한 사람에게 짧은 인사를 먼저 건네 보세요.',
     tradition: '인연 변화와 감정 해소의 신호',
+    metaDescription: '좋아하는 사람이 꿈에 나왔는데 얼굴이 너무 선명했다면? 함께하면 깊은 연결 욕구, 멀어지면 관계 불안, 싸우면 못 한 말이 있다는 뜻. 그 꿈이 보여주는 내 진심.',
     caseStudies: [
       { title: '사랑하는 사람과 함께하는 꿈', description: '현재 관계에서 더 깊은 연결을 원하는 마음이 꿈으로 나타납니다.' },
       { title: '사랑하는 사람이 멀어지는 꿈', description: '관계에서 거리감이나 불안을 느끼는 마음이 반영된 장면입니다.' },
@@ -762,6 +795,7 @@ const dreamConfigs: DreamConfig[] = [
     focus: '인정받고 싶거나 연결되고 싶은 내면의 욕구',
     actionTip: '오늘은 좋아하는 사람에게 먼저 연락해보거나, 자신을 돌보는 시간을 한 가지 만들어 보세요.',
     tradition: '인연운과 감정 해소의 신호',
+    metaDescription: '모르는 사람과 연애하는 꿈, 설레면서도 당황스럽죠? 새 인연 예고가 아니라 채워지지 않은 친밀감의 신호. 좋아하는 사람이면 고백 타이밍, 헤어지면 과거 미정리.',
     caseStudies: [
       { title: '모르는 사람과 연애하는 꿈', description: '현실에서 채워지지 않은 친밀감이나 새로운 인연에 대한 기대가 반영됩니다.' },
       { title: '좋아하는 사람과 연애하는 꿈', description: '그 감정이 이미 충분히 쌓인 상태로, 표현의 타이밍이 왔다는 신호일 수 있습니다.' },
@@ -781,7 +815,7 @@ const dreamData: Record<string, DreamEntry> = Object.fromEntries(
     config.slug,
     {
       title: `${config.name} 해몽 | 꿈해몽 무료 해석`,
-      description: createDescription(config.keyword),
+      description: config.metaDescription || createDescription(config.keyword),
       content: buildDreamContent(config),
     },
   ])
@@ -1094,6 +1128,11 @@ export default function DreamPage({
               </div>
             </div>
           </div>
+          {/* 내 꿈 구체적으로 해석받기 */}
+          <div className="ml-11">
+            <DreamInput dreamName={config.name} />
+          </div>
+
         </div>
         {/* ══ 채팅 스트림 끝 ══ */}
 
