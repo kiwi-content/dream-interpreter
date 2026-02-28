@@ -47,7 +47,7 @@ export default function DreamInput({ dreamName }: { dreamName: string }) {
         🔮 내 꿈은 좀 달랐는데...
       </p>
       <p className="text-white/55 text-xs leading-relaxed mb-3">
-        위 해석은 일반적인 {dreamName} 풀이예요. 꿈의 세부 장면을 알려주시면 AI가 딱 맞춘 해석을 해드려요.
+        위 해석은 일반적인 {dreamName} 풀이예요. 꿈의 세부 장면을 알려주시면 한땀한땀 맞춤형 해석을 해드려요!
       </p>
 
       {!result ? (
