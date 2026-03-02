@@ -6,7 +6,7 @@ export const metadata: Metadata = {
 
   title: {
     default: '무료 꿈해몽 | 그 꿈 꾸고 로또 산 사람 실화임',
-    template: '%s | 무료 꿈해몽'
+    template: '%s | 꿈 읽어주는 여자'
   },
 
   description:
@@ -28,7 +28,7 @@ export const metadata: Metadata = {
     description:
       '뱀꿈 꾸면 진짜 돈 들어올까? 이빨 빠지는 꿈은 누가 아프다는 뜻? 모르고 넘기면 손해.',
     url: 'https://kkumhaemong.xyz',
-    siteName: '무료 꿈해몽',
+    siteName: '꿈 읽어주는 여자',
     locale: 'ko_KR',
     type: 'website'
   },
@@ -65,7 +65,7 @@ export const viewport: Viewport = {
 const jsonLd = {
   '@context': 'https://schema.org',
   '@type': 'WebApplication',
-  name: '무료 꿈해몽',
+  name: '꿈 읽어주는 여자',
   description: '그 꿈 꾸고 로또 산 사람 실화임. 모르고 넘기면 손해, 3초면 확인 가능.',
   url: 'https://kkumhaemong.xyz',
   applicationCategory: 'LifestyleApplication',
