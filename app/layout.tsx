@@ -6,7 +6,7 @@ export const metadata: Metadata = {
 
   title: {
     default: '무료 꿈해몽 | 그 꿈 꾸고 로또 산 사람 실화임',
-    template: '%s | Dream'
+    template: '%s | 무료 꿈해몽'
   },
 
   description:
@@ -28,9 +28,19 @@ export const metadata: Metadata = {
     description:
       '뱀꿈 꾸면 진짜 돈 들어올까? 이빨 빠지는 꿈은 누가 아프다는 뜻? 모르고 넘기면 손해.',
     url: 'https://dream-free.vercel.app',
-    siteName: 'Dream',
+    siteName: '무료 꿈해몽',
     locale: 'ko_KR',
     type: 'website'
+  },
+
+  icons: {
+    icon: [
+      { url: '/favicon.ico', sizes: 'any' },
+      { url: '/favicon-32x32.png', sizes: '32x32', type: 'image/png' },
+      { url: '/favicon-16x16.png', sizes: '16x16', type: 'image/png' },
+    ],
+    shortcut: '/favicon.ico',
+    apple: '/favicon-32x32.png',
   },
 
   robots: {
