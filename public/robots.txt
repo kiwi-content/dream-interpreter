@@ -2,4 +2,4 @@
 
 User-agent: *
 Allow: /
-Sitemap: https://dream-free.vercel.app/sitemap.xml
+Sitemap: https://kkumhaemong.xyz/sitemap.xml

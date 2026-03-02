@@ -2,7 +2,7 @@ import './globals.css'
 import type { Metadata, Viewport } from 'next'
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://dream-free.vercel.app'),
+  metadataBase: new URL('https://kkumhaemong.xyz'),
 
   title: {
     default: '무료 꿈해몽 | 그 꿈 꾸고 로또 산 사람 실화임',
@@ -27,7 +27,7 @@ export const metadata: Metadata = {
     title: '무료 꿈해몽 | 그 꿈 꾸고 로또 산 사람 실화임',
     description:
       '뱀꿈 꾸면 진짜 돈 들어올까? 이빨 빠지는 꿈은 누가 아프다는 뜻? 모르고 넘기면 손해.',
-    url: 'https://dream-free.vercel.app',
+    url: 'https://kkumhaemong.xyz',
     siteName: '무료 꿈해몽',
     locale: 'ko_KR',
     type: 'website'
@@ -67,7 +67,7 @@ const jsonLd = {
   '@type': 'WebApplication',
   name: '무료 꿈해몽',
   description: '그 꿈 꾸고 로또 산 사람 실화임. 모르고 넘기면 손해, 3초면 확인 가능.',
-  url: 'https://dream-free.vercel.app',
+  url: 'https://kkumhaemong.xyz',
   applicationCategory: 'LifestyleApplication',
   offers: {
     '@type': 'Offer',
