@@ -4,7 +4,8 @@ import { MetadataRoute } from 'next'
 
 const BASE_URL = 'https://kkumhaemong.xyz'
 const APP_DIR = path.join(process.cwd(), 'app')
-const DREAM_PAGE_PATH = path.join(APP_DIR, 'dream', '[slug]', 'page.tsx')
+const DREAM_PAGE_PATH_KO = path.join(APP_DIR, 'dream', '[slug]', 'page.tsx')
+const DREAM_PAGE_PATH_EN = path.join(APP_DIR, 'en', 'dream', '[slug]', 'page.tsx')
 
 const getStaticAppRoutes = (): string[] => {
   const routes: string[] = []
@@ -24,8 +25,8 @@ const getStaticAppRoutes = (): string[] => {
   return routes
 }
 
-const getDreamSlugs = (): string[] => {
-  const source = fs.readFileSync(DREAM_PAGE_PATH, 'utf-8')
+const getDreamSlugs = (sourcePath: string): string[] => {
+  const source = fs.readFileSync(sourcePath, 'utf-8')
   const slugPattern = /slug:\s*'([^']+)'/g
   const slugs = new Set<string>()
   let match: RegExpExecArray | null = null
@@ -50,8 +51,15 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.7,
   }))
 
-  const dreamPages = getDreamSlugs().map((slug) => ({
+  const dreamPagesKo = getDreamSlugs(DREAM_PAGE_PATH_KO).map((slug) => ({
     url: `${BASE_URL}/dream/${slug}`,
+    lastModified: now,
+    changeFrequency: 'monthly' as const,
+    priority: 0.8,
+  }))
+
+  const dreamPagesEn = getDreamSlugs(DREAM_PAGE_PATH_EN).map((slug) => ({
+    url: `${BASE_URL}/en/dream/${slug}`,
     lastModified: now,
     changeFrequency: 'monthly' as const,
     priority: 0.8,
@@ -65,6 +73,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 1.0,
     },
     ...staticPages,
-    ...dreamPages,
+    ...dreamPagesKo,
+    ...dreamPagesEn,
   ]
 }

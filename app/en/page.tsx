@@ -150,21 +150,38 @@ export default function EnHome() {
   }
 
   const dreamKeywords = [
-    { name: 'Snake dream', slug: 'snake-dream' },
-    { name: 'Teeth falling out', slug: 'teeth-dream' },
-    { name: 'Being chased', slug: 'chasing-dream' },
-    { name: 'Flying dream', slug: 'flying-dream' },
-    { name: 'Falling dream', slug: 'fall-dream' },
-    { name: 'Death dream', slug: 'death-dream' },
-    { name: 'Pregnancy dream', slug: 'pregnancy-dream' },
-    { name: 'Ex partner dream', slug: 'ex-dream' },
-    { name: 'Wedding dream', slug: 'wedding-dream' },
-    { name: 'Fire dream', slug: 'fire-dream' },
-    { name: 'Water dream', slug: 'water-dream' },
-    { name: 'Ghost dream', slug: 'ghost-dream' },
-    { name: 'Exam dream', slug: 'exam-dream' },
-    { name: 'Money dream', slug: 'money-dream' },
-    { name: 'Baby dream', slug: 'baby-dream' },
+    { name: 'Snake Dream Meaning', slug: 'snake-dream' },
+    { name: 'Poop Dream Meaning', slug: 'poop-dream' },
+    { name: 'Death Dream Meaning', slug: 'death-dream' },
+    { name: 'Cat Dream Meaning', slug: 'cat-dream' },
+    { name: 'Fire Dream Meaning', slug: 'fire-dream' },
+    { name: 'Money Dream Meaning', slug: 'money-dream' },
+    { name: 'Teeth Falling Out Dream Meaning', slug: 'teeth-dream' },
+    { name: 'Falling Into Water Dream Meaning', slug: 'water-dream' },
+    { name: 'Pregnancy Dream Meaning', slug: 'pregnancy-dream' },
+    { name: 'Ghost Dream Meaning', slug: 'ghost-dream' },
+    { name: 'Ex Partner Dream Meaning', slug: 'ex-dream' },
+    { name: 'Being Chased Dream Meaning', slug: 'chasing-dream' },
+    { name: 'Exam Dream Meaning', slug: 'exam-dream' },
+    { name: 'Baby Dream Meaning', slug: 'baby-dream' },
+    { name: 'Wedding Dream Meaning', slug: 'wedding-dream' },
+    { name: 'Dog Dream Meaning', slug: 'dog-dream' },
+    { name: 'Dream of a Deceased Loved One', slug: 'deceased-dream' },
+    { name: 'Blood Dream Meaning', slug: 'blood-dream' },
+    { name: 'Hair Dream Meaning', slug: 'hair-dream' },
+    { name: 'Flying Dream Meaning', slug: 'flying-dream' },
+    { name: 'Tiger Dream Meaning', slug: 'tiger-dream' },
+    { name: 'Accident Dream Meaning', slug: 'car-accident-dream' },
+    { name: 'House Dream Meaning', slug: 'house-dream' },
+    { name: 'Lottery Dream Meaning', slug: 'lottery-dream' },
+    { name: 'Ocean Dream Meaning', slug: 'ocean-dream' },
+    { name: 'Thief Dream Meaning', slug: 'thief-dream' },
+    { name: 'Earthquake Dream Meaning', slug: 'earthquake-dream' },
+    { name: 'Moon Dream Meaning', slug: 'moon-dream' },
+    { name: 'Rainbow Dream Meaning', slug: 'rainbow-dream' },
+    { name: 'Gift Dream Meaning', slug: 'gift-dream' },
+    { name: 'Dream About Someone You Love', slug: 'love-dream' },
+    { name: 'Romance Dream Meaning', slug: 'romance-dream' },
   ]
 
   const isLanding = messages.length === 1
@@ -175,7 +192,7 @@ export default function EnHome() {
       {/* Language switch */}
       <div className="flex justify-end px-6 pt-6">
         <Link href="/" className="text-stone-400 hover:text-stone-600 text-sm transition-colors">
-          한국어 →
+          Korean →
         </Link>
       </div>
 
@@ -400,7 +417,7 @@ export default function EnHome() {
               {dreamKeywords.map((item, i) => (
                 <Link
                   key={item.slug}
-                  href={`/dream/${item.slug}`}
+                  href={`/en/dream/${item.slug}`}
                   className="flex items-center gap-2 px-3 py-2.5 rounded-lg bg-white hover:bg-amber-50 border border-stone-200 hover:border-amber-300 text-stone-600 transition-all duration-300 text-xs font-medium shadow-sm"
                 >
                   {i < 3 && (
