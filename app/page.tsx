@@ -8,7 +8,7 @@ type Message = {
   content: string
 }
 
-const INITIAL_MESSAGE = '왔어? 지난 밤에 무슨 꿈 꿨는지 얘기해봐.'
+const INITIAL_MESSAGE = '냐옹~ 어젯밤에 무슨 꿈 꿨냥? 얘기해봐냥!'
 
 const dreamCategories = [
   { emoji: '🐍', label: '뱀 꿈', keyword: '뱀 꿈' },
@@ -42,7 +42,7 @@ export default function Home() {
   const bottomRef = useRef<HTMLDivElement>(null)
   const lastMsgRef = useRef<HTMLDivElement>(null)
   const textareaRef = useRef<HTMLTextAreaElement>(null)
-  // URL ?q= 파라미터로 input 미리 채우기
+
   useEffect(() => {
     const params = new URLSearchParams(window.location.search)
     const q = params.get('q')
@@ -52,7 +52,6 @@ export default function Home() {
     }
   }, [])
 
-  // 타이핑 애니메이션
   useEffect(() => {
     if (messages.length > 1) return
     let i = 0
@@ -67,7 +66,6 @@ export default function Home() {
     return () => clearInterval(timer)
   }, [messages.length])
 
-  // 통계 카운트업 애니메이션
   useEffect(() => {
     const base = 800 + Math.floor(Math.random() * 600)
     let current = 0
@@ -83,7 +81,6 @@ export default function Home() {
     return () => clearInterval(timer)
   }, [])
 
-  // 후기 자동 전환
   useEffect(() => {
     const timer = setInterval(() => {
       setReviewFading(true)
@@ -106,13 +103,11 @@ export default function Home() {
 
   const sendMessage = async () => {
     if (!input.trim() || isLoading) return
-
     const userMessage = input.trim()
     setInput('')
     if (textareaRef.current) textareaRef.current.style.height = '44px'
     setMessages(prev => [...prev, { role: 'user', content: userMessage }])
     setIsLoading(true)
-
     try {
       const response = await fetch('/api/interpret', {
         method: 'POST',
@@ -122,7 +117,7 @@ export default function Home() {
       const data = await response.json()
       setMessages(prev => [...prev, { role: 'assistant', content: data.interpretation }])
     } catch {
-      setMessages(prev => [...prev, { role: 'assistant', content: '지금은 안 보여. 다시 해봐.' }])
+      setMessages(prev => [...prev, { role: 'assistant', content: '으냥... 지금은 안 보인다냥. 다시 해봐냥!' }])
     } finally {
       setIsLoading(false)
     }
@@ -150,7 +145,7 @@ export default function Home() {
   const shareMessage = async (content: string) => {
     const url = window.location.href
     if (navigator.share) {
-      await navigator.share({ title: '꿈 해석 결과', text: content, url })
+      await navigator.share({ title: '꿈 해석 결과다냥', text: content, url })
     } else {
       await navigator.clipboard.writeText(url)
       setShared(true)
@@ -200,68 +195,149 @@ export default function Home() {
 
       {/* 언어 전환 */}
       <div className="flex justify-end px-6 pt-6">
-        <Link href="/en" className="text-amber-200/60 hover:text-amber-200 text-sm transition-colors">
+        <Link href="/en" className="text-stone-400 hover:text-stone-600 text-sm transition-colors">
           English →
         </Link>
       </div>
 
       {/* 히어로 섹션 */}
-      <div className="text-center px-6 pt-6 pb-4 animate-fade-in-up">
-        <div className="inline-block mb-4 px-6 py-2 rounded-full bg-amber-900/20 backdrop-blur-sm border border-amber-200/30">
-          <span className="text-sm font-medium text-amber-100">
-            ✨ 평생 무료 · 회원가입 없음
+      <div className="text-center px-6 pt-6 pb-2 animate-fade-in-up relative overflow-visible">
+        <div className="inline-block mb-4 px-6 py-2 rounded-full bg-white border border-stone-200 shadow-sm">
+          <span className="text-sm font-medium text-stone-700">
+            ✨ 평생 무료다냥 · 회원가입 없다냥
           </span>
         </div>
-        <h1 className="hero-title mb-6">
-          당신의 꿈을<br />
-          해석합니다
+        <h1 className="hero-title mb-4">
+          고양이가<br />
+          꿈을 읽어준다냥
         </h1>
-        <div className="text-7xl crystal-glow inline-block">🔮</div>
+
+        {/* 떠다니는 말풍선 + 이모지 */}
+        <div className="relative w-full max-w-md mx-auto h-52 mb-2" aria-hidden="true">
+          <div className="bubble bubble-1 bg-sky-100 text-sky-800 border border-sky-200/60">
+            🌙 어젯밤 꿈이냥?
+          </div>
+          <div className="bubble bubble-2 bg-amber-100 text-amber-800 border border-amber-200/60">
+            해몽해줄게냥
+          </div>
+          <div className="bubble bubble-3 bg-purple-100 text-purple-800 border border-purple-200/60">
+            무료다냥
+          </div>
+          <div className="bubble bubble-4 bg-emerald-100 text-emerald-800 border border-emerald-200/60">
+            시작하자냥!
+          </div>
+          <span className="emoji-float emoji-1">😸</span>
+          <span className="emoji-float emoji-2">🥳</span>
+          <span className="emoji-float emoji-3">😴</span>
+          <span className="emoji-float emoji-4">🌙</span>
+          <span className="emoji-float emoji-5">✨</span>
+        </div>
+
+        {/* 캐릭터 일러스트 */}
+        <div className="relative w-full max-w-xs mx-auto h-24 mb-2" aria-hidden="true">
+          {/* 별 */}
+          <svg className="char-item char-side-l" width="48" height="58" viewBox="0 0 80 90" fill="none">
+            <path d="M40 4L47 24L68 18L54 34L70 48L48 44L40 64L32 44L10 48L26 34L12 18L33 24Z" fill="#fde68a" stroke="#eab308" strokeWidth="1.5"/>
+            <rect x="28" y="60" width="5" height="14" rx="2.5" fill="#475569"/><rect x="46" y="60" width="5" height="14" rx="2.5" fill="#475569"/>
+            <ellipse cx="30.5" cy="75" rx="4.5" ry="2.5" fill="#67e8f9"/><ellipse cx="48.5" cy="75" rx="4.5" ry="2.5" fill="#67e8f9"/>
+            <circle cx="32" cy="34" r="4.5" fill="#1e293b"/><circle cx="48" cy="34" r="4.5" fill="#1e293b"/>
+            <circle cx="33.3" cy="32.5" r="1.8" fill="white"/><circle cx="49.3" cy="32.5" r="1.8" fill="white"/>
+            <circle cx="25" cy="40" r="3" fill="#fca5a5" opacity="0.6"/><circle cx="55" cy="40" r="3" fill="#fca5a5" opacity="0.6"/>
+            <path d="M36 42 Q40 47 44 42" stroke="#1e293b" strokeWidth="1.5" fill="none" strokeLinecap="round"/>
+          </svg>
+
+          {/* 고양이 (메인 - 크게) */}
+          <svg className="char-item char-center" width="80" height="90" viewBox="0 0 80 95" fill="none">
+            {/* 몸통 */}
+            <ellipse cx="40" cy="58" rx="24" ry="20" fill="#fde68a" stroke="#eab308" strokeWidth="1.2"/>
+            {/* 머리 */}
+            <circle cx="40" cy="32" r="22" fill="#fde68a" stroke="#eab308" strokeWidth="1.2"/>
+            {/* 귀 */}
+            <path d="M20 18L15 0L30 14Z" fill="#fbbf24" stroke="#eab308" strokeWidth="0.8"/>
+            <path d="M60 18L65 0L50 14Z" fill="#fbbf24" stroke="#eab308" strokeWidth="0.8"/>
+            <path d="M21 16L17 4L29 14Z" fill="#fda4af"/>
+            <path d="M59 16L63 4L51 14Z" fill="#fda4af"/>
+            {/* 다리 */}
+            <rect x="24" y="73" width="6" height="12" rx="3" fill="#475569"/>
+            <rect x="50" y="73" width="6" height="12" rx="3" fill="#475569"/>
+            <ellipse cx="27" cy="86" rx="5.5" ry="3" fill="#67e8f9"/>
+            <ellipse cx="53" cy="86" rx="5.5" ry="3" fill="#67e8f9"/>
+            {/* 꼬리 */}
+            <path d="M62 55 Q80 38 72 22" stroke="#fbbf24" strokeWidth="5" fill="none" strokeLinecap="round"/>
+            {/* 팔 */}
+            <rect x="12" y="48" width="5" height="14" rx="2.5" fill="#475569" transform="rotate(-10 14 48)"/>
+            <rect x="63" y="48" width="5" height="14" rx="2.5" fill="#475569" transform="rotate(10 65 48)"/>
+            {/* 눈 - 큰 반짝 눈 */}
+            <circle cx="30" cy="30" r="6" fill="#1e293b"/>
+            <circle cx="50" cy="30" r="6" fill="#1e293b"/>
+            <circle cx="32" cy="28" r="2.5" fill="white"/>
+            <circle cx="52" cy="28" r="2.5" fill="white"/>
+            <circle cx="29" cy="32" r="1.2" fill="white" opacity="0.5"/>
+            <circle cx="49" cy="32" r="1.2" fill="white" opacity="0.5"/>
+            {/* 볼터치 */}
+            <circle cx="21" cy="38" r="4" fill="#fca5a5" opacity="0.5"/>
+            <circle cx="59" cy="38" r="4" fill="#fca5a5" opacity="0.5"/>
+            {/* 코 */}
+            <ellipse cx="40" cy="36" rx="3" ry="2.5" fill="#f472b6"/>
+            {/* 입 - 방긋 */}
+            <path d="M35 40 Q40 44 45 40" stroke="#1e293b" strokeWidth="1.5" fill="none" strokeLinecap="round"/>
+            {/* 수염 */}
+            <line x1="10" y1="34" x2="26" y2="36" stroke="#eab308" strokeWidth="0.8"/>
+            <line x1="10" y1="38" x2="26" y2="38" stroke="#eab308" strokeWidth="0.8"/>
+            <line x1="54" y1="36" x2="70" y2="34" stroke="#eab308" strokeWidth="0.8"/>
+            <line x1="54" y1="38" x2="70" y2="38" stroke="#eab308" strokeWidth="0.8"/>
+          </svg>
+
+          {/* 달 */}
+          <svg className="char-item char-side-r" width="48" height="52" viewBox="0 0 100 100" fill="none">
+            <path d="M65 10C35 10 15 35 15 55C15 75 30 90 50 90C70 90 85 75 85 55C75 65 55 60 50 40C48 30 55 15 65 10Z" fill="#fef3c7" stroke="#eab308" strokeWidth="1.5"/>
+            <rect x="35" y="84" width="6" height="12" rx="3" fill="#475569"/><rect x="55" y="84" width="6" height="12" rx="3" fill="#475569"/>
+            <ellipse cx="38" cy="97" rx="5" ry="2.5" fill="#67e8f9"/><ellipse cx="58" cy="97" rx="5" ry="2.5" fill="#67e8f9"/>
+            <circle cx="35" cy="55" r="5" fill="#1e293b"/><circle cx="52" cy="52" r="5" fill="#1e293b"/>
+            <circle cx="36.3" cy="53.2" r="2" fill="white"/><circle cx="53.3" cy="50.2" r="2" fill="white"/>
+            <circle cx="27" cy="62" r="3.5" fill="#fca5a5" opacity="0.5"/><circle cx="58" cy="58" r="3.5" fill="#fca5a5" opacity="0.5"/>
+            <path d="M38 63 Q44 70 52 62" stroke="#1e293b" strokeWidth="1.8" fill="none" strokeLinecap="round"/>
+          </svg>
+        </div>
       </div>
 
       {/* 실시간 통계 */}
       {isLanding && (
-        <div className="text-center pb-6 animate-fade-in-up" style={{ animationDelay: '0.3s' }}>
-          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/5 backdrop-blur-sm border border-white/10">
-            <span className="w-2 h-2 rounded-full bg-green-400 live-dot" />
-            <span className="text-white/60 text-sm">
-              오늘 <span className="text-amber-200 font-bold">{todayCount.toLocaleString()}명</span>이 꿈을 해석했어요
+        <div className="text-center pb-4 animate-fade-in-up" style={{ animationDelay: '0.3s' }}>
+          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white border border-stone-200 shadow-sm">
+            <span className="w-2 h-2 rounded-full bg-green-500 live-dot" />
+            <span className="text-stone-500 text-sm">
+              오늘 <span className="text-stone-800 font-bold">{todayCount.toLocaleString()}명</span>이 꿈을 해석했다냥
             </span>
           </div>
         </div>
       )}
 
-      {/* 메시지 + 인라인 입력 영역 */}
+      {/* 메시지 + 입력 영역 */}
       <div className="flex-1 px-4 pb-6 space-y-4">
 
         {messages.map((msg, i) => (
           <div key={i} ref={i === messages.length - 1 ? lastMsgRef : null} className={`flex items-end gap-2 ${msg.role === 'user' ? 'justify-end' : 'justify-start'}`}>
             {msg.role === 'assistant' && (
-              <div className="text-xl crystal-glow mb-1 shrink-0">🔮</div>
+              <div className="text-xl mb-1 shrink-0">😸</div>
             )}
             <div className={`max-w-[78%] flex flex-col gap-1 ${msg.role === 'user' ? 'items-end' : 'items-start'}`}>
               <div className={`
                 px-4 py-3 text-sm leading-relaxed whitespace-pre-wrap
                 ${msg.role === 'user'
-                  ? 'bg-amber-600/80 text-white rounded-2xl rounded-br-md'
-                  : 'bg-white/10 backdrop-blur-sm text-white/90 rounded-2xl rounded-bl-md border border-white/10'}
+                  ? 'bg-amber-500 text-white rounded-2xl rounded-br-md shadow-md'
+                  : 'bg-white text-stone-800 rounded-2xl rounded-bl-md border border-stone-200 shadow-sm'}
               `}>
                 {msg.role === 'assistant' && i === 0 && !isTypingDone
-                  ? <>{typedText}<span className="inline-block w-0.5 h-4 bg-amber-200/80 ml-0.5 animate-pulse align-middle" /></>
+                  ? <>{typedText}<span className="inline-block w-0.5 h-4 bg-amber-500 ml-0.5 animate-pulse align-middle" /></>
                   : msg.content}
               </div>
               {msg.role === 'assistant' && i > 0 && (
                 <div className="flex gap-3 px-1">
-                  <button
-                    onClick={() => copyMessage(msg.content, i)}
-                    className="text-white/35 hover:text-white/60 text-xs transition-colors"
-                  >
+                  <button onClick={() => copyMessage(msg.content, i)} className="text-stone-400 hover:text-stone-600 text-xs transition-colors">
                     {copiedIndex === i ? '✓ 복사됨' : '복사'}
                   </button>
-                  <button
-                    onClick={() => shareMessage(msg.content)}
-                    className="text-white/35 hover:text-white/60 text-xs transition-colors"
-                  >
+                  <button onClick={() => shareMessage(msg.content)} className="text-stone-400 hover:text-stone-600 text-xs transition-colors">
                     {shared ? '✓ 공유됨' : '공유'}
                   </button>
                 </div>
@@ -270,15 +346,14 @@ export default function Home() {
           </div>
         ))}
 
-        {/* 타이핑 인디케이터 */}
         {isLoading && (
           <div className="flex items-end gap-2 justify-start">
-            <div className="text-xl crystal-glow mb-1 shrink-0">🔮</div>
-            <div className="bg-white/10 backdrop-blur-sm border border-white/10 px-4 py-3 rounded-2xl rounded-bl-md">
+            <div className="text-xl mb-1 shrink-0">😸</div>
+            <div className="bg-white border border-stone-200 shadow-sm px-4 py-3 rounded-2xl rounded-bl-md">
               <div className="flex gap-1 items-center h-4">
-                <span className="w-2 h-2 bg-white/50 rounded-full animate-bounce" style={{ animationDelay: '0ms' }} />
-                <span className="w-2 h-2 bg-white/50 rounded-full animate-bounce" style={{ animationDelay: '150ms' }} />
-                <span className="w-2 h-2 bg-white/50 rounded-full animate-bounce" style={{ animationDelay: '300ms' }} />
+                <span className="w-2 h-2 bg-stone-300 rounded-full animate-bounce" style={{ animationDelay: '0ms' }} />
+                <span className="w-2 h-2 bg-stone-300 rounded-full animate-bounce" style={{ animationDelay: '150ms' }} />
+                <span className="w-2 h-2 bg-stone-300 rounded-full animate-bounce" style={{ animationDelay: '300ms' }} />
               </div>
             </div>
           </div>
@@ -286,7 +361,7 @@ export default function Home() {
 
         <div ref={bottomRef} />
 
-        {/* 인라인 입력창 */}
+        {/* 입력창 - 히어로 바로 아래 */}
         {!isLoading && (
           <div className="flex items-end gap-2 justify-end mt-2">
             <textarea
@@ -294,24 +369,24 @@ export default function Home() {
               value={input}
               onChange={handleInput}
               onKeyDown={handleKeyDown}
-              placeholder="얘기해봐..."
-              className={`${isLanding ? 'w-[88%] input-amber-glow border-amber-300/70' : 'w-[72%] bg-amber-50/90 border-amber-200/50 focus:border-amber-400'} border rounded-2xl rounded-br-md px-4 py-2.5 text-gray-900 text-sm placeholder:text-amber-900/50 resize-none outline-none transition-all overflow-hidden`}
+              placeholder="꿈 얘기해봐냥..."
+              className={`${isLanding ? 'w-[88%] input-amber-glow border-amber-300' : 'w-[72%] bg-white border-stone-200 focus:border-amber-400'} border rounded-2xl rounded-br-md px-4 py-2.5 text-gray-900 text-sm placeholder:text-stone-400 resize-none outline-none transition-all overflow-hidden shadow-sm`}
               style={{ minHeight: '44px', maxHeight: '120px' }}
             />
             <button
               onClick={sendMessage}
               disabled={!input.trim()}
-              className="w-10 h-10 rounded-full bg-amber-600 hover:bg-amber-500 disabled:opacity-40 disabled:cursor-not-allowed flex items-center justify-center text-base transition-colors shrink-0"
+              className="w-10 h-10 rounded-full bg-amber-500 hover:bg-amber-400 disabled:opacity-40 disabled:cursor-not-allowed flex items-center justify-center text-base transition-colors shrink-0 shadow-md"
             >
-              🔮
+              😸
             </button>
           </div>
         )}
 
-        {/* 인기 꿈 카테고리 카드 그리드 */}
+        {/* 인기 꿈 카테고리 */}
         {isLanding && !isLoading && (
-          <div className="pt-4 animate-fade-in-up" style={{ animationDelay: '0.5s' }}>
-            <p className="text-white/50 text-xs text-center mb-3">어떤 꿈을 꿨어?</p>
+          <div className="pt-3 animate-fade-in-up" style={{ animationDelay: '0.5s' }}>
+            <p className="text-stone-400 text-xs text-center mb-3">어떤 꿈을 꿨냥?</p>
             <div className="grid grid-cols-3 gap-2">
               {dreamCategories.map(cat => (
                 <button
@@ -320,7 +395,7 @@ export default function Home() {
                   className="dream-category-card text-center"
                 >
                   <div className="text-2xl mb-1">{cat.emoji}</div>
-                  <div className="text-amber-50/80 text-xs font-medium">{cat.label}</div>
+                  <div className="text-stone-600 text-xs font-medium">{cat.label}</div>
                 </button>
               ))}
             </div>
@@ -329,35 +404,33 @@ export default function Home() {
 
       </div>
 
-      {/* 랜딩 전용 섹션들 */}
+      {/* 랜딩 전용 섹션 */}
       {isLanding && (
         <>
-          {/* 사용자 후기 */}
           <div className="px-6 pb-8 animate-fade-in-up" style={{ animationDelay: '0.7s' }}>
             <div className="text-center">
-              <p className="text-white/40 text-xs mb-3">이용자 후기</p>
-              <div className="inline-block px-6 py-4 rounded-2xl bg-white/5 backdrop-blur-sm border border-white/10 min-h-[72px]">
+              <p className="text-stone-400 text-xs mb-3">이용자 후기다냥</p>
+              <div className="inline-block px-6 py-4 rounded-2xl bg-white border border-stone-200 shadow-sm min-h-[72px]">
                 <div className={reviewFading ? 'review-exit' : 'review-enter'}>
-                  <div className="text-amber-300 text-sm mb-1">
+                  <div className="text-amber-400 text-sm mb-1">
                     {'★'.repeat(reviews[reviewIndex].stars)}{'☆'.repeat(5 - reviews[reviewIndex].stars)}
                   </div>
-                  <p className="text-white/80 text-sm">&ldquo;{reviews[reviewIndex].text}&rdquo;</p>
+                  <p className="text-stone-600 text-sm">&ldquo;{reviews[reviewIndex].text}&rdquo;</p>
                 </div>
               </div>
             </div>
           </div>
 
-          {/* SEO 키워드 섹션 */}
           <div className="text-center px-6 pt-4 pb-40 animate-fade-in-up" style={{ animationDelay: '0.9s' }}>
-            <h2 className="text-lg font-bold mb-5 text-white/80">
-              많이 찾는 꿈해몽
+            <h2 className="text-lg font-bold mb-5 text-stone-700">
+              많이 찾는 꿈해몽이다냥
             </h2>
             <div className="grid grid-cols-2 gap-2">
               {dreamKeywords.map((item, i) => (
                 <Link
                   key={item.slug}
                   href={`/dream/${item.slug}`}
-                  className="flex items-center gap-2 px-3 py-2.5 rounded-lg bg-amber-900/15 hover:bg-amber-800/25 border border-amber-200/20 hover:border-amber-200/40 text-amber-50/90 transition-all duration-300 text-xs font-medium backdrop-blur-sm"
+                  className="flex items-center gap-2 px-3 py-2.5 rounded-lg bg-white hover:bg-amber-50 border border-stone-200 hover:border-amber-300 text-stone-600 transition-all duration-300 text-xs font-medium shadow-sm"
                 >
                   {i < 3 && (
                     <span className="text-sm">{['🥇', '🥈', '🥉'][i]}</span>
