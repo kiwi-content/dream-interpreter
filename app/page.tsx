@@ -247,10 +247,20 @@ export default function Home() {
 
       {/* 히어로 섹션 */}
       <div className="text-center px-6 pt-6 pb-2 animate-fade-in-up relative overflow-visible">
-        <div className="inline-block mb-4 px-6 py-2 rounded-full bg-white border border-stone-200 shadow-sm">
-          <span className="text-sm font-medium text-stone-700">
-            ✨ 평생 무료다냥 · 회원가입 없다냥
-          </span>
+        <div className="relative inline-flex items-center mb-5">
+          <span
+            className="absolute -left-3 top-1/2 -translate-y-1/2 w-4 h-8 bg-amber-300 border border-amber-400 rounded-l-sm shadow-sm"
+            aria-hidden="true"
+          />
+          <span
+            className="absolute -right-3 top-1/2 -translate-y-1/2 w-4 h-8 bg-amber-300 border border-amber-400 rounded-r-sm shadow-sm"
+            aria-hidden="true"
+          />
+          <div className="px-6 py-2.5 rounded-md border-2 border-amber-300 bg-gradient-to-r from-amber-100 via-yellow-50 to-amber-100 shadow-md">
+            <span className="text-sm font-semibold text-amber-900">
+              🐾 뚱냥이의 신비로운 꿈풀이 가게 🐾
+            </span>
+          </div>
         </div>
         <h1 className="hero-title mb-4">
           고양이가<br />
