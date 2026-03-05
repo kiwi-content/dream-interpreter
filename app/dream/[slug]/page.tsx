@@ -4,7 +4,7 @@ import type { Metadata } from 'next'
 import { notFound } from 'next/navigation'
 import DreamInput from './DreamInput'
 import { bespokeVoiceCopyBySlug } from './bespokeVoiceKo'
-import { bespokeIntroSensoryKo } from './bespokeIntroSensoryKo'
+import { bespokeOpeningKoBySlug } from './bespokeOpeningKo'
 
 type DreamEntry = {
   title: string
@@ -1672,21 +1672,29 @@ type VoiceCopy = {
   closing: string
 }
 
+function applyOpeningOverride(slug: string, voice: VoiceCopy): VoiceCopy {
+  const opening = bespokeOpeningKoBySlug[slug]
+  if (!opening) return voice
+  return {
+    ...voice,
+    introLead: opening.introLead,
+    introSensory: opening.introSensory,
+  }
+}
+
 function buildVoiceCopy(config: DreamConfig): VoiceCopy {
   const [case1, case2, case3, case4] = config.caseStudies
   const tonedCase1 = varyLineTone(case1.description, config.slug, 'voice-case-1')
   const tonedCase2 = varyLineTone(case2.description, config.slug, 'voice-case-2')
   const tonedCase3 = varyLineTone(case3.description, config.slug, 'voice-case-3')
   const tonedCase4 = varyLineTone(case4.description, config.slug, 'voice-case-4')
-  const forcedIntroSensory = bespokeIntroSensoryKo[config.slug]
 
   if (config.slug === 'snake-dream') {
-    return {
+    return applyOpeningOverride(config.slug, {
       introLead:
         '뱀 나오는 꿈은 "돈 들어온다" 한 줄로 끝낼 수 없는 꿈입니다. 같은 뱀이라도 길을 막는지, 스쳐 지나가는지, 공격하는지에 따라 해석의 방향이 완전히 달라져요.',
       introSensory:
-        forcedIntroSensory
-        ?? '비늘이 번쩍이거나 몸이 스치는 감각이 또렷했다면 이미 현실에서도 촉이 온 상태예요. 놓치기 쉬운 기회가 지나가고 있거나, 반대로 위험 신호를 모른 척하고 있다는 뜻일 수 있습니다.',
+        '비늘이 번쩍이거나 몸이 스치는 감각이 또렷했다면 이미 현실에서도 촉이 온 상태예요. 놓치기 쉬운 기회가 지나가고 있거나, 반대로 위험 신호를 모른 척하고 있다는 뜻일 수 있습니다.',
       psychLead:
         '심리적으로 뱀은 욕망과 경계심이 동시에 올라올 때 자주 등장합니다. 갖고 싶은 건 분명한데, 대가를 치를 준비는 덜 된 시기라서 내면의 긴장이 꿈에서 선명하게 드러나는 거예요.',
       psychDeep:
@@ -1695,16 +1703,15 @@ function buildVoiceCopy(config: DreamConfig): VoiceCopy {
         '전통 해몽에서는 뱀을 재물, 권세, 인연의 상징으로 폭넓게 읽었습니다. 흰뱀이나 금빛 뱀은 조력과 기회의 신호로, 공격적이거나 탁한 분위기의 뱀은 경계해야 할 관계로 보기도 했어요.',
       closing:
         '이 꿈의 핵심은 공포가 아니라 선택입니다. 붙잡을 기회 하나와 끊어낼 불안 하나를 오늘 분명히 정하면, 뱀꿈이 주는 메시지는 이미 충분히 읽은 셈입니다.',
-    }
+    })
   }
 
   if (config.slug === 'poop-dream') {
-    return {
+    return applyOpeningOverride(config.slug, {
       introLead:
         '똥 나오는 꿈은 민망하지만 핵심은 더러움이 아니라 배출입니다. 안에서 오래 눌러 둔 감정, 일, 돈 문제가 이제 밖으로 정리될 준비를 하고 있다는 뜻으로 읽는 편이 정확해요.',
       introSensory:
-        forcedIntroSensory
-        ?? '냄새나 질감이 유난히 현실감 있게 남았다면 마음과 몸의 피로가 한계에 가까웠다는 신호일 수 있습니다. 반대로 시원한 느낌이 강했다면 막히던 흐름이 풀리는 전환점으로 볼 수 있어요.',
+        '냄새나 질감이 유난히 현실감 있게 남았다면 마음과 몸의 피로가 한계에 가까웠다는 신호일 수 있습니다. 반대로 시원한 느낌이 강했다면 막히던 흐름이 풀리는 전환점으로 볼 수 있어요.',
       psychLead:
         '심리적으로는 수치심과 해방감이 함께 올라올 때 이 꿈이 잦아집니다. 남 눈치 때문에 미뤄 둔 문제를 이제는 정리하고 싶다는 욕구가 꿈에서 먼저 모습을 드러내는 거죠.',
       psychDeep:
@@ -1713,16 +1720,15 @@ function buildVoiceCopy(config: DreamConfig): VoiceCopy {
         '전통 해몽에서도 똥은 재물운과 연결되는 대표 상징입니다. 다만 장면을 세밀하게 나눴어요. 밟거나 치우는 꿈은 성과나 횡재 쪽으로, 화장실을 못 찾는 꿈은 막힌 흐름을 점검하라는 쪽으로 풀이했습니다.',
       closing:
         '이 꿈은 불쾌한 장면으로 시작해도 결론은 실용적입니다. 버려야 할 것 하나를 분명히 정리하면, 들어와야 할 기회가 들어올 자리가 생깁니다.',
-    }
+    })
   }
 
   if (config.slug === 'money-dream') {
-    return {
+    return applyOpeningOverride(config.slug, {
       introLead:
         '돈 줍는 꿈은 대체로 기회가 가까이 왔다는 신호로 읽어요. 횡재를 뜻한다기보다, 지금 잡을 수 있는 제안이나 수입 기회를 놓치지 말라는 메시지에 가깝습니다.',
       introSensory:
-        forcedIntroSensory
-        ?? '손바닥에 지폐 감촉이 생생하게 남았다면 더 분명합니다. 머릿속으로만 고민하지 말고, 오늘 바로 숫자로 검토해 행동하라는 뜻으로 보는 게 맞아요.',
+        '손바닥에 지폐 감촉이 생생하게 남았다면 더 분명합니다. 머릿속으로만 고민하지 말고, 오늘 바로 숫자로 검토해 행동하라는 뜻으로 보는 게 맞아요.',
       psychLead:
         '심리적으로는 내 가치가 제대로 보상받고 싶은 욕구가 커졌을 때 자주 나와요. 그래서 작은 기회라도 먼저 잡는 선택이 중요합니다.',
       psychDeep:
@@ -1731,16 +1737,11 @@ function buildVoiceCopy(config: DreamConfig): VoiceCopy {
         '전통 해몽에서는 대표적인 재물운 꿈으로 봅니다. 다만 단순 기대보다 실제 돈의 흐름을 정리하고 움직일 때 길몽 효과가 살아난다고 해석합니다.',
       closing:
         '이 꿈의 핵심은 "기회가 왔을 때 바로 움직일 준비가 됐는가"입니다. 오늘은 돈과 연결된 결정 하나를 미루지 말고 처리해 보세요.',
-    }
+    })
   }
 
   const bespoke = bespokeVoiceCopyBySlug[config.slug]
-  if (bespoke) {
-    return {
-      ...bespoke,
-      introSensory: forcedIntroSensory ?? bespoke.introSensory,
-    }
-  }
+  if (bespoke) return applyOpeningOverride(config.slug, bespoke)
 
   const introLead = pickBySlug(config.slug, [
     `${config.name}은 ${config.symbol} 흐름을 직접 보여주는 꿈이에요. 특히 ${case1.title} 장면이 나왔다면, 관련된 기회나 고민이 이미 현실에서 움직이기 시작했다는 뜻으로 읽어요.`,
@@ -1794,14 +1795,14 @@ function buildVoiceCopy(config: DreamConfig): VoiceCopy {
     `꿈은 당신 편에서 보낸 메모에 가깝습니다. 불안은 줄이고, 실행은 가볍게 하나만 시작해 보세요.`,
   ], 11)
 
-  return {
+  return applyOpeningOverride(config.slug, {
     introLead,
-    introSensory: forcedIntroSensory ?? introSensory,
+    introSensory,
     psychLead,
     psychDeep,
     tradition,
     closing,
-  }
+  })
 }
 
 function varyLineTone(line: string, slug: string, salt: string): string {
@@ -1864,7 +1865,7 @@ function varyLineTone(line: string, slug: string, salt: string): string {
 
 
 function buildFAQs(config: DreamConfig): FAQItem[] {
-  const forcedIntroSensory = bespokeIntroSensoryKo[config.slug]
+  const forcedIntroFollow = bespokeOpeningKoBySlug[config.slug]?.introSensory
 
   if (config.slug === 'snake-dream') {
     return [
@@ -1910,7 +1911,7 @@ function buildFAQs(config: DreamConfig): FAQItem[] {
 
   const bespoke = bespokeVoiceCopyBySlug[config.slug]
   if (bespoke) {
-    const introSensoryLine = forcedIntroSensory ?? bespoke.introSensory
+    const introSensoryLine = forcedIntroFollow ?? bespoke.introSensory
     return [
       {
         question: `${config.name} 해석에서 가장 먼저 봐야 할 포인트는 뭔가요?`,
@@ -1964,7 +1965,7 @@ function buildFAQs(config: DreamConfig): FAQItem[] {
     },
     {
       question: `꿈이 너무 생생하면 예지몽일 가능성이 있나요?`,
-      answer: `생생하다고 다 예지몽은 아니에요. 다만 내 마음에서 우선순위가 높다는 뜻일 수는 있습니다. ${forcedIntroSensory ?? `${config.sensory} 같은 장면이 강하게 남았다면, 그 주제를 현실에서 바로 점검해 보라는 신호일 수 있습니다.`}`,
+      answer: `생생하다고 다 예지몽은 아니에요. 다만 내 마음에서 우선순위가 높다는 뜻일 수는 있습니다. ${forcedIntroFollow ?? `${config.sensory} 같은 장면이 강하게 남았다면, 그 주제를 현실에서 바로 점검해 보라는 신호일 수 있습니다.`}`,
     },
     {
       question: `꿈해몽을 믿고 바로 큰 결정을 해도 될까요?`,
