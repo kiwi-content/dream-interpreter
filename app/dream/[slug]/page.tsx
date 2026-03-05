@@ -3,6 +3,7 @@ import type { ReactNode } from 'react'
 import type { Metadata } from 'next'
 import { notFound } from 'next/navigation'
 import DreamInput from './DreamInput'
+import { bespokeVoiceCopyBySlug } from './bespokeVoiceKo'
 
 type DreamEntry = {
   title: string
@@ -47,7 +48,7 @@ const buildDreamContent = (config: DreamConfig) => {
 
 ${config.name} 이야기를 꺼내면, 마음 한쪽이 먼저 반응하죠. 어떤 분은 기분 좋은 예감이 들었다고 말하고, 어떤 분은 잠에서 깬 뒤에도 가슴이 두근거렸다고 말해요. 꿈은 늘 정답을 딱 잘라 주지는 않지만, 지금 내 마음이 어디를 향하고 있는지 아주 솔직하게 보여줍니다. 특히 ${config.symbol}의 상징은 일, 관계, 돈, 건강처럼 삶의 중요한 축과 연결될 때가 많습니다.
 
-꿈 장면이 유난히 생생했다면 그 자체가 메시지예요. ${config.sensory} 같은 감각이 또렷하게 남아 있다면, 무의식이 "이 부분은 그냥 지나치지 말아 줘"라고 신호를 보낸 것에 가깝습니다. 그래서 이 꿈은 길몽이냐 흉몽이냐를 먼저 나누기보다, 지금 내 상태를 읽는 안내문처럼 보는 게 훨씬 정확해요.
+꿈 장면이 유난히 생생했다면 그 자체가 메시지예요. ${config.sensory} 같은 감각이 또렷하게 남아 있다면, 무의식이 "이 장면을 놓치지 말아 달라"는 신호를 보낸 것에 가깝습니다. 그래서 이 꿈은 길몽이냐 흉몽이냐를 먼저 나누기보다, 지금 내 상태를 읽는 안내문처럼 보는 게 훨씬 정확해요.
 
 ## 상황별 해석
 
@@ -90,7 +91,7 @@ Q: 같은 꿈을 반복해서 꾸면 안 좋은 건가요?
 A: 반복 꿈은 대개 "아직 정리되지 않은 주제"가 남아 있다는 뜻입니다. 나쁜 징조라기보다 마음이 같은 메시지를 다시 보여주는 과정에 가까워요. 현실에서 작은 행동 하나라도 바꾸면 반복 강도가 줄어드는 경우가 많습니다.
 
 Q: 꿈이 너무 생생하면 예지몽일 가능성이 있나요?
-A: 감각이 선명한 꿈이 꼭 예지몽이라는 뜻은 아닙니다. 다만 무의식의 경고나 바람이 강하게 작동하고 있다는 해석은 충분히 가능해요. 특히 ${config.sensory}처럼 촉각이나 색감이 또렷했다면 내 감정 에너지가 높다는 신호로 보시면 됩니다.
+A: 감각이 선명한 꿈이 꼭 예지몽이라는 뜻은 아닙니다. 다만 지금 내 삶에서 그 주제가 매우 중요하다는 신호일 수는 있어요. 특히 ${config.sensory} 같은 장면이 또렷했다면, 그 이슈를 현실에서 먼저 점검해 보라는 의미로 보는 게 더 실용적입니다.
 
 Q: 꿈해몽을 믿고 바로 큰 결정을 해도 될까요?
 A: 꿈은 방향을 점검하는 참고자료로 쓰는 게 가장 안전합니다. 중요한 결정은 현실 데이터와 일정, 관계 상황을 함께 보고 판단하는 게 좋아요. 꿈이 준 힌트는 "무엇을 먼저 점검할지"를 알려주는 나침반으로 활용해 보세요.
@@ -109,23 +110,23 @@ const dreamConfigs: DreamConfig[] = [
     slug: 'snake-dream',
     name: '뱀 나오는 꿈',
     keyword: '뱀 나오는 꿈',
-    symbol: '재물과 변화',
-    sensory: '뱀의 비늘이 햇빛에 반짝이는 장면',
-    focus: '긴장과 기대가 동시에 올라오는 상태',
-    actionTip: '오늘은 미뤄 둔 금전 정리나 중요한 연락 하나를 먼저 처리해 보세요.',
+    symbol: '유혹과 경계, 큰 변화',
+    sensory: '비늘이 번쩍이거나 몸이 스치는 감각',
+    focus: '직감은 오는데 확신은 부족한 상태',
+    actionTip: '오늘은 계약·금전·관계 중 불안한 조건 하나를 문장으로 명확히 적고 바로 확인해 보세요.',
     tradition: '재물운과 귀인운의 징조',
     metaTitle: '뱀꿈 꿨는데 돈 들어온다고? 진짜임',
     metaDescription: '큰 뱀이 지나갔는데 돈이 들어왔다는 사람, 실화입니다. 뱀꿈은 색깔·크기·행동에 따라 해석이 완전히 달라요. 흰뱀은 대박, 쫓기면 경고? 4가지 상황별 정확한 풀이.',
     caseStudies: [
-      { title: '큰 뱀이 조용히 지나가는 꿈', description: '당장 충돌은 없지만 큰 흐름이 바뀌고 있다는 신호로 해석합니다.' },
-      { title: '뱀에게 쫓기는 꿈', description: '회피하던 과제가 가까워졌다는 뜻이 강하고, 마주할 준비가 필요합니다.' },
-      { title: '뱀을 잡거나 물리치는 꿈', description: '불안을 통제하고 주도권을 되찾을 가능성이 높다는 장면입니다.' },
-      { title: '흰 뱀이나 금빛 뱀이 나오는 꿈', description: '도움받을 인연과 기회가 동시에 들어오는 길몽으로 자주 풀이됩니다.' },
+      { title: '큰 뱀이 길을 가로지르는 꿈', description: '가던 방향을 잠시 멈추고 전략을 다시 짜야 할 때 나오는 장면입니다. 밀어붙이기보다 타이밍을 보는 편이 유리합니다.' },
+      { title: '뱀에게 물리거나 위협받는 꿈', description: '관계나 계약에서 방심이 손실로 이어질 수 있음을 알리는 꿈입니다. 불편해도 조건을 다시 확인할 필요가 있어요.' },
+      { title: '뱀이 허물을 벗는 꿈', description: '묵은 역할을 벗고 새로운 기준으로 옮겨가는 전환기와 맞물립니다. 이직이나 관계 재정비 신호로 자주 읽습니다.' },
+      { title: '흰 뱀을 또렷하게 보는 꿈', description: '내 힘만으로 풀기 어려운 문제에 조력자가 붙는 흐름을 시사합니다. 도움 요청을 주저하지 않는 태도가 중요합니다.' },
     ],
     relatable: [
-      '이직이나 부서 이동을 앞두고 마음이 복잡한 분들이 자주 꿉니다.',
-      '돈 문제를 정리해야 하는데 결정을 미루고 있는 분들에게도 자주 나타나요.',
-      '인간관계에서 경계를 세워야 하는 시기에 이 꿈이 또렷하게 들어오기도 합니다.',
+      '큰 결정을 앞두고 직감은 있는데 확신이 부족한 사람들이 이 꿈을 자주 꿉니다.',
+      '돈이나 계약처럼 조건을 따져야 하는 문제를 미뤄 둘 때 뱀꿈이 더 선명해지곤 해요.',
+      '겉으로는 평온하지만 마음속 경계심이 높아진 시기에 반복되는 경우가 많습니다.',
     ],
   },
   {
@@ -207,7 +208,7 @@ const dreamConfigs: DreamConfig[] = [
     actionTip: '오늘은 머릿속 아이디어를 문서로 옮겨 첫 단계를 눈에 보이게 만들어 보세요.',
     tradition: '새 복이 들어오는 길몽',
     metaTitle: '임신꿈 꿨는데 태몽인가요? 아닐 수도 있어요',
-    metaDescription: '임신 계획도 없는데 임신하는 꿈? 놀라지 마세요, 태몽이 아니라 "새로운 시작"의 신호일 수 있어요. 기쁜 마음이면 길몽, 불안했다면 숨은 뜻이 다릅니다. 상황별 정확 해석.',
+    metaDescription: '임신 계획도 없는데 임신하는 꿈? 놀라지 마세요, 태몽이 아니라 "새로운 시작"의 신호일 수 있어요. 기쁜 마음이면 길몽, 불안했다면 숨은 뜻이 다릅니다. 상황별 정확한 해석.',
     caseStudies: [
       { title: '기쁜 마음으로 임신을 확인하는 꿈', description: '준비해 온 일이 좋은 방향으로 자리를 잡는 흐름을 상징합니다.' },
       { title: '불안한 마음으로 임신하는 꿈', description: '책임이 커질 변화 앞에서 자신을 의심하는 심리가 반영됩니다.' },
@@ -314,8 +315,8 @@ const dreamConfigs: DreamConfig[] = [
   },
   {
     slug: 'ex-dream',
-    name: '전애인 나오는 꿈',
-    keyword: '전애인 나오는 꿈',
+    name: '전 애인이 나오는 꿈',
+    keyword: '전 애인이 나오는 꿈',
     symbol: '관계 패턴의 회상',
     sensory: '익숙한 향기나 목소리가 갑자기 또렷해지는 순간',
     focus: '현재 관계에서의 비교와 점검',
@@ -324,10 +325,10 @@ const dreamConfigs: DreamConfig[] = [
     metaTitle: '전 애인이 자꾸 꿈에 나와... 미련일까?',
     metaDescription: '헤어진 지 오래됐는데 왜 자꾸 꿈에 나올까? 미련이 아닙니다. 다시 만나는 꿈, 싸우는 꿈, 무감정으로 스치는 꿈 — 해석이 완전히 다릅니다. 지금 내 감정 상태가 보여요.',
     caseStudies: [
-      { title: '전애인과 다시 만나는 꿈', description: '재회 예고보다 과거 감정 패턴을 점검하는 상징에 가깝습니다.' },
-      { title: '전애인과 다투는 꿈', description: '끝나지 않은 감정 문장이 마음속에 남아 있음을 보여줍니다.' },
+      { title: '전 애인과 다시 만나는 꿈', description: '재회 예고보다 과거 감정 패턴을 점검하는 상징에 가깝습니다.' },
+      { title: '전 애인과 다투는 꿈', description: '끝나지 않은 감정 문장이 마음속에 남아 있음을 보여줍니다.' },
       { title: '아무 감정 없이 마주치는 꿈', description: '감정 정리가 진행되어 영향력이 줄고 있다는 긍정 신호입니다.' },
-      { title: '현재 연인 앞에 전애인이 나타나는 꿈', description: '비교 심리와 불안이 동시에 작동할 때 자주 보이는 장면입니다.' },
+      { title: '현재 연인 앞에 전 애인이 나타나는 꿈', description: '비교 심리와 불안이 동시에 작동할 때 자주 보이는 장면입니다.' },
     ],
     relatable: [
       '새 연애를 시작했지만 마음이 완전히 안심되지 않는 분들이 자주 꿉니다.',
@@ -339,23 +340,23 @@ const dreamConfigs: DreamConfig[] = [
     slug: 'poop-dream',
     name: '똥 나오는 꿈',
     keyword: '똥 나오는 꿈',
-    symbol: '배출과 풍요',
-    sensory: '끈적한 감촉과 강한 냄새가 유난히 또렷한 장면',
-    focus: '쌓인 에너지를 밖으로 내보내려는 움직임',
-    actionTip: '오늘은 돈, 일정, 감정 중 하나를 반드시 정리해서 공간을 비워 보세요.',
+    symbol: '배출과 회복, 현실적 재정 흐름',
+    sensory: '냄새와 질감이 유난히 현실감 있게 남는 장면',
+    focus: '참아 둔 감정과 피로를 정리하려는 상태',
+    actionTip: '오늘은 지출 하나, 관계 하나, 일정 하나 중 가장 답답한 항목을 비우거나 정리해 보세요.',
     tradition: '대표적인 재물 길몽',
     metaTitle: '똥꿈 꾸면 로또 사라는 말, 근거 있음',
     metaDescription: '똥꿈 꾸면 로또 사라는 말, 근거 있습니다. 똥 밟는 꿈은 횡재운, 손으로 만지면 성과 직전 신호. 근데 화장실 못 찾는 꿈은 정반대 해석이에요. 어떤 똥꿈이었나요?',
     caseStudies: [
-      { title: '똥을 밟는 꿈', description: '뜻밖의 기회가 발밑에서 들어오는 재물운 신호로 자주 풀이됩니다.' },
-      { title: '손으로 똥을 만지는 꿈', description: '성과와 보상을 직접 다루게 되는 시기가 가까워졌다는 의미입니다.' },
-      { title: '화장실을 찾지 못하는 꿈', description: '표현하지 못한 감정과 계획이 막혀 있다는 답답함을 반영합니다.' },
-      { title: '화장실이 넘치는 꿈', description: '운의 흐름이 커졌지만 우선순위 정리가 꼭 필요하다는 경고도 포함합니다.' },
+      { title: '똥을 밟는 꿈', description: '예상 밖의 자리에서 이익이 들어오거나, 묵혀 둔 일이 성과로 연결될 때 자주 보입니다.' },
+      { title: '변기에 시원하게 배출하는 꿈', description: '쌓였던 스트레스나 비용이 정리되며 생활 흐름이 가벼워지는 국면을 보여줍니다.' },
+      { title: '화장실을 찾지 못해 불안한 꿈', description: '표현해야 할 감정이나 처리해야 할 실무가 막혀 있다는 뜻입니다. 도움 요청이나 우선순위 조정이 필요해요.' },
+      { title: '화장실이 넘치는 꿈', description: '기회와 일거리가 한꺼번에 몰려 관리가 흔들릴 수 있음을 암시합니다. 들어오는 양보다 정리 기준이 먼저입니다.' },
     ],
     relatable: [
-      '오랫동안 준비한 프로젝트를 세상에 내놓기 직전인 분들이 많이 꿔요.',
-      '수입이 정체돼 답답했던 시기를 버티는 분들에게도 자주 나타납니다.',
-      '감정을 오래 참다가 이제는 말해야겠다고 느끼는 시기에 선명해져요.',
+      '참아온 말을 꺼내야 하는 시기, 혹은 정리할 일이 몰린 시기에 자주 나타납니다.',
+      '수입·지출 구조를 손봐야 하는데 미뤄 둔 사람일수록 똥꿈을 반복해서 꾸는 편이에요.',
+      '몸과 마음이 모두 피곤해 "이제는 비워야겠다"는 신호가 올라올 때 꿈이 또렷해집니다.',
     ],
   },
   {
@@ -797,8 +798,8 @@ const dreamConfigs: DreamConfig[] = [
   },
   {
     slug: 'love-dream',
-    name: '사랑하는 사람 나오는 꿈',
-    keyword: '사랑하는 사람 나오는 꿈',
+    name: '사랑하는 사람이 나오는 꿈',
+    keyword: '사랑하는 사람이 나오는 꿈',
     symbol: '연결과 그리움',
     sensory: '꿈에서 그 얼굴이 생생하게 보이던 느낌',
     focus: '이어지고 싶거나 표현 못 한 감정',
@@ -989,7 +990,7 @@ const dreamConfigs: DreamConfig[] = [
     actionTip: '오늘은 장기 목표를 위한 고난도 행동 1개를 예약하고, 불안은 기록으로 분리해 보세요.',
     tradition: '출세운과 원정운',
     metaTitle: '비행기 꿈은 큰 판이 바뀌는 시그널일 수 있어요',
-    metaDescription: '비행기 이륙·난기류·착륙 꿈은 인생 도약 앞 심리를 비춥니다. 불안한 장면도 실제론 준비 신호일 수 있어요. 상황별 정확 해석을 확인하세요.',
+    metaDescription: '비행기 이륙·난기류·착륙 꿈은 인생 도약 앞 심리를 비춥니다. 불안한 장면도 실제론 준비 신호일 수 있어요. 상황별 정확한 해석을 확인하세요.',
     caseStudies: [
       { title: '비행기가 힘차게 이륙하는 꿈', description: '도약할 준비가 갖춰졌고 실행 타이밍이 가까워졌다는 상징입니다.' },
       { title: '이륙이 지연되는 꿈', description: '외부 변수보다 내부 확신 부족이 진행을 늦추고 있음을 보여줍니다.' },
@@ -1648,6 +1649,209 @@ function getFallbackRelatedSlugs(slug: string): string[] {
   return related
 }
 
+function getSlugHash(slug: string): number {
+  let hash = 0
+  for (const ch of slug) {
+    hash = (hash * 31 + ch.charCodeAt(0)) >>> 0
+  }
+  return hash
+}
+
+function pickBySlug<T>(slug: string, variants: T[], offset = 0): T {
+  const hash = getSlugHash(slug)
+  return variants[(hash + offset) % variants.length]
+}
+
+type VoiceCopy = {
+  introLead: string
+  introSensory: string
+  psychLead: string
+  psychDeep: string
+  tradition: string
+  closing: string
+}
+
+function buildVoiceCopy(config: DreamConfig): VoiceCopy {
+  const [case1, case2, case3, case4] = config.caseStudies
+  const tonedCase1 = varyLineTone(case1.description, config.slug, 'voice-case-1')
+  const tonedCase2 = varyLineTone(case2.description, config.slug, 'voice-case-2')
+  const tonedCase3 = varyLineTone(case3.description, config.slug, 'voice-case-3')
+  const tonedCase4 = varyLineTone(case4.description, config.slug, 'voice-case-4')
+
+  if (config.slug === 'snake-dream') {
+    return {
+      introLead:
+        '뱀 나오는 꿈은 "돈 들어온다" 한 줄로 끝낼 수 없는 꿈입니다. 같은 뱀이라도 길을 막는지, 스쳐 지나가는지, 공격하는지에 따라 해석의 방향이 완전히 달라져요.',
+      introSensory:
+        '비늘이 번쩍이거나 몸이 스치는 감각이 또렷했다면 이미 현실에서도 촉이 온 상태예요. 놓치기 쉬운 기회가 지나가고 있거나, 반대로 위험 신호를 모른 척하고 있다는 뜻일 수 있습니다.',
+      psychLead:
+        '심리적으로 뱀은 욕망과 경계심이 동시에 올라올 때 자주 등장합니다. 갖고 싶은 건 분명한데, 대가를 치를 준비는 덜 된 시기라서 내면의 긴장이 꿈에서 선명하게 드러나는 거예요.',
+      psychDeep:
+        '특히 위협당하거나 쫓기는 장면은 일이 많아서라기보다 결정을 늦출 때 반복되는 경향이 큽니다. 반대로 뱀을 피하지 않고 바라봤다면, 이미 주도권을 되찾는 과정이 시작됐다는 해석이 가능합니다.',
+      tradition:
+        '전통 해몽에서는 뱀을 재물, 권세, 인연의 상징으로 폭넓게 읽었습니다. 흰뱀이나 금빛 뱀은 조력과 기회의 신호로, 공격적이거나 탁한 분위기의 뱀은 경계해야 할 관계로 보기도 했어요.',
+      closing:
+        '이 꿈의 핵심은 공포가 아니라 선택입니다. 붙잡을 기회 하나와 끊어낼 불안 하나를 오늘 분명히 정하면, 뱀꿈이 주는 메시지는 이미 충분히 읽은 셈입니다.',
+    }
+  }
+
+  if (config.slug === 'poop-dream') {
+    return {
+      introLead:
+        '똥 나오는 꿈은 민망하지만 핵심은 더러움이 아니라 배출입니다. 안에서 오래 눌러 둔 감정, 일, 돈 문제가 이제 밖으로 정리될 준비를 하고 있다는 뜻으로 읽는 편이 정확해요.',
+      introSensory:
+        '냄새나 질감이 유난히 현실감 있게 남았다면 마음과 몸의 피로가 한계에 가까웠다는 신호일 수 있습니다. 반대로 시원한 느낌이 강했다면 막히던 흐름이 풀리는 전환점으로 볼 수 있어요.',
+      psychLead:
+        '심리적으로는 수치심과 해방감이 함께 올라올 때 이 꿈이 잦아집니다. 남 눈치 때문에 미뤄 둔 문제를 이제는 정리하고 싶다는 욕구가 꿈에서 먼저 모습을 드러내는 거죠.',
+      psychDeep:
+        '그래서 똥꿈은 "재물운"만 보고 끝내면 반만 읽은 해석이 됩니다. 진짜 포인트는 무엇을 비우고 무엇을 남길지에 있어요. 지출, 일정, 관계 중 하나만 정리해도 체감 흐름이 빠르게 달라질 수 있습니다.',
+      tradition:
+        '전통 해몽에서도 똥은 재물운과 연결되는 대표 상징입니다. 다만 장면을 세밀하게 나눴어요. 밟거나 치우는 꿈은 성과나 횡재 쪽으로, 화장실을 못 찾는 꿈은 막힌 흐름을 점검하라는 쪽으로 풀이했습니다.',
+      closing:
+        '이 꿈은 불쾌한 장면으로 시작해도 결론은 실용적입니다. 버려야 할 것 하나를 분명히 정리하면, 들어와야 할 기회가 들어올 자리가 생깁니다.',
+    }
+  }
+
+  if (config.slug === 'money-dream') {
+    return {
+      introLead:
+        '돈 줍는 꿈은 대체로 기회가 가까이 왔다는 신호로 읽어요. 횡재를 뜻한다기보다, 지금 잡을 수 있는 제안이나 수입 기회를 놓치지 말라는 메시지에 가깝습니다.',
+      introSensory:
+        '손바닥에 지폐 감촉이 생생하게 남았다면 더 분명합니다. 머릿속으로만 고민하지 말고, 오늘 바로 숫자로 검토해 행동하라는 뜻으로 보는 게 맞아요.',
+      psychLead:
+        '심리적으로는 내 가치가 제대로 보상받고 싶은 욕구가 커졌을 때 자주 나와요. 그래서 작은 기회라도 먼저 잡는 선택이 중요합니다.',
+      psychDeep:
+        '반복해서 같은 꿈을 꾸면 해석을 더 찾기보다 실행이 먼저입니다. 미뤄 둔 정산, 제안 검토, 협업 논의 중 하나를 오늘 끝내면 흐름이 바뀌기 시작해요.',
+      tradition:
+        '전통 해몽에서는 대표적인 재물운 꿈으로 봅니다. 다만 단순 기대보다 실제 돈의 흐름을 정리하고 움직일 때 길몽 효과가 살아난다고 해석합니다.',
+      closing:
+        '이 꿈의 핵심은 "기회가 왔을 때 바로 움직일 준비가 됐는가"입니다. 오늘은 돈과 연결된 결정 하나를 미루지 말고 처리해 보세요.',
+    }
+  }
+
+  const bespoke = bespokeVoiceCopyBySlug[config.slug]
+  if (bespoke) return bespoke
+
+  const introLead = pickBySlug(config.slug, [
+    `${config.name}은 ${config.symbol} 흐름을 직접 보여주는 꿈이에요. 특히 ${case1.title} 장면이 나왔다면, 관련된 기회나 고민이 이미 현실에서 움직이기 시작했다는 뜻으로 읽어요.`,
+    `${config.name}이 나왔다는 건 ${config.symbol} 문제를 지금 점검하라는 신호에 가깝습니다. 길몽/흉몽으로 단정하기보다, 당장 무엇을 정리할지 보는 게 더 정확해요.`,
+    `${config.name}은 현재의 ${config.symbol} 상태를 드러내는 꿈이에요. 요즘 ${config.focus} 때문에 망설이고 있었다면, 기준을 세우고 움직일 타이밍이라는 뜻으로 볼 수 있어요.`,
+    `${config.name}은 현실에서 미뤄 둔 ${config.symbol} 이슈가 꿈으로 올라온 장면입니다. ${case2.title}처럼 불편한 장면이 나왔다면, 더 미루기보다 먼저 손보라는 뜻에 가깝습니다.`,
+    `${config.name}은 지금 무엇을 우선해야 하는지 알려주는 꿈이에요. 핵심은 ${config.symbol}을 정리하고, 내 선택 기준을 분명하게 세우는 겁니다.`,
+    `${config.name}은 막연한 불안보다 구체적인 주제를 짚어 주는 꿈이에요. ${case3.title}이나 ${case4.title} 장면이 보였다면, 선택을 미루지 말라는 메시지로 보는 게 맞습니다.`,
+    `${config.name}은 크게 겁낼 필요 없는 꿈이지만, 그냥 넘길 꿈도 아니에요. 지금 내 삶에서 ${config.symbol}이 어떤 상태인지 확인하라는 뜻으로 읽을 수 있습니다.`,
+    `${config.name}은 최근 현실 고민을 그대로 비춰 주는 꿈이에요. 특히 ${config.symbol}과 연결된 결정이 남아 있다면, 이번에 정리하라는 신호로 보는 해석이 타당합니다.`,
+  ], 1)
+
+  const introSensory = pickBySlug(config.slug, [
+    `${config.sensory}이 또렷하게 남았다면, ${config.symbol} 문제를 더는 미루지 말라는 뜻으로 볼 수 있어요.`,
+    `꿈의 감각이 선명할수록 메시지도 분명해져요. ${config.sensory}이 계속 떠오른다면 ${config.symbol}과 관련된 일을 실제로 움직일 시점이라는 의미예요.`,
+    `${config.sensory}이 계속 기억난다면 메시지는 명확해요. ${config.symbol}과 연결된 일 하나를 지금 정리하라는 신호입니다.`,
+    `${config.sensory}이 강하게 남는 꿈은 보통 행동 시점을 알려줄 때가 많아요. 오늘은 ${config.symbol} 영역에서 작은 실행 하나를 바로 해보는 게 좋아요.`,
+  ], 3)
+
+  const psychLead = pickBySlug(config.slug, [
+    `심리적으로 보면 ${config.name}은 마음속 긴장과 부담이 쌓였을 때 자주 나와요. ${tonedCase2}`,
+    `${config.name}은 피하던 감정을 눈에 보이게 보여주는 꿈이에요. ${tonedCase3}`,
+    `이 꿈에서 중요한 건 무서웠는지보다 내가 어떻게 움직였는지예요. ${tonedCase4}`,
+    `${config.name}은 요즘 마음이 얼마나 버거운지 보여주는 꿈에 가까워요. ${tonedCase1}`,
+    `${config.name}이 반복될 때는 대개 같은 대처 패턴도 함께 반복돼요. ${tonedCase2}`,
+    `${config.name}은 문제를 예고한다기보다, 지금 내가 문제를 다루는 방식을 드러내는 꿈이에요. ${tonedCase3}`,
+  ], 5)
+
+  const psychDeep = pickBySlug(config.slug, [
+    `현실에서 감정 소모가 큰 시기에는 꿈이 더 생생해지기 쉬워요. 핵심은 불안을 없애는 게 아니라, 불안을 다루는 방법을 바꾸는 겁니다.`,
+    `낮에는 버티고 밤에 감정이 풀리는 흐름에서는 같은 꿈이 반복되기 쉬워요. 그래서 완벽한 답보다 오늘 바꿀 수 있는 작은 행동이 더 중요해요.`,
+    `결정을 미루는 시간이 길어질수록 감정이 먼저 움직여요. 이 꿈은 겁주기보다 '지금 정리하면 늦지 않다'는 뜻에 더 가까워요.`,
+    `같은 꿈이 반복되면, 아직 해결하지 않은 일이 남아 있다는 뜻일 때가 많아요. 해석만 더 찾기보다 오늘 할 행동 하나를 정하면 반복이 줄어드는 경우가 많습니다.`,
+    `이 꿈을 읽을 때는 장면보다 반응이 중요해요. 멈췄는지, 도망쳤는지, 맞섰는지를 보면 현실에서 바꿔야 할 포인트가 더 분명해집니다.`,
+    `감정이 높은 시기엔 꿈이 과하게 느껴질 수 있어요. 그래도 핵심 주제는 꽤 정확하게 보여주는 편이라, 생활에서 한 가지라도 바로 조정해 보는 게 좋습니다.`,
+  ], 7)
+
+  const tradition = pickBySlug(config.slug, [
+    `옛 꿈풀이에서는 ${config.name}을 ${config.tradition}이라는 의미와 연결해서 봤어요. 다만 같은 꿈이어도 상황과 감정에 따라 풀이가 달라진다고 봤고, 결국 행동이 해석을 완성한다고 여겼습니다.`,
+    `전통 해몽에서는 ${config.name}을 ${config.tradition} 의미로 해석하는 경우가 많아요. 그래도 정답을 딱 하나로 보진 않았어요. 꿈꾼 뒤에 뭘 정리하고 뭘 시작하느냐를 더 중요하게 봤죠.`,
+    `한국 전통 해석에서는 ${config.name}을 ${config.tradition} 흐름으로 자주 봅니다. 하지만 길흉보다 '지금 생활을 어떻게 다듬을지'를 더 핵심으로 여겼어요.`,
+    `${config.name}은 전통적으로 ${config.tradition}과 연결되는 꿈이에요. 그래도 실제 변화는 꿈 자체보다 꿈 이후 선택에서 나온다고 보는 해석이 많습니다.`,
+  ], 9)
+
+  const closing = pickBySlug(config.slug, [
+    `이 꿈은 겁주려는 게 아니라 방향을 잡아주려는 쪽에 가까워요. 오늘은 큰 결심보다 작은 행동 하나부터 바꿔보세요.`,
+    `중요한 건 해석을 오래 붙잡는 게 아니라 실행으로 옮기는 거예요. 오늘 한 가지라도 움직이면 흐름이 꽤 달라질 수 있습니다.`,
+    `좋은 꿈인지 나쁜 꿈인지보다, 지금 뭘 정리하면 좋을지를 보는 게 더 실용적이에요. 작은 조정이 다음 흐름을 바꿉니다.`,
+    `꿈을 너무 무겁게 들지 않아도 괜찮아요. 지금 할 수 있는 가장 작은 선택 하나를 바꾸는 게 핵심입니다.`,
+    `이 꿈을 기억했다는 것 자체가 이미 단서예요. 오늘 일정에서 미루던 한 가지만 끝내도 충분히 의미 있습니다.`,
+    `꿈은 당신 편에서 보낸 메모에 가깝습니다. 불안은 줄이고, 실행은 가볍게 하나만 시작해 보세요.`,
+  ], 11)
+
+  return {
+    introLead,
+    introSensory,
+    psychLead,
+    psychDeep,
+    tradition,
+    closing,
+  }
+}
+
+function varyLineTone(line: string, slug: string, salt: string): string {
+  if (!line) return ''
+  const rules = [
+    {
+      pattern: /신호입니다\./g,
+      variants: ['신호예요.', '신호로 읽을 수 있어요.', '신호일 가능성이 큽니다.', '신호에 가깝습니다.'],
+    },
+    {
+      pattern: /의미합니다\./g,
+      variants: ['의미예요.', '의미로 읽힙니다.', '의미를 가리킵니다.', '의미를 담고 있어요.'],
+    },
+    {
+      pattern: /반영합니다\./g,
+      variants: ['반영한 장면입니다.', '반영한 흐름입니다.', '그 심리를 비춘 장면입니다.', '그 상태를 드러낸 장면입니다.'],
+    },
+    {
+      pattern: /보여줍니다\./g,
+      variants: ['드러냅니다.', '말해 줍니다.', '암시합니다.', '비춰 줍니다.'],
+    },
+    {
+      pattern: /뜻합니다\./g,
+      variants: ['뜻해요.', '가리켜요.', '의미해요.', '말해요.'],
+    },
+    {
+      pattern: /해석됩니다\./g,
+      variants: ['해석돼요.', '해석하는 편입니다.', '읽히는 경우가 많습니다.', '풀이가 가능합니다.'],
+    },
+    {
+      pattern: /자주 나타납니다\./g,
+      variants: ['자주 보여요.', '많이 나와요.', '반복해서 보여요.', '종종 떠올라요.'],
+    },
+    {
+      pattern: /선명하게 나타납니다\./g,
+      variants: ['선명하게 남아요.', '또렷하게 보여요.', '인상 깊게 떠올라요.', '유난히 또렷해져요.'],
+    },
+    {
+      pattern: /나타납니다\./g,
+      variants: ['나와요.', '보여요.', '드러나요.', '떠올라요.'],
+    },
+    {
+      pattern: /반복됩니다\./g,
+      variants: ['반복되곤 해요.', '되풀이되기 쉽습니다.', '다시 나타나기 쉽습니다.', '반복 양상이 흔합니다.'],
+    },
+  ]
+
+  try {
+    let output = line
+    rules.forEach((rule, index) => {
+      output = output.replace(rule.pattern, () =>
+        pickBySlug(`${slug}-${salt}-${index}`, rule.variants, index)
+      )
+    })
+    return output
+  } catch {
+    return line
+  }
+}
+
 function extractFAQs(content: string): FAQItem[] {
   const regex = /Q:\s*(.+?)\nA:\s*([\s\S]*?)(?=\nQ:\s*|\n##\s|$)/g
   const faqs: FAQItem[] = []
@@ -1668,26 +1872,112 @@ function extractFAQs(content: string): FAQItem[] {
 }
 
 function buildFAQs(config: DreamConfig): FAQItem[] {
+  if (config.slug === 'snake-dream') {
+    return [
+      {
+        question: '뱀꿈은 무조건 재물운이 들어오는 길몽인가요?',
+        answer: '무조건 그렇게 보기는 어렵습니다. 뱀이 차분하게 지나가거나 빛이 맑은 느낌이었다면 기회 쪽 해석이 많지만, 위협적이거나 불쾌감이 강했다면 관계·계약·건강에서 경계가 필요한 신호일 수 있어요.',
+      },
+      {
+        question: '뱀에게 물리거나 쫓기면 안 좋은 꿈인가요?',
+        answer: '나쁜 일이 확정됐다는 뜻은 아닙니다. 보통은 미뤄 둔 결정을 더 늦추기 어렵다는 의미에 가깝습니다. 특히 인간관계나 금전 문제에서 "애매하게 넘긴 조건"이 있는지 먼저 점검해 보세요.',
+      },
+      {
+        question: '흰 뱀, 검은 뱀처럼 색깔 차이도 중요할까요?',
+        answer: '색은 해석의 보조 힌트로 유용합니다. 흰색·금빛은 조력과 기회, 탁한 색이나 어두운 분위기는 경계 신호로 읽는 경우가 많아요. 다만 색보다 더 중요한 건 꿈에서 내가 느낀 감정과 행동입니다.',
+      },
+      {
+        question: '뱀꿈이 반복되면 무엇부터 바꿔야 하나요?',
+        answer: '해석을 더 찾기보다 선택 기준을 먼저 정하는 게 효과적입니다. "내가 지킬 것 1개, 포기할 것 1개"를 종이에 적어두고 하루 안에 실행하면 반복 강도가 줄어드는 경우가 많습니다.',
+      },
+      {
+        question: '꿈을 꾼 다음 바로 할 수 있는 현실 행동이 있을까요?',
+        answer: '오늘은 중요한 대화나 계약 문서에서 애매한 문장을 하나만 명확히 바꿔 보세요. 뱀꿈은 대개 직감이 먼저 온 상태라서, 작은 확인 행동 하나가 손실을 막고 기회를 살리는 분기점이 됩니다.',
+      },
+    ]
+  }
+
+  if (config.slug === 'money-dream') {
+    return [
+      {
+        question: '돈 줍는 꿈을 꾸면 진짜 돈이 들어오나요?',
+        answer: '가능성은 있지만 자동으로 생기는 건 아니에요. 이 꿈은 기회 신호를 잡을 준비가 됐는지 묻는 경우가 많습니다. 제안·정산·계약처럼 실제 숫자가 오가는 지점을 먼저 확인하세요.',
+      },
+      {
+        question: '지폐를 줍는 꿈과 동전을 줍는 꿈은 차이가 있나요?',
+        answer: '대체로 지폐는 비교적 큰 기회, 동전은 작은 성과의 축적과 연결해 읽습니다. 어떤 꿈이든 공통점은 "행동으로 옮길 때 의미가 살아난다"는 점입니다.',
+      },
+      {
+        question: '돈꿈을 꾼 뒤 바로 할 수 있는 행동은?',
+        answer: '오늘 안에 돈과 연결된 의사결정 하나를 끝내세요. 미뤄둔 청구, 자동이체 점검, 제안 조건 정리처럼 현실 흐름을 정돈하면 꿈의 신호를 제대로 활용할 수 있습니다.',
+      },
+    ]
+  }
+
+  const bespoke = bespokeVoiceCopyBySlug[config.slug]
+  if (bespoke) {
+    return [
+      {
+        question: `${config.name} 해석에서 가장 먼저 봐야 할 포인트는 뭔가요?`,
+        answer: bespoke.introLead,
+      },
+      {
+        question: '꿈이 유난히 선명하게 남았을 때는 어떻게 읽으면 좋을까요?',
+        answer: `${bespoke.introSensory} ${bespoke.psychDeep}`,
+      },
+      {
+        question: '꿈을 꾼 다음 현실에서 바로 할 행동 하나를 고른다면?',
+        answer: `${bespoke.closing} ${config.actionTip}`,
+      },
+    ]
+  }
+
+  if (config.slug === 'poop-dream') {
+    return [
+      {
+        question: '똥꿈은 정말 재물운 꿈이라고 봐도 되나요?',
+        answer: '재물운과 연결해서 해석하는 전통이 강한 건 맞습니다. 다만 무조건 돈이 들어온다는 뜻은 아니고, 막힌 흐름을 정리할 때 성과가 붙는 시점을 보여주는 경우가 많아요.',
+      },
+      {
+        question: '꿈이 불쾌했는데도 좋은 의미가 있을 수 있나요?',
+        answer: '가능합니다. 똥꿈은 감정적으로 불편해도 "배출" 상징을 담고 있어서, 오래 쌓인 피로와 문제를 정리하는 전환기로 읽히기도 합니다. 불쾌감 자체보다 꿈 이후 마음이 가벼워졌는지를 함께 보세요.',
+      },
+      {
+        question: '화장실을 못 찾는 꿈이 자주 나오면 어떤 뜻인가요?',
+        answer: '말해야 할 감정이나 처리해야 할 실무가 계속 밀리고 있다는 의미로 보는 편이 타당합니다. 특히 일정 과부하나 지출 누수가 겹칠 때 반복되기 쉬워요. 우선순위 세 가지만 추려 정리해 보세요.',
+      },
+      {
+        question: '이 꿈을 꾸면 로또를 사야 하나요?',
+        answer: '가벼운 재미로는 가능하지만, 핵심은 복권보다 생활 정리입니다. 미수금 확인, 자동결제 점검, 불필요 지출 정리처럼 현금흐름을 다듬는 행동이 실제 체감 효과를 더 크게 만듭니다.',
+      },
+      {
+        question: '꿈을 꾼 뒤 바로 해볼 만한 실천이 있을까요?',
+        answer: '오늘 안에 "버릴 것 1개"를 정해 실행해 보세요. 물건 정리도 좋고, 오래 미룬 업무 정리도 좋습니다. 똥꿈은 비우는 행동을 현실에서 시작할 때 의미가 가장 또렷해집니다.',
+      },
+    ]
+  }
+
+  const [case1, case2, case3] = config.caseStudies
   return [
     {
       question: `${config.name}은 무조건 길몽인가요?`,
-      answer: `무조건 한쪽으로 단정하기는 어려워요. 다만 꿈 전체의 분위기와 감정이 안정적이었다면 좋은 흐름으로 해석하는 경우가 많습니다. 불안한 느낌이 강했다면 스트레스 관리가 먼저라는 신호로 받아들이면 됩니다.`,
+      answer: `무조건 길몽, 흉몽으로 딱 나누긴 어려워요. ${case1.title}처럼 분위기가 안정적이면 좋은 흐름으로 보는 경우가 많고, 불안이 컸다면 지금 마음에서 가장 크게 걸리는 주제를 먼저 점검하라는 뜻으로 보는 게 더 정확합니다.`,
     },
     {
       question: `같은 꿈을 반복해서 꾸면 안 좋은 건가요?`,
-      answer: `반복 꿈은 대개 "아직 정리되지 않은 주제"가 남아 있다는 뜻입니다. 나쁜 징조라기보다 마음이 같은 메시지를 다시 보여주는 과정에 가까워요. 현실에서 작은 행동 하나라도 바꾸면 반복 강도가 줄어드는 경우가 많습니다.`,
+      answer: `같은 꿈이 반복된다고 꼭 나쁜 건 아니에요. 보통은 아직 정리 안 된 주제가 남아 있다는 뜻입니다. ${case2.title} 장면이 계속 나오면 대처 방식이 굳어졌을 수 있어서, 현실 조건을 조금만 바꿔봐도 도움이 됩니다.`,
     },
     {
       question: `꿈이 너무 생생하면 예지몽일 가능성이 있나요?`,
-      answer: `감각이 선명한 꿈이 꼭 예지몽이라는 뜻은 아닙니다. 다만 무의식의 경고나 바람이 강하게 작동하고 있다는 해석은 충분히 가능해요. 특히 ${config.sensory}처럼 감각이 또렷했다면 내 감정 에너지가 높다는 신호로 보시면 됩니다.`,
+      answer: `생생하다고 다 예지몽은 아니에요. 다만 내 마음에서 우선순위가 높다는 뜻일 수는 있습니다. ${config.sensory} 같은 장면이 강하게 남았다면, 그 주제를 현실에서 바로 점검해 보라는 신호로 보는 게 더 실용적입니다.`,
     },
     {
       question: `꿈해몽을 믿고 바로 큰 결정을 해도 될까요?`,
-      answer: `꿈은 방향을 점검하는 참고자료로 쓰는 게 가장 안전합니다. 중요한 결정은 현실 데이터와 일정, 관계 상황을 함께 보고 판단하는 게 좋아요. 꿈이 준 힌트는 "무엇을 먼저 점검할지"를 알려주는 나침반으로 활용해 보세요.`,
+      answer: `꿈은 결정을 대신해 주는 답은 아니에요. 큰 결정은 현실 정보와 일정, 관계 상황을 같이 보고 판단하는 게 맞습니다. 대신 ${case3.title} 같은 장면은 지금 뭘 먼저 정리해야 할지 알려주는 힌트로는 꽤 유용해요.`,
     },
     {
       question: `꿈을 꾼 뒤에 바로 하면 좋은 행동이 있을까요?`,
-      answer: `아침에 꿈 장면과 감정을 짧게 기록해 두는 것만으로도 해석 정확도가 크게 올라갑니다. 그다음 오늘 하루의 행동 하나를 정해 실행해 보세요. ${config.actionTip}`,
+      answer: `아침에 꿈 장면, 그때 감정, 내가 한 행동을 3줄로 적어두면 해석이 훨씬 쉬워져요. 그리고 오늘은 내 현실 상황을 떠올리면서 행동 하나만 바로 해보세요. ${config.actionTip}`,
     },
   ]
 }
@@ -1710,8 +2000,8 @@ function SectionCard({
   children: ReactNode
 }) {
   return (
-    <div className="bg-slate-800/40 border border-white/[0.08] rounded-2xl p-4">
-      <p className="text-white/40 text-[11px] font-semibold uppercase tracking-wider mb-3">
+    <div className="bg-slate-800/50 border border-white/[0.12] rounded-2xl p-4">
+      <p className="text-white/50 text-[11px] font-semibold uppercase tracking-wider mb-3">
         {icon} {label}
       </p>
       {children}
@@ -1742,13 +2032,14 @@ export default function DreamPage({
   const config = dreamConfigs.find((c) => c.slug === params.slug)
   if (!dream || !config) return notFound()
 
+  const voiceCopy = buildVoiceCopy(config)
   const faqs = buildFAQs(config)
   const relatedDreams = (relatedDreamMap[params.slug] ?? getFallbackRelatedSlugs(params.slug))
     .map((slug) => ({ slug, name: dreamNameBySlug[slug] }))
     .filter((item) => Boolean(item.name))
 
   return (
-    <div className="min-h-screen px-4 py-14 relative z-10">
+    <div className="min-h-screen px-4 py-14 relative z-10 dream-readable-ko bg-gradient-to-b from-slate-900 via-slate-900 to-slate-950">
       <div className="max-w-xl mx-auto">
         {/* 뒤로가기 */}
         <div className="mb-8">
@@ -1781,19 +2072,10 @@ export default function DreamPage({
             <AiAvatar />
             <div className="bg-slate-800/70 backdrop-blur-sm border border-white/10 text-white/85 px-4 py-3.5 rounded-2xl rounded-tl-sm max-w-[88%] text-sm leading-[1.85] shadow-md space-y-2.5">
               <p>
-                {config.name} 이야기를 꺼내면, 마음 한쪽이 먼저 반응하죠.
-                어떤 분은 기분 좋은 예감이 들었다고 말하고, 어떤 분은 잠에서 깬 뒤에도
-                가슴이 두근거렸다고 말해요. 꿈은 늘 정답을 딱 잘라 주지는 않지만,
-                지금 내 마음이 어디를 향하고 있는지 아주 솔직하게 보여줍니다.
-                특히{' '}
-                <span className="text-amber-300/90">{config.symbol}</span>의
-                상징은 일, 관계, 돈, 건강처럼 삶의 중요한 축과 연결될 때가 많습니다.
+                {voiceCopy.introLead}
               </p>
               <p className="text-white/65">
-                꿈 장면이 유난히 생생했다면 그 자체가 메시지예요.{' '}
-                <em className="not-italic text-amber-200/75">{config.sensory}</em>{' '}
-                같은 감각이 또렷하게 남아 있다면, 무의식이 &ldquo;이 부분은 그냥
-                지나치지 말아 줘&rdquo;라고 신호를 보낸 것에 가깝습니다.
+                {voiceCopy.introSensory}
               </p>
             </div>
           </div>
@@ -1805,13 +2087,13 @@ export default function DreamPage({
                 {config.caseStudies.map((c, i) => (
                   <div
                     key={i}
-                    className="bg-slate-900/50 border border-white/[0.07] rounded-xl px-3 py-3"
+                    className="bg-slate-900/60 border border-white/[0.1] rounded-xl px-3 py-3"
                   >
                     <p className="text-white/90 text-sm font-semibold mb-1.5">
                       {c.title}
                     </p>
-                    <p className="text-white/50 text-xs leading-relaxed">
-                      {c.description}
+                    <p className="text-white/60 text-xs leading-relaxed">
+                      {varyLineTone(c.description, config.slug, `case-${i}`)}
                     </p>
                   </div>
                 ))}
@@ -1827,17 +2109,10 @@ export default function DreamPage({
                 🧠 심리학적으로 보면
               </p>
               <p>
-                프로이트(Freud)는 꿈을 억눌린 욕망과 불안을 우회적으로 드러내는
-                통로로 봤습니다. 그래서 {config.name}은 단순한 상징이 아니라, 내가
-                말로는 표현하지 못한{' '}
-                <span className="text-blue-300/80">{config.focus}</span>의 감정을
-                비유적으로 보여주는 장면일 수 있어요.
+                {voiceCopy.psychLead}
               </p>
               <p className="text-white/65">
-                융(Jung)의 관점에서는 꿈이 무의식과 의식을 연결하는 다리입니다.
-                꿈에 반복되는 이미지가 있다면 그것은 지금 내 삶의 방향을 조정하라는
-                요청으로 볼 수 있어요. 결국 이 꿈은 나를 겁주려는 경고문이 아니라,
-                더 나은 균형으로 이동하라는 안내문에 가깝습니다.
+                {voiceCopy.psychDeep}
               </p>
             </div>
           </div>
@@ -1849,11 +2124,7 @@ export default function DreamPage({
                 📜 한국 전통 꿈해몽에서는
               </p>
               <p className="text-white/70 text-sm leading-relaxed">
-                한국 전통 꿈해몽에서는 {config.name}을{' '}
-                <span className="text-amber-200/90">{config.tradition}</span>이라고
-                봤습니다. 같은 꿈이라도 꿈꾼 사람의 처지와 그날의 기운, 꿈속 감정에
-                따라 풀이가 달라진다고 봤기 때문에 &ldquo;하나의 정답&rdquo;보다
-                &ldquo;상황에 맞는 해석&rdquo;을 더 중시했어요.
+                {voiceCopy.tradition}
               </p>
             </div>
           </div>
@@ -1869,7 +2140,9 @@ export default function DreamPage({
                 {config.relatable.map((r, i) => (
                   <li key={i} className="flex gap-2">
                     <span className="text-amber-400 mt-0.5 flex-shrink-0 text-xs">●</span>
-                    <span className="text-white/70 text-sm">{r}</span>
+                    <span className="text-white/70 text-sm">
+                      {varyLineTone(r, config.slug, `rel-${i}`)}
+                    </span>
                   </li>
                 ))}
               </ul>
@@ -1889,7 +2162,7 @@ export default function DreamPage({
                       </div>
                     </div>
                     {/* A: AI 스타일 */}
-                    <div className="bg-slate-900/50 text-white/60 px-3 py-2.5 rounded-xl rounded-tl-sm text-xs leading-relaxed max-w-[90%]">
+                    <div className="bg-slate-900/60 text-white/70 px-3 py-2.5 rounded-xl rounded-tl-sm text-xs leading-relaxed max-w-[90%]">
                       {faq.answer}
                     </div>
                   </div>
@@ -1906,10 +2179,7 @@ export default function DreamPage({
                 ✨ 오늘의 한 마디
               </p>
               <p>
-                당신의 꿈은 당신을 불안하게 만들려고 온 게 아니에요. 지금의 마음을
-                더 잘 돌보고, 더 나은 쪽으로 방향을 조정하라고 다정하게 건네는
-                신호에 가깝습니다. 오늘은 꿈에서 받은 힌트를 너무 무겁게 들지 말고,
-                생활 속 작은 선택 하나에 따뜻하게 반영해 보세요.
+                {voiceCopy.closing}
               </p>
               <div className="mt-3 pt-2.5 border-t border-amber-300/20 text-amber-200/60 text-xs">
                 💡 {config.actionTip}

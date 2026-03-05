@@ -42,11 +42,11 @@ export default function DreamInput({ dreamName }: { dreamName: string }) {
   }
 
   return (
-    <div className="bg-gradient-to-br from-amber-600/20 to-amber-900/30 border border-amber-400/30 rounded-2xl p-5">
-      <p className="text-amber-200 text-sm font-bold mb-1.5">
+    <div className="bg-gradient-to-br from-amber-700/30 to-amber-900/40 border border-amber-400/40 rounded-2xl p-5 shadow-lg">
+      <p className="text-amber-300 text-sm font-bold mb-1.5">
         🔮 내 꿈은 좀 달랐는데...
       </p>
-      <p className="text-white/55 text-xs leading-relaxed mb-3">
+      <p className="text-white/70 text-xs leading-relaxed mb-3">
         위 해석은 일반적인 {dreamName} 풀이예요. 꿈의 세부 장면을 알려주시면 한땀한땀 맞춤형 해석을 해드려요!
       </p>
 
@@ -59,13 +59,13 @@ export default function DreamInput({ dreamName }: { dreamName: string }) {
             onKeyDown={handleKeyDown}
             placeholder={`예: ${dreamName}인데 장소가 학교였고...`}
             disabled={isLoading}
-            className="w-full bg-slate-900/60 border border-white/[0.1] focus:border-amber-400/50 rounded-xl px-4 py-3 text-white/90 text-sm placeholder:text-white/30 resize-none outline-none transition-colors"
+            className="w-full bg-slate-900/70 border border-white/[0.15] focus:border-amber-400/60 rounded-xl px-4 py-3 text-white/90 text-sm placeholder:text-white/40 resize-none outline-none transition-colors"
             style={{ minHeight: '52px', maxHeight: '140px' }}
           />
           <button
             onClick={handleSubmit}
             disabled={!input.trim() || isLoading}
-            className="mt-2.5 w-full px-4 py-3 rounded-xl bg-amber-600/80 hover:bg-amber-500/80 disabled:opacity-40 disabled:cursor-not-allowed text-white text-sm font-semibold transition-colors flex items-center justify-center gap-2"
+            className="mt-2.5 w-full px-4 py-3 rounded-xl bg-amber-500 hover:bg-amber-400 disabled:opacity-40 disabled:cursor-not-allowed text-white text-sm font-semibold transition-colors flex items-center justify-center gap-2 shadow-md"
           >
             {isLoading ? (
               <>
@@ -90,7 +90,7 @@ export default function DreamInput({ dreamName }: { dreamName: string }) {
             </div>
           </div>
           {/* AI 해석 결과 */}
-          <div className="bg-slate-900/60 border border-white/[0.08] rounded-xl px-4 py-3.5">
+          <div className="bg-slate-900/70 border border-white/[0.12] rounded-xl px-4 py-3.5">
             <p className="text-white/80 text-sm leading-[1.85] whitespace-pre-wrap">
               {result}
             </p>
@@ -98,7 +98,7 @@ export default function DreamInput({ dreamName }: { dreamName: string }) {
           {/* 다시 하기 */}
           <button
             onClick={() => { setResult(''); setInput('') }}
-            className="w-full px-4 py-2.5 rounded-xl bg-slate-800/50 hover:bg-slate-700/50 border border-white/[0.08] text-white/60 hover:text-white/80 text-xs transition-colors"
+            className="w-full px-4 py-2.5 rounded-xl bg-slate-800/60 hover:bg-slate-700/60 border border-white/[0.12] text-white/65 hover:text-white/85 text-xs transition-colors"
           >
             다른 꿈도 물어보기
           </button>
