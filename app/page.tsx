@@ -255,7 +255,7 @@ export default function Home() {
 
         {/* 말풍선 + 상단 고양이 Lottie */}
         <div className="relative w-full max-w-md mx-auto h-60 mb-1" aria-hidden="true">
-          <div className="absolute inset-x-0 bottom-0 z-0 flex justify-center pointer-events-none">
+          <div className="absolute inset-x-0 bottom-0 z-10 flex justify-center pointer-events-none">
             <DotLottiePlayer
               src="https://lottie.host/b4094ce0-eda0-4102-908c-9a2338c13b15/P877DJHYVx.lottie"
               style={{ width: 'clamp(220px, 58vw, 300px)', height: 'clamp(220px, 58vw, 300px)' }}
