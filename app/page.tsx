@@ -253,8 +253,16 @@ export default function Home() {
           꿈을 읽어준다냥
         </h1>
 
-        {/* 떠다니는 말풍선 + 이모지 */}
-        <div className="relative w-full max-w-md mx-auto h-52 mb-2" aria-hidden="true">
+        {/* 말풍선 + 상단 고양이 Lottie */}
+        <div className="relative w-full max-w-md mx-auto h-64 mb-1" aria-hidden="true">
+          <div className="absolute inset-x-0 bottom-0 z-0 flex justify-center pointer-events-none">
+            <DotLottiePlayer
+              src="https://lottie.host/b4094ce0-eda0-4102-908c-9a2338c13b15/P877DJHYVx.lottie"
+              style={{ width: 'clamp(170px, 46vw, 230px)', height: 'clamp(170px, 46vw, 230px)' }}
+              autoplay
+              loop
+            />
+          </div>
           <div className="bubble bubble-1 bg-sky-100 text-sky-800 border border-sky-200/60">
             🌙 어젯밤 꿈이냥?
           </div>
@@ -272,16 +280,6 @@ export default function Home() {
           <span className="emoji-float emoji-3">😴</span>
           <span className="emoji-float emoji-4">🌙</span>
           <span className="emoji-float emoji-5">✨</span>
-        </div>
-
-        {/* 상단 고양이 Lottie */}
-        <div className="relative w-full flex justify-center mb-2" aria-hidden="true">
-          <DotLottiePlayer
-            src="https://lottie.host/b4094ce0-eda0-4102-908c-9a2338c13b15/P877DJHYVx.lottie"
-            style={{ width: '300px', height: '300px' }}
-            autoplay
-            loop
-          />
         </div>
       </div>
 
