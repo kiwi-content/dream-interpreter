@@ -2000,8 +2000,8 @@ function SectionCard({
   children: ReactNode
 }) {
   return (
-    <div className="bg-slate-800/50 border border-white/[0.12] rounded-2xl p-4">
-      <p className="text-white/50 text-[11px] font-semibold uppercase tracking-wider mb-3">
+    <div className="bg-white/85 border border-amber-200/60 rounded-2xl p-4 shadow-sm">
+      <p className="text-amber-900/55 text-[11px] font-semibold uppercase tracking-wider mb-3">
         {icon} {label}
       </p>
       {children}
@@ -2039,20 +2039,20 @@ export default function DreamPage({
     .filter((item) => Boolean(item.name))
 
   return (
-    <div className="min-h-screen px-4 py-14 relative z-10 dream-readable-ko bg-gradient-to-b from-slate-900 via-slate-900 to-slate-950">
+    <div className="min-h-screen px-4 py-14 relative z-10 dream-readable-ko bg-gradient-to-b from-[#f7f1e7] via-[#f8f3ea] to-[#f3ede2]">
       <div className="max-w-xl mx-auto">
         {/* 뒤로가기 */}
         <div className="mb-8">
           <Link
             href="/"
-            className="inline-flex items-center gap-1.5 px-4 py-2 rounded-lg bg-amber-900/30 hover:bg-amber-800/40 border border-amber-200/40 text-amber-100 text-sm transition"
+            className="inline-flex items-center gap-1.5 px-4 py-2 rounded-lg bg-white/80 hover:bg-white border border-amber-300/60 text-amber-900 text-sm transition"
           >
             ← 메인으로 돌아가기
           </Link>
         </div>
 
         {/* 페이지 제목 (SEO용 h1) */}
-        <h1 className="text-2xl md:text-3xl font-bold mb-10 text-white/90">
+        <h1 className="text-2xl md:text-3xl font-bold mb-10 text-slate-800">
           {config.name} 해몽
         </h1>
 
@@ -2070,11 +2070,11 @@ export default function DreamPage({
           {/* AI 인트로 버블 */}
           <div className="flex items-start gap-3">
             <AiAvatar />
-            <div className="bg-slate-800/70 backdrop-blur-sm border border-white/10 text-white/85 px-4 py-3.5 rounded-2xl rounded-tl-sm max-w-[88%] text-sm leading-[1.85] shadow-md space-y-2.5">
+            <div className="bg-white/90 backdrop-blur-sm border border-amber-200/60 text-slate-800 px-4 py-3.5 rounded-2xl rounded-tl-sm max-w-[88%] text-sm leading-[1.85] shadow-sm space-y-2.5">
               <p>
                 {voiceCopy.introLead}
               </p>
-              <p className="text-white/65">
+              <p className="text-slate-600">
                 {voiceCopy.introSensory}
               </p>
             </div>
@@ -2087,12 +2087,12 @@ export default function DreamPage({
                 {config.caseStudies.map((c, i) => (
                   <div
                     key={i}
-                    className="bg-slate-900/60 border border-white/[0.1] rounded-xl px-3 py-3"
+                    className="bg-amber-50/80 border border-amber-200/60 rounded-xl px-3 py-3"
                   >
-                    <p className="text-white/90 text-sm font-semibold mb-1.5">
+                    <p className="text-slate-800 text-sm font-semibold mb-1.5">
                       {c.title}
                     </p>
-                    <p className="text-white/60 text-xs leading-relaxed">
+                    <p className="text-slate-600 text-xs leading-relaxed">
                       {varyLineTone(c.description, config.slug, `case-${i}`)}
                     </p>
                   </div>
@@ -2104,14 +2104,14 @@ export default function DreamPage({
           {/* 심리학 버블 */}
           <div className="flex items-start gap-3">
             <AiAvatar />
-            <div className="bg-slate-800/70 backdrop-blur-sm border border-white/10 text-white/85 px-4 py-3.5 rounded-2xl rounded-tl-sm max-w-[88%] text-sm leading-[1.85] shadow-md space-y-2.5">
-              <p className="text-blue-300/70 text-[11px] font-semibold uppercase tracking-wide">
+            <div className="bg-white/90 backdrop-blur-sm border border-amber-200/60 text-slate-800 px-4 py-3.5 rounded-2xl rounded-tl-sm max-w-[88%] text-sm leading-[1.85] shadow-sm space-y-2.5">
+              <p className="text-sky-700/80 text-[11px] font-semibold uppercase tracking-wide">
                 🧠 심리학적으로 보면
               </p>
               <p>
                 {voiceCopy.psychLead}
               </p>
-              <p className="text-white/65">
+              <p className="text-slate-600">
                 {voiceCopy.psychDeep}
               </p>
             </div>
@@ -2119,11 +2119,11 @@ export default function DreamPage({
 
           {/* 한국 전통 해몽 카드 */}
           <div className="ml-11">
-            <div className="bg-amber-950/40 border border-amber-400/20 rounded-2xl px-4 py-3.5">
-              <p className="text-amber-300/65 text-[11px] font-semibold uppercase tracking-wide mb-2">
+            <div className="bg-amber-100/70 border border-amber-300/50 rounded-2xl px-4 py-3.5">
+              <p className="text-amber-800/75 text-[11px] font-semibold uppercase tracking-wide mb-2">
                 📜 한국 전통 꿈해몽에서는
               </p>
-              <p className="text-white/70 text-sm leading-relaxed">
+              <p className="text-slate-700 text-sm leading-relaxed">
                 {voiceCopy.tradition}
               </p>
             </div>
@@ -2132,15 +2132,15 @@ export default function DreamPage({
           {/* 이런 분들 버블 */}
           <div className="flex items-start gap-3">
             <AiAvatar />
-            <div className="bg-slate-800/70 backdrop-blur-sm border border-white/10 text-white/85 px-4 py-3.5 rounded-2xl rounded-tl-sm max-w-[88%] text-sm leading-[1.85] shadow-md">
-              <p className="text-purple-300/70 text-[11px] font-semibold uppercase tracking-wide mb-3">
+            <div className="bg-white/90 backdrop-blur-sm border border-amber-200/60 text-slate-800 px-4 py-3.5 rounded-2xl rounded-tl-sm max-w-[88%] text-sm leading-[1.85] shadow-sm">
+              <p className="text-amber-800/75 text-[11px] font-semibold uppercase tracking-wide mb-3">
                 💭 이런 분들이 자주 꾸는 꿈이에요
               </p>
               <ul className="space-y-2">
                 {config.relatable.map((r, i) => (
                   <li key={i} className="flex gap-2">
                     <span className="text-amber-400 mt-0.5 flex-shrink-0 text-xs">●</span>
-                    <span className="text-white/70 text-sm">
+                    <span className="text-slate-700 text-sm">
                       {varyLineTone(r, config.slug, `rel-${i}`)}
                     </span>
                   </li>
@@ -2157,12 +2157,12 @@ export default function DreamPage({
                   <div key={i} className="space-y-2">
                     {/* Q: 사용자 스타일 */}
                     <div className="flex justify-end">
-                      <div className="bg-amber-400/20 border border-amber-400/25 text-amber-100 px-3 py-2 rounded-xl rounded-br-sm text-xs max-w-[88%] leading-relaxed">
+                      <div className="bg-amber-100/70 border border-amber-300/50 text-amber-900 px-3 py-2 rounded-xl rounded-br-sm text-xs max-w-[88%] leading-relaxed">
                         {faq.question}
                       </div>
                     </div>
                     {/* A: AI 스타일 */}
-                    <div className="bg-slate-900/60 text-white/70 px-3 py-2.5 rounded-xl rounded-tl-sm text-xs leading-relaxed max-w-[90%]">
+                    <div className="bg-white/90 border border-amber-200/60 text-slate-700 px-3 py-2.5 rounded-xl rounded-tl-sm text-xs leading-relaxed max-w-[90%]">
                       {faq.answer}
                     </div>
                   </div>
@@ -2174,14 +2174,14 @@ export default function DreamPage({
           {/* 오늘의 한 마디 버블 (마무리) */}
           <div className="flex items-start gap-3">
             <AiAvatar />
-            <div className="bg-gradient-to-br from-amber-900/50 to-slate-800/50 backdrop-blur-sm border border-amber-300/25 text-white/90 px-4 py-3.5 rounded-2xl rounded-tl-sm max-w-[88%] text-sm leading-[1.85] shadow-md">
-              <p className="text-amber-300/75 text-[11px] font-semibold uppercase tracking-wide mb-2.5">
+            <div className="bg-gradient-to-br from-amber-100/90 to-orange-50/90 backdrop-blur-sm border border-amber-300/50 text-slate-800 px-4 py-3.5 rounded-2xl rounded-tl-sm max-w-[88%] text-sm leading-[1.85] shadow-sm">
+              <p className="text-amber-800/80 text-[11px] font-semibold uppercase tracking-wide mb-2.5">
                 ✨ 오늘의 한 마디
               </p>
               <p>
                 {voiceCopy.closing}
               </p>
-              <div className="mt-3 pt-2.5 border-t border-amber-300/20 text-amber-200/60 text-xs">
+              <div className="mt-3 pt-2.5 border-t border-amber-300/40 text-amber-800/80 text-xs">
                 💡 {config.actionTip}
               </div>
             </div>
@@ -2214,14 +2214,14 @@ export default function DreamPage({
         />
 
         {/* 관련 꿈해몽 */}
-        <div className="mt-12 p-5 rounded-2xl bg-amber-900/15 border border-amber-200/15">
-          <h2 className="text-sm font-semibold text-white/50 mb-3">관련 꿈해몽</h2>
+        <div className="mt-12 p-5 rounded-2xl bg-white/75 border border-amber-200/50">
+          <h2 className="text-sm font-semibold text-slate-600 mb-3">관련 꿈해몽</h2>
           <div className="flex flex-wrap gap-2">
             {relatedDreams.map((d) => (
               <Link
                 key={d.slug}
                 href={`/dream/${d.slug}`}
-                className="px-3 py-1.5 rounded-lg bg-amber-900/30 hover:bg-amber-800/40 border border-amber-200/30 text-amber-100/75 text-xs transition hover:text-amber-100"
+                className="px-3 py-1.5 rounded-lg bg-amber-100/70 hover:bg-amber-100 border border-amber-300/50 text-amber-900/80 text-xs transition hover:text-amber-900"
               >
                 {d.name}
               </Link>
@@ -2233,7 +2233,7 @@ export default function DreamPage({
         <div className="mt-8">
           <Link
             href="/"
-            className="inline-flex items-center gap-1.5 px-4 py-2 rounded-lg bg-amber-900/30 hover:bg-amber-800/40 border border-amber-200/40 text-amber-100 text-sm transition"
+            className="inline-flex items-center gap-1.5 px-4 py-2 rounded-lg bg-white/80 hover:bg-white border border-amber-300/60 text-amber-900 text-sm transition"
           >
             ← 메인으로 돌아가기
           </Link>

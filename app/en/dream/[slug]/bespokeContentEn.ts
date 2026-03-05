@@ -1108,3 +1108,84 @@ export const bespokeContentEnBySlug: Record<string, EnBespokeContent> = {
     ],
   },
 }
+
+type GeneratedBespokeSeed = {
+  slug: string
+  dreamLabel: string
+  theme: string
+  action: string
+}
+
+const generatedBespokeSeeds: GeneratedBespokeSeed[] = [
+  { slug: 'lost-dream', dreamLabel: 'lost item dream', theme: 'misplaced priorities and anxiety about losing what matters', action: 'Create one simple tracking system for your top priorities.' },
+  { slug: 'maze-dream', dreamLabel: 'getting lost dream', theme: 'direction fatigue and uncertainty between life paths', action: 'Commit to one path for a short test window.' },
+  { slug: 'elevator-dream', dreamLabel: 'elevator dream', theme: 'rapid status shifts and pressure to rise quickly', action: 'Set one growth goal with one clear boundary.' },
+  { slug: 'stairs-dream', dreamLabel: 'stairs dream', theme: 'slow progress, effort, and confidence in process', action: 'Finish one small step completely.' },
+  { slug: 'train-dream', dreamLabel: 'train dream', theme: 'timeline pressure and fear of missing a life window', action: 'Lock one delayed schedule decision.' },
+  { slug: 'bus-dream', dreamLabel: 'bus dream', theme: 'group pace and tension between your needs and shared systems', action: 'Adjust one schedule boundary.' },
+  { slug: 'airplane-dream', dreamLabel: 'airplane dream', theme: 'big expansion with high-stakes risk', action: 'Add one risk check before scaling.' },
+  { slug: 'boat-dream', dreamLabel: 'boat dream', theme: 'emotional navigation in unstable conditions', action: 'Simplify route and protect energy.' },
+  { slug: 'school-dream', dreamLabel: 'school dream', theme: 'evaluation memory and performance anxiety', action: 'Measure success by process quality today.' },
+  { slug: 'office-dream', dreamLabel: 'office dream', theme: 'role pressure, output demands, and recognition stress', action: 'Set one non-negotiable work boundary.' },
+  { slug: 'moving-dream', dreamLabel: 'moving house dream', theme: 'identity transition and rebuilding your base', action: 'Replace one outdated routine with a stable one.' },
+  { slug: 'cleaning-dream', dreamLabel: 'cleaning dream', theme: 'reset energy and need for order', action: 'Clean one physical zone for mental clarity.' },
+  { slug: 'rain-dream', dreamLabel: 'rain dream', theme: 'emotional release after pressure buildup', action: 'Name one feeling and express it safely.' },
+  { slug: 'snow-dream', dreamLabel: 'snow dream', theme: 'pause, stillness, and perspective reset', action: 'Slow one decision and gather facts.' },
+  { slug: 'wind-dream', dreamLabel: 'wind dream', theme: 'invisible change and environmental pressure', action: 'Reinforce one grounding routine.' },
+  { slug: 'mountain-dream', dreamLabel: 'mountain dream', theme: 'long-term ambition requiring stamina', action: 'Focus on the next step, not the whole climb.' },
+  { slug: 'flower-dream', dreamLabel: 'flower dream', theme: 'emotional opening and creative vitality', action: 'Feed one joy source today.' },
+  { slug: 'tree-dream', dreamLabel: 'tree dream', theme: 'rooted growth and stability over time', action: 'Protect one foundational habit.' },
+  { slug: 'fruit-dream', dreamLabel: 'fruit dream', theme: 'harvest timing and readiness for results', action: 'Complete one nearly finished task.' },
+  { slug: 'eating-dream', dreamLabel: 'eating dream', theme: 'nourishment needs and emotional hunger', action: 'Meet one real need directly.' },
+  { slug: 'cooking-dream', dreamLabel: 'cooking dream', theme: 'turning raw pressure into useful action', action: 'Improve one process step.' },
+  { slug: 'bath-dream', dreamLabel: 'bath dream', theme: 'recovery and nervous-system reset', action: 'Schedule recovery before burnout.' },
+  { slug: 'toilet-dream', dreamLabel: 'toilet dream', theme: 'release, privacy, and cleaner boundaries', action: 'Clear one backlog conversation or task.' },
+  { slug: 'clothes-dream', dreamLabel: 'clothes dream', theme: 'identity display and approval tension', action: 'Present yourself more honestly in one context.' },
+  { slug: 'shoes-dream', dreamLabel: 'shoes dream', theme: 'path fit, mobility, and practical readiness', action: 'Align one plan with real capacity.' },
+  { slug: 'bag-dream', dreamLabel: 'bag dream', theme: 'burden load and resource protection', action: 'Drop one unnecessary obligation.' },
+  { slug: 'phone-dream', dreamLabel: 'phone dream', theme: 'communication overload and boundary fatigue', action: 'Separate urgent replies from background noise.' },
+  { slug: 'photo-dream', dreamLabel: 'photo dream', theme: 'memory curation and self-story clarity', action: 'Capture one moment for yourself, not performance.' },
+  { slug: 'letter-dream', dreamLabel: 'letter dream', theme: 'delayed truth and meaningful communication', action: 'Send one message you have postponed.' },
+  { slug: 'travel-dream', dreamLabel: 'travel dream', theme: 'expansion urge and uncertainty about route', action: 'Take one perspective-expanding action.' },
+  { slug: 'hospital-dream', dreamLabel: 'hospital dream', theme: 'healing priority and vulnerability acceptance', action: 'Do one preventive health or stress check.' },
+  { slug: 'surgery-dream', dreamLabel: 'surgery dream', theme: 'deep correction and structural repair', action: 'Address one root problem, not another surface symptom.' },
+]
+
+const generatedBespokeContentEnBySlug: Record<string, EnBespokeContent> = Object.fromEntries(
+  generatedBespokeSeeds.map((seed) => [
+    seed.slug,
+    {
+      voice: {
+        introLead: `A ${seed.dreamLabel} usually appears when ${seed.theme} becomes active in real life.`,
+        introSensory:
+          `If the scene felt unusually vivid, your mind is likely flagging this theme for immediate attention, not random analysis.`,
+        psychLead:
+          `Psychologically, this dream often maps stress and desire around the same issue. It shows where your system wants clearer direction.`,
+        psychDeep:
+          `Repeated versions of the dream are common until one concrete action interrupts the loop. Clarity and execution usually reduce recurrence quickly.`,
+        tradition:
+          `Traditional symbolic reading would treat this as a timing signal: pay attention to context, tone, and behavior after waking.`,
+        closing:
+          `${seed.action} Treat the dream as a practical prompt, then let action complete the interpretation.`,
+      },
+      faqs: [
+        {
+          question: `What does a ${seed.dreamLabel} usually mean?`,
+          answer:
+            `Most often it reflects ${seed.theme}. It is usually less prediction and more psychological direction.`,
+        },
+        {
+          question: 'Why did this dream feel so vivid?',
+          answer:
+            'Vividness often means emotional relevance is high right now. Your attention system is prioritizing this theme.',
+        },
+        {
+          question: 'What is the best next step?',
+          answer: seed.action,
+        },
+      ],
+    },
+  ])
+)
+
+Object.assign(bespokeContentEnBySlug, generatedBespokeContentEnBySlug)

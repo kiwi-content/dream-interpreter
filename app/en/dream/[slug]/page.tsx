@@ -32,7 +32,7 @@ type FAQItem = {
 
 const BASE_URL = 'https://kkumhaemong.xyz'
 
-const dreamConfigs: DreamConfig[] = [
+const coreDreamConfigs: DreamConfig[] = [
   {
     slug: 'snake-dream',
     name: 'Snake Dream',
@@ -1355,6 +1355,414 @@ const dreamConfigs: DreamConfig[] = [
   },
 ]
 
+type GeneratedDreamSeed = {
+  slug: string
+  name: string
+  dreamLabel: string
+  symbol: string
+  sensory: string
+  focus: string
+  actionTip: string
+  tradition: string
+  metaHook: string
+}
+
+const generatedDreamSeeds: GeneratedDreamSeed[] = [
+  {
+    slug: 'lost-dream',
+    name: 'Lost Item Dream',
+    dreamLabel: 'lost item dream',
+    symbol: 'loss anxiety and value awareness',
+    sensory: 'searching pockets, bags, and familiar places in a rush',
+    focus: 'feeling scattered and afraid of missing something important',
+    actionTip: 'Set one simple tracking rule for your most important task or object today.',
+    tradition: 'a warning to protect resources before they leak',
+    metaHook: 'Lost-item dreams often appear when mental load is high and priorities are diffuse.',
+  },
+  {
+    slug: 'maze-dream',
+    name: 'Getting Lost Dream',
+    dreamLabel: 'getting lost dream',
+    symbol: 'direction uncertainty and identity transition',
+    sensory: 'unfamiliar streets and repeated turns',
+    focus: 'difficulty choosing between competing paths',
+    actionTip: 'Choose one path and commit for seven days before re-evaluating.',
+    tradition: 'a sign to pause and recheck direction',
+    metaHook: 'Getting-lost dreams usually signal decision fatigue rather than bad luck.',
+  },
+  {
+    slug: 'elevator-dream',
+    name: 'Elevator Dream',
+    dreamLabel: 'elevator dream',
+    symbol: 'status shifts and control of pace',
+    sensory: 'sudden rising or falling in a closed space',
+    focus: 'pressure to move faster than readiness',
+    actionTip: 'Define one growth target and one personal limit before taking the next leap.',
+    tradition: 'a marker of changing rank and timing',
+    metaHook: 'Elevator dreams track sudden movement in responsibility, confidence, or social position.',
+  },
+  {
+    slug: 'stairs-dream',
+    name: 'Stairs Dream',
+    dreamLabel: 'stairs dream',
+    symbol: 'gradual growth and effort',
+    sensory: 'heavy breath and step-by-step movement',
+    focus: 'progress anxiety in long projects',
+    actionTip: 'Finish one small step end-to-end before starting another.',
+    tradition: 'a symbol of steady advancement',
+    metaHook: 'Stairs dreams often highlight process discipline more than instant results.',
+  },
+  {
+    slug: 'train-dream',
+    name: 'Train Dream',
+    dreamLabel: 'train dream',
+    symbol: 'life direction and timing windows',
+    sensory: 'platform announcements and rail vibration',
+    focus: 'fear of missing the right timing',
+    actionTip: 'Decide one delayed schedule choice today and lock it in.',
+    tradition: 'a sign of journey luck and timing',
+    metaHook: 'Train dreams usually appear when plans require commitment to a timeline.',
+  },
+  {
+    slug: 'bus-dream',
+    name: 'Bus Dream',
+    dreamLabel: 'bus dream',
+    symbol: 'group pace and social adaptation',
+    sensory: 'crowded seats, frequent stops, and route shifts',
+    focus: 'balancing personal needs with collective demands',
+    actionTip: 'Adjust one boundary around your daily schedule.',
+    tradition: 'an indicator of movement through shared fate',
+    metaHook: 'Bus dreams often reflect life lived on other people\'s timetables.',
+  },
+  {
+    slug: 'airplane-dream',
+    name: 'Airplane Dream',
+    dreamLabel: 'airplane dream',
+    symbol: 'major expansion and high-stakes change',
+    sensory: 'takeoff pressure and turbulence',
+    focus: 'ambition mixed with fear of losing control',
+    actionTip: 'Add one risk check to your biggest goal this week.',
+    tradition: 'linked to distant travel and major opportunity',
+    metaHook: 'Airplane dreams commonly signal bold growth that needs structure.',
+  },
+  {
+    slug: 'boat-dream',
+    name: 'Boat Dream',
+    dreamLabel: 'boat dream',
+    symbol: 'emotional navigation and resilience',
+    sensory: 'rocking water and shifting balance',
+    focus: 'maintaining direction in uncertain conditions',
+    actionTip: 'Simplify your route and protect energy before pushing speed.',
+    tradition: 'a sign of passage through change safely',
+    metaHook: 'Boat dreams often appear when you are crossing an emotional transition.',
+  },
+  {
+    slug: 'school-dream',
+    name: 'School Dream',
+    dreamLabel: 'school dream',
+    symbol: 'learning pressure and evaluation memory',
+    sensory: 'classroom noise and test-day tension',
+    focus: 'fear of being judged by performance',
+    actionTip: 'Define success by process quality for one day.',
+    tradition: 'tied to honor, study, and document luck',
+    metaHook: 'School dreams often revive old evaluation patterns in current challenges.',
+  },
+  {
+    slug: 'office-dream',
+    name: 'Office Dream',
+    dreamLabel: 'office dream',
+    symbol: 'role pressure and recognition',
+    sensory: 'meetings, deadlines, and notification overload',
+    focus: 'conflict between output and wellbeing',
+    actionTip: 'Set one non-negotiable work boundary today.',
+    tradition: 'a modern form of career and position fortune',
+    metaHook: 'Office dreams usually reflect stress around responsibility and visibility.',
+  },
+  {
+    slug: 'moving-dream',
+    name: 'Moving House Dream',
+    dreamLabel: 'moving house dream',
+    symbol: 'transition of foundation and identity',
+    sensory: 'packing boxes and entering unfamiliar rooms',
+    focus: 'letting go of old structure while building a new one',
+    actionTip: 'Release one outdated routine and replace it with a stable habit.',
+    tradition: 'a signal of household fortune shifting',
+    metaHook: 'Moving dreams often mark a life chapter change that needs practical reorganization.',
+  },
+  {
+    slug: 'cleaning-dream',
+    name: 'Cleaning Dream',
+    dreamLabel: 'cleaning dream',
+    symbol: 'reset, order, and emotional clearing',
+    sensory: 'sweeping, wiping, and visible before-after contrast',
+    focus: 'need to reduce noise and regain control',
+    actionTip: 'Clean one physical zone to reset mental focus.',
+    tradition: 'a sign of clearing stagnant energy',
+    metaHook: 'Cleaning dreams usually appear when your system wants simplicity and order.',
+  },
+  {
+    slug: 'rain-dream',
+    name: 'Rain Dream',
+    dreamLabel: 'rain dream',
+    symbol: 'emotional release and renewal',
+    sensory: 'steady rainfall and wet skin',
+    focus: 'carrying feelings without expression',
+    actionTip: 'Name one emotion directly and communicate it safely.',
+    tradition: 'often read as fertility and replenishing fortune',
+    metaHook: 'Rain dreams often represent healthy release after emotional pressure.',
+  },
+  {
+    slug: 'snow-dream',
+    name: 'Snow Dream',
+    dreamLabel: 'snow dream',
+    symbol: 'pause, purity, and quiet recalibration',
+    sensory: 'cold air and muted sound',
+    focus: 'need for stillness before next action',
+    actionTip: 'Slow one decision and gather facts before moving.',
+    tradition: 'can signal both blessing and caution depending on context',
+    metaHook: 'Snow dreams often emerge when your mind needs calm to reset perspective.',
+  },
+  {
+    slug: 'wind-dream',
+    name: 'Wind Dream',
+    dreamLabel: 'wind dream',
+    symbol: 'invisible change and environmental pressure',
+    sensory: 'strong gusts and shifting direction',
+    focus: 'feeling moved by forces outside your control',
+    actionTip: 'Reinforce one grounding routine today.',
+    tradition: 'linked to directional energy and seasonal movement',
+    metaHook: 'Wind dreams often mirror rapid change in social or emotional climate.',
+  },
+  {
+    slug: 'mountain-dream',
+    name: 'Mountain Dream',
+    dreamLabel: 'mountain dream',
+    symbol: 'long-term goals and endurance',
+    sensory: 'steep climbs and summit distance',
+    focus: 'persistence under sustained demand',
+    actionTip: 'Define the next step, not the entire mountain.',
+    tradition: 'a sign of stable rise through effort',
+    metaHook: 'Mountain dreams usually emphasize patience, stamina, and strategic pacing.',
+  },
+  {
+    slug: 'flower-dream',
+    name: 'Flower Dream',
+    dreamLabel: 'flower dream',
+    symbol: 'emotional opening and creative vitality',
+    sensory: 'color saturation and fragrance',
+    focus: 'desire for beauty, connection, and affirmation',
+    actionTip: 'Nourish one joy source that restores energy.',
+    tradition: 'associated with celebration and relationship luck',
+    metaHook: 'Flower dreams often appear when your emotional life is beginning to open again.',
+  },
+  {
+    slug: 'tree-dream',
+    name: 'Tree Dream',
+    dreamLabel: 'tree dream',
+    symbol: 'rooted growth and life stability',
+    sensory: 'bark texture and branch movement',
+    focus: 'balancing expansion with grounding',
+    actionTip: 'Protect one foundational habit that keeps you steady.',
+    tradition: 'linked to longevity and family strength',
+    metaHook: 'Tree dreams often reflect how stable your inner foundation feels.',
+  },
+  {
+    slug: 'fruit-dream',
+    name: 'Fruit Dream',
+    dreamLabel: 'fruit dream',
+    symbol: 'results, reward, and timing of harvest',
+    sensory: 'taste, ripeness, and color',
+    focus: 'readiness to receive outcomes',
+    actionTip: 'Complete one nearly finished task today.',
+    tradition: 'a sign of yield, prosperity, and family blessing',
+    metaHook: 'Fruit dreams usually point to harvest timing and how well you finish cycles.',
+  },
+  {
+    slug: 'eating-dream',
+    name: 'Eating Dream',
+    dreamLabel: 'eating dream',
+    symbol: 'nourishment, desire, and emotional hunger',
+    sensory: 'flavor intensity and fullness',
+    focus: 'unmet needs for care, rest, or recognition',
+    actionTip: 'Identify one real need and meet it directly.',
+    tradition: 'connected with receiving fortune and sustenance',
+    metaHook: 'Eating dreams often mirror what your life is trying to take in or replenish.',
+  },
+  {
+    slug: 'cooking-dream',
+    name: 'Cooking Dream',
+    dreamLabel: 'cooking dream',
+    symbol: 'transformation through effort and care',
+    sensory: 'heat, aroma, and timing control',
+    focus: 'pressure to produce and provide',
+    actionTip: 'Improve one process step instead of forcing speed.',
+    tradition: 'tied to household harmony and incoming abundance',
+    metaHook: 'Cooking dreams often show how you process emotion into practical action.',
+  },
+  {
+    slug: 'bath-dream',
+    name: 'Bath Dream',
+    dreamLabel: 'bath dream',
+    symbol: 'cleansing and nervous-system recovery',
+    sensory: 'water temperature and bodily relief',
+    focus: 'need to reset after emotional or social strain',
+    actionTip: 'Schedule recovery before your energy crashes.',
+    tradition: 'a sign of washing away stagnant luck',
+    metaHook: 'Bath dreams usually appear when your system requests restoration, not more output.',
+  },
+  {
+    slug: 'toilet-dream',
+    name: 'Toilet Dream',
+    dreamLabel: 'toilet dream',
+    symbol: 'release, privacy, and boundary hygiene',
+    sensory: 'urgency and search for a safe space',
+    focus: 'difficulty expressing what needs to leave',
+    actionTip: 'Clear one backlog conversation or task today.',
+    tradition: 'often linked with release and money flow',
+    metaHook: 'Toilet dreams often signal blocked release and the need for cleaner boundaries.',
+  },
+  {
+    slug: 'clothes-dream',
+    name: 'Clothes Dream',
+    dreamLabel: 'clothes dream',
+    symbol: 'social identity and self-presentation',
+    sensory: 'fabric fit and appearance detail',
+    focus: 'tension between authenticity and approval',
+    actionTip: 'Choose one context where you present yourself more honestly.',
+    tradition: 'connected to honor, status, and public perception',
+    metaHook: 'Clothes dreams often reveal how you are negotiating role and identity.',
+  },
+  {
+    slug: 'shoes-dream',
+    name: 'Shoes Dream',
+    dreamLabel: 'shoes dream',
+    symbol: 'direction, mobility, and practical readiness',
+    sensory: 'fit, weight, and walking comfort',
+    focus: 'whether your current path is sustainable',
+    actionTip: 'Adjust one plan to match your real capacity.',
+    tradition: 'a sign of journey luck and life direction',
+    metaHook: 'Shoe dreams often track whether your next path truly fits you.',
+  },
+  {
+    slug: 'bag-dream',
+    name: 'Bag Dream',
+    dreamLabel: 'bag dream',
+    symbol: 'responsibility load and personal resources',
+    sensory: 'carrying weight and strap pressure',
+    focus: 'burden management and priority control',
+    actionTip: 'Remove one unnecessary obligation from your week.',
+    tradition: 'related to safeguarding assets',
+    metaHook: 'Bag dreams often show what you are carrying and what you need to put down.',
+  },
+  {
+    slug: 'phone-dream',
+    name: 'Phone Dream',
+    dreamLabel: 'phone dream',
+    symbol: 'communication pressure and connection boundaries',
+    sensory: 'ringing, vibration, and screen failure',
+    focus: 'tension between availability and exhaustion',
+    actionTip: 'Separate urgent replies from non-urgent noise.',
+    tradition: 'a modern form of message and relationship fortune',
+    metaHook: 'Phone dreams often mirror overload in communication and social expectations.',
+  },
+  {
+    slug: 'photo-dream',
+    name: 'Photo Dream',
+    dreamLabel: 'photo dream',
+    symbol: 'memory curation and self-story',
+    sensory: 'framing, focus, and shutter moments',
+    focus: 'desire to preserve meaning and identity',
+    actionTip: 'Capture one memory for yourself, not for performance.',
+    tradition: 'linked to reputation and legacy traces',
+    metaHook: 'Photo dreams often ask what you are choosing to remember and why.',
+  },
+  {
+    slug: 'letter-dream',
+    name: 'Letter Dream',
+    dreamLabel: 'letter dream',
+    symbol: 'delayed truth and meaningful communication',
+    sensory: 'envelope texture and handwriting',
+    focus: 'waiting for clarity or closure',
+    actionTip: 'Send one message you have been postponing.',
+    tradition: 'tied to document luck and incoming news',
+    metaHook: 'Letter dreams often appear when words need more intention and depth.',
+  },
+  {
+    slug: 'travel-dream',
+    name: 'Travel Dream',
+    dreamLabel: 'travel dream',
+    symbol: 'exploration, change, and perspective shift',
+    sensory: 'packing, transit, and unfamiliar scenery',
+    focus: 'readiness to leave old routines',
+    actionTip: 'Take one action that expands perspective today.',
+    tradition: 'a sign of movement luck and new encounters',
+    metaHook: 'Travel dreams usually reflect desire for expansion with uncertainty about route.',
+  },
+  {
+    slug: 'hospital-dream',
+    name: 'Hospital Dream',
+    dreamLabel: 'hospital dream',
+    symbol: 'healing, vulnerability, and support systems',
+    sensory: 'waiting rooms, medical sounds, and sterile atmosphere',
+    focus: 'recognition that recovery requires help',
+    actionTip: 'Do one preventive health or stress check this week.',
+    tradition: 'a warning-and-recovery symbol depending on tone',
+    metaHook: 'Hospital dreams often signal that repair must be prioritized before performance.',
+  },
+  {
+    slug: 'surgery-dream',
+    name: 'Surgery Dream',
+    dreamLabel: 'surgery dream',
+    symbol: 'deep correction and decisive change',
+    sensory: 'bright lights, precision, and tension',
+    focus: 'willingness to face discomfort for long-term repair',
+    actionTip: 'Address one root problem instead of another surface fix.',
+    tradition: 'can signify cutting away misfortune to reset flow',
+    metaHook: 'Surgery dreams usually reflect readiness for structural rather than cosmetic change.',
+  },
+]
+
+function createGeneratedDreamConfig(seed: GeneratedDreamSeed): DreamConfig {
+  return {
+    slug: seed.slug,
+    name: seed.name,
+    dreamLabel: seed.dreamLabel,
+    symbol: seed.symbol,
+    sensory: seed.sensory,
+    focus: seed.focus,
+    actionTip: seed.actionTip,
+    tradition: seed.tradition,
+    metaTitle: `${seed.name} Meaning: Patterns, Pressure, and Direction`,
+    metaDescription: `${seed.metaHook} Explore common ${seed.dreamLabel} scenes with practical interpretation and grounded next steps.`,
+    caseStudies: [
+      {
+        title: `${seed.name} in a calm setting`,
+        description: `When the scene feels clear, your mind is integrating ${seed.symbol} with more stability.`,
+      },
+      {
+        title: 'You feel blocked or delayed',
+        description: `This usually reflects ${seed.focus} and the cost of postponing one key decision.`,
+      },
+      {
+        title: 'The scene becomes intense',
+        description: `Escalation often signals accumulated tension around ${seed.symbol} that needs direct handling.`,
+      },
+      {
+        title: 'You regain control before waking',
+        description: 'This suggests resilience is active and practical action can quickly improve the outcome.',
+      },
+    ],
+    relatable: [
+      `It often appears when ${seed.symbol} becomes a practical concern in daily life.`,
+      `People under sustained pressure around ${seed.focus} report this dream frequently.`,
+      'It can repeat until one concrete action reduces uncertainty.',
+    ],
+  }
+}
+
+const generatedDreamConfigs: DreamConfig[] = generatedDreamSeeds.map(createGeneratedDreamConfig)
+const dreamConfigs: DreamConfig[] = [...coreDreamConfigs, ...generatedDreamConfigs]
+
 const dreamData = Object.fromEntries(
   dreamConfigs.map((config) => [
     config.slug,
@@ -1403,6 +1811,26 @@ const relatedDreamMap: Record<string, string[]> = {
   'gift-dream': ['money-dream', 'wedding-dream', 'ex-dream', 'dog-dream', 'cat-dream'],
   'love-dream': ['romance-dream', 'ex-dream', 'wedding-dream', 'ghost-dream', 'moon-dream'],
   'romance-dream': ['love-dream', 'ex-dream', 'wedding-dream', 'cat-dream', 'gift-dream'],
+}
+
+function getSlugHash(slug: string): number {
+  let hash = 0
+  for (const ch of slug) {
+    hash = (hash * 31 + ch.charCodeAt(0)) >>> 0
+  }
+  return hash
+}
+
+function getFallbackRelatedSlugs(slug: string): string[] {
+  const slugs = dreamConfigs.map((config) => config.slug).filter((item) => item !== slug)
+  if (slugs.length <= 5) return slugs
+
+  const start = getSlugHash(slug) % slugs.length
+  const result: string[] = []
+  for (let i = 0; i < slugs.length && result.length < 5; i += 1) {
+    result.push(slugs[(start + i) % slugs.length])
+  }
+  return result
 }
 
 function buildVoiceCopy(config: DreamConfig): EnVoiceCopy {
@@ -1474,8 +1902,8 @@ function SectionCard({
   children: ReactNode
 }) {
   return (
-    <div className="bg-slate-800/40 border border-white/[0.08] rounded-2xl p-4">
-      <p className="text-white/40 text-[11px] font-semibold uppercase tracking-wider mb-3">
+    <div className="bg-white/85 border border-amber-200/60 rounded-2xl p-4 shadow-sm">
+      <p className="text-amber-900/55 text-[11px] font-semibold uppercase tracking-wider mb-3">
         {icon} {label}
       </p>
       {children}
@@ -1529,23 +1957,23 @@ export default function EnDreamPage({
 
   const voiceCopy = buildVoiceCopy(config)
   const faqs = buildFAQs(config)
-  const relatedDreams = (relatedDreamMap[params.slug] ?? [])
+  const relatedDreams = (relatedDreamMap[params.slug] ?? getFallbackRelatedSlugs(params.slug))
     .map((slug) => ({ slug, name: dreamNameBySlug[slug] }))
     .filter((item) => Boolean(item.name))
 
   return (
-    <div className="min-h-screen px-4 py-14 relative z-10 dream-readable-en">
+    <div className="min-h-screen px-4 py-14 relative z-10 dream-readable-en bg-gradient-to-b from-[#f7f1e7] via-[#f8f3ea] to-[#f3ede2]">
       <div className="max-w-xl mx-auto">
         <div className="mb-8">
           <Link
             href="/en"
-            className="inline-flex items-center gap-1.5 px-4 py-2 rounded-lg bg-amber-900/30 hover:bg-amber-800/40 border border-amber-200/40 text-amber-100 text-sm transition"
+            className="inline-flex items-center gap-1.5 px-4 py-2 rounded-lg bg-white/80 hover:bg-white border border-amber-300/60 text-amber-900 text-sm transition"
           >
             ← Back to English home
           </Link>
         </div>
 
-        <h1 className="text-2xl md:text-3xl font-bold mb-10 text-white/90">
+        <h1 className="text-2xl md:text-3xl font-bold mb-10 text-slate-800">
           {config.name} Meaning
         </h1>
 
@@ -1558,11 +1986,11 @@ export default function EnDreamPage({
 
           <div className="flex items-start gap-3">
             <AiAvatar />
-            <div className="bg-slate-800/70 backdrop-blur-sm border border-white/10 text-white/85 px-4 py-3.5 rounded-2xl rounded-tl-sm max-w-[88%] text-sm leading-[1.85] shadow-md space-y-2.5">
+            <div className="bg-white/90 backdrop-blur-sm border border-amber-200/60 text-slate-800 px-4 py-3.5 rounded-2xl rounded-tl-sm max-w-[88%] text-sm leading-[1.85] shadow-sm space-y-2.5">
               <p>
                 {voiceCopy.introLead}
               </p>
-              <p className="text-white/65">
+              <p className="text-slate-600">
                 {voiceCopy.introSensory}
               </p>
             </div>
@@ -1574,10 +2002,10 @@ export default function EnDreamPage({
                 {config.caseStudies.map((c, i) => (
                   <div
                     key={i}
-                    className="bg-slate-900/50 border border-white/[0.07] rounded-xl px-3 py-3"
+                    className="bg-amber-50/80 border border-amber-200/60 rounded-xl px-3 py-3"
                   >
-                    <p className="text-white/90 text-sm font-semibold mb-1.5">{c.title}</p>
-                    <p className="text-white/50 text-xs leading-relaxed">{c.description}</p>
+                    <p className="text-slate-800 text-sm font-semibold mb-1.5">{c.title}</p>
+                    <p className="text-slate-600 text-xs leading-relaxed">{c.description}</p>
                   </div>
                 ))}
               </div>
@@ -1586,25 +2014,25 @@ export default function EnDreamPage({
 
           <div className="flex items-start gap-3">
             <AiAvatar />
-            <div className="bg-slate-800/70 backdrop-blur-sm border border-white/10 text-white/85 px-4 py-3.5 rounded-2xl rounded-tl-sm max-w-[88%] text-sm leading-[1.85] shadow-md space-y-2.5">
-              <p className="text-blue-300/70 text-[11px] font-semibold uppercase tracking-wide">
+            <div className="bg-white/90 backdrop-blur-sm border border-amber-200/60 text-slate-800 px-4 py-3.5 rounded-2xl rounded-tl-sm max-w-[88%] text-sm leading-[1.85] shadow-sm space-y-2.5">
+              <p className="text-sky-700/80 text-[11px] font-semibold uppercase tracking-wide">
                 🧠 Psychology Lens
               </p>
               <p>
                 {voiceCopy.psychLead}
               </p>
-              <p className="text-white/65">
+              <p className="text-slate-600">
                 {voiceCopy.psychDeep}
               </p>
             </div>
           </div>
 
           <div className="ml-11">
-            <div className="bg-amber-950/40 border border-amber-400/20 rounded-2xl px-4 py-3.5">
-              <p className="text-amber-300/65 text-[11px] font-semibold uppercase tracking-wide mb-2">
+            <div className="bg-amber-100/70 border border-amber-300/50 rounded-2xl px-4 py-3.5">
+              <p className="text-amber-800/75 text-[11px] font-semibold uppercase tracking-wide mb-2">
                 📜 Traditional Korean Reading
               </p>
-              <p className="text-white/70 text-sm leading-relaxed">
+              <p className="text-slate-700 text-sm leading-relaxed">
                 {voiceCopy.tradition}
               </p>
             </div>
@@ -1612,15 +2040,15 @@ export default function EnDreamPage({
 
           <div className="flex items-start gap-3">
             <AiAvatar />
-            <div className="bg-slate-800/70 backdrop-blur-sm border border-white/10 text-white/85 px-4 py-3.5 rounded-2xl rounded-tl-sm max-w-[88%] text-sm leading-[1.85] shadow-md">
-              <p className="text-purple-300/70 text-[11px] font-semibold uppercase tracking-wide mb-3">
+            <div className="bg-white/90 backdrop-blur-sm border border-amber-200/60 text-slate-800 px-4 py-3.5 rounded-2xl rounded-tl-sm max-w-[88%] text-sm leading-[1.85] shadow-sm">
+              <p className="text-amber-800/75 text-[11px] font-semibold uppercase tracking-wide mb-3">
                 💭 Who Has This Dream Often
               </p>
               <ul className="space-y-2">
                 {config.relatable.map((r, i) => (
                   <li key={i} className="flex gap-2">
                     <span className="text-amber-400 mt-0.5 flex-shrink-0 text-xs">●</span>
-                    <span className="text-white/70 text-sm">{r}</span>
+                    <span className="text-slate-700 text-sm">{r}</span>
                   </li>
                 ))}
               </ul>
@@ -1633,11 +2061,11 @@ export default function EnDreamPage({
                 {faqs.map((faq, i) => (
                   <div key={i} className="space-y-2">
                     <div className="flex justify-end">
-                      <div className="bg-amber-400/20 border border-amber-400/25 text-amber-100 px-3 py-2 rounded-xl rounded-br-sm text-xs max-w-[88%] leading-relaxed">
+                      <div className="bg-amber-100/70 border border-amber-300/50 text-amber-900 px-3 py-2 rounded-xl rounded-br-sm text-xs max-w-[88%] leading-relaxed">
                         {faq.question}
                       </div>
                     </div>
-                    <div className="bg-slate-900/50 text-white/60 px-3 py-2.5 rounded-xl rounded-tl-sm text-xs leading-relaxed max-w-[90%]">
+                    <div className="bg-white/90 border border-amber-200/60 text-slate-700 px-3 py-2.5 rounded-xl rounded-tl-sm text-xs leading-relaxed max-w-[90%]">
                       {faq.answer}
                     </div>
                   </div>
@@ -1648,14 +2076,14 @@ export default function EnDreamPage({
 
           <div className="flex items-start gap-3">
             <AiAvatar />
-            <div className="bg-gradient-to-br from-amber-900/50 to-slate-800/50 backdrop-blur-sm border border-amber-300/25 text-white/90 px-4 py-3.5 rounded-2xl rounded-tl-sm max-w-[88%] text-sm leading-[1.85] shadow-md">
-              <p className="text-amber-300/75 text-[11px] font-semibold uppercase tracking-wide mb-2.5">
+            <div className="bg-gradient-to-br from-amber-100/90 to-orange-50/90 backdrop-blur-sm border border-amber-300/50 text-slate-800 px-4 py-3.5 rounded-2xl rounded-tl-sm max-w-[88%] text-sm leading-[1.85] shadow-sm">
+              <p className="text-amber-800/80 text-[11px] font-semibold uppercase tracking-wide mb-2.5">
                 ✨ Today&apos;s takeaway
               </p>
               <p>
                 {voiceCopy.closing}
               </p>
-              <div className="mt-3 pt-2.5 border-t border-amber-300/20 text-amber-200/60 text-xs">
+              <div className="mt-3 pt-2.5 border-t border-amber-300/40 text-amber-800/80 text-xs">
                 💡 {config.actionTip}
               </div>
             </div>
@@ -1684,14 +2112,14 @@ export default function EnDreamPage({
           }}
         />
 
-        <div className="mt-12 p-5 rounded-2xl bg-amber-900/15 border border-amber-200/15">
-          <h2 className="text-sm font-semibold text-white/50 mb-3">Related Dream Meanings</h2>
+        <div className="mt-12 p-5 rounded-2xl bg-white/75 border border-amber-200/50">
+          <h2 className="text-sm font-semibold text-slate-600 mb-3">Related Dream Meanings</h2>
           <div className="flex flex-wrap gap-2">
             {relatedDreams.map((d) => (
               <Link
                 key={d.slug}
                 href={`/en/dream/${d.slug}`}
-                className="px-3 py-1.5 rounded-lg bg-amber-900/30 hover:bg-amber-800/40 border border-amber-200/30 text-amber-100/75 text-xs transition hover:text-amber-100"
+                className="px-3 py-1.5 rounded-lg bg-amber-100/70 hover:bg-amber-100 border border-amber-300/50 text-amber-900/80 text-xs transition hover:text-amber-900"
               >
                 {d.name}
               </Link>
@@ -1702,7 +2130,7 @@ export default function EnDreamPage({
         <div className="mt-8">
           <Link
             href="/en"
-            className="inline-flex items-center gap-1.5 px-4 py-2 rounded-lg bg-amber-900/30 hover:bg-amber-800/40 border border-amber-200/40 text-amber-100 text-sm transition"
+            className="inline-flex items-center gap-1.5 px-4 py-2 rounded-lg bg-white/80 hover:bg-white border border-amber-300/60 text-amber-900 text-sm transition"
           >
             ← Back to English home
           </Link>
