@@ -2,11 +2,14 @@
 
 import { useState, useRef, useEffect } from 'react'
 import Link from 'next/link'
+import Script from 'next/script'
 
 type Message = {
   role: 'user' | 'assistant'
   content: string
 }
+
+const DotLottiePlayer = 'dotlottie-wc' as any
 
 const INITIAL_MESSAGE = "Meow~ Tell me what you dreamed last night!"
 
@@ -219,7 +222,13 @@ export default function EnHome() {
   const isLanding = messages.length === 1
 
   return (
-    <div className="min-h-screen flex flex-col max-w-2xl mx-auto">
+    <>
+      <Script
+        src="https://unpkg.com/@lottiefiles/dotlottie-wc@0.9.3/dist/dotlottie-wc.js"
+        type="module"
+        strategy="afterInteractive"
+      />
+      <div className="min-h-screen flex flex-col max-w-2xl mx-auto">
 
       {/* Language switch */}
       <div className="flex justify-end px-6 pt-6">
@@ -261,60 +270,14 @@ export default function EnHome() {
           <span className="emoji-float emoji-5">✨</span>
         </div>
 
-        {/* Character illustrations */}
-        <div className="relative w-full max-w-xs mx-auto h-24 mb-2" aria-hidden="true">
-          {/* Star */}
-          <svg className="char-item char-side-l" width="48" height="58" viewBox="0 0 80 90" fill="none">
-            <path d="M40 4L47 24L68 18L54 34L70 48L48 44L40 64L32 44L10 48L26 34L12 18L33 24Z" fill="#fde68a" stroke="#eab308" strokeWidth="1.5"/>
-            <rect x="28" y="60" width="5" height="14" rx="2.5" fill="#475569"/><rect x="46" y="60" width="5" height="14" rx="2.5" fill="#475569"/>
-            <ellipse cx="30.5" cy="75" rx="4.5" ry="2.5" fill="#67e8f9"/><ellipse cx="48.5" cy="75" rx="4.5" ry="2.5" fill="#67e8f9"/>
-            <circle cx="32" cy="34" r="4.5" fill="#1e293b"/><circle cx="48" cy="34" r="4.5" fill="#1e293b"/>
-            <circle cx="33.3" cy="32.5" r="1.8" fill="white"/><circle cx="49.3" cy="32.5" r="1.8" fill="white"/>
-            <circle cx="25" cy="40" r="3" fill="#fca5a5" opacity="0.6"/><circle cx="55" cy="40" r="3" fill="#fca5a5" opacity="0.6"/>
-            <path d="M36 42 Q40 47 44 42" stroke="#1e293b" strokeWidth="1.5" fill="none" strokeLinecap="round"/>
-          </svg>
-
-          {/* Cat (main) */}
-          <svg className="char-item char-center" width="80" height="90" viewBox="0 0 80 95" fill="none">
-            <ellipse cx="40" cy="58" rx="24" ry="20" fill="#fde68a" stroke="#eab308" strokeWidth="1.2"/>
-            <circle cx="40" cy="32" r="22" fill="#fde68a" stroke="#eab308" strokeWidth="1.2"/>
-            <path d="M20 18L15 0L30 14Z" fill="#fbbf24" stroke="#eab308" strokeWidth="0.8"/>
-            <path d="M60 18L65 0L50 14Z" fill="#fbbf24" stroke="#eab308" strokeWidth="0.8"/>
-            <path d="M21 16L17 4L29 14Z" fill="#fda4af"/>
-            <path d="M59 16L63 4L51 14Z" fill="#fda4af"/>
-            <rect x="24" y="73" width="6" height="12" rx="3" fill="#475569"/>
-            <rect x="50" y="73" width="6" height="12" rx="3" fill="#475569"/>
-            <ellipse cx="27" cy="86" rx="5.5" ry="3" fill="#67e8f9"/>
-            <ellipse cx="53" cy="86" rx="5.5" ry="3" fill="#67e8f9"/>
-            <path d="M62 55 Q80 38 72 22" stroke="#fbbf24" strokeWidth="5" fill="none" strokeLinecap="round"/>
-            <rect x="12" y="48" width="5" height="14" rx="2.5" fill="#475569" transform="rotate(-10 14 48)"/>
-            <rect x="63" y="48" width="5" height="14" rx="2.5" fill="#475569" transform="rotate(10 65 48)"/>
-            <circle cx="30" cy="30" r="6" fill="#1e293b"/>
-            <circle cx="50" cy="30" r="6" fill="#1e293b"/>
-            <circle cx="32" cy="28" r="2.5" fill="white"/>
-            <circle cx="52" cy="28" r="2.5" fill="white"/>
-            <circle cx="29" cy="32" r="1.2" fill="white" opacity="0.5"/>
-            <circle cx="49" cy="32" r="1.2" fill="white" opacity="0.5"/>
-            <circle cx="21" cy="38" r="4" fill="#fca5a5" opacity="0.5"/>
-            <circle cx="59" cy="38" r="4" fill="#fca5a5" opacity="0.5"/>
-            <ellipse cx="40" cy="36" rx="3" ry="2.5" fill="#f472b6"/>
-            <path d="M35 40 Q40 44 45 40" stroke="#1e293b" strokeWidth="1.5" fill="none" strokeLinecap="round"/>
-            <line x1="10" y1="34" x2="26" y2="36" stroke="#eab308" strokeWidth="0.8"/>
-            <line x1="10" y1="38" x2="26" y2="38" stroke="#eab308" strokeWidth="0.8"/>
-            <line x1="54" y1="36" x2="70" y2="34" stroke="#eab308" strokeWidth="0.8"/>
-            <line x1="54" y1="38" x2="70" y2="38" stroke="#eab308" strokeWidth="0.8"/>
-          </svg>
-
-          {/* Moon */}
-          <svg className="char-item char-side-r" width="48" height="52" viewBox="0 0 100 100" fill="none">
-            <path d="M65 10C35 10 15 35 15 55C15 75 30 90 50 90C70 90 85 75 85 55C75 65 55 60 50 40C48 30 55 15 65 10Z" fill="#fef3c7" stroke="#eab308" strokeWidth="1.5"/>
-            <rect x="35" y="84" width="6" height="12" rx="3" fill="#475569"/><rect x="55" y="84" width="6" height="12" rx="3" fill="#475569"/>
-            <ellipse cx="38" cy="97" rx="5" ry="2.5" fill="#67e8f9"/><ellipse cx="58" cy="97" rx="5" ry="2.5" fill="#67e8f9"/>
-            <circle cx="35" cy="55" r="5" fill="#1e293b"/><circle cx="52" cy="52" r="5" fill="#1e293b"/>
-            <circle cx="36.3" cy="53.2" r="2" fill="white"/><circle cx="53.3" cy="50.2" r="2" fill="white"/>
-            <circle cx="27" cy="62" r="3.5" fill="#fca5a5" opacity="0.5"/><circle cx="58" cy="58" r="3.5" fill="#fca5a5" opacity="0.5"/>
-            <path d="M38 63 Q44 70 52 62" stroke="#1e293b" strokeWidth="1.8" fill="none" strokeLinecap="round"/>
-          </svg>
+        {/* Top cat Lottie */}
+        <div className="relative w-full flex justify-center mb-2" aria-hidden="true">
+          <DotLottiePlayer
+            src="https://lottie.host/b4094ce0-eda0-4102-908c-9a2338c13b15/P877DJHYVx.lottie"
+            style={{ width: '300px', height: '300px' }}
+            autoplay
+            loop
+          />
         </div>
       </div>
 
@@ -463,6 +426,7 @@ export default function EnHome() {
         </>
       )}
 
-    </div>
+      </div>
+    </>
   )
 }
