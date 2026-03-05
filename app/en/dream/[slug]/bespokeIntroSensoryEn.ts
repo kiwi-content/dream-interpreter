@@ -14,9 +14,9 @@ export const bespokeIntroSensoryEn: Record<string, string> = {
   'pregnancy-dream':
     'Warmth and heaviness in the body often signal an idea crossing into responsibility. Put it on a timeline and give it proper care.',
   'ex-dream':
-    'A vivid old voice or scent usually means old attachment code is active, not that the person should return. Update your present standards.',
+    'When old scenes feel vivid, the dream is usually asking how you will respond differently this time. Rewrite the pattern before it repeats.',
   'wedding-dream':
-    'When vows, clothing, or ceremony details stay with you, commitment themes are central right now. Decide what you are truly ready to promise.',
+    'If ceremony details linger, your mind is testing commitment terms, not just romance. Define your non-negotiables before you say yes.',
   'fire-dream':
     'Heat and crackle you can still feel suggest intense drive waiting for direction. Channel it before urgency burns your focus.',
   'water-dream':
@@ -28,17 +28,17 @@ export const bespokeIntroSensoryEn: Record<string, string> = {
   'money-dream':
     'Feeling the bills or coins in your hand means opportunity is concrete enough to audit. Run the numbers first, then move.',
   'baby-dream':
-    'The warmth of holding a baby usually signals a fragile beginning worth protecting. Build consistency instead of rushing for quick results.',
+    'That protective warmth usually marks a beginning that needs steadiness, not intensity. Small daily care is the winning strategy.',
   'poop-dream':
     'Strong odor or urgency in this dream is often a clean-out signal. What you release now makes room for real gains.',
   'cat-dream':
-    'Clear eyes and soft steps point to subtle social signals you have already noticed. Keep boundaries elegant and firm.',
+    'The dream points to social precision more than speed. Choose carefully who gets closeness and where you keep distance.',
   'dog-dream':
     'When bark, weight, or warmth stands out, trust and safety are your core themes right now. Choose loyal people and stable structures.',
   'deceased-dream':
-    'A loved one appearing vividly often reflects guidance you already carry. Ask which value of theirs you can practice today.',
+    "A vivid appearance often works like a moral compass check. Ask which principle from that person belongs in today's decision.",
   'blood-dream':
-    'Intense red imagery usually marks high emotional stakes. Do not suppress it; regulate and express it safely.',
+    'Blood imagery usually means emotional intensity is peaking. Safe expression will restore clarity faster than suppression.',
   'hair-dream':
     'Texture loss or hair-in-hand detail often reflects identity strain and fatigue. Restore basics before chasing image control.',
   'tiger-dream':
@@ -64,15 +64,15 @@ export const bespokeIntroSensoryEn: Record<string, string> = {
   'love-dream':
     'A vivid face or touch usually means attachment needs are getting louder. Ask directly for what you need.',
   'romance-dream':
-    'Warm chemistry with lingering nerves suggests desire and caution moving together. Set pace and expectations together.',
+    'This scene often separates desire from fear so you can read both clearly. Once both are named, choices become cleaner.',
   'lost-dream':
     'Panic while searching signals blurred priorities, not incapacity. Pick one north star for this week and follow it.',
   'maze-dream':
-    'Repeated corridors in memory usually mean criteria are missing. Eliminate options before you choose.',
+    'Endless turns usually mean your filters are weak, not your ability. Remove options first, then choose.',
   'elevator-dream':
     'Sharp up-or-down sensations reflect status swings or control stress. Define your floor before pressing more buttons.',
   'stairs-dream':
-    'Heavy breathing on stairs points to progress that needs pacing. One steady step beats dramatic leaps.',
+    'Stairs in detail usually confirm progress through repetition. Finish one step well instead of sprinting two at once.',
   'train-dream':
     'Platform sounds and rail vibration cue timing pressure. You miss less by committing earlier.',
   'bus-dream':
@@ -84,7 +84,7 @@ export const bespokeIntroSensoryEn: Record<string, string> = {
   'school-dream':
     'Classroom tension detail points to evaluation fatigue. Learn mode will serve you better than prove mode right now.',
   'office-dream':
-    'Meetings and notification overload in dreams often mirror role saturation. Clarify what is truly yours to carry.',
+    'If meetings and alerts dominate the scene, role boundaries are likely blurred. Separate core ownership from optional support.',
   'moving-dream':
     'Packing and unfamiliar rooms indicate identity and routine transition is underway. Decide what comes with you and what stays behind.',
   'cleaning-dream':
@@ -92,7 +92,7 @@ export const bespokeIntroSensoryEn: Record<string, string> = {
   'rain-dream':
     'Rain texture and sound detail often signal emotional release. Let it move through instead of bracing against it.',
   'snow-dream':
-    'Muted sound and cold stillness point to a needed slowdown. Quiet planning beats rushed reaction.',
+    'This quiet frozen atmosphere often means you need a deliberate pause. Slower judgment now prevents noisy mistakes later.',
   'wind-dream':
     'Directional gusts in memory suggest external change has already started. Secure routine before chasing momentum.',
   'mountain-dream':
@@ -116,11 +116,11 @@ export const bespokeIntroSensoryEn: Record<string, string> = {
   'shoes-dream':
     'Foot discomfort detail asks whether your current path matches your capacity. Choose sustainability over speed.',
   'bag-dream':
-    'Strap pressure and carrying weight in memory suggest responsibility overload. Put one burden down on purpose.',
+    'Carrying weight in detail usually means your load is beyond useful capacity. Drop one obligation and protect margin.',
   'phone-dream':
     'Ringing, vibration, or broken-screen scenes point to communication burnout. Define clear response windows.',
   'photo-dream':
-    'Framing and shutter moments indicate a need to choose perspective. Decide what deserves to be preserved.',
+    'Framing details suggest a perspective decision, not just a memory. Choose what deserves focus and let the rest pass.',
   'letter-dream':
     'Envelope or handwriting detail signals unfinished communication. Send one honest message and end the loop.',
   'travel-dream':

@@ -120,7 +120,7 @@ export const bespokeContentEnBySlug: Record<string, EnBespokeContent> = {
   'flying-dream': {
     voice: {
       introLead:
-        'Flying dreams often arrive when your ambition outruns your current structure. They carry freedom and responsibility in the same image.',
+        'Flying dreams usually come when your life is outgrowing an old ceiling and asking for a wider operating range.',
       introSensory:
         'If wind speed and altitude felt real, your expansion drive is high, and your mind is testing whether your life can hold that growth.',
       psychLead:
@@ -252,7 +252,7 @@ export const bespokeContentEnBySlug: Record<string, EnBespokeContent> = {
   'ex-dream': {
     voice: {
       introLead:
-        'Dreams about an ex are usually less about reunion and more about relational pattern review.',
+        'Dreams about an ex are usually less about reunion and more about reviewing the emotional script you still run under stress.',
       introSensory:
         'If voice, scent, or specific moments felt vivid, your current emotional life may be activating old attachment scripts.',
       psychLead:
@@ -285,7 +285,7 @@ export const bespokeContentEnBySlug: Record<string, EnBespokeContent> = {
   'wedding-dream': {
     voice: {
       introLead:
-        'Wedding dreams are about commitment architecture: what you are ready to bind yourself to.',
+        'Wedding dreams usually highlight commitment design: what you are willing to tie your life to, and on which terms.',
       introSensory:
         'If ceremony details were vivid, your decision-making system is likely working on a major agreement in waking life.',
       psychLead:
@@ -483,7 +483,7 @@ export const bespokeContentEnBySlug: Record<string, EnBespokeContent> = {
   'baby-dream': {
     voice: {
       introLead:
-        'Baby dreams often symbolize fragile beginnings and the need for careful stewardship.',
+        'Baby dreams often signal a beginning that is real but still vulnerable, asking for protection more than speed.',
       introSensory:
         'If warmth, breath, or touch felt real, your care system is active and likely focused on something new in your life.',
       psychLead:
@@ -549,7 +549,7 @@ export const bespokeContentEnBySlug: Record<string, EnBespokeContent> = {
   'cat-dream': {
     voice: {
       introLead:
-        'Cat dreams often blend independence, intuition, and boundary intelligence.',
+        'Cat dreams often appear when your social perception sharpens and subtle emotional signals matter more than explicit words.',
       introSensory:
         'If eye contact, movement, or subtle behavior felt vivid, your social radar is likely detecting mixed signals in waking life.',
       psychLead:
@@ -615,7 +615,7 @@ export const bespokeContentEnBySlug: Record<string, EnBespokeContent> = {
   'deceased-dream': {
     voice: {
       introLead:
-        'Dreams of a deceased loved one often carry memory, comfort, and unfinished feeling rather than fear.',
+        'Dreams of a deceased loved one often function as value reminders, pointing your present choices back toward what matters.',
       introSensory:
         'If voice, expression, or touch felt intensely real, your emotional system may be processing meaning during a vulnerable life period.',
       psychLead:
@@ -648,7 +648,7 @@ export const bespokeContentEnBySlug: Record<string, EnBespokeContent> = {
   'blood-dream': {
     voice: {
       introLead:
-        'Blood dreams are intense because they symbolize life force, loss, urgency, and emotional charge at once.',
+        'Blood dreams feel intense because they condense urgency, vitality, and emotional exposure into one unmistakable image.',
       introSensory:
         'If color, flow, or location was vivid, your inner system may be highlighting where energy is being spent or depleted.',
       psychLead:
@@ -681,7 +681,7 @@ export const bespokeContentEnBySlug: Record<string, EnBespokeContent> = {
   'hair-dream': {
     voice: {
       introLead:
-        'Hair dreams often reflect identity, vitality, and sensitivity to social perception.',
+        'Hair dreams tend to surface when confidence, vitality, and public self-image are being negotiated at the same time.',
       introSensory:
         'If texture, shedding, or appearance felt vivid, your self-image and stress level may be tightly linked right now.',
       psychLead:
@@ -714,7 +714,7 @@ export const bespokeContentEnBySlug: Record<string, EnBespokeContent> = {
   'tiger-dream': {
     voice: {
       introLead:
-        'Tiger dreams carry authority, force, and leadership tests. They often arrive when your role is getting bigger.',
+        'Tiger dreams mark power contact moments, where your voice, boundary, and leadership stance are being tested under pressure.',
       introSensory:
         'If the tiger gaze or presence felt overwhelming, a high-stakes situation may already be shaping your next move.',
       psychLead:
@@ -813,7 +813,7 @@ export const bespokeContentEnBySlug: Record<string, EnBespokeContent> = {
   'lottery-dream': {
     voice: {
       introLead:
-        'Lottery dreams often surface when relief fantasy and financial pressure collide.',
+        'Lottery dreams usually show up when your mind is split between strategic planning and the wish for instant relief.',
       introSensory:
         'If numbers or ticket details felt vivid, your mind is likely processing uncertainty, hope, and control at the same time.',
       psychLead:
@@ -1077,7 +1077,7 @@ export const bespokeContentEnBySlug: Record<string, EnBespokeContent> = {
   'romance-dream': {
     voice: {
       introLead:
-        'Romance dreams often reveal desire patterns and readiness for closeness more than literal prediction.',
+        'Romance dreams are often emotional rehearsals: they reveal your desired style of intimacy more than they predict a specific person.',
       introSensory:
         'If chemistry, mood, or tension felt vivid, your relational imagination may be testing what intimacy means to you now.',
       psychLead:
@@ -1143,7 +1143,7 @@ export const bespokeContentEnBySlug: Record<string, EnBespokeContent> = {
   'maze-dream': {
     voice: {
       introLead:
-        'Maze dreams usually show up when you have options but no confident decision framework.',
+        'Maze dreams usually show up when comparison replaces criteria and every option starts to feel equally uncertain.',
       introSensory:
         'Repeated turns and dead ends in memory often reflect circling thought patterns, not lack of ability.',
       psychLead:
@@ -1209,7 +1209,7 @@ export const bespokeContentEnBySlug: Record<string, EnBespokeContent> = {
   'stairs-dream': {
     voice: {
       introLead:
-        'Stair dreams usually speak to effort, pacing, and trust in gradual progress.',
+        'Stair dreams usually point to earned progress, where discipline matters more than dramatic momentum.',
       introSensory:
         'Heavy breathing and step-by-step strain often mirror real endurance work that has not paid off yet.',
       psychLead:
@@ -1407,7 +1407,7 @@ export const bespokeContentEnBySlug: Record<string, EnBespokeContent> = {
   'office-dream': {
     voice: {
       introLead:
-        'Office dreams tend to surface when role pressure and identity pressure overlap.',
+        'Office dreams often begin when your role expands faster than your energy budget and ownership lines get blurry.',
       introSensory:
         'Meeting loops, notifications, and deadline urgency in the dream often mirror chronic cognitive overload.',
       psychLead:
@@ -1539,7 +1539,7 @@ export const bespokeContentEnBySlug: Record<string, EnBespokeContent> = {
   'snow-dream': {
     voice: {
       introLead:
-        'Snow dreams frequently arrive when life asks for pause, quiet judgment, and slower response.',
+        'Snow dreams often arrive as a forced slowdown, especially when your decision rhythm has become too reactive.',
       introSensory:
         'Muted sound and cold stillness usually mirror emotional numbing or a protective slowdown.',
       psychLead:
@@ -1869,7 +1869,7 @@ export const bespokeContentEnBySlug: Record<string, EnBespokeContent> = {
   'clothes-dream': {
     voice: {
       introLead:
-        'Clothes dreams often reveal tension between authentic identity and social presentation.',
+        'Clothes dreams usually expose a styling conflict between who you are becoming and who you feel expected to appear as.',
       introSensory:
         'Fabric fit and appearance detail in memory usually mirrors concerns about being seen correctly.',
       psychLead:
@@ -1935,7 +1935,7 @@ export const bespokeContentEnBySlug: Record<string, EnBespokeContent> = {
   'bag-dream': {
     voice: {
       introLead:
-        'Bag dreams often represent responsibility load and how well you protect your resources.',
+        'Bag dreams often represent carrying capacity: what responsibilities still fit, and what has become excess weight.',
       introSensory:
         'Weight and strap pressure detail in memory usually reflects burden that has become physically felt.',
       psychLead:
@@ -2001,7 +2001,7 @@ export const bespokeContentEnBySlug: Record<string, EnBespokeContent> = {
   'photo-dream': {
     voice: {
       introLead:
-        'Photo dreams usually appear when memory, identity narrative, and perspective selection become important.',
+        'Photo dreams usually appear when you need to decide not just what happened, but how you will frame it in your life story.',
       introSensory:
         'Framing and shutter detail in memory often shows your mind actively choosing what to preserve.',
       psychLead:

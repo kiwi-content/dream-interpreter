@@ -62,7 +62,7 @@ export const bespokeOpeningKoBySlug: Record<string, BespokeOpeningKo> = {
     introLead:
       '전 애인 꿈은 재회 예고라기보다, 과거 관계에서 굳어진 내 반응 패턴을 점검하라는 신호입니다. 상대보다 지금의 내가 핵심이에요.',
     introSensory:
-      '지금 필요한 건 추억 분석이 아니라 기준 업데이트입니다. 현재 관계에서 내가 원하는 방식 한 줄을 분명히 적어두세요.',
+      '추억을 다시 해석하기보다, 비슷한 갈등이 오면 어떻게 다르게 반응할지 시나리오를 미리 써보세요.',
   },
   'poop-dream': {
     introLead:
@@ -86,13 +86,13 @@ export const bespokeOpeningKoBySlug: Record<string, BespokeOpeningKo> = {
     introLead:
       '아기 꿈은 작지만 중요한 시작을 다루는 꿈입니다. 결과를 빨리 내기보다 안전하게 키우는 방식이 맞는 시기에 자주 나와요.',
     introSensory:
-      '지금 필요한 건 큰 도약이 아니라 반복 가능한 리듬입니다. 매일 지킬 수 있는 작은 루틴 하나가 가장 강한 해석입니다.',
+      '작게 시작해도 계속 가는 방식이 핵심입니다. 하루 10분이라도 같은 시간에 반복하면 가능성이 자랍니다.',
   },
   'wedding-dream': {
     introLead:
-      '결혼 꿈은 연애 예언보다 약속의 질을 묻는 꿈입니다. 무엇을 내 삶에 공식적으로 들일지 결정하는 시기에 자주 나타나요.',
+      '결혼 꿈은 누군가와의 로맨스 예측보다, 내 삶의 우선순위를 누구와 어떻게 묶을지 정하는 장면에 가깝습니다. 선택의 무게가 커질 때 자주 뜹니다.',
     introSensory:
-      '사람보다 기준을 먼저 정하면 선택이 쉬워집니다. 양보할 수 없는 조건 하나만 명확히 해도 흔들림이 줄어듭니다.',
+      '분위기에 밀려 결정하면 후회가 길어집니다. 내가 지켜야 할 조건을 먼저 고르면 관계도 더 건강해집니다.',
   },
   'flying-dream': {
     introLead:
@@ -120,9 +120,9 @@ export const bespokeOpeningKoBySlug: Record<string, BespokeOpeningKo> = {
   },
   'cat-dream': {
     introLead:
-      '고양이 꿈은 친밀함과 경계가 동시에 필요한 시기를 보여줍니다. 가까워지고 싶지만 내 리듬은 지키고 싶은 마음이 반영된 장면이에요.',
+      '고양이 꿈은 사람보다 분위기를 읽는 감각이 올라왔을 때 자주 나타납니다. 말보다 표정과 침묵에서 단서를 잡는 시기의 꿈이에요.',
     introSensory:
-      '관계의 핵심은 속도입니다. 서두르지 말고 내가 편한 거리에서 신뢰를 쌓으면 오히려 더 오래 갑니다.',
+      '이 꿈의 핵심은 거리보다 정확성입니다. 누구와 가까워질지, 어디서 선을 그을지 구체화하면 관계 피로가 확 줄어듭니다.',
   },
   'dog-dream': {
     introLead:
@@ -132,7 +132,7 @@ export const bespokeOpeningKoBySlug: Record<string, BespokeOpeningKo> = {
   },
   'deceased-dream': {
     introLead:
-      '돌아가신 분 꿈은 두려움보다 기억의 방향을 묻는 꿈입니다. 그분을 통해 지금 내 삶에 필요한 태도를 다시 배우라는 뜻으로 자주 읽힙니다.',
+      '돌아가신 분이 나오는 장면은 과거 회상이 아니라 현재의 선택을 비추는 거울일 때가 많습니다. 잊고 지낸 가치가 다시 떠오를 때 특히 선명해져요.',
     introSensory:
       '해석보다 실천이 먼저입니다. 그분이 소중히 여기던 가치 하나를 오늘 행동으로 옮겨 보세요.',
   },
@@ -158,7 +158,7 @@ export const bespokeOpeningKoBySlug: Record<string, BespokeOpeningKo> = {
     introLead:
       '피 꿈은 감정 강도가 높아졌다는 강한 알림입니다. 무섭게 느껴져도 핵심은 위험 예고가 아니라 소모 관리예요.',
     introSensory:
-      '억누르는 방식은 오래 못 갑니다. 안전한 배출 통로를 만들면 오히려 판단이 빨라집니다.',
+      '참는 힘으로만 버티면 더 지칩니다. 감정을 안전하게 흘려보낼 통로를 만들면 집중력이 먼저 회복됩니다.',
   },
   'earthquake-dream': {
     introLead:
@@ -192,9 +192,9 @@ export const bespokeOpeningKoBySlug: Record<string, BespokeOpeningKo> = {
   },
   'romance-dream': {
     introLead:
-      '연애 꿈은 새 인연 예고보다 친밀감에 대한 현재 욕구를 보여주는 경우가 많습니다. 설렘과 경계가 동시에 움직이는 시기죠.',
+      '연애 꿈은 누군가를 만난다는 예고보다, 내가 원하는 사랑의 형태를 밤에 리허설하는 장면에 가깝습니다. 설렘과 기준이 동시에 올라오는 시기예요.',
     introSensory:
-      '관계의 품질은 속도 합의에서 결정됩니다. 빨라야 좋은 게 아니라 서로 편한 리듬이 맞아야 오래 갑니다.',
+      '좋아하는 감정과 두려운 감정을 따로 적어 보세요. 두 감정을 분리하면 왜 망설이는지, 무엇이 필요한지 빠르게 선명해집니다.',
   },
   'lost-dream': {
     introLead:
@@ -204,7 +204,7 @@ export const bespokeOpeningKoBySlug: Record<string, BespokeOpeningKo> = {
   },
   'maze-dream': {
     introLead:
-      '길 잃는 꿈은 선택지가 많아서가 아니라 선택 기준이 약해졌을 때 자주 옵니다. 방향보다 기준부터 점검하라는 뜻이에요.',
+      '길을 잃는 꿈은 인생 방향이 틀렸다는 뜻보다, 기준 없이 계속 비교 중이라는 신호에 가깝습니다. 갈림길이 많을수록 이런 꿈이 반복돼요.',
     introSensory:
       '당장 정답을 찾기보다 버릴 길부터 정하세요. 선택지가 줄어들면 불안도 함께 줄어듭니다.',
   },
@@ -218,7 +218,7 @@ export const bespokeOpeningKoBySlug: Record<string, BespokeOpeningKo> = {
     introLead:
       '계단 꿈은 느리지만 분명한 진전을 상징합니다. 지루해 보여도 결국 멀리 가는 사람의 리듬을 보여주는 꿈이에요.',
     introSensory:
-      '지금 필요한 건 화려한 도약이 아니라 완주 가능한 페이스입니다. 한 칸씩 끝내는 방식이 정답입니다.',
+      '계단 꿈의 해법은 단순합니다. 한 번에 두 칸 뛰려 하지 말고, 한 칸을 끝내는 습관부터 붙이세요.',
   },
   'train-dream': {
     introLead:
@@ -254,7 +254,7 @@ export const bespokeOpeningKoBySlug: Record<string, BespokeOpeningKo> = {
     introLead:
       '회사 꿈은 업무량보다 역할 압박이 커졌을 때 자주 나옵니다. 해야 할 일보다 떠맡은 책임이 과해졌다는 신호일 수 있어요.',
     introSensory:
-      '모두를 만족시키는 방식은 오래 못 갑니다. 내 일이 아닌 것 하나를 분리하는 게 지금 필요한 조정입니다.',
+      '업무 효율보다 역할 경계가 먼저입니다. "내가 끝까지 책임질 일"과 "도와줄 수만 있는 일"을 분리하면 소진이 줄어듭니다.',
   },
   'moving-dream': {
     introLead:
@@ -276,7 +276,7 @@ export const bespokeOpeningKoBySlug: Record<string, BespokeOpeningKo> = {
   },
   'snow-dream': {
     introLead:
-      '눈 오는 꿈은 속도를 늦춰야 할 타이밍에 자주 옵니다. 멈춤이 후퇴가 아니라 정렬이라는 메시지를 담고 있어요.',
+      '눈 오는 꿈은 모든 걸 빨리 처리하려는 습관에 브레이크를 거는 꿈입니다. 고요함이 필요한 국면에서 자주 나타납니다.',
     introSensory:
       '결정을 급히 내리지 마세요. 하루만 정리 시간을 확보해도 판단 품질이 확 달라집니다.',
   },
@@ -348,7 +348,7 @@ export const bespokeOpeningKoBySlug: Record<string, BespokeOpeningKo> = {
   },
   'bag-dream': {
     introLead:
-      '가방 꿈은 무엇을 들고 다니는지, 왜 계속 들고 있는지를 보여줍니다. 책임 과적 상태일수록 가방 상징이 자주 나와요.',
+      '가방 꿈은 내 책임 목록이 이미 한계를 넘었는지 점검하라는 신호입니다. 손에 들고 있는 짐이 마음의 무게로 번졌을 때 자주 보입니다.',
     introSensory:
       '중요한 건 더 담는 일이 아니라 덜어내는 기술입니다. 불필요한 짐 하나를 내려놓는 순간 숨이 트입니다.',
   },
@@ -360,7 +360,7 @@ export const bespokeOpeningKoBySlug: Record<string, BespokeOpeningKo> = {
   },
   'photo-dream': {
     introLead:
-      '사진 꿈은 무엇을 남기고 무엇을 흘려보낼지 결정하는 꿈입니다. 시선의 초점을 다시 맞추라는 메시지로 자주 읽힙니다.',
+      '사진 찍는 꿈은 기억을 기록하려는 욕구보다, 지금 내 삶의 초점을 다시 고르려는 움직임으로 해석하는 편이 정확합니다.',
     introSensory:
       '남에게 보여줄 장면보다 내게 중요한 장면을 먼저 고르세요. 기준이 바뀌면 하루의 밀도도 달라집니다.',
   },
