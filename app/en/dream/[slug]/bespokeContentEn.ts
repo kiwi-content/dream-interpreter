@@ -25,11 +25,11 @@ export const bespokeContentEnBySlug: Record<string, EnBespokeContent> = {
       introSensory:
         'If the scales, movement, or distance felt vivid, your intuition is already tracking something specific in waking life, often around money, trust, or power.',
       psychLead:
-        'Psychologically, snakes often symbolize raw instinct. You may be sensing an opportunity but also questioning whether the cost is worth it.',
+        'Snakes often symbolize raw instinct. You may be sensing an opportunity but also questioning whether the cost is worth it.',
       psychDeep:
         'Dream tone matters more than snake size. A calm snake can point to controlled transformation, while a threatening one often reflects boundaries that need to be defended.',
       tradition:
-        'In Korean tradition, snake imagery can carry fortune and helper energy, especially with white or golden snakes, but context still decides whether the sign is blessing or warning.',
+        'In older Korean dream books, snake imagery carries fortune and helper energy, especially with white or golden snakes, but context still decides whether the sign is blessing or warning.',
       closing:
         'Treat this dream as a prompt to choose clearly: one opportunity to commit to and one risk to stop ignoring.',
     },
@@ -45,7 +45,7 @@ export const bespokeContentEnBySlug: Record<string, EnBespokeContent> = {
           'That scene often mirrors an avoided decision in real life. The dream is less about danger prediction and more about urgency.',
       },
       {
-        question: 'What should I do after this dream?',
+        question: 'Can the snake color change the meaning?',
         answer:
           'Review one contract, conversation, or financial decision where terms feel fuzzy. Clarity is usually the right response to a snake dream.',
       },
@@ -62,13 +62,13 @@ export const bespokeContentEnBySlug: Record<string, EnBespokeContent> = {
       psychDeep:
         'Front teeth scenes often connect to confidence and visibility. Molar scenes can point to heavier family or duty-based stress.',
       tradition:
-        'Traditional Korean readings often link teeth dreams to shifts in close relationships or family mood, but never as a fixed sentence; emotional context changes the reading.',
+        'Korean ancestors linked teeth dreams to shifts in close relationships or family mood, but never as a fixed sentence; emotional context changes the reading.',
       closing:
         'Instead of searching for doom, rebuild confidence in small concrete ways: one boundary, one honest conversation, one manageable promise to yourself.',
     },
     faqs: [
       {
-        question: 'Is this dream a bad omen?',
+        question: 'Why do teeth dreams feel so unsettling even after waking?',
         answer:
           'Usually no. It is more often a stress and self-image signal than a literal prediction of harm.',
       },
@@ -78,7 +78,7 @@ export const bespokeContentEnBySlug: Record<string, EnBespokeContent> = {
           'Repetition usually means the same pressure pattern is still active, especially around judgment, perfectionism, or unresolved tension.',
       },
       {
-        question: 'What helps right away?',
+        question: 'Can this dream change meaning depending on which teeth fall out?',
         answer:
           'Lower one performance demand for the day and finish one task cleanly. Restored control reduces recurrence.',
       },
@@ -95,7 +95,7 @@ export const bespokeContentEnBySlug: Record<string, EnBespokeContent> = {
       psychDeep:
         'Repeated pursuit scenes often mean delay costs are rising. Once you name the avoided issue, the dream intensity often drops.',
       tradition:
-        'Traditional readings frame this as a conflict signal, but also as a test of courage and timing rather than pure bad luck.',
+        'Before modern psychology, this dream was understood as a conflict signal, but also as a test of courage and timing rather than pure bad luck.',
       closing:
         'Do one direct action on the thing you keep circling. Chasing dreams calm down when avoidance ends.',
     },
@@ -111,7 +111,7 @@ export const bespokeContentEnBySlug: Record<string, EnBespokeContent> = {
           'That often points to diffuse anxiety: pressure without one clear source, common during overload periods.',
       },
       {
-        question: 'How do I break the cycle?',
+        question: 'Does the location of the chase matter?',
         answer:
           'Pick the most avoided task and start for 20 minutes. Action interrupts the pursuit pattern.',
       },
@@ -124,11 +124,11 @@ export const bespokeContentEnBySlug: Record<string, EnBespokeContent> = {
       introSensory:
         'If wind speed and altitude felt real, your expansion drive is high, and your mind is testing whether your life can hold that growth.',
       psychLead:
-        'Psychologically, flight often reflects regained agency. You want to move by your own decisions, not by inherited scripts.',
+        'Flight often reflects regained agency. You want to move by your own decisions, not by inherited scripts.',
       psychDeep:
         'Stable flight suggests confidence with direction. Sudden instability can point to momentum without support systems.',
       tradition:
-        'Traditional interpretations connect upward movement with recognition and opportunity, while reminding dreamers to pair momentum with discipline.',
+        'Korean ancestors read upward movement as recognition and opportunity, while reminding dreamers to pair momentum with discipline.',
       closing:
         'Keep the ambition, but ground it: one bold step, one practical safeguard.',
     },
@@ -144,7 +144,7 @@ export const bespokeContentEnBySlug: Record<string, EnBespokeContent> = {
           'That can reflect fear of losing control after rapid progress, especially when support is thin.',
       },
       {
-        question: 'Best next action?',
+        question: 'How does the altitude affect the reading?',
         answer:
           'Convert one big dream into a dated, measurable step. Flight energy needs structure to become real.',
       },
@@ -161,7 +161,7 @@ export const bespokeContentEnBySlug: Record<string, EnBespokeContent> = {
       psychDeep:
         'Where you fell from matters. Falling from height can indicate pressure tied to status, while stumbling can reflect accumulated fatigue.',
       tradition:
-        'Traditional readings often treat sudden descent as a caution to slow down and rebalance rather than a fixed negative fate.',
+        'In older Korean dream books, sudden descent was a caution to slow down and rebalance rather than a fixed negative fate.',
       closing:
         'Rebuild footing deliberately: simplify one commitment before adding another.',
     },
@@ -177,7 +177,7 @@ export const bespokeContentEnBySlug: Record<string, EnBespokeContent> = {
           'That startle response is common when stress arousal is high. Your body interrupts the dream before completion.',
       },
       {
-        question: 'How can I reduce this dream?',
+        question: 'Does falling from different heights mean different things?',
         answer:
           'Lower evening overstimulation and identify one instability source you can actively address the next day.',
       },
@@ -194,13 +194,13 @@ export const bespokeContentEnBySlug: Record<string, EnBespokeContent> = {
       psychDeep:
         'Dreaming of your own death often points to internal change. Dreaming of someone else can reflect relationship or expectation shifts.',
       tradition:
-        'Traditional Korean readings frequently treat death dreams as renewal or protective turning points, not simple doom symbols.',
+        'Korean dream culture frequently treats death dreams as renewal or protective turning points, not simple doom symbols.',
       closing:
         'Ask what needs a respectful ending in your life right now, then close it on purpose.',
     },
     faqs: [
       {
-        question: 'Is a death dream a bad prediction?',
+        question: 'Why did this dream feel so vivid and real?',
         answer:
           'Usually no. It most often symbolizes transition, release, and psychological reorganization.',
       },
@@ -210,7 +210,7 @@ export const bespokeContentEnBySlug: Record<string, EnBespokeContent> = {
           'Fear often reflects resistance to change, not evidence of literal danger.',
       },
       {
-        question: 'How should I respond?',
+        question: 'Does it matter who died in the dream?',
         answer:
           'Name one outdated pattern to retire and one new pattern to begin. That aligns with the dream message.',
       },
@@ -223,11 +223,11 @@ export const bespokeContentEnBySlug: Record<string, EnBespokeContent> = {
       introSensory:
         'If warmth, weight, or body awareness stood out, your mind may be marking that an idea is ready to move from concept to commitment.',
       psychLead:
-        'Psychologically, these dreams can hold both hope and burden. You want to create something meaningful, and you feel the stakes.',
+        'These dreams can hold both hope and burden. You want to create something meaningful, and you feel the stakes.',
       psychDeep:
         'Joyful scenes often align with readiness. Anxious scenes may point to support gaps rather than wrong direction.',
       tradition:
-        'Traditional interpretations often treat pregnancy imagery as incoming blessing and growth potential, especially when dream tone is calm.',
+        'In Korean folk interpretation, pregnancy imagery signals incoming blessing and growth potential, especially when dream tone is calm.',
       closing:
         'Nurture the new thing with structure: one small repeatable routine beats grand intention.',
     },
@@ -243,7 +243,7 @@ export const bespokeContentEnBySlug: Record<string, EnBespokeContent> = {
           'Growth carries responsibility. The heaviness can mirror pressure to do the new thing well.',
       },
       {
-        question: 'What should I do now?',
+        question: 'Can someone else having this dream about me mean anything?',
         answer:
           'Move one idea into a concrete first step with timeline and scope.',
       },
@@ -256,11 +256,11 @@ export const bespokeContentEnBySlug: Record<string, EnBespokeContent> = {
       introSensory:
         'If voice, scent, or specific moments felt vivid, your current emotional life may be activating old attachment scripts.',
       psychLead:
-        'Psychologically, the ex often represents a chapter in your own development, especially around boundaries, safety, and expression.',
+        'The ex often represents a chapter in your own development, especially around boundaries, safety, and expression.',
       psychDeep:
         'Intense dream emotion suggests unfinished internal dialogue. Neutral tone often signals integration and reduced grip.',
       tradition:
-        'Traditional readings treat familiar-person dreams as relational weather indicators, with emphasis on present conduct over past fixation.',
+        'Korean ancestors read familiar-person dreams as relational weather indicators, with emphasis on present conduct over past fixation.',
       closing:
         'Use the dream to clarify current standards, not to relive old loops.',
     },
@@ -276,7 +276,7 @@ export const bespokeContentEnBySlug: Record<string, EnBespokeContent> = {
           'Current stress or intimacy themes can reactivate older memory networks, even after long gaps.',
       },
       {
-        question: 'What is the healthiest response?',
+        question: 'Should I tell my current partner about this dream?',
         answer:
           'Write down what that relationship taught you and apply one lesson to your present life.',
       },
@@ -289,11 +289,11 @@ export const bespokeContentEnBySlug: Record<string, EnBespokeContent> = {
       introSensory:
         'If ceremony details were vivid, your decision-making system is likely working on a major agreement in waking life.',
       psychLead:
-        'Psychologically, this dream can reflect integration of values, not only romance. It asks what partnership means to you now.',
+        'This dream can reflect integration of values, not only romance. It asks what partnership means to you now.',
       psychDeep:
         'Harmony in the dream can signal alignment. Chaos can reveal fear of choosing under social pressure.',
       tradition:
-        'Traditional Korean readings connect wedding imagery with changes in ties, contracts, and household flow, with tone as the deciding factor.',
+        'In Korean tradition, wedding imagery connects with changes in ties, contracts, and household flow, with tone as the deciding factor.',
       closing:
         'Define one non-negotiable in your commitments. Clear criteria protect good choices.',
     },
@@ -309,7 +309,7 @@ export const bespokeContentEnBySlug: Record<string, EnBespokeContent> = {
           'That often points to pressure, mismatch, or unresolved expectations around commitment.',
       },
       {
-        question: 'Best practical next step?',
+        question: 'What makes a wedding dream different from a romance dream?',
         answer:
           'Clarify your standards before making emotionally loaded promises.',
       },
@@ -322,17 +322,17 @@ export const bespokeContentEnBySlug: Record<string, EnBespokeContent> = {
       introSensory:
         'If heat and crackling were intense, your drive is likely high and looking for direction, not suppression.',
       psychLead:
-        'Psychologically, fire can represent anger, ambition, and life force. The dream asks how that energy is being channeled.',
+        'Fire can represent anger, ambition, and life force. The dream asks how that energy is being channeled.',
       psychDeep:
         'Watching controlled fire differs from being engulfed. Control scenes reflect agency, while engulfment can indicate overload.',
       tradition:
-        'Traditional interpretations often treat clear bright fire as favorable for recognition and fortune, while chaotic fire calls for caution.',
+        'Clear bright fire was traditionally seen as favorable for recognition and fortune, while chaotic fire calls for caution.',
       closing:
         'Do not dim the fire. Give it a target and a boundary.',
     },
     faqs: [
       {
-        question: 'Is a fire dream always dangerous?',
+        question: 'Does the size of the fire change the interpretation?',
         answer:
           'Not always. Many fire dreams are about transformation and momentum rather than literal danger.',
       },
@@ -342,7 +342,7 @@ export const bespokeContentEnBySlug: Record<string, EnBespokeContent> = {
           'That can reflect deep lifestyle or family-system change, especially if many roles feel unstable.',
       },
       {
-        question: 'How should I work with this energy?',
+        question: 'How does dream emotion affect the reading?',
         answer:
           'Channel it into one priority project and avoid scattering effort across too many fronts.',
       },
@@ -359,7 +359,7 @@ export const bespokeContentEnBySlug: Record<string, EnBespokeContent> = {
       psychDeep:
         'Drowning-like scenes often point to too much at once, not personal failure. Floating or resurfacing suggests resilience is still active.',
       tradition:
-        'Traditional readings distinguish clear and murky water carefully, linking clear flow with renewal and murky flow with confusion.',
+        'Korean dream culture distinguishes clear and murky water carefully, linking clear flow with renewal and murky flow with confusion.',
       closing:
         'Reduce one source of emotional overload today. Water dreams improve when pace and boundaries improve.',
     },
@@ -375,7 +375,7 @@ export const bespokeContentEnBySlug: Record<string, EnBespokeContent> = {
           'That often reflects overload and reduced control, especially during high-demand periods.',
       },
       {
-        question: 'What helps right after this dream?',
+        question: 'What makes this dream different from an ocean dream?',
         answer:
           'Lighten one schedule burden and name one feeling directly instead of bypassing it.',
       },
@@ -388,17 +388,17 @@ export const bespokeContentEnBySlug: Record<string, EnBespokeContent> = {
       introSensory:
         'If atmosphere, presence, or cold sensation stood out, your mind may be spotlighting what has been avoided, not resolved.',
       psychLead:
-        'Psychologically, ghost imagery can symbolize memory fragments that still carry charge and ask for integration.',
+        'Ghost imagery can symbolize memory fragments that still carry charge and ask for integration.',
       psychDeep:
         'Being chased by a ghost can mirror avoidance. Speaking to the ghost can indicate readiness to process and close the loop.',
       tradition:
-        'Traditional Korean frameworks may read these dreams through ancestral or warning symbolism, but they still prioritize context and conduct.',
+        'In Korean folk belief, these dreams may carry ancestral or warning symbolism, but they still prioritize context and conduct.',
       closing:
         'Face one avoided emotion in plain language. Ghost dreams soften when what is unspoken gets named.',
     },
     faqs: [
       {
-        question: 'Is a ghost dream a bad omen?',
+        question: 'Why do ghost dreams feel more real than other dreams?',
         answer:
           'Not by default. It more often reflects unresolved fear, grief, or memory patterns.',
       },
@@ -408,7 +408,7 @@ export const bespokeContentEnBySlug: Record<string, EnBespokeContent> = {
           'High emotional charge can make dream perception feel hyper-real, especially under fatigue or stress.',
       },
       {
-        question: 'What should I do next?',
+        question: 'Should I tell someone about this dream?',
         answer:
           'Journal one unfinished emotional theme and choose one safe conversation or closure action.',
       },
@@ -421,17 +421,17 @@ export const bespokeContentEnBySlug: Record<string, EnBespokeContent> = {
       introSensory:
         'If time pressure or blank-answer panic was vivid, your waking system may be overloaded by expectations, not capability limits.',
       psychLead:
-        'Psychologically, this dream often tracks perfectionism and fear of visible mistakes.',
+        'This dream often tracks perfectionism and fear of visible mistakes rather than actual lack of competence.',
       psychDeep:
         'Failing scenes often highlight process issues, while passing scenes can reflect regained confidence and preparedness.',
       tradition:
-        'Traditional readings tie testing imagery to honor and advancement themes, but effort and timing remain central.',
+        'Korean ancestors tied testing imagery to honor and advancement themes, but effort and timing remain central.',
       closing:
         'Shift from proving to executing: finish one important task cleanly today.',
     },
     faqs: [
       {
-        question: 'Does this mean I am not ready?',
+        question: 'Why do I still dream about exams years after school?',
         answer:
           'Not necessarily. It can simply reflect high stakes and self-pressure, even when preparation is strong.',
       },
@@ -441,7 +441,7 @@ export const bespokeContentEnBySlug: Record<string, EnBespokeContent> = {
           'The exam symbol generalizes to any situation where you feel judged or measured.',
       },
       {
-        question: 'How can I reduce these dreams?',
+        question: 'Can this dream actually improve my real performance?',
         answer:
           'Prioritize process clarity over perfection and avoid last-minute overload before sleep.',
       },
@@ -454,11 +454,11 @@ export const bespokeContentEnBySlug: Record<string, EnBespokeContent> = {
       introSensory:
         'If the texture of bills or the act of picking up cash felt vivid, your decision system may be primed for practical opportunity.',
       psychLead:
-        'Psychologically, these dreams can reflect both hope and scarcity anxiety. The useful question is where action is overdue.',
+        'These dreams can reflect both hope and scarcity anxiety. The useful question is where action is overdue.',
       psychDeep:
         'Finding money often points to openings, while losing money can reveal hesitation or fear of mishandling gain.',
       tradition:
-        'Traditional readings often treat money-themed symbols as prosperity signs, but they also stress stewardship and timing.',
+        '재물운 (wealth fortune) is the concept Korean dream readers apply here: money-themed symbols signal prosperity, but they also stress stewardship and timing.',
       closing:
         'Make one concrete money move today. Opportunity dreams reward execution.',
     },
@@ -474,7 +474,7 @@ export const bespokeContentEnBySlug: Record<string, EnBespokeContent> = {
           'Often yes. Coins can symbolize incremental gain, while bills may symbolize larger or faster opportunities.',
       },
       {
-        question: 'Most useful follow-up?',
+        question: 'Can this dream recur if I ignore the message?',
         answer:
           'Review one income, pricing, or negotiation point and resolve it with numbers, not vibes.',
       },
@@ -487,11 +487,11 @@ export const bespokeContentEnBySlug: Record<string, EnBespokeContent> = {
       introSensory:
         'If warmth, breath, or touch felt real, your care system is active and likely focused on something new in your life.',
       psychLead:
-        'Psychologically, baby imagery can reflect responsibility growth and a wish to protect what matters before it is fully stable.',
+        'Baby imagery can reflect responsibility growth and a wish to protect what matters before it is fully stable.',
       psychDeep:
         'Comforting scenes often indicate trust and readiness. Distress scenes may point to fear of dropping an important opportunity.',
       tradition:
-        'Traditional readings frequently view baby dreams as blessing and new fortune, while emphasizing responsibility alongside luck.',
+        'Korean ancestors frequently viewed baby dreams as blessing and new fortune, while emphasizing responsibility alongside luck.',
       closing:
         'Treat the new thing gently but consistently. Stability comes from rhythm, not intensity.',
     },
@@ -507,7 +507,7 @@ export const bespokeContentEnBySlug: Record<string, EnBespokeContent> = {
           'That usually mirrors emerging commitment to something meaningful but still vulnerable.',
       },
       {
-        question: 'What should I do now?',
+        question: 'Does the baby gender or appearance carry meaning?',
         answer:
           'Set a gentle, repeatable routine for the thing you want to grow.',
       },
@@ -520,11 +520,11 @@ export const bespokeContentEnBySlug: Record<string, EnBespokeContent> = {
       introSensory:
         'If smell or texture felt unusually real, your body-mind system may be signaling that emotional and logistical backlog has reached capacity.',
       psychLead:
-        'Psychologically, this symbol can hold both embarrassment and relief. It points to what needs to be expelled, not hidden.',
+        'This symbol can hold both embarrassment and relief. It points to what needs to be expelled, not hidden.',
       psychDeep:
         'Relief scenes suggest unblocking. Panic or inability to find a bathroom can reflect delayed expression and bottlenecked decisions.',
       tradition:
-        'Traditional Korean readings often connect this imagery with financial luck, especially when the dream tone carries momentum rather than panic.',
+        'In Korean folk belief, this imagery strongly connects with financial luck, especially when the dream tone carries momentum rather than panic.',
       closing:
         'Clear one cluttered area of life today: expense, schedule, or unresolved conversation.',
     },
@@ -540,7 +540,7 @@ export const bespokeContentEnBySlug: Record<string, EnBespokeContent> = {
           'Release symbols can feel awkward because they touch shame, control, and vulnerability at once.',
       },
       {
-        question: 'Best real-life response?',
+        question: 'Does the setting of the dream change the interpretation?',
         answer:
           'Remove one bottleneck immediately, such as overdue admin, unresolved payment, or unspoken tension.',
       },
@@ -553,11 +553,11 @@ export const bespokeContentEnBySlug: Record<string, EnBespokeContent> = {
       introSensory:
         'If eye contact, movement, or subtle behavior felt vivid, your social radar is likely detecting mixed signals in waking life.',
       psychLead:
-        'Psychologically, cats can symbolize selective trust. You may want closeness while still protecting autonomy.',
+        'Cats can symbolize selective trust. You may want closeness while still protecting autonomy.',
       psychDeep:
         'Affectionate scenes can point to relational ease. Aggressive or avoidant scenes can reflect boundary friction.',
       tradition:
-        'Traditional interpretations vary, reading cats as both alertness and caution symbols, depending on tone and context.',
+        'Depending on tone and context, Korean dream readers saw cats as both alertness and caution symbols, not simply good or bad.',
       closing:
         'Refine one relational boundary without becoming cold. Precision is the lesson of cat dreams.',
     },
@@ -573,7 +573,7 @@ export const bespokeContentEnBySlug: Record<string, EnBespokeContent> = {
           'That can mirror felt boundary invasion or irritation that has not been expressed directly.',
       },
       {
-        question: 'What action helps?',
+        question: 'How does the cat breed or color affect interpretation?',
         answer:
           'Clarify one interpersonal limit and communicate it calmly.',
       },
@@ -590,7 +590,7 @@ export const bespokeContentEnBySlug: Record<string, EnBespokeContent> = {
       psychDeep:
         'Friendly dogs often map to trust repair. Threatening dogs can point to conflict around boundaries and emotional security.',
       tradition:
-        'Traditional readings often treat dogs as guardians, while warning that aggression imagery can indicate unresolved conflict.',
+        'Dogs were read as guardians in Korean dream lore, while aggression imagery could indicate unresolved conflict needing attention.',
       closing:
         'Strengthen one trustworthy bond and set one clear limit where trust feels thin.',
     },
@@ -606,7 +606,7 @@ export const bespokeContentEnBySlug: Record<string, EnBespokeContent> = {
           'That may reflect pressure from conflict, criticism, or unmet safety needs.',
       },
       {
-        question: 'How should I respond?',
+        question: 'Does the breed or size of the dog matter?',
         answer:
           'Reinforce reliable support and address one unresolved tension directly.',
       },
@@ -619,11 +619,11 @@ export const bespokeContentEnBySlug: Record<string, EnBespokeContent> = {
       introSensory:
         'If voice, expression, or touch felt intensely real, your emotional system may be processing meaning during a vulnerable life period.',
       psychLead:
-        'Psychologically, these dreams can support grief integration and value recall. They often reactivate guidance, not just loss.',
+        'These dreams can support grief integration and value recall. They often reactivate guidance, not just loss.',
       psychDeep:
         'Warm scenes may reflect reassurance. Distressing scenes may indicate unresolved guilt, longing, or internal conflict.',
       tradition:
-        'In Korean tradition, ancestral or deceased-person dreams can be read as messages of caution, support, or remembrance depending on tone.',
+        'In Korean culture, ancestral or deceased-person dreams can be read as messages of caution, support, or remembrance depending on tone.',
       closing:
         'Honor the dream by practicing one value that person represented in your life.',
     },
@@ -639,7 +639,7 @@ export const bespokeContentEnBySlug: Record<string, EnBespokeContent> = {
           'Stress and transition often reactivate attachment memories and unresolved grief themes.',
       },
       {
-        question: 'What is a healthy response?',
+        question: 'Can this dream change meaning over time?',
         answer:
           'Acknowledge the emotion and translate it into one grounded act of care or integrity.',
       },
@@ -652,17 +652,17 @@ export const bespokeContentEnBySlug: Record<string, EnBespokeContent> = {
       introSensory:
         'If color, flow, or location was vivid, your inner system may be highlighting where energy is being spent or depleted.',
       psychLead:
-        'Psychologically, blood imagery often points to vitality management: what drains you, what energizes you, and what wounds remain open.',
+        'Blood imagery often points to vitality management: what drains you, what energizes you, and what wounds remain open.',
       psychDeep:
         'Bleeding scenes can mirror exhaustion or boundary injury. Stopping blood can symbolize control returning.',
       tradition:
-        'Traditional readings are mixed: blood can signal warning, but in some contexts it is interpreted as release and incoming gain.',
+        'Korean dream readings are mixed here: blood can signal warning, but in some contexts it is interpreted as release and incoming gain.',
       closing:
         'Protect your energy budget today. One boundary can matter more than one more effort.',
     },
     faqs: [
       {
-        question: 'Is a blood dream always negative?',
+        question: 'Does the amount of blood change the meaning?',
         answer:
           'No. It is intense, but intensity can signal transformation as much as risk.',
       },
@@ -672,7 +672,7 @@ export const bespokeContentEnBySlug: Record<string, EnBespokeContent> = {
           'That can represent high emotional arousal or major energy drain themes.',
       },
       {
-        question: 'What should I do afterward?',
+        question: 'How does this dream differ from a wound or injury dream?',
         answer:
           'Reduce one draining commitment and add one restorative action immediately.',
       },
@@ -685,11 +685,11 @@ export const bespokeContentEnBySlug: Record<string, EnBespokeContent> = {
       introSensory:
         'If texture, shedding, or appearance felt vivid, your self-image and stress level may be tightly linked right now.',
       psychLead:
-        'Psychologically, hair can symbolize how you present yourself and how safe you feel being seen.',
+        'Hair can symbolize how you present yourself and how safe you feel being seen, making it a sensitive indicator of self-esteem shifts.',
       psychDeep:
         'Hair loss scenes often map to depletion or confidence concerns. Styling or restoring scenes can indicate agency returning.',
       tradition:
-        'Traditional readings may connect hair symbolism to health, longevity, and family concerns, with condition of hair as a key detail.',
+        'Before modern psychology, Korean readers connected hair symbolism to health, longevity, and family concerns, with hair condition as a key detail.',
       closing:
         'Shift from appearance pressure to energy care. Strength returns when rest and boundaries become non-negotiable.',
     },
@@ -705,7 +705,7 @@ export const bespokeContentEnBySlug: Record<string, EnBespokeContent> = {
           'Not directly. It more often reflects fatigue, image stress, or control concerns.',
       },
       {
-        question: 'What is the best follow-up?',
+        question: 'Does hair length in the dream carry specific meaning?',
         answer:
           'Reduce comparison triggers and protect sleep and recovery rhythm.',
       },
@@ -718,11 +718,11 @@ export const bespokeContentEnBySlug: Record<string, EnBespokeContent> = {
       introSensory:
         'If the tiger gaze or presence felt overwhelming, a high-stakes situation may already be shaping your next move.',
       psychLead:
-        'Psychologically, tiger imagery can represent power negotiation: how you handle fear when responsibility increases.',
+        'Tiger imagery can represent power negotiation: how you handle fear when responsibility increases.',
       psychDeep:
         'Riding or standing with a tiger can signal empowered alignment. Being hunted can reflect pressure from hierarchy or competition.',
       tradition:
-        'Traditional Korean readings often frame tiger dreams as symbols of rank, strong fortune, and protective authority when tone is favorable.',
+        '관운 (authority fortune) applies here: Korean dream readers framed tiger dreams as symbols of rank, strong fortune, and protective authority when tone is favorable.',
       closing:
         'Lead with clarity, not force. One decisive statement can rebalance the whole situation.',
     },
@@ -738,7 +738,7 @@ export const bespokeContentEnBySlug: Record<string, EnBespokeContent> = {
           'Fear often reflects growth pressure and role expansion, not failure.',
       },
       {
-        question: 'How should I use this dream?',
+        question: 'What makes a tiger dream different from other animal dreams?',
         answer:
           'Clarify your leadership stance and communicate one firm boundary or direction.',
       },
@@ -751,11 +751,11 @@ export const bespokeContentEnBySlug: Record<string, EnBespokeContent> = {
       introSensory:
         'If impact, brakes, or shattered control felt vivid, your system may be warning about overload and rushed decisions.',
       psychLead:
-        'Psychologically, driving scenes map to agency. Crashes often symbolize fear of losing control in a fast-moving context.',
+        'Driving scenes map to agency. Crashes often symbolize fear of losing control in a fast-moving context.',
       psychDeep:
         'If you were the driver, responsibility stress may be central. If you were a passenger, dependence and trust dynamics may be the core theme.',
       tradition:
-        'Traditional caution-based readings align with this: strong warning energy, but usually as preventable risk rather than fixed fate.',
+        'Caution-based Korean readings align with this: strong warning energy, but usually as preventable risk rather than fixed fate.',
       closing:
         'Slow one process down before it forces a hard stop. Prevention is the right interpretation.',
     },
@@ -771,7 +771,7 @@ export const bespokeContentEnBySlug: Record<string, EnBespokeContent> = {
           'Because your attention and recovery buffers are strained, and the dream dramatizes that mismatch.',
       },
       {
-        question: 'What practical step helps most?',
+        question: 'Does it matter if I was the driver or a passenger?',
         answer:
           'Cut one nonessential commitment and add one safety check to your highest-risk decision path.',
       },
@@ -784,11 +784,11 @@ export const bespokeContentEnBySlug: Record<string, EnBespokeContent> = {
       introSensory:
         'If rooms, doors, and lighting were vivid, your mind may be mapping which part of life feels stable and which part needs repair.',
       psychLead:
-        'Psychologically, the house can represent the self. Different rooms often symbolize different emotional domains.',
+        'The house can represent the self. Different rooms often symbolize different emotional domains.',
       psychDeep:
         'A bright orderly house can indicate integration. A damaged or chaotic house can indicate depletion or boundary erosion.',
       tradition:
-        'Traditional readings treat house symbols as connected to family flow, material base, and household fortune.',
+        'Korean ancestors treated house symbols as connected to family flow, material base, and household fortune.',
       closing:
         'Stabilize one foundation area today: sleep, money, home routine, or core relationship.',
     },
@@ -804,7 +804,7 @@ export const bespokeContentEnBySlug: Record<string, EnBespokeContent> = {
           'They can symbolize emerging identity spaces you are still learning to inhabit.',
       },
       {
-        question: 'How do I respond well?',
+        question: 'Does the specific room in the dream carry meaning?',
         answer:
           'Start with one practical foundation fix. House dreams favor grounded maintenance.',
       },
@@ -817,11 +817,11 @@ export const bespokeContentEnBySlug: Record<string, EnBespokeContent> = {
       introSensory:
         'If numbers or ticket details felt vivid, your mind is likely processing uncertainty, hope, and control at the same time.',
       psychLead:
-        'Psychologically, this dream can show a desire for sudden rescue, especially after long periods of effort without payoff.',
+        'This dream can show a desire for sudden rescue, especially after long periods of effort without payoff.',
       psychDeep:
         'Winning scenes can restore optimism. Losing or missing scenes can expose fear of opportunity slipping away.',
       tradition:
-        'Traditional prosperity readings support the luck theme, yet they still emphasize readiness and wise handling over pure chance.',
+        'The Korean prosperity reading supports the luck theme, yet it still emphasizes readiness and wise handling over pure chance.',
       closing:
         'Keep hope, but move on strategy: one clear improvement in your real money system today.',
     },
@@ -837,7 +837,7 @@ export const bespokeContentEnBySlug: Record<string, EnBespokeContent> = {
           'Because the psyche seeks fast relief when burden and uncertainty are high.',
       },
       {
-        question: 'Most useful takeaway?',
+        question: 'Can this dream reflect something beyond money?',
         answer:
           'Turn wish energy into one practical money action, such as pricing, budgeting, or debt cleanup.',
       },
@@ -850,11 +850,11 @@ export const bespokeContentEnBySlug: Record<string, EnBespokeContent> = {
       introSensory:
         'If waves, horizon, or depth felt strikingly real, your mind may be processing big uncertainty and big possibility together.',
       psychLead:
-        'Psychologically, the ocean often symbolizes the deep unconscious, where unresolved feelings and future intuitions coexist.',
+        'The ocean often symbolizes the deep unconscious, where unresolved feelings and future intuitions coexist.',
       psychDeep:
         'Calm seas can mirror trust in process. Rough seas often reflect emotional turbulence and adaptation strain.',
       tradition:
-        'Traditional readings connect vast water to major movement in fortune and life direction, with clarity and wave quality as key markers.',
+        'Vast water was read by Korean ancestors as major movement in fortune and life direction, with clarity and wave quality as key markers.',
       closing:
         'Anchor one daily habit while you navigate larger change. Scale needs rhythm.',
     },
@@ -870,7 +870,7 @@ export const bespokeContentEnBySlug: Record<string, EnBespokeContent> = {
           'That often mirrors overwhelm, conflict, or rapid transitions requiring better emotional regulation.',
       },
       {
-        question: 'What helps after this dream?',
+        question: 'Does distance from shore affect the reading?',
         answer:
           'Create one grounding routine and avoid impulsive major decisions for the day.',
       },
@@ -883,11 +883,11 @@ export const bespokeContentEnBySlug: Record<string, EnBespokeContent> = {
       introSensory:
         'If locks, footsteps, or intrusion details were vivid, your protective system may be alert to leaks in time, energy, or boundaries.',
       psychLead:
-        'Psychologically, a thief can symbolize what feels taken from you, including attention, peace, or agency.',
+        'A thief can symbolize what feels taken from you, including attention, peace, or agency.',
       psychDeep:
         'Catching the thief often reflects regained control. Failing to stop them can mirror helplessness in an ongoing dynamic.',
       tradition:
-        'Traditional readings are mixed here: theft imagery can warn of losses, but in some contexts it precedes an unexpected gain shift.',
+        'Korean dream readings are mixed here: theft imagery can warn of losses, but in some contexts it precedes an unexpected gain shift.',
       closing:
         'Identify one leak and close it today. Protection is the practical reading of this dream.',
     },
@@ -903,7 +903,7 @@ export const bespokeContentEnBySlug: Record<string, EnBespokeContent> = {
           'That often points to threatened safety or boundary concerns in personal life.',
       },
       {
-        question: 'Best immediate action?',
+        question: 'What was stolen in the dream - does that detail matter?',
         answer:
           'Tighten one boundary around money, time, or emotional access.',
       },
@@ -916,11 +916,11 @@ export const bespokeContentEnBySlug: Record<string, EnBespokeContent> = {
       introSensory:
         'If vibration or collapse felt vivid, your system may be registering instability before your rational mind fully names it.',
       psychLead:
-        'Psychologically, this dream often reflects fear of uncontrollable variables and identity-level uncertainty.',
+        'This dream often reflects fear of uncontrollable variables and identity-level uncertainty.',
       psychDeep:
         'Destruction scenes can mirror brittle systems. Survival and rebuilding scenes often signal strong adaptive capacity.',
       tradition:
-        'Traditional caution-oriented readings frame this as major change energy that can be navigated with preparation and humility.',
+        'Before modern psychology, Korean readers framed this as major change energy that can be navigated with preparation and humility.',
       closing:
         'Build buffers now: timeline slack, financial margin, emotional support. Earthquake dreams reward preparedness.',
     },
@@ -936,7 +936,7 @@ export const bespokeContentEnBySlug: Record<string, EnBespokeContent> = {
           'Because the symbol targets foundational safety, which the body experiences viscerally.',
       },
       {
-        question: 'What practical step should I take now?',
+        question: 'How does the aftermath in the dream change the message?',
         answer:
           'Strengthen one fragile system in your life before pressure forces a reaction.',
       },
@@ -949,11 +949,11 @@ export const bespokeContentEnBySlug: Record<string, EnBespokeContent> = {
       introSensory:
         'If moonlight or night stillness felt vivid, your inner guidance may be stronger than the noise around you suggests.',
       psychLead:
-        'Psychologically, moon imagery can represent reflective intelligence: sensing pattern, timing, and mood beneath surface events.',
+        'Moon imagery can represent reflective intelligence: sensing pattern, timing, and mood beneath surface events.',
       psychDeep:
         'A bright full moon can signal completion energy. A crescent can signal beginnings that need patience.',
       tradition:
-        'Traditional readings frequently treat the moon as auspicious, linked to dignity, harmony, and life-cycle timing.',
+        'The moon has long been read as auspicious in Korean dream culture, linked to dignity, harmony, and life-cycle timing.',
       closing:
         'Honor subtle signals today. Quiet clarity is still clarity.',
     },
@@ -969,7 +969,7 @@ export const bespokeContentEnBySlug: Record<string, EnBespokeContent> = {
           'Moon imagery often emerges when the mind is integrating emotions instead of fighting them.',
       },
       {
-        question: 'What is the best next step?',
+        question: 'Does the moon phase in the dream carry specific meaning?',
         answer:
           'Choose one decision based on long-term alignment, not short-term noise.',
       },
@@ -982,11 +982,11 @@ export const bespokeContentEnBySlug: Record<string, EnBespokeContent> = {
       introSensory:
         'If color contrast was vivid, your system may be marking a transition from confusion toward coherence.',
       psychLead:
-        'Psychologically, the rainbow can symbolize integration of opposites: grief and hope, caution and movement.',
+        'The rainbow can symbolize integration of opposites: grief and hope, caution and movement.',
       psychDeep:
         'Brief rainbow scenes can point to windows of opportunity. Lasting scenes can reflect stabilization and trust rebuilding.',
       tradition:
-        'Traditional readings commonly associate rainbows with auspicious movement, harmony, and favorable connections.',
+        'Rainbows held strong auspicious meaning in Korean dream lore, associated with harmony and favorable connections.',
       closing:
         'Follow the opening while it is open. Gentle action sustains hopeful momentum.',
     },
@@ -1002,7 +1002,7 @@ export const bespokeContentEnBySlug: Record<string, EnBespokeContent> = {
           'That can symbolize a short opportunity window or a need to act before momentum fades.',
       },
       {
-        question: 'How should I respond?',
+        question: 'Can this dream appear as a turning point after grief?',
         answer:
           'Say yes to one constructive opportunity you have been postponing.',
       },
@@ -1015,11 +1015,11 @@ export const bespokeContentEnBySlug: Record<string, EnBespokeContent> = {
       introSensory:
         'If wrapping, texture, or anticipation felt vivid, your mind may be processing what you receive versus what you are expected to give.',
       psychLead:
-        'Psychologically, gifts can symbolize emotional contracts. Gratitude and pressure can coexist in the same scene.',
+        'Gifts can symbolize emotional contracts. Gratitude and pressure can coexist in the same scene.',
       psychDeep:
         'Receiving with joy can reflect openness to support. Receiving with discomfort can reveal boundary strain or obligation fatigue.',
       tradition:
-        'Traditional readings often treat gift-like symbols as fortune movement through relationships, with intention and timing as key variables.',
+        'Korean dream readers treated gift-like symbols as fortune movement through relationships, with intention and timing as key variables.',
       closing:
         'Keep generosity, but rebalance exchange where resentment is quietly building.',
     },
@@ -1035,7 +1035,7 @@ export const bespokeContentEnBySlug: Record<string, EnBespokeContent> = {
           'That often reflects hidden pressure, obligation, or role strain in a relationship dynamic.',
       },
       {
-        question: 'What is a practical takeaway?',
+        question: 'Does the giver in the dream carry significance?',
         answer:
           'Express appreciation clearly and renegotiate one unfair expectation.',
       },
@@ -1048,11 +1048,11 @@ export const bespokeContentEnBySlug: Record<string, EnBespokeContent> = {
       introSensory:
         'If face, voice, or distance felt vivid, your emotional system may be signaling a need for clearer reassurance or expression.',
       psychLead:
-        'Psychologically, these dreams can reveal both tenderness and fear of loss. Connection and vulnerability rise together.',
+        'These dreams can reveal both tenderness and fear of loss. Connection and vulnerability rise together.',
       psychDeep:
         'Warm scenes often indicate security and gratitude. Tense scenes can point to unmet needs or silent assumptions.',
       tradition:
-        'Traditional readings place this within relationship fortune, yet still prioritize present behavior over symbolic certainty.',
+        'Korean dream culture places this within relationship fortune, yet still prioritizes present behavior over symbolic certainty.',
       closing:
         'Replace guessing with one honest sentence of affection or need.',
     },
@@ -1068,7 +1068,7 @@ export const bespokeContentEnBySlug: Record<string, EnBespokeContent> = {
           'Because these dreams touch core safety and belonging circuits, which can be powerful on waking.',
       },
       {
-        question: 'Best follow-up?',
+        question: 'How does the dream tone shift the meaning?',
         answer:
           'Communicate one clear appreciation or one clear need without drama.',
       },
@@ -1081,11 +1081,11 @@ export const bespokeContentEnBySlug: Record<string, EnBespokeContent> = {
       introSensory:
         'If chemistry, mood, or tension felt vivid, your relational imagination may be testing what intimacy means to you now.',
       psychLead:
-        'Psychologically, romance scenes can show where hope and fear meet. You may want connection while protecting old wounds.',
+        'Romance scenes can show where hope and fear meet. You may want connection while protecting old wounds.',
       psychDeep:
         'Joyful flow can signal openness. Confusing or unstable romance can signal unresolved expectations around trust and pace.',
       tradition:
-        'Traditional readings treat this as movement in relational fortune, interpreted through tone, respect, and real-world conduct.',
+        'In Korean reading tradition, this is treated as movement in relational fortune, interpreted through tone, respect, and real-world conduct.',
       closing:
         'Date with discernment, not performance. Clarity is more attractive than ambiguity.',
     },
@@ -1101,7 +1101,7 @@ export const bespokeContentEnBySlug: Record<string, EnBespokeContent> = {
           'That often mirrors desire without clear boundaries or pace agreements.',
       },
       {
-        question: 'What should I do now?',
+        question: 'Does the identity of the person in the dream matter?',
         answer:
           'Define your relational standards before entering emotionally loaded situations.',
       },
@@ -1118,7 +1118,7 @@ export const bespokeContentEnBySlug: Record<string, EnBespokeContent> = {
       psychDeep:
         'If you eventually find the item, it suggests your system still trusts recovery. If the search never ends, decision fatigue is likely high.',
       tradition:
-        'Traditional readings treat loss symbols as cautionary rather than fatalistic, urging better care of resources and timing.',
+        'Korean ancestors treated loss symbols as cautionary rather than fatalistic, urging better care of resources and timing.',
       closing:
         'Reduce the mental scatter: choose one key priority and protect it with a simple routine.',
     },
@@ -1134,7 +1134,7 @@ export const bespokeContentEnBySlug: Record<string, EnBespokeContent> = {
           'Repetition often appears when your daily systems are overloaded and you are carrying unresolved decisions.',
       },
       {
-        question: 'What helps the most after this dream?',
+        question: 'Does it matter what I lost in the dream?',
         answer:
           'Create one tracking habit for your top priorities and reduce avoidable decision clutter.',
       },
@@ -1147,11 +1147,11 @@ export const bespokeContentEnBySlug: Record<string, EnBespokeContent> = {
       introSensory:
         'Repeated turns and dead ends in memory often reflect circling thought patterns, not lack of ability.',
       psychLead:
-        'Psychologically, this dream maps uncertainty plus pressure to choose quickly.',
+        'This dream maps uncertainty plus pressure to choose quickly, a combination that stalls even strong decision-makers.',
       psychDeep:
         'Finding an exit suggests growing clarity. Endless wandering suggests criteria are still vague.',
       tradition:
-        'Traditional symbolic approaches read this as a timing and discernment issue: direction improves when intention is explicit.',
+        'Korean symbolic approaches read this as a timing and discernment issue: direction improves when intention is explicit.',
       closing:
         'Pick one path for a short test period and evaluate with evidence instead of rumination.',
     },
@@ -1167,7 +1167,7 @@ export const bespokeContentEnBySlug: Record<string, EnBespokeContent> = {
           'Not necessarily. It can be a useful prompt to define better criteria before choosing.',
       },
       {
-        question: 'What practical step should I take?',
+        question: 'Does reaching the exit in the dream change the reading?',
         answer:
           'Set a small decision window, choose one route, and review outcomes after concrete action.',
       },
@@ -1180,11 +1180,11 @@ export const bespokeContentEnBySlug: Record<string, EnBespokeContent> = {
       introSensory:
         'The body drop or lift sensation points to emotional volatility around control and reputation.',
       psychLead:
-        'Psychologically, elevators symbolize externally accelerated movement where pace can outrun readiness.',
+        'Elevators symbolize externally accelerated movement where pace can outrun readiness.',
       psychDeep:
         'Smooth travel tends to reflect confidence in growth. Jerky movement or stuck floors often reflect instability in structure.',
       tradition:
-        'Traditional readings frame vertical movement as fortune shift, with stability and direction deciding tone.',
+        'Vertical movement was read as fortune shift in Korean dream culture, with stability and direction deciding tone.',
       closing:
         'Define a growth goal and a hard boundary together so progress does not become panic.',
     },
@@ -1200,7 +1200,7 @@ export const bespokeContentEnBySlug: Record<string, EnBespokeContent> = {
           'Because the symbol targets control and speed, which the body processes viscerally.',
       },
       {
-        question: 'Best follow-up action?',
+        question: 'Does the floor number or direction carry specific meaning?',
         answer:
           'Stabilize one core routine before taking the next leap.',
       },
@@ -1213,11 +1213,11 @@ export const bespokeContentEnBySlug: Record<string, EnBespokeContent> = {
       introSensory:
         'Heavy breathing and step-by-step strain often mirror real endurance work that has not paid off yet.',
       psychLead:
-        'Psychologically, stairs symbolize earned advancement rather than sudden luck.',
+        'Stairs symbolize earned advancement rather than sudden luck, reflecting how you feel about your own effort.',
       psychDeep:
         'Climbing with rhythm suggests healthy persistence. Slipping or frozen steps suggest exhaustion or overpressure.',
       tradition:
-        'Traditional views read stairs as a process symbol: direction matters, but so does discipline over time.',
+        'In Korean reading tradition, stairs are a process symbol: direction matters, but so does discipline over time.',
       closing:
         'Finish one small stage completely instead of splitting attention across ten half-starts.',
     },
@@ -1233,7 +1233,7 @@ export const bespokeContentEnBySlug: Record<string, EnBespokeContent> = {
           'That can reflect burnout or unrealistic pace expectations.',
       },
       {
-        question: 'How should I respond today?',
+        question: 'Does going up versus going down change the meaning?',
         answer:
           'Lower the step size and complete one meaningful task end to end.',
       },
@@ -1246,11 +1246,11 @@ export const bespokeContentEnBySlug: Record<string, EnBespokeContent> = {
       introSensory:
         'Platform sounds and departure urgency often mirror fear of missing a narrow window.',
       psychLead:
-        'Psychologically, trains represent structured timelines and commitments that move with or without your hesitation.',
+        'Trains represent structured timelines and commitments that move with or without your hesitation.',
       psychDeep:
         'Boarding in time suggests readiness. Watching the train leave often reflects delay costs finally becoming obvious.',
       tradition:
-        'Traditional movement symbols emphasize momentum and opportunity, while warning against indecision.',
+        'Korean movement symbols emphasize momentum and opportunity, while warning against indecision that lets the window close.',
       closing:
         'Lock one delayed schedule decision and stop paying a daily tax to uncertainty.',
     },
@@ -1266,7 +1266,7 @@ export const bespokeContentEnBySlug: Record<string, EnBespokeContent> = {
           'Usually yes. It can signal commitment and willingness to move with a timeline.',
       },
       {
-        question: 'Best next step?',
+        question: 'Does the destination matter if I knew it?',
         answer:
           'Choose one date-bound commitment and act on it today.',
       },
@@ -1279,11 +1279,11 @@ export const bespokeContentEnBySlug: Record<string, EnBespokeContent> = {
       introSensory:
         'Crowding and stop-and-go rhythm usually mirror frustration with schedules that are not truly yours.',
       psychLead:
-        'Psychologically, this symbol appears when autonomy and belonging are pulling in different directions.',
+        'This symbol appears when autonomy and belonging are pulling in different directions.',
       psychDeep:
         'Missing the bus can reflect fear of exclusion. Riding calmly can indicate growing comfort with collaborative timing.',
       tradition:
-        'Traditional readings treat communal transport symbols as social-flow indicators tied to cooperation and timing.',
+        'Communal transport symbols were read in Korean dream culture as social-flow indicators tied to cooperation and timing.',
       closing:
         'Protect one block of self-directed time so your week is not fully run by other agendas.',
     },
@@ -1299,7 +1299,7 @@ export const bespokeContentEnBySlug: Record<string, EnBespokeContent> = {
           'Because your schedule may feel externally controlled and emotionally crowded.',
       },
       {
-        question: 'What practical action helps?',
+        question: 'How is a bus dream different from a train dream?',
         answer:
           'Set one clear boundary in calendar, response time, or availability.',
       },
@@ -1312,11 +1312,11 @@ export const bespokeContentEnBySlug: Record<string, EnBespokeContent> = {
       introSensory:
         'Takeoff pressure and turbulence detail usually indicates both ambition and risk awareness are active together.',
       psychLead:
-        'Psychologically, flying symbols map scale change: bigger horizon, bigger responsibility.',
+        'Flying symbols at this scale map to major life expansion: bigger horizon, bigger responsibility.',
       psychDeep:
         'Smooth ascent reflects trust in preparation. Turbulence reflects uncertainty about support systems during growth.',
       tradition:
-        'Traditional upward-movement symbolism links to advancement, while stressing discipline and caution.',
+        'Upward-movement symbolism in Korean dream tradition links to advancement, while stressing discipline and caution alongside ambition.',
       closing:
         'Keep the bold move, but add a serious risk checklist before committing full speed.',
     },
@@ -1332,7 +1332,7 @@ export const bespokeContentEnBySlug: Record<string, EnBespokeContent> = {
           'Usually that expansion is right but support, planning, or margin is still thin.',
       },
       {
-        question: 'Best next move?',
+        question: 'Does the destination in the dream carry meaning?',
         answer:
           'Stress-test one major plan before scaling it.',
       },
@@ -1345,11 +1345,11 @@ export const bespokeContentEnBySlug: Record<string, EnBespokeContent> = {
       introSensory:
         'Rocking balance and wave response detail usually mirrors unstable context with ongoing adaptation demands.',
       psychLead:
-        'Psychologically, the boat is your coping container: not the weather, but how you steer through it.',
+        'The boat is your coping container: not the weather, but how you steer through it.',
       psychDeep:
         'A steady boat suggests workable regulation. Taking on water suggests boundary or load issues.',
       tradition:
-        'Traditional water-journey imagery is read through flow, direction, and survival skill rather than luck alone.',
+        'Water-journey imagery was read in Korean dream lore through flow, direction, and survival skill rather than luck alone.',
       closing:
         'Simplify your route and cut nonessential load so you can steer with clarity.',
     },
@@ -1365,7 +1365,7 @@ export const bespokeContentEnBySlug: Record<string, EnBespokeContent> = {
           'Yes. Reaching shore usually signals recovery capacity and directional progress.',
       },
       {
-        question: 'How should I respond now?',
+        question: 'Does the type of boat change the interpretation?',
         answer:
           'Reduce one source of turbulence and strengthen one support habit.',
       },
@@ -1378,11 +1378,11 @@ export const bespokeContentEnBySlug: Record<string, EnBespokeContent> = {
       introSensory:
         'Classroom noise and test-day tension in detail often reflect performance stress rather than skill deficit.',
       psychLead:
-        'Psychologically, school symbols reactivate old templates about approval, mistakes, and belonging.',
+        'School symbols reactivate old templates about approval, mistakes, and belonging that may still run silently.',
       psychDeep:
         'Passing scenes can show regained confidence. Panic scenes usually point to overloaded standards.',
       tradition:
-        'Traditional interpretations link learning symbols with reputation and advancement through effort.',
+        'Learning symbols were linked in Korean dream tradition with reputation and advancement through effort.',
       closing:
         'Shift focus from proving worth to improving process on one concrete task.',
     },
@@ -1398,7 +1398,7 @@ export const bespokeContentEnBySlug: Record<string, EnBespokeContent> = {
           'Not necessarily. It often means expectations are louder than actual capability limits.',
       },
       {
-        question: 'Best next step?',
+        question: 'Does the specific class or subject carry meaning?',
         answer:
           'Define a realistic success metric for today and execute against it.',
       },
@@ -1411,11 +1411,11 @@ export const bespokeContentEnBySlug: Record<string, EnBespokeContent> = {
       introSensory:
         'Meeting loops, notifications, and deadline urgency in the dream often mirror chronic cognitive overload.',
       psychLead:
-        'Psychologically, this symbol reflects task volume plus emotional labor that is rarely acknowledged.',
+        'This symbol reflects task volume plus emotional labor that is rarely acknowledged openly.',
       psychDeep:
         'Conflict scenes can indicate unclear authority lines. Endless work scenes can indicate missing completion boundaries.',
       tradition:
-        'Traditional readings map workplace symbols to duty, status, and practical fortune tied to conduct.',
+        'Korean dream readers mapped workplace symbols to duty, status, and practical fortune tied to conduct.',
       closing:
         'Clarify what is truly your responsibility and stop carrying what is not yours.',
     },
@@ -1431,7 +1431,7 @@ export const bespokeContentEnBySlug: Record<string, EnBespokeContent> = {
           'Repetition is common when demand stays high and recovery remains low.',
       },
       {
-        question: 'What action helps quickly?',
+        question: 'Can dreaming about work actually be a positive sign?',
         answer:
           'Set one non-negotiable boundary around time, scope, or response expectations.',
       },
@@ -1444,11 +1444,11 @@ export const bespokeContentEnBySlug: Record<string, EnBespokeContent> = {
       introSensory:
         'Packing weight and unfamiliar rooms in memory often reflect active life-stage change.',
       psychLead:
-        'Psychologically, this dream appears when old routines no longer fit but new ones are not fully installed.',
+        'This dream appears when old routines no longer fit but new ones are not fully installed.',
       psychDeep:
         'Organized moving scenes suggest readiness. Chaotic moving scenes suggest attachment conflict with the past.',
       tradition:
-        'Traditional symbolic readings treat relocation imagery as a turning point in household and personal flow.',
+        'Relocation imagery was read in Korean tradition as a turning point in household and personal flow.',
       closing:
         'Choose what to carry forward with intention; not every old habit deserves your next chapter.',
     },
@@ -1464,7 +1464,7 @@ export const bespokeContentEnBySlug: Record<string, EnBespokeContent> = {
           'Transition naturally combines possibility with loss of familiarity.',
       },
       {
-        question: 'Best practical response?',
+        question: 'What makes this dream different from a travel dream?',
         answer:
           'Replace one outdated routine with a stable new one this week.',
       },
@@ -1477,11 +1477,11 @@ export const bespokeContentEnBySlug: Record<string, EnBespokeContent> = {
       introSensory:
         'Strong before-and-after detail in the scene usually mirrors a desire for order and mental airspace.',
       psychLead:
-        'Psychologically, cleaning symbols represent active regulation and regained agency.',
+        'Cleaning symbols represent active regulation and regained agency, making them more empowering than they first appear.',
       psychDeep:
         'Effective cleaning scenes can indicate momentum. Endless mess scenes can indicate overwhelm and unclear priorities.',
       tradition:
-        'Traditional readings generally treat cleansing symbols as favorable when action follows waking.',
+        'Cleansing symbols are generally seen as favorable in Korean dream reading when action follows waking.',
       closing:
         'Clear one physical or digital zone today and let that momentum spill into decisions.',
     },
@@ -1497,7 +1497,7 @@ export const bespokeContentEnBySlug: Record<string, EnBespokeContent> = {
           'That can reflect effort without prioritization, not lack of discipline.',
       },
       {
-        question: 'What should I do now?',
+        question: 'Does what I was cleaning in the dream carry meaning?',
         answer:
           'Pick one high-friction area and reset it completely.',
       },
@@ -1510,11 +1510,11 @@ export const bespokeContentEnBySlug: Record<string, EnBespokeContent> = {
       introSensory:
         'The texture and sound of rain in detail often mirrors feelings finally moving instead of being suppressed.',
       psychLead:
-        'Psychologically, rain symbolizes cleansing and discharge of accumulated tension.',
+        'Rain symbolizes cleansing and discharge of accumulated tension, often arriving after prolonged emotional holding.',
       psychDeep:
         'Gentle rain can suggest integration. Violent rain can suggest overflow that needs containment.',
       tradition:
-        'Traditional interpretations usually read balanced rain as renewing, while storm context alters tone.',
+        'Balanced rain was usually read as renewing in Korean dream culture, while storm context alters tone considerably.',
       closing:
         'Allow one honest emotional expression today without dramatizing or minimizing it.',
     },
@@ -1530,7 +1530,7 @@ export const bespokeContentEnBySlug: Record<string, EnBespokeContent> = {
           'That may reflect overload and the need for stronger regulation and support.',
       },
       {
-        question: 'Best immediate action?',
+        question: 'Does being indoors versus outdoors in the rain change things?',
         answer:
           'Name what you are feeling and reduce one avoidable stress input.',
       },
@@ -1543,11 +1543,11 @@ export const bespokeContentEnBySlug: Record<string, EnBespokeContent> = {
       introSensory:
         'Muted sound and cold stillness usually mirror emotional numbing or a protective slowdown.',
       psychLead:
-        'Psychologically, snow symbolizes suspension: less motion outside, more processing inside.',
+        'Snow symbolizes suspension: less motion outside, more processing inside.',
       psychDeep:
         'Bright calm snow can indicate reset potential. Harsh snowstorm scenes can indicate isolation and decision fog.',
       tradition:
-        'Traditional readings see snow as purification and restraint, with caution against impulsive moves.',
+        'Korean dream readers saw snow as purification and restraint, with caution against impulsive moves during uncertain times.',
       closing:
         'Do not force speed today; gather facts and make one clean, calm decision.',
     },
@@ -1563,7 +1563,7 @@ export const bespokeContentEnBySlug: Record<string, EnBespokeContent> = {
           'The dream may be emphasizing a need for emotional and cognitive quiet.',
       },
       {
-        question: 'What should I do after this dream?',
+        question: 'Does the season when I have this dream affect interpretation?',
         answer:
           'Delay non-urgent reactions and choose a measured next step.',
       },
@@ -1576,11 +1576,11 @@ export const bespokeContentEnBySlug: Record<string, EnBespokeContent> = {
       introSensory:
         'Direction and force of wind in memory often mirror external pressure you can feel but not fully see.',
       psychLead:
-        'Psychologically, wind represents shifting conditions and the need for adaptive balance.',
+        'Wind represents shifting conditions and the need for adaptive balance in uncertain terrain.',
       psychDeep:
         'A supportive breeze can suggest momentum. Harsh gusts can suggest instability and reactive decision risk.',
       tradition:
-        'Traditional symbolism treats wind as a change signal: flexibility plus grounding is the recommended posture.',
+        'Wind was treated as a change signal in Korean symbolism: flexibility plus grounding is the recommended posture.',
       closing:
         'Secure one routine anchor before making broad directional moves.',
     },
@@ -1596,7 +1596,7 @@ export const bespokeContentEnBySlug: Record<string, EnBespokeContent> = {
           'Because it emphasizes uncertainty and reduced predictability.',
       },
       {
-        question: 'How should I respond?',
+        question: 'Does the wind direction carry specific significance?',
         answer:
           'Strengthen grounding habits and avoid impulsive pivots.',
       },
@@ -1609,11 +1609,11 @@ export const bespokeContentEnBySlug: Record<string, EnBespokeContent> = {
       introSensory:
         'Steep ascent and distance-to-summit detail often mirrors long-cycle effort and stamina demands.',
       psychLead:
-        'Psychologically, mountains symbolize meaningful challenge and identity growth through persistence.',
+        'Mountains symbolize meaningful challenge and identity growth through persistence.',
       psychDeep:
         'Climbing with rhythm suggests sustainable discipline. Being stuck or sliding suggests overload or poor pacing.',
       tradition:
-        'Traditional readings connect mountain symbols with stature and aspiration earned through steadiness.',
+        'Korean ancestors connected mountain symbols with stature and aspiration earned through steadiness.',
       closing:
         'Stop measuring by immediate peak results and track only the next stage completed well.',
     },
@@ -1629,7 +1629,7 @@ export const bespokeContentEnBySlug: Record<string, EnBespokeContent> = {
           'That can reflect fatigue, unrealistic timeline pressure, or resource mismatch.',
       },
       {
-        question: 'Best next move?',
+        question: 'Does the height of the mountain affect the reading?',
         answer:
           'Break your objective into stages and finish one stage this week.',
       },
@@ -1642,11 +1642,11 @@ export const bespokeContentEnBySlug: Record<string, EnBespokeContent> = {
       introSensory:
         'Color and fragrance memory usually reflects increased receptivity after a dry or defensive period.',
       psychLead:
-        'Psychologically, flowers symbolize tenderness that survives pressure.',
+        'Flowers symbolize tenderness that survives pressure, a quality easily overlooked in high-demand periods.',
       psychDeep:
         'Blooming scenes suggest readiness and timing. Wilted scenes can point to neglected joy or depleted care.',
       tradition:
-        'Traditional readings often treat flower symbols as favorable for relationship warmth and gentle fortune movement.',
+        'Flower symbols are seen as favorable in Korean dream culture for relationship warmth and gentle fortune movement.',
       closing:
         'Protect one source of joy deliberately; subtle vitality needs active maintenance.',
     },
@@ -1662,7 +1662,7 @@ export const bespokeContentEnBySlug: Record<string, EnBespokeContent> = {
           'That may indicate neglected emotional nourishment or relationship care.',
       },
       {
-        question: 'What should I do now?',
+        question: 'Does the type of flower carry specific meaning?',
         answer:
           'Invest in one small joy routine and one caring conversation.',
       },
@@ -1675,11 +1675,11 @@ export const bespokeContentEnBySlug: Record<string, EnBespokeContent> = {
       introSensory:
         'Bark texture, branch movement, or trunk size in memory often reflects how grounded you currently feel.',
       psychLead:
-        'Psychologically, trees symbolize continuity under changing seasons.',
+        'Trees symbolize continuity under changing seasons, making them a mirror for your own resilience patterns.',
       psychDeep:
         'A healthy tree can indicate resilience and support. A damaged tree can indicate strain on core systems.',
       tradition:
-        'Traditional readings connect tree imagery with growth, family continuity, and structural fortune.',
+        'Tree imagery was connected in Korean dream tradition with growth, family continuity, and structural fortune.',
       closing:
         'Strengthen one foundational habit that supports your long horizon.',
     },
@@ -1695,7 +1695,7 @@ export const bespokeContentEnBySlug: Record<string, EnBespokeContent> = {
           'It can reflect stress on your core routines or support network.',
       },
       {
-        question: 'Best next step?',
+        question: 'Does the season of the tree in the dream matter?',
         answer:
           'Reinforce one root behavior: sleep, finance rhythm, or relationship maintenance.',
       },
@@ -1708,11 +1708,11 @@ export const bespokeContentEnBySlug: Record<string, EnBespokeContent> = {
       introSensory:
         'Taste, ripeness, and color detail usually reflects timing sensitivity around results.',
       psychLead:
-        'Psychologically, fruit symbolizes payoff, readiness, and whether you can receive what you worked for.',
+        'Fruit symbolizes payoff, readiness, and whether you can receive what you worked for.',
       psychDeep:
         'Ripe fruit often indicates actionable opportunity. Rotten fruit may indicate delay, waste, or poor selection.',
       tradition:
-        'Traditional readings commonly connect fruit symbols to prosperity and fertility of outcomes.',
+        'Fruit symbols are commonly connected to prosperity and fertility of outcomes in Korean dream reading.',
       closing:
         'Prioritize what is ripe now and stop spending prime energy on unready projects.',
     },
@@ -1728,7 +1728,7 @@ export const bespokeContentEnBySlug: Record<string, EnBespokeContent> = {
           'That often means the direction is right but timing is early.',
       },
       {
-        question: 'How should I act after this dream?',
+        question: 'Does the type of fruit change the interpretation?',
         answer:
           'Complete one nearly finished task and harvest what is already ready.',
       },
@@ -1741,11 +1741,11 @@ export const bespokeContentEnBySlug: Record<string, EnBespokeContent> = {
       introSensory:
         'Strong flavor and fullness detail often mirrors how directly your body-mind is asking to be nourished.',
       psychLead:
-        'Psychologically, eating symbols ask what you consume to cope and what you actually need to sustain yourself.',
+        'Eating symbols ask what you consume to cope and what you actually need to sustain yourself.',
       psychDeep:
         'Satisfying meals can indicate restoration. Endless eating or discomfort can signal mismatch between craving and need.',
       tradition:
-        'Traditional readings vary by food tone but generally link eating symbols to incoming energy and life support.',
+        'Korean readings vary by food tone but generally link eating symbols to incoming energy and life support.',
       closing:
         'Meet one real need directly today instead of numbing it with busyness.',
     },
@@ -1761,7 +1761,7 @@ export const bespokeContentEnBySlug: Record<string, EnBespokeContent> = {
           'That can reflect trying to fill the wrong deficit.',
       },
       {
-        question: 'What practical response helps?',
+        question: 'Does the specific food in the dream carry meaning?',
         answer:
           'Identify one true unmet need and address it concretely today.',
       },
@@ -1774,11 +1774,11 @@ export const bespokeContentEnBySlug: Record<string, EnBespokeContent> = {
       introSensory:
         'Heat control, aroma, and timing in memory often reflect how you are managing transformation under pressure.',
       psychLead:
-        'Psychologically, cooking symbolizes agency through preparation, sequencing, and care.',
+        'Cooking symbolizes agency through preparation, sequencing, and care, skills that extend far beyond the kitchen.',
       psychDeep:
         'A balanced meal scene often indicates growing competence. Burned food scenes can indicate overload or rushed execution.',
       tradition:
-        'Traditional readings often frame food preparation as domestic order, provision, and practical fortune.',
+        'Food preparation was framed in Korean dream lore as domestic order, provision, and practical fortune.',
       closing:
         'Improve one step in your workflow and let quality compound.',
     },
@@ -1794,7 +1794,7 @@ export const bespokeContentEnBySlug: Record<string, EnBespokeContent> = {
           'That can point to rushed process, poor sequencing, or unrealistic throughput.',
       },
       {
-        question: 'Best next action?',
+        question: 'Does cooking for others versus myself change the reading?',
         answer:
           'Tune one repeatable process step instead of chasing perfect outcomes.',
       },
@@ -1807,11 +1807,11 @@ export const bespokeContentEnBySlug: Record<string, EnBespokeContent> = {
       introSensory:
         'Water temperature and bodily release detail usually indicates your system is asking for true restoration.',
       psychLead:
-        'Psychologically, bathing symbolizes purification, privacy, and emotional decompression.',
+        'Bathing symbolizes purification, privacy, and emotional decompression, needs that are easy to defer but costly to ignore.',
       psychDeep:
         'Comfortable bathing scenes can indicate readiness to reset. Disturbed bathing scenes can indicate interrupted recovery.',
       tradition:
-        'Traditional cleansing symbols are generally read as favorable when paired with practical self-care after waking.',
+        'Cleansing symbols are generally read as favorable in Korean dream culture when paired with practical self-care after waking.',
       closing:
         'Schedule recovery first, not after everything else is done.',
     },
@@ -1827,7 +1827,7 @@ export const bespokeContentEnBySlug: Record<string, EnBespokeContent> = {
           'Your system may be signaling that rest and regulation are finally possible.',
       },
       {
-        question: 'What should I do now?',
+        question: 'Does the water temperature in the dream carry meaning?',
         answer:
           'Protect one uninterrupted recovery block today.',
       },
@@ -1840,11 +1840,11 @@ export const bespokeContentEnBySlug: Record<string, EnBespokeContent> = {
       introSensory:
         'Urgent searching or blocked access in the dream often mirrors emotional backlog in waking life.',
       psychLead:
-        'Psychologically, this symbol points to boundaries around what should be processed privately and what can be shared safely.',
+        'This symbol points to boundaries around what should be processed privately and what can be shared safely.',
       psychDeep:
         'Successful relief scenes suggest healthy discharge. Repeated blockage often signals avoidance of necessary expression.',
       tradition:
-        'Traditional readings connect these symbols with clearing obstacles and restoring flow when action follows.',
+        'Korean dream readers connected these symbols with clearing obstacles and restoring flow when action follows.',
       closing:
         'Clear one backlog conversation or task that has been sitting in your system too long.',
     },
@@ -1860,7 +1860,7 @@ export const bespokeContentEnBySlug: Record<string, EnBespokeContent> = {
           'It often reflects delayed release and difficulty finding safe boundaries for expression.',
       },
       {
-        question: 'What helps immediately?',
+        question: 'Can this dream indicate something positive?',
         answer:
           'Name one burden and remove it through direct action.',
       },
@@ -1873,11 +1873,11 @@ export const bespokeContentEnBySlug: Record<string, EnBespokeContent> = {
       introSensory:
         'Fabric fit and appearance detail in memory usually mirrors concerns about being seen correctly.',
       psychLead:
-        'Psychologically, clothing symbolizes role performance, protection, and self-definition.',
+        'Clothing symbolizes role performance, protection, and self-definition, all at once.',
       psychDeep:
         'Comfortable outfits can indicate alignment. Ill-fitting or missing clothes can indicate exposure anxiety or role mismatch.',
       tradition:
-        'Traditional readings link garment imagery with reputation and social standing, interpreted through condition and tone.',
+        'Garment imagery was linked in Korean dream tradition with reputation and social standing, interpreted through condition and tone.',
       closing:
         'Present yourself one degree more honestly in a context that usually invites performance.',
     },
@@ -1893,7 +1893,7 @@ export const bespokeContentEnBySlug: Record<string, EnBespokeContent> = {
           'That often reflects vulnerability, exposure fear, or imposter tension.',
       },
       {
-        question: 'Best next step?',
+        question: 'Does the color or style of clothing carry meaning?',
         answer:
           'Adjust one area where your outer role no longer matches your inner values.',
       },
@@ -1906,11 +1906,11 @@ export const bespokeContentEnBySlug: Record<string, EnBespokeContent> = {
       introSensory:
         'Fit, pressure, and walking comfort detail usually mirrors readiness for the route you are on.',
       psychLead:
-        'Psychologically, shoes symbolize mobility, direction, and grounded progress.',
+        'Shoes symbolize mobility, direction, and grounded progress, making them a practical barometer for life-path fit.',
       psychDeep:
         'Comfortable shoes suggest sustainable pace. Painful or lost shoes suggest path mismatch or depleted support.',
       tradition:
-        'Traditional readings often connect footwear with journey fortune and practical preparedness.',
+        'Footwear was connected in Korean dream lore with journey fortune and practical preparedness.',
       closing:
         'Align one plan with your actual resources so progress can continue without injury.',
     },
@@ -1926,7 +1926,7 @@ export const bespokeContentEnBySlug: Record<string, EnBespokeContent> = {
           'That can indicate support breakdown, poor pacing, or a route that no longer suits you.',
       },
       {
-        question: 'What should I do now?',
+        question: 'Does wearing someone else\'s shoes in the dream mean anything?',
         answer:
           'Choose sustainability over speed in your next decision.',
       },
@@ -1939,11 +1939,11 @@ export const bespokeContentEnBySlug: Record<string, EnBespokeContent> = {
       introSensory:
         'Weight and strap pressure detail in memory usually reflects burden that has become physically felt.',
       psychLead:
-        'Psychologically, the bag symbolizes what you carry by choice and what you carry by habit.',
+        'The bag symbolizes what you carry by choice and what you carry by habit, a distinction that matters more than size.',
       psychDeep:
         'A secure bag can suggest healthy stewardship. A lost or torn bag can suggest leakage in attention or boundaries.',
       tradition:
-        'Traditional symbolic readings treat carrying objects as indicators of duty, burden, and fortune management.',
+        'Carrying objects was treated in Korean dream reading as indicators of duty, burden, and fortune management.',
       closing:
         'Put one unnecessary obligation down and recover margin before adding more.',
     },
@@ -1959,7 +1959,7 @@ export const bespokeContentEnBySlug: Record<string, EnBespokeContent> = {
           'It usually symbolizes fear of losing control over key resources or identity anchors.',
       },
       {
-        question: 'Most useful action now?',
+        question: 'Does the contents of the bag carry meaning?',
         answer:
           'Audit your commitments and drop one low-value burden today.',
       },
@@ -1972,11 +1972,11 @@ export const bespokeContentEnBySlug: Record<string, EnBespokeContent> = {
       introSensory:
         'Ringing, vibration, and screen-failure details usually mirror alert fatigue and response pressure.',
       psychLead:
-        'Psychologically, phones symbolize connection and interruption at the same time.',
+        'Phones symbolize connection and interruption at the same time, reflecting the modern tension between access and overload.',
       psychDeep:
         'Clear calls can indicate needed contact. Broken or missed calls can indicate boundary collapse or unresolved communication stress.',
       tradition:
-        'Traditional frameworks do not name phones directly, but message symbols are read as relationship and timing signals.',
+        'While Korean tradition does not name phones directly, message symbols are read as relationship and timing signals.',
       closing:
         'Create response boundaries so communication serves you instead of consuming you.',
     },
@@ -1992,7 +1992,7 @@ export const bespokeContentEnBySlug: Record<string, EnBespokeContent> = {
           'It can symbolize disconnection, burnout, or fear of losing relational access.',
       },
       {
-        question: 'What should I change first?',
+        question: 'Does who was calling in the dream matter?',
         answer:
           'Separate urgent communication from background noise and protect focus windows.',
       },
@@ -2005,11 +2005,11 @@ export const bespokeContentEnBySlug: Record<string, EnBespokeContent> = {
       introSensory:
         'Framing and shutter detail in memory often shows your mind actively choosing what to preserve.',
       psychLead:
-        'Psychologically, photography symbols ask whether you are living the moment or curating it for approval.',
+        'Photography symbols ask whether you are living the moment or curating it for approval.',
       psychDeep:
         'Clear subjects can indicate value clarity. Blurred or missing subjects can indicate uncertainty about what truly matters.',
       tradition:
-        'Traditional symbolism around image and record emphasizes reputation, memory, and meaningful witness.',
+        'Image and record symbolism in Korean dream culture emphasizes reputation, memory, and meaningful witness.',
       closing:
         'Choose one memory to keep for yourself, not for performance.',
     },
@@ -2025,7 +2025,7 @@ export const bespokeContentEnBySlug: Record<string, EnBespokeContent> = {
           'Blur often symbolizes unclear priorities or unstable perspective.',
       },
       {
-        question: 'Best practical takeaway?',
+        question: 'Does looking at old photos in a dream carry a different meaning?',
         answer:
           'Define what you want to remember and what you can release.',
       },
@@ -2038,11 +2038,11 @@ export const bespokeContentEnBySlug: Record<string, EnBespokeContent> = {
       introSensory:
         'Envelope texture or handwriting detail in memory usually indicates the message carries personal weight.',
       psychLead:
-        'Psychologically, letters symbolize thoughtful truth rather than reactive speech.',
+        'Letters symbolize thoughtful truth rather than reactive speech, pointing to the weight of words chosen carefully.',
       psychDeep:
         'Receiving a letter can indicate readiness to hear. Writing one can indicate readiness to say what has been withheld.',
       tradition:
-        'Traditional message symbols are often interpreted as relationship turning points shaped by intention and timing.',
+        'Message symbols in Korean dream tradition are often interpreted as relationship turning points shaped by intention and timing.',
       closing:
         'Send one clear message you have postponed and close the uncertainty loop.',
     },
@@ -2058,7 +2058,7 @@ export const bespokeContentEnBySlug: Record<string, EnBespokeContent> = {
           'That can indicate avoided truth or communication that is emotionally hard to decode.',
       },
       {
-        question: 'What should I do now?',
+        question: 'Does the sender of the letter change the interpretation?',
         answer:
           'Choose one important conversation and communicate with precision and care.',
       },
@@ -2071,11 +2071,11 @@ export const bespokeContentEnBySlug: Record<string, EnBespokeContent> = {
       introSensory:
         'Transit scenes and unfamiliar landscapes in memory often mirror expansion urge plus uncertainty about route.',
       psychLead:
-        'Psychologically, travel symbols represent growth through perspective shift.',
+        'Travel symbols represent growth through perspective shift, the kind of learning that only comes from leaving the familiar.',
       psychDeep:
         'Smooth journeys can suggest alignment. Delays or missed connections can indicate planning gaps or ambivalence.',
       tradition:
-        'Traditional movement symbols often point to opportunity through change, with readiness as the deciding factor.',
+        'Movement symbols in Korean dream culture often point to opportunity through change, with readiness as the deciding factor.',
       closing:
         'Take one perspective-expanding action in waking life and convert intention into movement.',
     },
@@ -2091,7 +2091,7 @@ export const bespokeContentEnBySlug: Record<string, EnBespokeContent> = {
           'That is typical of growth phases where possibility and uncertainty coexist.',
       },
       {
-        question: 'Best follow-up?',
+        question: 'Does the destination in the travel dream matter?',
         answer:
           'Book one concrete step toward the direction you keep imagining.',
       },
@@ -2104,11 +2104,11 @@ export const bespokeContentEnBySlug: Record<string, EnBespokeContent> = {
       introSensory:
         'Waiting-room tension and sterile detail in memory usually reflects vulnerability plus need for structured care.',
       psychLead:
-        'Psychologically, this dream points to check-in behavior: what you monitor early versus ignore until crisis.',
+        'This dream points to check-in behavior: what you monitor early versus ignore until crisis.',
       psychDeep:
         'Supportive treatment scenes can indicate readiness to recover. Chaotic scenes can indicate fear of dependence or uncertainty.',
       tradition:
-        'Traditional caution-oriented readings align with this symbol: timely care prevents larger disruption.',
+        'Caution-oriented Korean readings align with this symbol: timely care prevents larger disruption.',
       closing:
         'Do one preventive health or stress check this week and treat early signals seriously.',
     },
@@ -2124,7 +2124,7 @@ export const bespokeContentEnBySlug: Record<string, EnBespokeContent> = {
           'Because hospitals symbolize uncertainty, dependency, and the need to pause normal output.',
       },
       {
-        question: 'What practical step should I take?',
+        question: 'Can this dream reflect emotional healing rather than physical?',
         answer:
           'Schedule one concrete check-in for body or stress regulation.',
       },
@@ -2141,7 +2141,7 @@ export const bespokeContentEnBySlug: Record<string, EnBespokeContent> = {
       psychDeep:
         'Successful operation scenes can reflect readiness for difficult repair. Fearful scenes can reflect resistance to necessary disruption.',
       tradition:
-        'Traditional symbolic interpretation reads this as serious but potentially beneficial restructuring when handled with discipline.',
+        'Korean symbolic interpretation reads this as serious but potentially beneficial restructuring when handled with discipline.',
       closing:
         'Address one root problem directly and stop spending energy on temporary patches.',
     },
@@ -2157,7 +2157,7 @@ export const bespokeContentEnBySlug: Record<string, EnBespokeContent> = {
           'Because the symbol combines vulnerability with intentional precision.',
       },
       {
-        question: 'Best action after this dream?',
+        question: 'Does the body part in the surgery carry specific meaning?',
         answer:
           'Name one root issue and design a real intervention plan, not another workaround.',
       },
