@@ -42,6 +42,7 @@ export default function Home() {
   const [reviewIndex, setReviewIndex] = useState(0)
   const [reviewFading, setReviewFading] = useState(false)
   const [todayCount, setTodayCount] = useState(0)
+  const [bellyExtra, setBellyExtra] = useState(0)
   const bottomRef = useRef<HTMLDivElement>(null)
   const lastMsgRef = useRef<HTMLDivElement>(null)
   const textareaRef = useRef<HTMLTextAreaElement>(null)
@@ -108,7 +109,8 @@ export default function Home() {
     if (!input.trim() || isLoading) return
     const userMessage = input.trim()
     setInput('')
-    if (textareaRef.current) textareaRef.current.style.height = '44px'
+    setBellyExtra(0)
+    if (textareaRef.current) textareaRef.current.style.height = '48px'
     setMessages(prev => [...prev, { role: 'user', content: userMessage }])
     setIsLoading(true)
     try {
@@ -135,8 +137,10 @@ export default function Home() {
 
   const handleInput = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
     setInput(e.target.value)
-    e.target.style.height = '44px'
-    e.target.style.height = Math.min(e.target.scrollHeight, 120) + 'px'
+    e.target.style.height = '48px'
+    const newHeight = Math.min(e.target.scrollHeight, 200)
+    e.target.style.height = newHeight + 'px'
+    setBellyExtra(Math.max(0, newHeight - 48))
   }
 
   const copyMessage = async (content: string, index: number) => {
@@ -253,26 +257,93 @@ export default function Home() {
           꿈을 읽어준다냥
         </h1>
 
-        {/* 말풍선 + 상단 고양이 Lottie */}
-        <div className="relative w-full max-w-md mx-auto h-60 mb-1" aria-hidden="true">
-          <div className="absolute inset-x-0 bottom-0 z-10 flex justify-center pointer-events-none">
-            <DotLottiePlayer
-              src="https://lottie.host/b4094ce0-eda0-4102-908c-9a2338c13b15/P877DJHYVx.lottie"
-              style={{ width: 'clamp(220px, 58vw, 300px)', height: 'clamp(220px, 58vw, 300px)' }}
-              autoplay
-              loop
-            />
+        {/* 뚱냥이 SVG + 배 위 입력창 (랜딩 전용) */}
+        {isLanding && (
+          <div className="relative w-full mx-auto mb-1" style={{ maxWidth: '340px' }}>
+            <div className="bubble bubble-1 bg-sky-100 text-sky-800 border border-sky-200/60">
+              🌙 어젯밤 꿈이냥?
+            </div>
+            <div className="bubble bubble-2 bg-amber-100 text-amber-800 border border-amber-200/60">
+              해몽해줄게냥
+            </div>
+            <div className="bubble bubble-3 bg-emerald-100 text-emerald-800 border border-emerald-200/60">
+              시작하자냥!
+            </div>
+
+            {/* 대형 뚱냥이 SVG — 입력량에 따라 늘어남 */}
+            {(() => {
+              const s = bellyExtra * 1.2
+              return (
+                <svg viewBox={`0 0 340 ${380 + s}`} className="w-full h-auto transition-all duration-200" aria-hidden="true">
+                  {/* 꼬리 */}
+                  <path d={`M260 ${300 + s} Q310 ${275 + s} 300 ${230 + s * 0.5} Q295 ${205 + s * 0.3} 308 ${190}`} fill="none" stroke="#e8c67a" strokeWidth="14" strokeLinecap="round" />
+                  {/* 몸통 (뚱뚱) */}
+                  <ellipse cx="170" cy={260 + s / 2} rx="130" ry={105 + s / 2} fill="#f5d98a" />
+                  {/* 배 (크고 밝게 — 입력 영역) */}
+                  <ellipse cx="170" cy={275 + s / 2} rx="100" ry={78 + s / 2} fill="#fef3c7" />
+                  {/* 머리 */}
+                  <circle cx="170" cy="130" r="68" fill="#f5d98a" />
+                  {/* 귀 */}
+                  <polygon points="118,88 95,28 145,72" fill="#f5d98a" />
+                  <polygon points="222,88 245,28 195,72" fill="#f5d98a" />
+                  <polygon points="122,85 105,40 142,74" fill="#fbbf9e" />
+                  <polygon points="218,85 235,40 198,74" fill="#fbbf9e" />
+                  {/* 눈 */}
+                  <ellipse cx="143" cy="125" rx="11" ry="13" fill="#3a3226" />
+                  <ellipse cx="197" cy="125" rx="11" ry="13" fill="#3a3226" />
+                  <ellipse cx="145" cy="121" rx="4" ry="4.5" fill="white" />
+                  <ellipse cx="199" cy="121" rx="4" ry="4.5" fill="white" />
+                  {/* 코 + 입 */}
+                  <ellipse cx="170" cy="148" rx="7" ry="5" fill="#e8937a" />
+                  <path d="M170 153 Q162 162 154 157" fill="none" stroke="#3a3226" strokeWidth="2" strokeLinecap="round" />
+                  <path d="M170 153 Q178 162 186 157" fill="none" stroke="#3a3226" strokeWidth="2" strokeLinecap="round" />
+                  {/* 수염 */}
+                  <line x1="98" y1="140" x2="136" y2="145" stroke="#c4a456" strokeWidth="1.5" />
+                  <line x1="95" y1="154" x2="134" y2="153" stroke="#c4a456" strokeWidth="1.5" />
+                  <line x1="204" y1="145" x2="242" y2="140" stroke="#c4a456" strokeWidth="1.5" />
+                  <line x1="206" y1="153" x2="245" y2="154" stroke="#c4a456" strokeWidth="1.5" />
+                  {/* 앞발 */}
+                  <ellipse cx="105" cy={345 + s} rx="28" ry="16" fill="#f5d98a" />
+                  <ellipse cx="235" cy={345 + s} rx="28" ry="16" fill="#f5d98a" />
+                </svg>
+              )
+            })()}
+
+            {/* 배 위 입력창 오버레이 */}
+            <div className="cat-belly-input-wrap" style={{ position: 'absolute', bottom: '14%', left: '50%', transform: 'translateX(-50%)', width: '56%' }}>
+              <textarea
+                ref={textareaRef}
+                value={input}
+                onChange={handleInput}
+                onKeyDown={handleKeyDown}
+                placeholder="여기에 꿈을 적어냥..."
+                className="cat-belly-textarea"
+                style={{ minHeight: '48px', maxHeight: '200px' }}
+              />
+              <button
+                onClick={sendMessage}
+                disabled={!input.trim()}
+                className="cat-belly-send"
+              >
+                🐾
+              </button>
+            </div>
           </div>
-          <div className="bubble bubble-1 bg-sky-100 text-sky-800 border border-sky-200/60">
-            🌙 어젯밤 꿈이냥?
+        )}
+
+        {/* 대화 모드에서는 Lottie 고양이 */}
+        {!isLanding && (
+          <div className="relative w-full max-w-md mx-auto h-60 mb-1" aria-hidden="true">
+            <div className="absolute inset-x-0 bottom-0 z-10 flex justify-center pointer-events-none">
+              <DotLottiePlayer
+                src="https://lottie.host/b4094ce0-eda0-4102-908c-9a2338c13b15/P877DJHYVx.lottie"
+                style={{ width: 'clamp(220px, 58vw, 300px)', height: 'clamp(220px, 58vw, 300px)' }}
+                autoplay
+                loop
+              />
+            </div>
           </div>
-          <div className="bubble bubble-2 bg-amber-100 text-amber-800 border border-amber-200/60">
-            해몽해줄게냥
-          </div>
-          <div className="bubble bubble-3 bg-emerald-100 text-emerald-800 border border-emerald-200/60">
-            시작하자냥!
-          </div>
-        </div>
+        )}
       </div>
 
       {/* 실시간 통계 */}
@@ -335,8 +406,8 @@ export default function Home() {
 
         <div ref={bottomRef} />
 
-        {/* 입력창 - 히어로 바로 아래 */}
-        {!isLoading && (
+        {/* 입력창 - 대화 모드에서만 표시 (랜딩은 고양이 배 위 입력창 사용) */}
+        {!isLoading && !isLanding && (
           <div className="flex items-end gap-2 justify-end mt-2">
             <textarea
               ref={textareaRef}
@@ -344,7 +415,7 @@ export default function Home() {
               onChange={handleInput}
               onKeyDown={handleKeyDown}
               placeholder="꿈 얘기해봐냥..."
-              className={`${isLanding ? 'w-[88%] input-amber-glow border-amber-300' : 'w-[72%] bg-white border-stone-200 focus:border-amber-400'} border rounded-2xl rounded-br-md px-4 py-2.5 text-gray-900 text-sm placeholder:text-stone-400 resize-none outline-none transition-all overflow-hidden shadow-sm`}
+              className="w-[72%] bg-white border-stone-200 focus:border-amber-400 border rounded-2xl rounded-br-md px-4 py-2.5 text-gray-900 text-sm placeholder:text-stone-400 resize-none outline-none transition-all overflow-hidden shadow-sm"
               style={{ minHeight: '44px', maxHeight: '120px' }}
             />
             <button
