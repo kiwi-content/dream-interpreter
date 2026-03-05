@@ -250,11 +250,11 @@ export default function EnHome() {
         </h1>
 
         {/* Floating bubbles + top cat Lottie */}
-        <div className="relative w-full max-w-md mx-auto h-64 mb-1" aria-hidden="true">
+        <div className="relative w-full max-w-md mx-auto h-60 mb-1" aria-hidden="true">
           <div className="absolute inset-x-0 bottom-0 z-0 flex justify-center pointer-events-none">
             <DotLottiePlayer
               src="https://lottie.host/b4094ce0-eda0-4102-908c-9a2338c13b15/P877DJHYVx.lottie"
-              style={{ width: 'clamp(170px, 46vw, 230px)', height: 'clamp(170px, 46vw, 230px)' }}
+              style={{ width: 'clamp(220px, 58vw, 300px)', height: 'clamp(220px, 58vw, 300px)' }}
               autoplay
               loop
             />
@@ -265,17 +265,9 @@ export default function EnHome() {
           <div className="bubble bubble-2 bg-amber-100 text-amber-800 border border-amber-200/60">
             I&apos;ll read it for you
           </div>
-          <div className="bubble bubble-3 bg-purple-100 text-purple-800 border border-purple-200/60">
-            It&apos;s free
-          </div>
-          <div className="bubble bubble-4 bg-emerald-100 text-emerald-800 border border-emerald-200/60">
+          <div className="bubble bubble-3 bg-emerald-100 text-emerald-800 border border-emerald-200/60">
             Let&apos;s start!
           </div>
-          <span className="emoji-float emoji-1">😸</span>
-          <span className="emoji-float emoji-2">🥳</span>
-          <span className="emoji-float emoji-3">😴</span>
-          <span className="emoji-float emoji-4">🌙</span>
-          <span className="emoji-float emoji-5">✨</span>
         </div>
       </div>
 
