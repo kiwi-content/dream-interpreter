@@ -1107,85 +1107,1060 @@ export const bespokeContentEnBySlug: Record<string, EnBespokeContent> = {
       },
     ],
   },
-}
-
-type GeneratedBespokeSeed = {
-  slug: string
-  dreamLabel: string
-  theme: string
-  action: string
-}
-
-const generatedBespokeSeeds: GeneratedBespokeSeed[] = [
-  { slug: 'lost-dream', dreamLabel: 'lost item dream', theme: 'misplaced priorities and anxiety about losing what matters', action: 'Create one simple tracking system for your top priorities.' },
-  { slug: 'maze-dream', dreamLabel: 'getting lost dream', theme: 'direction fatigue and uncertainty between life paths', action: 'Commit to one path for a short test window.' },
-  { slug: 'elevator-dream', dreamLabel: 'elevator dream', theme: 'rapid status shifts and pressure to rise quickly', action: 'Set one growth goal with one clear boundary.' },
-  { slug: 'stairs-dream', dreamLabel: 'stairs dream', theme: 'slow progress, effort, and confidence in process', action: 'Finish one small step completely.' },
-  { slug: 'train-dream', dreamLabel: 'train dream', theme: 'timeline pressure and fear of missing a life window', action: 'Lock one delayed schedule decision.' },
-  { slug: 'bus-dream', dreamLabel: 'bus dream', theme: 'group pace and tension between your needs and shared systems', action: 'Adjust one schedule boundary.' },
-  { slug: 'airplane-dream', dreamLabel: 'airplane dream', theme: 'big expansion with high-stakes risk', action: 'Add one risk check before scaling.' },
-  { slug: 'boat-dream', dreamLabel: 'boat dream', theme: 'emotional navigation in unstable conditions', action: 'Simplify route and protect energy.' },
-  { slug: 'school-dream', dreamLabel: 'school dream', theme: 'evaluation memory and performance anxiety', action: 'Measure success by process quality today.' },
-  { slug: 'office-dream', dreamLabel: 'office dream', theme: 'role pressure, output demands, and recognition stress', action: 'Set one non-negotiable work boundary.' },
-  { slug: 'moving-dream', dreamLabel: 'moving house dream', theme: 'identity transition and rebuilding your base', action: 'Replace one outdated routine with a stable one.' },
-  { slug: 'cleaning-dream', dreamLabel: 'cleaning dream', theme: 'reset energy and need for order', action: 'Clean one physical zone for mental clarity.' },
-  { slug: 'rain-dream', dreamLabel: 'rain dream', theme: 'emotional release after pressure buildup', action: 'Name one feeling and express it safely.' },
-  { slug: 'snow-dream', dreamLabel: 'snow dream', theme: 'pause, stillness, and perspective reset', action: 'Slow one decision and gather facts.' },
-  { slug: 'wind-dream', dreamLabel: 'wind dream', theme: 'invisible change and environmental pressure', action: 'Reinforce one grounding routine.' },
-  { slug: 'mountain-dream', dreamLabel: 'mountain dream', theme: 'long-term ambition requiring stamina', action: 'Focus on the next step, not the whole climb.' },
-  { slug: 'flower-dream', dreamLabel: 'flower dream', theme: 'emotional opening and creative vitality', action: 'Feed one joy source today.' },
-  { slug: 'tree-dream', dreamLabel: 'tree dream', theme: 'rooted growth and stability over time', action: 'Protect one foundational habit.' },
-  { slug: 'fruit-dream', dreamLabel: 'fruit dream', theme: 'harvest timing and readiness for results', action: 'Complete one nearly finished task.' },
-  { slug: 'eating-dream', dreamLabel: 'eating dream', theme: 'nourishment needs and emotional hunger', action: 'Meet one real need directly.' },
-  { slug: 'cooking-dream', dreamLabel: 'cooking dream', theme: 'turning raw pressure into useful action', action: 'Improve one process step.' },
-  { slug: 'bath-dream', dreamLabel: 'bath dream', theme: 'recovery and nervous-system reset', action: 'Schedule recovery before burnout.' },
-  { slug: 'toilet-dream', dreamLabel: 'toilet dream', theme: 'release, privacy, and cleaner boundaries', action: 'Clear one backlog conversation or task.' },
-  { slug: 'clothes-dream', dreamLabel: 'clothes dream', theme: 'identity display and approval tension', action: 'Present yourself more honestly in one context.' },
-  { slug: 'shoes-dream', dreamLabel: 'shoes dream', theme: 'path fit, mobility, and practical readiness', action: 'Align one plan with real capacity.' },
-  { slug: 'bag-dream', dreamLabel: 'bag dream', theme: 'burden load and resource protection', action: 'Drop one unnecessary obligation.' },
-  { slug: 'phone-dream', dreamLabel: 'phone dream', theme: 'communication overload and boundary fatigue', action: 'Separate urgent replies from background noise.' },
-  { slug: 'photo-dream', dreamLabel: 'photo dream', theme: 'memory curation and self-story clarity', action: 'Capture one moment for yourself, not performance.' },
-  { slug: 'letter-dream', dreamLabel: 'letter dream', theme: 'delayed truth and meaningful communication', action: 'Send one message you have postponed.' },
-  { slug: 'travel-dream', dreamLabel: 'travel dream', theme: 'expansion urge and uncertainty about route', action: 'Take one perspective-expanding action.' },
-  { slug: 'hospital-dream', dreamLabel: 'hospital dream', theme: 'healing priority and vulnerability acceptance', action: 'Do one preventive health or stress check.' },
-  { slug: 'surgery-dream', dreamLabel: 'surgery dream', theme: 'deep correction and structural repair', action: 'Address one root problem, not another surface symptom.' },
-]
-
-const generatedBespokeContentEnBySlug: Record<string, EnBespokeContent> = Object.fromEntries(
-  generatedBespokeSeeds.map((seed) => [
-    seed.slug,
-    {
-      voice: {
-        introLead: `A ${seed.dreamLabel} usually appears when ${seed.theme} becomes active in real life.`,
-        introSensory:
-          `If the scene felt unusually vivid, your mind is likely flagging this theme for immediate attention, not random analysis.`,
-        psychLead:
-          `Psychologically, this dream often maps stress and desire around the same issue. It shows where your system wants clearer direction.`,
-        psychDeep:
-          `Repeated versions of the dream are common until one concrete action interrupts the loop. Clarity and execution usually reduce recurrence quickly.`,
-        tradition:
-          `Traditional symbolic reading would treat this as a timing signal: pay attention to context, tone, and behavior after waking.`,
-        closing:
-          `${seed.action} Treat the dream as a practical prompt, then let action complete the interpretation.`,
-      },
-      faqs: [
-        {
-          question: `What does a ${seed.dreamLabel} usually mean?`,
-          answer:
-            `Most often it reflects ${seed.theme}. It is usually less prediction and more psychological direction.`,
-        },
-        {
-          question: 'Why did this dream feel so vivid?',
-          answer:
-            'Vividness often means emotional relevance is high right now. Your attention system is prioritizing this theme.',
-        },
-        {
-          question: 'What is the best next step?',
-          answer: seed.action,
-        },
-      ],
+  'lost-dream': {
+    voice: {
+      introLead:
+        'Dreams about losing something often appear when your attention is stretched too thin across too many priorities.',
+      introSensory:
+        'The frantic searching feeling usually mirrors real-life fear of missing what matters while handling nonstop demands.',
+      psychLead:
+        'Psychologically, this dream is less about the object and more about perceived control. You know something important feels out of place.',
+      psychDeep:
+        'If you eventually find the item, it suggests your system still trusts recovery. If the search never ends, decision fatigue is likely high.',
+      tradition:
+        'Traditional readings treat loss symbols as cautionary rather than fatalistic, urging better care of resources and timing.',
+      closing:
+        'Reduce the mental scatter: choose one key priority and protect it with a simple routine.',
     },
-  ])
-)
-
-Object.assign(bespokeContentEnBySlug, generatedBespokeContentEnBySlug)
+    faqs: [
+      {
+        question: 'Does this dream mean I will lose something in real life?',
+        answer:
+          'Usually no. It most often reflects stress, misplaced focus, or fear of letting a meaningful area slip.',
+      },
+      {
+        question: 'Why does this dream repeat?',
+        answer:
+          'Repetition often appears when your daily systems are overloaded and you are carrying unresolved decisions.',
+      },
+      {
+        question: 'What helps the most after this dream?',
+        answer:
+          'Create one tracking habit for your top priorities and reduce avoidable decision clutter.',
+      },
+    ],
+  },
+  'maze-dream': {
+    voice: {
+      introLead:
+        'Maze dreams usually show up when you have options but no confident decision framework.',
+      introSensory:
+        'Repeated turns and dead ends in memory often reflect circling thought patterns, not lack of ability.',
+      psychLead:
+        'Psychologically, this dream maps uncertainty plus pressure to choose quickly.',
+      psychDeep:
+        'Finding an exit suggests growing clarity. Endless wandering suggests criteria are still vague.',
+      tradition:
+        'Traditional symbolic approaches read this as a timing and discernment issue: direction improves when intention is explicit.',
+      closing:
+        'Pick one path for a short test period and evaluate with evidence instead of rumination.',
+    },
+    faqs: [
+      {
+        question: 'What does a maze dream usually point to?',
+        answer:
+          'Most often it points to decision fatigue and uncertainty between competing paths.',
+      },
+      {
+        question: 'Is this a negative sign?',
+        answer:
+          'Not necessarily. It can be a useful prompt to define better criteria before choosing.',
+      },
+      {
+        question: 'What practical step should I take?',
+        answer:
+          'Set a small decision window, choose one route, and review outcomes after concrete action.',
+      },
+    ],
+  },
+  'elevator-dream': {
+    voice: {
+      introLead:
+        'Elevator dreams often emerge during rapid status changes, ambition spikes, or fear of sudden decline.',
+      introSensory:
+        'The body drop or lift sensation points to emotional volatility around control and reputation.',
+      psychLead:
+        'Psychologically, elevators symbolize externally accelerated movement where pace can outrun readiness.',
+      psychDeep:
+        'Smooth travel tends to reflect confidence in growth. Jerky movement or stuck floors often reflect instability in structure.',
+      tradition:
+        'Traditional readings frame vertical movement as fortune shift, with stability and direction deciding tone.',
+      closing:
+        'Define a growth goal and a hard boundary together so progress does not become panic.',
+    },
+    faqs: [
+      {
+        question: 'Does an elevator dream mean career change?',
+        answer:
+          'It can, but more broadly it signals perceived movement in status, responsibility, or personal direction.',
+      },
+      {
+        question: 'Why did it feel so intense physically?',
+        answer:
+          'Because the symbol targets control and speed, which the body processes viscerally.',
+      },
+      {
+        question: 'Best follow-up action?',
+        answer:
+          'Stabilize one core routine before taking the next leap.',
+      },
+    ],
+  },
+  'stairs-dream': {
+    voice: {
+      introLead:
+        'Stair dreams usually speak to effort, pacing, and trust in gradual progress.',
+      introSensory:
+        'Heavy breathing and step-by-step strain often mirror real endurance work that has not paid off yet.',
+      psychLead:
+        'Psychologically, stairs symbolize earned advancement rather than sudden luck.',
+      psychDeep:
+        'Climbing with rhythm suggests healthy persistence. Slipping or frozen steps suggest exhaustion or overpressure.',
+      tradition:
+        'Traditional views read stairs as a process symbol: direction matters, but so does discipline over time.',
+      closing:
+        'Finish one small stage completely instead of splitting attention across ten half-starts.',
+    },
+    faqs: [
+      {
+        question: 'Is a stairs dream a good sign?',
+        answer:
+          'Often yes, especially when movement is steady. It points to progress through consistent effort.',
+      },
+      {
+        question: 'What if I keep getting stuck?',
+        answer:
+          'That can reflect burnout or unrealistic pace expectations.',
+      },
+      {
+        question: 'How should I respond today?',
+        answer:
+          'Lower the step size and complete one meaningful task end to end.',
+      },
+    ],
+  },
+  'train-dream': {
+    voice: {
+      introLead:
+        'Train dreams usually arrive when timing pressure becomes central in your life decisions.',
+      introSensory:
+        'Platform sounds and departure urgency often mirror fear of missing a narrow window.',
+      psychLead:
+        'Psychologically, trains represent structured timelines and commitments that move with or without your hesitation.',
+      psychDeep:
+        'Boarding in time suggests readiness. Watching the train leave often reflects delay costs finally becoming obvious.',
+      tradition:
+        'Traditional movement symbols emphasize momentum and opportunity, while warning against indecision.',
+      closing:
+        'Lock one delayed schedule decision and stop paying a daily tax to uncertainty.',
+    },
+    faqs: [
+      {
+        question: 'What does missing a train mean in dreams?',
+        answer:
+          'It often reflects anxiety about timing, procrastination, or hesitation under pressure.',
+      },
+      {
+        question: 'If I boarded the train, is that positive?',
+        answer:
+          'Usually yes. It can signal commitment and willingness to move with a timeline.',
+      },
+      {
+        question: 'Best next step?',
+        answer:
+          'Choose one date-bound commitment and act on it today.',
+      },
+    ],
+  },
+  'bus-dream': {
+    voice: {
+      introLead:
+        'Bus dreams often highlight life at shared pace: group rules, fixed stops, and limited personal control.',
+      introSensory:
+        'Crowding and stop-and-go rhythm usually mirror frustration with schedules that are not truly yours.',
+      psychLead:
+        'Psychologically, this symbol appears when autonomy and belonging are pulling in different directions.',
+      psychDeep:
+        'Missing the bus can reflect fear of exclusion. Riding calmly can indicate growing comfort with collaborative timing.',
+      tradition:
+        'Traditional readings treat communal transport symbols as social-flow indicators tied to cooperation and timing.',
+      closing:
+        'Protect one block of self-directed time so your week is not fully run by other agendas.',
+    },
+    faqs: [
+      {
+        question: 'Does a bus dream mean dependence?',
+        answer:
+          'Sometimes. More often it reflects tension between personal pace and collective demands.',
+      },
+      {
+        question: 'Why does this dream show up during busy weeks?',
+        answer:
+          'Because your schedule may feel externally controlled and emotionally crowded.',
+      },
+      {
+        question: 'What practical action helps?',
+        answer:
+          'Set one clear boundary in calendar, response time, or availability.',
+      },
+    ],
+  },
+  'airplane-dream': {
+    voice: {
+      introLead:
+        'Airplane dreams often appear before major expansion, relocation, or high-stakes visibility shifts.',
+      introSensory:
+        'Takeoff pressure and turbulence detail usually indicates both ambition and risk awareness are active together.',
+      psychLead:
+        'Psychologically, flying symbols map scale change: bigger horizon, bigger responsibility.',
+      psychDeep:
+        'Smooth ascent reflects trust in preparation. Turbulence reflects uncertainty about support systems during growth.',
+      tradition:
+        'Traditional upward-movement symbolism links to advancement, while stressing discipline and caution.',
+      closing:
+        'Keep the bold move, but add a serious risk checklist before committing full speed.',
+    },
+    faqs: [
+      {
+        question: 'Is an airplane dream always positive?',
+        answer:
+          'It is often growth-oriented, but quality of control in the dream matters greatly.',
+      },
+      {
+        question: 'What does turbulence in the dream suggest?',
+        answer:
+          'Usually that expansion is right but support, planning, or margin is still thin.',
+      },
+      {
+        question: 'Best next move?',
+        answer:
+          'Stress-test one major plan before scaling it.',
+      },
+    ],
+  },
+  'boat-dream': {
+    voice: {
+      introLead:
+        'Boat dreams often represent emotional navigation in conditions you cannot fully control.',
+      introSensory:
+        'Rocking balance and wave response detail usually mirrors unstable context with ongoing adaptation demands.',
+      psychLead:
+        'Psychologically, the boat is your coping container: not the weather, but how you steer through it.',
+      psychDeep:
+        'A steady boat suggests workable regulation. Taking on water suggests boundary or load issues.',
+      tradition:
+        'Traditional water-journey imagery is read through flow, direction, and survival skill rather than luck alone.',
+      closing:
+        'Simplify your route and cut nonessential load so you can steer with clarity.',
+    },
+    faqs: [
+      {
+        question: 'What does a rough-water boat dream mean?',
+        answer:
+          'It often reflects emotional volatility and unstable external conditions.',
+      },
+      {
+        question: 'If I reached shore, is that important?',
+        answer:
+          'Yes. Reaching shore usually signals recovery capacity and directional progress.',
+      },
+      {
+        question: 'How should I respond now?',
+        answer:
+          'Reduce one source of turbulence and strengthen one support habit.',
+      },
+    ],
+  },
+  'school-dream': {
+    voice: {
+      introLead:
+        'School dreams often return when you feel evaluated, compared, or expected to prove yourself.',
+      introSensory:
+        'Classroom noise and test-day tension in detail often reflect performance stress rather than skill deficit.',
+      psychLead:
+        'Psychologically, school symbols reactivate old templates about approval, mistakes, and belonging.',
+      psychDeep:
+        'Passing scenes can show regained confidence. Panic scenes usually point to overloaded standards.',
+      tradition:
+        'Traditional interpretations link learning symbols with reputation and advancement through effort.',
+      closing:
+        'Shift focus from proving worth to improving process on one concrete task.',
+    },
+    faqs: [
+      {
+        question: 'Why do adults still dream about school?',
+        answer:
+          'Because school acts as a universal symbol for evaluation and social ranking pressure.',
+      },
+      {
+        question: 'Does this mean I am unprepared?',
+        answer:
+          'Not necessarily. It often means expectations are louder than actual capability limits.',
+      },
+      {
+        question: 'Best next step?',
+        answer:
+          'Define a realistic success metric for today and execute against it.',
+      },
+    ],
+  },
+  'office-dream': {
+    voice: {
+      introLead:
+        'Office dreams tend to surface when role pressure and identity pressure overlap.',
+      introSensory:
+        'Meeting loops, notifications, and deadline urgency in the dream often mirror chronic cognitive overload.',
+      psychLead:
+        'Psychologically, this symbol reflects task volume plus emotional labor that is rarely acknowledged.',
+      psychDeep:
+        'Conflict scenes can indicate unclear authority lines. Endless work scenes can indicate missing completion boundaries.',
+      tradition:
+        'Traditional readings map workplace symbols to duty, status, and practical fortune tied to conduct.',
+      closing:
+        'Clarify what is truly your responsibility and stop carrying what is not yours.',
+    },
+    faqs: [
+      {
+        question: 'What does an office dream usually mean?',
+        answer:
+          'Most often it reflects role strain, performance pressure, and unresolved work boundaries.',
+      },
+      {
+        question: 'Why does this dream repeat so often?',
+        answer:
+          'Repetition is common when demand stays high and recovery remains low.',
+      },
+      {
+        question: 'What action helps quickly?',
+        answer:
+          'Set one non-negotiable boundary around time, scope, or response expectations.',
+      },
+    ],
+  },
+  'moving-dream': {
+    voice: {
+      introLead:
+        'Moving dreams usually signal identity transition and a rewrite of daily structure.',
+      introSensory:
+        'Packing weight and unfamiliar rooms in memory often reflect active life-stage change.',
+      psychLead:
+        'Psychologically, this dream appears when old routines no longer fit but new ones are not fully installed.',
+      psychDeep:
+        'Organized moving scenes suggest readiness. Chaotic moving scenes suggest attachment conflict with the past.',
+      tradition:
+        'Traditional symbolic readings treat relocation imagery as a turning point in household and personal flow.',
+      closing:
+        'Choose what to carry forward with intention; not every old habit deserves your next chapter.',
+    },
+    faqs: [
+      {
+        question: 'Does a moving dream mean real relocation?',
+        answer:
+          'Sometimes, but more often it reflects psychological relocation into a new role or season.',
+      },
+      {
+        question: 'Why did the dream feel both exciting and stressful?',
+        answer:
+          'Transition naturally combines possibility with loss of familiarity.',
+      },
+      {
+        question: 'Best practical response?',
+        answer:
+          'Replace one outdated routine with a stable new one this week.',
+      },
+    ],
+  },
+  'cleaning-dream': {
+    voice: {
+      introLead:
+        'Cleaning dreams often appear when your system is ready for reset, not because you failed to cope.',
+      introSensory:
+        'Strong before-and-after detail in the scene usually mirrors a desire for order and mental airspace.',
+      psychLead:
+        'Psychologically, cleaning symbols represent active regulation and regained agency.',
+      psychDeep:
+        'Effective cleaning scenes can indicate momentum. Endless mess scenes can indicate overwhelm and unclear priorities.',
+      tradition:
+        'Traditional readings generally treat cleansing symbols as favorable when action follows waking.',
+      closing:
+        'Clear one physical or digital zone today and let that momentum spill into decisions.',
+    },
+    faqs: [
+      {
+        question: 'Is a cleaning dream positive?',
+        answer:
+          'Often yes. It usually marks readiness for practical renewal and emotional decluttering.',
+      },
+      {
+        question: 'Why did I keep cleaning in circles?',
+        answer:
+          'That can reflect effort without prioritization, not lack of discipline.',
+      },
+      {
+        question: 'What should I do now?',
+        answer:
+          'Pick one high-friction area and reset it completely.',
+      },
+    ],
+  },
+  'rain-dream': {
+    voice: {
+      introLead:
+        'Rain dreams often indicate emotional release after a long period of internal pressure.',
+      introSensory:
+        'The texture and sound of rain in detail often mirrors feelings finally moving instead of being suppressed.',
+      psychLead:
+        'Psychologically, rain symbolizes cleansing and discharge of accumulated tension.',
+      psychDeep:
+        'Gentle rain can suggest integration. Violent rain can suggest overflow that needs containment.',
+      tradition:
+        'Traditional interpretations usually read balanced rain as renewing, while storm context alters tone.',
+      closing:
+        'Allow one honest emotional expression today without dramatizing or minimizing it.',
+    },
+    faqs: [
+      {
+        question: 'Does rain in dreams mean sadness?',
+        answer:
+          'It can, but often it means emotional processing and release rather than simple sorrow.',
+      },
+      {
+        question: 'What if the rain was heavy and scary?',
+        answer:
+          'That may reflect overload and the need for stronger regulation and support.',
+      },
+      {
+        question: 'Best immediate action?',
+        answer:
+          'Name what you are feeling and reduce one avoidable stress input.',
+      },
+    ],
+  },
+  'snow-dream': {
+    voice: {
+      introLead:
+        'Snow dreams frequently arrive when life asks for pause, quiet judgment, and slower response.',
+      introSensory:
+        'Muted sound and cold stillness usually mirror emotional numbing or a protective slowdown.',
+      psychLead:
+        'Psychologically, snow symbolizes suspension: less motion outside, more processing inside.',
+      psychDeep:
+        'Bright calm snow can indicate reset potential. Harsh snowstorm scenes can indicate isolation and decision fog.',
+      tradition:
+        'Traditional readings see snow as purification and restraint, with caution against impulsive moves.',
+      closing:
+        'Do not force speed today; gather facts and make one clean, calm decision.',
+    },
+    faqs: [
+      {
+        question: 'Is a snow dream good or bad?',
+        answer:
+          'It is context-dependent. Calm snow often supports clarity, while storm imagery can signal overwhelm.',
+      },
+      {
+        question: 'Why did everything feel silent?',
+        answer:
+          'The dream may be emphasizing a need for emotional and cognitive quiet.',
+      },
+      {
+        question: 'What should I do after this dream?',
+        answer:
+          'Delay non-urgent reactions and choose a measured next step.',
+      },
+    ],
+  },
+  'wind-dream': {
+    voice: {
+      introLead:
+        'Wind dreams usually point to invisible change already moving through your environment.',
+      introSensory:
+        'Direction and force of wind in memory often mirror external pressure you can feel but not fully see.',
+      psychLead:
+        'Psychologically, wind represents shifting conditions and the need for adaptive balance.',
+      psychDeep:
+        'A supportive breeze can suggest momentum. Harsh gusts can suggest instability and reactive decision risk.',
+      tradition:
+        'Traditional symbolism treats wind as a change signal: flexibility plus grounding is the recommended posture.',
+      closing:
+        'Secure one routine anchor before making broad directional moves.',
+    },
+    faqs: [
+      {
+        question: 'What does strong wind in a dream mean?',
+        answer:
+          'Often it reflects powerful external influences and changing context around your plans.',
+      },
+      {
+        question: 'Why can this dream feel unsettling?',
+        answer:
+          'Because it emphasizes uncertainty and reduced predictability.',
+      },
+      {
+        question: 'How should I respond?',
+        answer:
+          'Strengthen grounding habits and avoid impulsive pivots.',
+      },
+    ],
+  },
+  'mountain-dream': {
+    voice: {
+      introLead:
+        'Mountain dreams are endurance dreams: ambition measured across time, not mood.',
+      introSensory:
+        'Steep ascent and distance-to-summit detail often mirrors long-cycle effort and stamina demands.',
+      psychLead:
+        'Psychologically, mountains symbolize meaningful challenge and identity growth through persistence.',
+      psychDeep:
+        'Climbing with rhythm suggests sustainable discipline. Being stuck or sliding suggests overload or poor pacing.',
+      tradition:
+        'Traditional readings connect mountain symbols with stature and aspiration earned through steadiness.',
+      closing:
+        'Stop measuring by immediate peak results and track only the next stage completed well.',
+    },
+    faqs: [
+      {
+        question: 'Does this dream mean my goal is too hard?',
+        answer:
+          'Not always. It often means the goal is real and requires better pacing, not abandonment.',
+      },
+      {
+        question: 'What if I could not reach the top?',
+        answer:
+          'That can reflect fatigue, unrealistic timeline pressure, or resource mismatch.',
+      },
+      {
+        question: 'Best next move?',
+        answer:
+          'Break your objective into stages and finish one stage this week.',
+      },
+    ],
+  },
+  'flower-dream': {
+    voice: {
+      introLead:
+        'Flower dreams often mark emotional reopening, beauty sensitivity, and renewed creative pulse.',
+      introSensory:
+        'Color and fragrance memory usually reflects increased receptivity after a dry or defensive period.',
+      psychLead:
+        'Psychologically, flowers symbolize tenderness that survives pressure.',
+      psychDeep:
+        'Blooming scenes suggest readiness and timing. Wilted scenes can point to neglected joy or depleted care.',
+      tradition:
+        'Traditional readings often treat flower symbols as favorable for relationship warmth and gentle fortune movement.',
+      closing:
+        'Protect one source of joy deliberately; subtle vitality needs active maintenance.',
+    },
+    faqs: [
+      {
+        question: 'Is a flower dream a lucky sign?',
+        answer:
+          'Often yes, especially when the dream tone is bright and calm.',
+      },
+      {
+        question: 'What if the flowers were fading?',
+        answer:
+          'That may indicate neglected emotional nourishment or relationship care.',
+      },
+      {
+        question: 'What should I do now?',
+        answer:
+          'Invest in one small joy routine and one caring conversation.',
+      },
+    ],
+  },
+  'tree-dream': {
+    voice: {
+      introLead:
+        'Tree dreams usually emphasize root strength, maturity, and long-term stability.',
+      introSensory:
+        'Bark texture, branch movement, or trunk size in memory often reflects how grounded you currently feel.',
+      psychLead:
+        'Psychologically, trees symbolize continuity under changing seasons.',
+      psychDeep:
+        'A healthy tree can indicate resilience and support. A damaged tree can indicate strain on core systems.',
+      tradition:
+        'Traditional readings connect tree imagery with growth, family continuity, and structural fortune.',
+      closing:
+        'Strengthen one foundational habit that supports your long horizon.',
+    },
+    faqs: [
+      {
+        question: 'What does a large tree mean in dreams?',
+        answer:
+          'It often represents stability, accumulated strength, and long-cycle growth.',
+      },
+      {
+        question: 'If the tree looked weak, what does that suggest?',
+        answer:
+          'It can reflect stress on your core routines or support network.',
+      },
+      {
+        question: 'Best next step?',
+        answer:
+          'Reinforce one root behavior: sleep, finance rhythm, or relationship maintenance.',
+      },
+    ],
+  },
+  'fruit-dream': {
+    voice: {
+      introLead:
+        'Fruit dreams tend to appear near harvest moments, when effort is close to visible return.',
+      introSensory:
+        'Taste, ripeness, and color detail usually reflects timing sensitivity around results.',
+      psychLead:
+        'Psychologically, fruit symbolizes payoff, readiness, and whether you can receive what you worked for.',
+      psychDeep:
+        'Ripe fruit often indicates actionable opportunity. Rotten fruit may indicate delay, waste, or poor selection.',
+      tradition:
+        'Traditional readings commonly connect fruit symbols to prosperity and fertility of outcomes.',
+      closing:
+        'Prioritize what is ripe now and stop spending prime energy on unready projects.',
+    },
+    faqs: [
+      {
+        question: 'Is a fruit dream about money?',
+        answer:
+          'It can include money themes, but broadly it points to results, timing, and reward readiness.',
+      },
+      {
+        question: 'What if the fruit was unripe?',
+        answer:
+          'That often means the direction is right but timing is early.',
+      },
+      {
+        question: 'How should I act after this dream?',
+        answer:
+          'Complete one nearly finished task and harvest what is already ready.',
+      },
+    ],
+  },
+  'eating-dream': {
+    voice: {
+      introLead:
+        'Eating dreams usually highlight unmet needs, emotional hunger, or recovery from depletion.',
+      introSensory:
+        'Strong flavor and fullness detail often mirrors how directly your body-mind is asking to be nourished.',
+      psychLead:
+        'Psychologically, eating symbols ask what you consume to cope and what you actually need to sustain yourself.',
+      psychDeep:
+        'Satisfying meals can indicate restoration. Endless eating or discomfort can signal mismatch between craving and need.',
+      tradition:
+        'Traditional readings vary by food tone but generally link eating symbols to incoming energy and life support.',
+      closing:
+        'Meet one real need directly today instead of numbing it with busyness.',
+    },
+    faqs: [
+      {
+        question: 'Does this dream only mean physical hunger?',
+        answer:
+          'No. It often points to emotional, relational, or mental nourishment needs.',
+      },
+      {
+        question: 'Why did I still feel unsatisfied in the dream?',
+        answer:
+          'That can reflect trying to fill the wrong deficit.',
+      },
+      {
+        question: 'What practical response helps?',
+        answer:
+          'Identify one true unmet need and address it concretely today.',
+      },
+    ],
+  },
+  'cooking-dream': {
+    voice: {
+      introLead:
+        'Cooking dreams usually signal process mastery: turning raw inputs into usable results.',
+      introSensory:
+        'Heat control, aroma, and timing in memory often reflect how you are managing transformation under pressure.',
+      psychLead:
+        'Psychologically, cooking symbolizes agency through preparation, sequencing, and care.',
+      psychDeep:
+        'A balanced meal scene often indicates growing competence. Burned food scenes can indicate overload or rushed execution.',
+      tradition:
+        'Traditional readings often frame food preparation as domestic order, provision, and practical fortune.',
+      closing:
+        'Improve one step in your workflow and let quality compound.',
+    },
+    faqs: [
+      {
+        question: 'What does cooking in a dream generally mean?',
+        answer:
+          'It usually reflects active preparation and your ability to shape outcomes.',
+      },
+      {
+        question: 'What if the food failed?',
+        answer:
+          'That can point to rushed process, poor sequencing, or unrealistic throughput.',
+      },
+      {
+        question: 'Best next action?',
+        answer:
+          'Tune one repeatable process step instead of chasing perfect outcomes.',
+      },
+    ],
+  },
+  'bath-dream': {
+    voice: {
+      introLead:
+        'Bath dreams often appear when nervous-system recovery has become urgent.',
+      introSensory:
+        'Water temperature and bodily release detail usually indicates your system is asking for true restoration.',
+      psychLead:
+        'Psychologically, bathing symbolizes purification, privacy, and emotional decompression.',
+      psychDeep:
+        'Comfortable bathing scenes can indicate readiness to reset. Disturbed bathing scenes can indicate interrupted recovery.',
+      tradition:
+        'Traditional cleansing symbols are generally read as favorable when paired with practical self-care after waking.',
+      closing:
+        'Schedule recovery first, not after everything else is done.',
+    },
+    faqs: [
+      {
+        question: 'Is a bath dream a good sign?',
+        answer:
+          'Often yes. It usually points to release and restoration needs becoming clear.',
+      },
+      {
+        question: 'Why did the dream feel so soothing?',
+        answer:
+          'Your system may be signaling that rest and regulation are finally possible.',
+      },
+      {
+        question: 'What should I do now?',
+        answer:
+          'Protect one uninterrupted recovery block today.',
+      },
+    ],
+  },
+  'toilet-dream': {
+    voice: {
+      introLead:
+        'Toilet dreams usually revolve around release, privacy, and pressure to let go.',
+      introSensory:
+        'Urgent searching or blocked access in the dream often mirrors emotional backlog in waking life.',
+      psychLead:
+        'Psychologically, this symbol points to boundaries around what should be processed privately and what can be shared safely.',
+      psychDeep:
+        'Successful relief scenes suggest healthy discharge. Repeated blockage often signals avoidance of necessary expression.',
+      tradition:
+        'Traditional readings connect these symbols with clearing obstacles and restoring flow when action follows.',
+      closing:
+        'Clear one backlog conversation or task that has been sitting in your system too long.',
+    },
+    faqs: [
+      {
+        question: 'Why are toilet dreams so uncomfortable?',
+        answer:
+          'They touch shame, control, and vulnerability, which are naturally charged themes.',
+      },
+      {
+        question: 'What does not finding a toilet mean?',
+        answer:
+          'It often reflects delayed release and difficulty finding safe boundaries for expression.',
+      },
+      {
+        question: 'What helps immediately?',
+        answer:
+          'Name one burden and remove it through direct action.',
+      },
+    ],
+  },
+  'clothes-dream': {
+    voice: {
+      introLead:
+        'Clothes dreams often reveal tension between authentic identity and social presentation.',
+      introSensory:
+        'Fabric fit and appearance detail in memory usually mirrors concerns about being seen correctly.',
+      psychLead:
+        'Psychologically, clothing symbolizes role performance, protection, and self-definition.',
+      psychDeep:
+        'Comfortable outfits can indicate alignment. Ill-fitting or missing clothes can indicate exposure anxiety or role mismatch.',
+      tradition:
+        'Traditional readings link garment imagery with reputation and social standing, interpreted through condition and tone.',
+      closing:
+        'Present yourself one degree more honestly in a context that usually invites performance.',
+    },
+    faqs: [
+      {
+        question: 'What do clothes mean in dreams?',
+        answer:
+          'They usually represent identity, role expectations, and social visibility.',
+      },
+      {
+        question: 'What if I was not properly dressed?',
+        answer:
+          'That often reflects vulnerability, exposure fear, or imposter tension.',
+      },
+      {
+        question: 'Best next step?',
+        answer:
+          'Adjust one area where your outer role no longer matches your inner values.',
+      },
+    ],
+  },
+  'shoes-dream': {
+    voice: {
+      introLead:
+        'Shoe dreams often ask a practical question: does your current path fit your real capacity?',
+      introSensory:
+        'Fit, pressure, and walking comfort detail usually mirrors readiness for the route you are on.',
+      psychLead:
+        'Psychologically, shoes symbolize mobility, direction, and grounded progress.',
+      psychDeep:
+        'Comfortable shoes suggest sustainable pace. Painful or lost shoes suggest path mismatch or depleted support.',
+      tradition:
+        'Traditional readings often connect footwear with journey fortune and practical preparedness.',
+      closing:
+        'Align one plan with your actual resources so progress can continue without injury.',
+    },
+    faqs: [
+      {
+        question: 'Do shoe dreams relate to career path?',
+        answer:
+          'Often yes, and also to any life direction where stamina and fit matter.',
+      },
+      {
+        question: 'What if the shoes were damaged?',
+        answer:
+          'That can indicate support breakdown, poor pacing, or a route that no longer suits you.',
+      },
+      {
+        question: 'What should I do now?',
+        answer:
+          'Choose sustainability over speed in your next decision.',
+      },
+    ],
+  },
+  'bag-dream': {
+    voice: {
+      introLead:
+        'Bag dreams often represent responsibility load and how well you protect your resources.',
+      introSensory:
+        'Weight and strap pressure detail in memory usually reflects burden that has become physically felt.',
+      psychLead:
+        'Psychologically, the bag symbolizes what you carry by choice and what you carry by habit.',
+      psychDeep:
+        'A secure bag can suggest healthy stewardship. A lost or torn bag can suggest leakage in attention or boundaries.',
+      tradition:
+        'Traditional symbolic readings treat carrying objects as indicators of duty, burden, and fortune management.',
+      closing:
+        'Put one unnecessary obligation down and recover margin before adding more.',
+    },
+    faqs: [
+      {
+        question: 'What does a heavy bag dream mean?',
+        answer:
+          'Most often it reflects overload and accumulated obligations.',
+      },
+      {
+        question: 'If I lost my bag in the dream, is that serious?',
+        answer:
+          'It usually symbolizes fear of losing control over key resources or identity anchors.',
+      },
+      {
+        question: 'Most useful action now?',
+        answer:
+          'Audit your commitments and drop one low-value burden today.',
+      },
+    ],
+  },
+  'phone-dream': {
+    voice: {
+      introLead:
+        'Phone dreams often surface when communication demand exceeds emotional bandwidth.',
+      introSensory:
+        'Ringing, vibration, and screen-failure details usually mirror alert fatigue and response pressure.',
+      psychLead:
+        'Psychologically, phones symbolize connection and interruption at the same time.',
+      psychDeep:
+        'Clear calls can indicate needed contact. Broken or missed calls can indicate boundary collapse or unresolved communication stress.',
+      tradition:
+        'Traditional frameworks do not name phones directly, but message symbols are read as relationship and timing signals.',
+      closing:
+        'Create response boundaries so communication serves you instead of consuming you.',
+    },
+    faqs: [
+      {
+        question: 'Why do I dream about missed calls?',
+        answer:
+          'Often because you feel pressure to be available while fearing communication overload.',
+      },
+      {
+        question: 'What does a broken phone suggest?',
+        answer:
+          'It can symbolize disconnection, burnout, or fear of losing relational access.',
+      },
+      {
+        question: 'What should I change first?',
+        answer:
+          'Separate urgent communication from background noise and protect focus windows.',
+      },
+    ],
+  },
+  'photo-dream': {
+    voice: {
+      introLead:
+        'Photo dreams usually appear when memory, identity narrative, and perspective selection become important.',
+      introSensory:
+        'Framing and shutter detail in memory often shows your mind actively choosing what to preserve.',
+      psychLead:
+        'Psychologically, photography symbols ask whether you are living the moment or curating it for approval.',
+      psychDeep:
+        'Clear subjects can indicate value clarity. Blurred or missing subjects can indicate uncertainty about what truly matters.',
+      tradition:
+        'Traditional symbolism around image and record emphasizes reputation, memory, and meaningful witness.',
+      closing:
+        'Choose one memory to keep for yourself, not for performance.',
+    },
+    faqs: [
+      {
+        question: 'What does taking photos in a dream mean?',
+        answer:
+          'It often reflects active meaning-making and selective memory formation.',
+      },
+      {
+        question: 'Why was the image blurry?',
+        answer:
+          'Blur often symbolizes unclear priorities or unstable perspective.',
+      },
+      {
+        question: 'Best practical takeaway?',
+        answer:
+          'Define what you want to remember and what you can release.',
+      },
+    ],
+  },
+  'letter-dream': {
+    voice: {
+      introLead:
+        'Letter dreams often signal meaningful communication that has been delayed or emotionally loaded.',
+      introSensory:
+        'Envelope texture or handwriting detail in memory usually indicates the message carries personal weight.',
+      psychLead:
+        'Psychologically, letters symbolize thoughtful truth rather than reactive speech.',
+      psychDeep:
+        'Receiving a letter can indicate readiness to hear. Writing one can indicate readiness to say what has been withheld.',
+      tradition:
+        'Traditional message symbols are often interpreted as relationship turning points shaped by intention and timing.',
+      closing:
+        'Send one clear message you have postponed and close the uncertainty loop.',
+    },
+    faqs: [
+      {
+        question: 'What does receiving a letter in a dream suggest?',
+        answer:
+          'It often points to incoming clarity, feedback, or a needed emotional message.',
+      },
+      {
+        question: 'What if I could not read the letter?',
+        answer:
+          'That can indicate avoided truth or communication that is emotionally hard to decode.',
+      },
+      {
+        question: 'What should I do now?',
+        answer:
+          'Choose one important conversation and communicate with precision and care.',
+      },
+    ],
+  },
+  'travel-dream': {
+    voice: {
+      introLead:
+        'Travel dreams usually appear when your life horizon is widening faster than your current routine.',
+      introSensory:
+        'Transit scenes and unfamiliar landscapes in memory often mirror expansion urge plus uncertainty about route.',
+      psychLead:
+        'Psychologically, travel symbols represent growth through perspective shift.',
+      psychDeep:
+        'Smooth journeys can suggest alignment. Delays or missed connections can indicate planning gaps or ambivalence.',
+      tradition:
+        'Traditional movement symbols often point to opportunity through change, with readiness as the deciding factor.',
+      closing:
+        'Take one perspective-expanding action in waking life and convert intention into movement.',
+    },
+    faqs: [
+      {
+        question: 'Does a travel dream mean I should move or leave?',
+        answer:
+          'Not always literally. It often means your mindset is ready for broader context and change.',
+      },
+      {
+        question: 'Why did I feel both excited and nervous?',
+        answer:
+          'That is typical of growth phases where possibility and uncertainty coexist.',
+      },
+      {
+        question: 'Best follow-up?',
+        answer:
+          'Book one concrete step toward the direction you keep imagining.',
+      },
+    ],
+  },
+  'hospital-dream': {
+    voice: {
+      introLead:
+        'Hospital dreams often arrive when healing priorities can no longer be deferred.',
+      introSensory:
+        'Waiting-room tension and sterile detail in memory usually reflects vulnerability plus need for structured care.',
+      psychLead:
+        'Psychologically, this dream points to check-in behavior: what you monitor early versus ignore until crisis.',
+      psychDeep:
+        'Supportive treatment scenes can indicate readiness to recover. Chaotic scenes can indicate fear of dependence or uncertainty.',
+      tradition:
+        'Traditional caution-oriented readings align with this symbol: timely care prevents larger disruption.',
+      closing:
+        'Do one preventive health or stress check this week and treat early signals seriously.',
+    },
+    faqs: [
+      {
+        question: 'Is a hospital dream a warning?',
+        answer:
+          'Often yes, but usually as a call for timely care rather than a fixed negative prediction.',
+      },
+      {
+        question: 'Why did I feel anxious in the dream?',
+        answer:
+          'Because hospitals symbolize uncertainty, dependency, and the need to pause normal output.',
+      },
+      {
+        question: 'What practical step should I take?',
+        answer:
+          'Schedule one concrete check-in for body or stress regulation.',
+      },
+    ],
+  },
+  'surgery-dream': {
+    voice: {
+      introLead:
+        'Surgery dreams usually point to deep correction, not surface-level adjustment.',
+      introSensory:
+        'Precision, bright lights, and controlled tension in memory often indicate your mind is preparing for fundamental change.',
+      psychLead:
+        'Psychologically, surgery symbolizes deliberate intervention where avoidance is no longer workable.',
+      psychDeep:
+        'Successful operation scenes can reflect readiness for difficult repair. Fearful scenes can reflect resistance to necessary disruption.',
+      tradition:
+        'Traditional symbolic interpretation reads this as serious but potentially beneficial restructuring when handled with discipline.',
+      closing:
+        'Address one root problem directly and stop spending energy on temporary patches.',
+    },
+    faqs: [
+      {
+        question: 'Does a surgery dream mean something is wrong?',
+        answer:
+          'It usually signals that a core issue needs direct treatment, psychologically or practically.',
+      },
+      {
+        question: 'Why did the dream feel so controlled and tense?',
+        answer:
+          'Because the symbol combines vulnerability with intentional precision.',
+      },
+      {
+        question: 'Best action after this dream?',
+        answer:
+          'Name one root issue and design a real intervention plan, not another workaround.',
+      },
+    ],
+  },
+}

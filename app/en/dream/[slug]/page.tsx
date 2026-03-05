@@ -225,7 +225,7 @@ const coreDreamConfigs: DreamConfig[] = [
       {
         title: 'Someone pushes you and you fall',
         description:
-          'External pressure feels invasive. You may be acting from others expectations instead of your own center.',
+          "External pressure feels invasive. You may be acting from others' expectations instead of your own center.",
       },
     ],
     relatable: [
@@ -245,7 +245,7 @@ const coreDreamConfigs: DreamConfig[] = [
     tradition: 'often treated as a reversal-luck dream tied to renewal and long-term fortune',
     metaTitle: 'Death Dream Meaning: Ending, Rebirth, and Turning Points',
     metaDescription:
-      'Death dreams are usually symbolic, not literal. Learn what dreams of your own death, others deaths, and funerals can point to psychologically.',
+      "Death dreams are usually symbolic, not literal. Learn what dreams of your own death, others' deaths, and funerals can point to psychologically.",
     caseStudies: [
       {
         title: 'You die in the dream',
@@ -805,7 +805,7 @@ const coreDreamConfigs: DreamConfig[] = [
     tradition: 'read as a turning point in vitality and material flow',
     metaTitle: 'Blood Dream Meaning: Energy Warning or Emotional Release?',
     metaDescription:
-      'Blood dreams can feel intense but often point to vitality and emotional load. Learn what your own blood, others blood, and stopping blood scenes imply.',
+      "Blood dreams can feel intense but often point to vitality and emotional load. Learn what your own blood, others' blood, and stopping blood scenes imply.",
     caseStudies: [
       {
         title: 'You see your own blood',
@@ -815,7 +815,7 @@ const coreDreamConfigs: DreamConfig[] = [
       {
         title: 'You see someone else bleeding',
         description:
-          'You may be absorbing other people conflicts too deeply and mistaking them for your own.',
+          "You may be absorbing other people's conflicts too deeply and mistaking them for your own.",
       },
       {
         title: 'You clean blood',
@@ -935,7 +935,7 @@ const coreDreamConfigs: DreamConfig[] = [
       {
         title: 'You are a passenger in an accident',
         description:
-          'You feel driven by others choices. Reclaiming agency is the central task now.',
+          "You feel driven by others' choices. Reclaiming agency is the central task now.",
       },
       {
         title: 'You survive the accident safely',

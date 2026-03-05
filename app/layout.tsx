@@ -1,5 +1,6 @@
 import './globals.css'
 import type { Metadata, Viewport } from 'next'
+import { headers } from 'next/headers'
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://kkumhaemong.xyz'),
@@ -43,6 +44,14 @@ export const metadata: Metadata = {
     apple: '/favicon-32x32.png',
   },
 
+  alternates: {
+    canonical: 'https://kkumhaemong.xyz',
+    languages: {
+      'ko': 'https://kkumhaemong.xyz',
+      'en': 'https://kkumhaemong.xyz/en',
+    },
+  },
+
   robots: {
     index: true,
     follow: true,
@@ -81,8 +90,9 @@ export default function RootLayout({
 }: {
   children: React.ReactNode
 }) {
+  const lang = headers().get('x-lang') || 'ko'
   return (
-    <html lang="ko">
+    <html lang={lang}>
       <head>
         <script
           type="application/ld+json"

@@ -31,7 +31,9 @@ export function middleware(request: NextRequest) {
   const host = normalizeHost(hostHeader)
 
   if (!host || !isEnglishRedirectHost(host)) {
-    return NextResponse.next()
+    const response = NextResponse.next()
+    response.headers.set('x-lang', request.nextUrl.pathname.startsWith('/en') ? 'en' : 'ko')
+    return response
   }
 
   const pathname = request.nextUrl.pathname

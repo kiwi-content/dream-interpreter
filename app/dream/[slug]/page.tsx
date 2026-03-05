@@ -1862,24 +1862,6 @@ function varyLineTone(line: string, slug: string, salt: string): string {
   }
 }
 
-function extractFAQs(content: string): FAQItem[] {
-  const regex = /Q:\s*(.+?)\nA:\s*([\s\S]*?)(?=\nQ:\s*|\n##\s|$)/g
-  const faqs: FAQItem[] = []
-  let match = regex.exec(content)
-
-  while (match) {
-    const question = match[1].trim()
-    const answer = match[2].replace(/\n+/g, ' ').trim()
-
-    if (question && answer) {
-      faqs.push({ question, answer })
-    }
-
-    match = regex.exec(content)
-  }
-
-  return faqs
-}
 
 function buildFAQs(config: DreamConfig): FAQItem[] {
   const forcedIntroSensory = bespokeIntroSensoryKo[config.slug]
