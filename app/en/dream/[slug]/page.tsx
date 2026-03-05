@@ -3,6 +3,7 @@ import type { ReactNode } from 'react'
 import type { Metadata } from 'next'
 import { notFound } from 'next/navigation'
 import DreamInputEn from './DreamInputEn'
+import { bespokeContentEnBySlug, type EnVoiceCopy } from './bespokeContentEn'
 
 type DreamCase = {
   title: string
@@ -1404,7 +1405,29 @@ const relatedDreamMap: Record<string, string[]> = {
   'romance-dream': ['love-dream', 'ex-dream', 'wedding-dream', 'cat-dream', 'gift-dream'],
 }
 
+function buildVoiceCopy(config: DreamConfig): EnVoiceCopy {
+  const bespoke = bespokeContentEnBySlug[config.slug]
+  if (bespoke) return bespoke.voice
+
+  return {
+    introLead:
+      `Dreams about a ${config.dreamLabel} usually appear when ${config.symbol} becomes a live issue in waking life.`,
+    introSensory:
+      `If details like ${config.sensory} felt vivid, your mind is likely asking for direct attention to that theme.`,
+    psychLead:
+      `Psychologically, this dream often reflects ${config.focus}. The symbolism is less prediction and more emotional mapping.`,
+    psychDeep:
+      'When a dream repeats, it usually means one theme is still unresolved and needs a practical adjustment in daily life.',
+    tradition:
+      `Traditional Korean interpretations often connect this dream to ${config.tradition}, while still emphasizing personal context and tone.`,
+    closing: 'Take one grounded action today and let behavior complete the interpretation.',
+  }
+}
+
 function buildFAQs(config: DreamConfig): FAQItem[] {
+  const bespoke = bespokeContentEnBySlug[config.slug]
+  if (bespoke) return bespoke.faqs
+
   return [
     {
       question: `Is a ${config.dreamLabel} always lucky or always bad?`,
@@ -1504,13 +1527,14 @@ export default function EnDreamPage({
   const config = dreamConfigs.find((c) => c.slug === params.slug)
   if (!config) return notFound()
 
+  const voiceCopy = buildVoiceCopy(config)
   const faqs = buildFAQs(config)
   const relatedDreams = (relatedDreamMap[params.slug] ?? [])
     .map((slug) => ({ slug, name: dreamNameBySlug[slug] }))
     .filter((item) => Boolean(item.name))
 
   return (
-    <div className="min-h-screen px-4 py-14 relative z-10">
+    <div className="min-h-screen px-4 py-14 relative z-10 dream-readable-en">
       <div className="max-w-xl mx-auto">
         <div className="mb-8">
           <Link
@@ -1536,15 +1560,10 @@ export default function EnDreamPage({
             <AiAvatar />
             <div className="bg-slate-800/70 backdrop-blur-sm border border-white/10 text-white/85 px-4 py-3.5 rounded-2xl rounded-tl-sm max-w-[88%] text-sm leading-[1.85] shadow-md space-y-2.5">
               <p>
-                Dreams about a {config.dreamLabel} rarely show up by accident. They usually appear
-                when <span className="text-amber-300/90">{config.symbol}</span> becomes a live
-                issue in waking life. Some people wake up excited, others wake up tense, but both
-                reactions point to the same thing: your mind is helping you rebalance.
+                {voiceCopy.introLead}
               </p>
               <p className="text-white/65">
-                If the scene felt unusually vivid, that detail matters. Moments like{' '}
-                <em className="not-italic text-amber-200/75">{config.sensory}</em> are often your
-                unconscious way of saying, "Do not gloss over this part."
+                {voiceCopy.introSensory}
               </p>
             </div>
           </div>
@@ -1572,14 +1591,10 @@ export default function EnDreamPage({
                 🧠 Psychology Lens
               </p>
               <p>
-                Psychologically, this dream often reflects{' '}
-                <span className="text-blue-300/80">{config.focus}</span>. In daytime mode, people
-                can look composed while carrying heavy emotional load underneath.
+                {voiceCopy.psychLead}
               </p>
               <p className="text-white/65">
-                Repeated dream imagery is usually not random. It tends to be your inner system
-                asking for a directional correction: better boundaries, clearer choices, and a more
-                sustainable pace.
+                {voiceCopy.psychDeep}
               </p>
             </div>
           </div>
@@ -1590,10 +1605,7 @@ export default function EnDreamPage({
                 📜 Traditional Korean Reading
               </p>
               <p className="text-white/70 text-sm leading-relaxed">
-                In traditional Korean dream interpretation, a {config.dreamLabel} is often read as{' '}
-                <span className="text-amber-200/90">{config.tradition}</span>. Context still
-                matters most: your life situation, emotional tone, and dream details shape the
-                final meaning more than any one fixed rule.
+                {voiceCopy.tradition}
               </p>
             </div>
           </div>
@@ -1641,9 +1653,7 @@ export default function EnDreamPage({
                 ✨ Today&apos;s takeaway
               </p>
               <p>
-                Your dream is not trying to scare you. It is trying to make your inner signal
-                louder before daily life forces your hand. Hold the message lightly, but act on one
-                small point with intention.
+                {voiceCopy.closing}
               </p>
               <div className="mt-3 pt-2.5 border-t border-amber-300/20 text-amber-200/60 text-xs">
                 💡 {config.actionTip}

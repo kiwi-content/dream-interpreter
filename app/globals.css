@@ -53,6 +53,23 @@
   .sparkle {
     display: none;
   }
+
+  .dream-readable-ko {
+    font-family: 'OngleipParkDahyeon', 'Jua', 'Apple SD Gothic Neo', sans-serif;
+    letter-spacing: 0;
+    word-break: keep-all;
+  }
+
+  .dream-readable-ko h1,
+  .dream-readable-ko h2,
+  .dream-readable-ko h3 {
+    font-family: 'OngleipParkDahyeon', 'Jua', 'Apple SD Gothic Neo', sans-serif;
+  }
+
+  .dream-readable-en {
+    font-family: 'Noto Serif KR', Georgia, serif;
+    letter-spacing: -0.005em;
+  }
 }
 
 /* 접근성 */

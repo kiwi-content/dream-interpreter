@@ -18,9 +18,14 @@ const normalizeHost = (rawHost: string) =>
     .split(':')[0]
 
 const isEnglishRedirectHost = (host: string) =>
-  EN_REDIRECT_HOSTS.includes(host) || host.startsWith('dream-interpreter-en.')
+  EN_REDIRECT_HOSTS.includes(host)
 
 export function middleware(request: NextRequest) {
+  // Never apply domain redirects during local development.
+  if (process.env.NODE_ENV !== 'production') {
+    return NextResponse.next()
+  }
+
   const hostHeader =
     request.headers.get('x-forwarded-host') ?? request.headers.get('host') ?? ''
   const host = normalizeHost(hostHeader)
