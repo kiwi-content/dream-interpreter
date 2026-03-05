@@ -4,6 +4,7 @@ import type { Metadata } from 'next'
 import { notFound } from 'next/navigation'
 import DreamInputEn from './DreamInputEn'
 import { bespokeContentEnBySlug, type EnVoiceCopy } from './bespokeContentEn'
+import { bespokeIntroSensoryEn } from './bespokeIntroSensoryEn'
 
 type DreamCase = {
   title: string
@@ -1834,14 +1835,21 @@ function getFallbackRelatedSlugs(slug: string): string[] {
 }
 
 function buildVoiceCopy(config: DreamConfig): EnVoiceCopy {
+  const forcedIntroSensory = bespokeIntroSensoryEn[config.slug]
   const bespoke = bespokeContentEnBySlug[config.slug]
-  if (bespoke) return bespoke.voice
+  if (bespoke) {
+    return {
+      ...bespoke.voice,
+      introSensory: forcedIntroSensory ?? bespoke.voice.introSensory,
+    }
+  }
 
   return {
     introLead:
       `Dreams about a ${config.dreamLabel} usually appear when ${config.symbol} becomes a live issue in waking life.`,
     introSensory:
-      `If details like ${config.sensory} felt vivid, your mind is likely asking for direct attention to that theme.`,
+      forcedIntroSensory
+      ?? `If details like ${config.sensory} felt vivid, your mind is likely asking for direct attention to that theme.`,
     psychLead:
       `Psychologically, this dream often reflects ${config.focus}. The symbolism is less prediction and more emotional mapping.`,
     psychDeep:
@@ -1853,8 +1861,13 @@ function buildVoiceCopy(config: DreamConfig): EnVoiceCopy {
 }
 
 function buildFAQs(config: DreamConfig): FAQItem[] {
+  const forcedIntroSensory = bespokeIntroSensoryEn[config.slug]
   const bespoke = bespokeContentEnBySlug[config.slug]
   if (bespoke) return bespoke.faqs
+
+  const vividAnswer = forcedIntroSensory
+    ? `${forcedIntroSensory} That usually reflects emotional priority, not literal prediction.`
+    : `Vivid dreams are not automatically predictive. More often, they show strong emotional charge. Details like ${config.sensory} suggest your inner attention is sharply focused on that theme.`
 
   return [
     {
@@ -1869,8 +1882,7 @@ function buildFAQs(config: DreamConfig): FAQItem[] {
     },
     {
       question: 'If the dream felt extremely vivid, is it a premonition?',
-      answer:
-        `Vivid dreams are not automatically predictive. More often, they show strong emotional charge. Details like ${config.sensory} suggest your inner attention is sharply focused on that theme.`,
+      answer: vividAnswer,
     },
     {
       question: 'Should I make a major decision based only on this dream?',

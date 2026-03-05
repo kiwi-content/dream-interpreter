@@ -4,6 +4,7 @@ import type { Metadata } from 'next'
 import { notFound } from 'next/navigation'
 import DreamInput from './DreamInput'
 import { bespokeVoiceCopyBySlug } from './bespokeVoiceKo'
+import { bespokeIntroSensoryKo } from './bespokeIntroSensoryKo'
 
 type DreamEntry = {
   title: string
@@ -1677,13 +1678,15 @@ function buildVoiceCopy(config: DreamConfig): VoiceCopy {
   const tonedCase2 = varyLineTone(case2.description, config.slug, 'voice-case-2')
   const tonedCase3 = varyLineTone(case3.description, config.slug, 'voice-case-3')
   const tonedCase4 = varyLineTone(case4.description, config.slug, 'voice-case-4')
+  const forcedIntroSensory = bespokeIntroSensoryKo[config.slug]
 
   if (config.slug === 'snake-dream') {
     return {
       introLead:
         '뱀 나오는 꿈은 "돈 들어온다" 한 줄로 끝낼 수 없는 꿈입니다. 같은 뱀이라도 길을 막는지, 스쳐 지나가는지, 공격하는지에 따라 해석의 방향이 완전히 달라져요.',
       introSensory:
-        '비늘이 번쩍이거나 몸이 스치는 감각이 또렷했다면 이미 현실에서도 촉이 온 상태예요. 놓치기 쉬운 기회가 지나가고 있거나, 반대로 위험 신호를 모른 척하고 있다는 뜻일 수 있습니다.',
+        forcedIntroSensory
+        ?? '비늘이 번쩍이거나 몸이 스치는 감각이 또렷했다면 이미 현실에서도 촉이 온 상태예요. 놓치기 쉬운 기회가 지나가고 있거나, 반대로 위험 신호를 모른 척하고 있다는 뜻일 수 있습니다.',
       psychLead:
         '심리적으로 뱀은 욕망과 경계심이 동시에 올라올 때 자주 등장합니다. 갖고 싶은 건 분명한데, 대가를 치를 준비는 덜 된 시기라서 내면의 긴장이 꿈에서 선명하게 드러나는 거예요.',
       psychDeep:
@@ -1700,7 +1703,8 @@ function buildVoiceCopy(config: DreamConfig): VoiceCopy {
       introLead:
         '똥 나오는 꿈은 민망하지만 핵심은 더러움이 아니라 배출입니다. 안에서 오래 눌러 둔 감정, 일, 돈 문제가 이제 밖으로 정리될 준비를 하고 있다는 뜻으로 읽는 편이 정확해요.',
       introSensory:
-        '냄새나 질감이 유난히 현실감 있게 남았다면 마음과 몸의 피로가 한계에 가까웠다는 신호일 수 있습니다. 반대로 시원한 느낌이 강했다면 막히던 흐름이 풀리는 전환점으로 볼 수 있어요.',
+        forcedIntroSensory
+        ?? '냄새나 질감이 유난히 현실감 있게 남았다면 마음과 몸의 피로가 한계에 가까웠다는 신호일 수 있습니다. 반대로 시원한 느낌이 강했다면 막히던 흐름이 풀리는 전환점으로 볼 수 있어요.',
       psychLead:
         '심리적으로는 수치심과 해방감이 함께 올라올 때 이 꿈이 잦아집니다. 남 눈치 때문에 미뤄 둔 문제를 이제는 정리하고 싶다는 욕구가 꿈에서 먼저 모습을 드러내는 거죠.',
       psychDeep:
@@ -1717,7 +1721,8 @@ function buildVoiceCopy(config: DreamConfig): VoiceCopy {
       introLead:
         '돈 줍는 꿈은 대체로 기회가 가까이 왔다는 신호로 읽어요. 횡재를 뜻한다기보다, 지금 잡을 수 있는 제안이나 수입 기회를 놓치지 말라는 메시지에 가깝습니다.',
       introSensory:
-        '손바닥에 지폐 감촉이 생생하게 남았다면 더 분명합니다. 머릿속으로만 고민하지 말고, 오늘 바로 숫자로 검토해 행동하라는 뜻으로 보는 게 맞아요.',
+        forcedIntroSensory
+        ?? '손바닥에 지폐 감촉이 생생하게 남았다면 더 분명합니다. 머릿속으로만 고민하지 말고, 오늘 바로 숫자로 검토해 행동하라는 뜻으로 보는 게 맞아요.',
       psychLead:
         '심리적으로는 내 가치가 제대로 보상받고 싶은 욕구가 커졌을 때 자주 나와요. 그래서 작은 기회라도 먼저 잡는 선택이 중요합니다.',
       psychDeep:
@@ -1730,7 +1735,12 @@ function buildVoiceCopy(config: DreamConfig): VoiceCopy {
   }
 
   const bespoke = bespokeVoiceCopyBySlug[config.slug]
-  if (bespoke) return bespoke
+  if (bespoke) {
+    return {
+      ...bespoke,
+      introSensory: forcedIntroSensory ?? bespoke.introSensory,
+    }
+  }
 
   const introLead = pickBySlug(config.slug, [
     `${config.name}은 ${config.symbol} 흐름을 직접 보여주는 꿈이에요. 특히 ${case1.title} 장면이 나왔다면, 관련된 기회나 고민이 이미 현실에서 움직이기 시작했다는 뜻으로 읽어요.`,
@@ -1786,7 +1796,7 @@ function buildVoiceCopy(config: DreamConfig): VoiceCopy {
 
   return {
     introLead,
-    introSensory,
+    introSensory: forcedIntroSensory ?? introSensory,
     psychLead,
     psychDeep,
     tradition,
@@ -1872,6 +1882,8 @@ function extractFAQs(content: string): FAQItem[] {
 }
 
 function buildFAQs(config: DreamConfig): FAQItem[] {
+  const forcedIntroSensory = bespokeIntroSensoryKo[config.slug]
+
   if (config.slug === 'snake-dream') {
     return [
       {
@@ -1916,6 +1928,7 @@ function buildFAQs(config: DreamConfig): FAQItem[] {
 
   const bespoke = bespokeVoiceCopyBySlug[config.slug]
   if (bespoke) {
+    const introSensoryLine = forcedIntroSensory ?? bespoke.introSensory
     return [
       {
         question: `${config.name} 해석에서 가장 먼저 봐야 할 포인트는 뭔가요?`,
@@ -1923,7 +1936,7 @@ function buildFAQs(config: DreamConfig): FAQItem[] {
       },
       {
         question: '꿈이 유난히 선명하게 남았을 때는 어떻게 읽으면 좋을까요?',
-        answer: `${bespoke.introSensory} ${bespoke.psychDeep}`,
+        answer: `${introSensoryLine} ${bespoke.psychDeep}`,
       },
       {
         question: '꿈을 꾼 다음 현실에서 바로 할 행동 하나를 고른다면?',
@@ -1969,7 +1982,7 @@ function buildFAQs(config: DreamConfig): FAQItem[] {
     },
     {
       question: `꿈이 너무 생생하면 예지몽일 가능성이 있나요?`,
-      answer: `생생하다고 다 예지몽은 아니에요. 다만 내 마음에서 우선순위가 높다는 뜻일 수는 있습니다. ${config.sensory} 같은 장면이 강하게 남았다면, 그 주제를 현실에서 바로 점검해 보라는 신호로 보는 게 더 실용적입니다.`,
+      answer: `생생하다고 다 예지몽은 아니에요. 다만 내 마음에서 우선순위가 높다는 뜻일 수는 있습니다. ${forcedIntroSensory ?? `${config.sensory} 같은 장면이 강하게 남았다면, 그 주제를 현실에서 바로 점검해 보라는 신호일 수 있습니다.`}`,
     },
     {
       question: `꿈해몽을 믿고 바로 큰 결정을 해도 될까요?`,
