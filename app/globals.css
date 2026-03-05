@@ -55,15 +55,15 @@
   }
 
   .dream-readable-ko {
-    font-family: 'OngleipParkDahyeon', 'Jua', 'Apple SD Gothic Neo', sans-serif;
-    letter-spacing: 0;
+    font-family: 'Gowun Batang', 'Noto Serif KR', serif;
+    letter-spacing: -0.01em;
     word-break: keep-all;
   }
 
   .dream-readable-ko h1,
   .dream-readable-ko h2,
   .dream-readable-ko h3 {
-    font-family: 'OngleipParkDahyeon', 'Jua', 'Apple SD Gothic Neo', sans-serif;
+    font-family: 'Noto Serif KR', 'Gowun Batang', serif;
   }
 
   .dream-readable-en {
