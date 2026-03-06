@@ -2010,12 +2010,30 @@ export async function generateMetadata({
 }: {
   params: { slug: string }
 }): Promise<Metadata> {
-  const dream = dreamData[params.slug]
+  const slug = params.slug
+  const dream = dreamData[slug]
   if (!dream) return {}
+
+  const canonical = `https://kkumhaemong.xyz/dream/${slug}`
+  const englishAlternate = `https://kkumhaemong.xyz/en/dream/${slug}`
 
   return {
     title: dream.title,
     description: dream.description,
+    alternates: {
+      canonical,
+      languages: {
+        ko: canonical,
+        en: englishAlternate,
+      },
+    },
+    openGraph: {
+      title: dream.title,
+      description: dream.description,
+      url: canonical,
+      locale: 'ko_KR',
+      type: 'article',
+    },
   }
 }
 
