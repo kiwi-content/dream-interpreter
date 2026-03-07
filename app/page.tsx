@@ -2,14 +2,10 @@
 
 import { useState, useRef, useEffect } from 'react'
 import Link from 'next/link'
-import Script from 'next/script'
-
 type Message = {
   role: 'user' | 'assistant'
   content: string
 }
-
-const DotLottiePlayer = 'dotlottie-wc' as any
 
 const INITIAL_MESSAGE = '냐옹~ 어젯밤에 무슨 꿈 꿨냥? 얘기해봐냥!'
 
@@ -232,11 +228,6 @@ export default function Home() {
 
   return (
     <>
-      <Script
-        src="https://unpkg.com/@lottiefiles/dotlottie-wc@0.9.3/dist/dotlottie-wc.js"
-        type="module"
-        strategy="afterInteractive"
-      />
       <div className="min-h-screen flex flex-col max-w-2xl mx-auto">
 
       {/* 언어 전환 */}
@@ -277,41 +268,72 @@ export default function Home() {
             <div className="bubble bubble-2 bg-amber-100 text-amber-800 border border-amber-200/60">
               해몽해줄게냥
             </div>
+            <div className="bubble bubble-3 bg-pink-100 text-pink-800 border border-pink-200/60">
+              츄르 먹고 싶다냥
+            </div>
             {/* 대형 뚱냥이 SVG — 입력량에 따라 늘어남 */}
             {(() => {
               const s = bellyExtra * 1.2
               return (
                 <svg viewBox={`0 0 340 ${380 + s}`} className="w-full h-auto transition-all duration-200" aria-hidden="true">
-                  {/* 꼬리 */}
-                  <path d={`M260 ${300 + s} Q310 ${275 + s} 300 ${230 + s * 0.5} Q295 ${205 + s * 0.3} 308 ${190}`} fill="none" stroke="#e8c67a" strokeWidth="14" strokeLinecap="round" />
+                  {/* 꼬리 (줄무늬) */}
+                  <path d={`M260 ${300 + s} Q310 ${275 + s} 300 ${230 + s * 0.5} Q295 ${205 + s * 0.3} 308 ${190}`} fill="none" stroke="#e8c67a" strokeWidth="16" strokeLinecap="round" />
+                  <path d={`M268 ${288 + s} Q305 ${268 + s} 300 ${240 + s * 0.5}`} fill="none" stroke="#d4a84a" strokeWidth="4" strokeLinecap="round" opacity="0.4" />
+                  <path d={`M274 ${276 + s * 0.8} Q300 ${260 + s * 0.6} 298 ${248 + s * 0.4}`} fill="none" stroke="#d4a84a" strokeWidth="4" strokeLinecap="round" opacity="0.4" />
                   {/* 몸통 (뚱뚱) */}
                   <ellipse cx="170" cy={260 + s / 2} rx="130" ry={105 + s / 2} fill="#f5d98a" />
+                  {/* 몸통 줄무늬 */}
+                  <path d={`M110 ${195 + s * 0.1} Q130 ${185 + s * 0.1} 140 ${195 + s * 0.1}`} fill="none" stroke="#e0c060" strokeWidth="5" strokeLinecap="round" opacity="0.35" />
+                  <path d={`M120 ${210 + s * 0.15} Q145 ${198 + s * 0.15} 155 ${210 + s * 0.15}`} fill="none" stroke="#e0c060" strokeWidth="5" strokeLinecap="round" opacity="0.3" />
+                  <path d={`M200 ${195 + s * 0.1} Q220 ${185 + s * 0.1} 230 ${195 + s * 0.1}`} fill="none" stroke="#e0c060" strokeWidth="5" strokeLinecap="round" opacity="0.35" />
+                  <path d={`M190 ${210 + s * 0.15} Q215 ${198 + s * 0.15} 225 ${210 + s * 0.15}`} fill="none" stroke="#e0c060" strokeWidth="5" strokeLinecap="round" opacity="0.3" />
                   {/* 배 (크고 밝게 — 입력 영역) */}
                   <ellipse cx="170" cy={275 + s / 2} rx="100" ry={78 + s / 2} fill="#fef3c7" />
-                  {/* 머리 (납작한 타원) */}
-                  <ellipse cx="170" cy="138" rx="88" ry="55" fill="#f5d98a" />
+                  {/* 머리 (둥글게) */}
+                  <ellipse cx="170" cy="135" rx="90" ry="60" fill="#f5d98a" />
+                  {/* 이마 줄무늬 */}
+                  <path d="M155 95 Q160 85 165 95" fill="none" stroke="#e0c060" strokeWidth="3.5" strokeLinecap="round" opacity="0.45" />
+                  <path d="M170 90 Q175 80 180 90" fill="none" stroke="#e0c060" strokeWidth="3.5" strokeLinecap="round" opacity="0.45" />
+                  <path d="M185 95 Q190 85 195 95" fill="none" stroke="#e0c060" strokeWidth="3.5" strokeLinecap="round" opacity="0.45" />
                   {/* 귀 */}
-                  <polygon points="105,100 78,45 130,88" fill="#f5d98a" />
-                  <polygon points="235,100 262,45 210,88" fill="#f5d98a" />
-                  <polygon points="110,98 88,55 128,90" fill="#fbbf9e" />
-                  <polygon points="230,98 252,55 212,90" fill="#fbbf9e" />
+                  <polygon points="105,98 72,38 135,85" fill="#f5d98a" />
+                  <polygon points="235,98 268,38 205,85" fill="#f5d98a" />
+                  <polygon points="110,96 82,48 130,87" fill="#fbbf9e" />
+                  <polygon points="230,96 258,48 210,87" fill="#fbbf9e" />
+                  {/* 볼터치 */}
+                  <ellipse cx="118" cy="152" rx="16" ry="10" fill="#fbbf9e" opacity="0.45" />
+                  <ellipse cx="222" cy="152" rx="16" ry="10" fill="#fbbf9e" opacity="0.45" />
                   {/* 눈 */}
-                  <ellipse cx="138" cy="132" rx="11" ry="12" fill="#3a3226" />
-                  <ellipse cx="202" cy="132" rx="11" ry="12" fill="#3a3226" />
-                  <ellipse cx="140" cy="128" rx="4" ry="4.5" fill="white" />
-                  <ellipse cx="204" cy="128" rx="4" ry="4.5" fill="white" />
+                  <ellipse cx="140" cy="130" rx="12" ry="13" fill="#3a3226" />
+                  <ellipse cx="200" cy="130" rx="12" ry="13" fill="#3a3226" />
+                  <ellipse cx="143" cy="126" rx="4.5" ry="5" fill="white" />
+                  <ellipse cx="203" cy="126" rx="4.5" ry="5" fill="white" />
+                  <ellipse cx="137" cy="132" rx="2" ry="2" fill="white" opacity="0.5" />
+                  <ellipse cx="197" cy="132" rx="2" ry="2" fill="white" opacity="0.5" />
                   {/* 코 + 입 */}
-                  <ellipse cx="170" cy="150" rx="7" ry="5" fill="#e8937a" />
-                  <path d="M170 155 Q162 164 154 159" fill="none" stroke="#3a3226" strokeWidth="2" strokeLinecap="round" />
-                  <path d="M170 155 Q178 164 186 159" fill="none" stroke="#3a3226" strokeWidth="2" strokeLinecap="round" />
+                  <path d="M166 148 L170 153 L174 148 Z" fill="#e8937a" />
+                  <path d="M170 153 Q161 163 152 157" fill="none" stroke="#3a3226" strokeWidth="2" strokeLinecap="round" />
+                  <path d="M170 153 Q179 163 188 157" fill="none" stroke="#3a3226" strokeWidth="2" strokeLinecap="round" />
                   {/* 수염 */}
-                  <line x1="88" y1="146" x2="130" y2="149" stroke="#c4a456" strokeWidth="1.5" />
-                  <line x1="85" y1="158" x2="128" y2="156" stroke="#c4a456" strokeWidth="1.5" />
-                  <line x1="210" y1="149" x2="252" y2="146" stroke="#c4a456" strokeWidth="1.5" />
-                  <line x1="212" y1="156" x2="255" y2="158" stroke="#c4a456" strokeWidth="1.5" />
+                  <line x1="85" y1="144" x2="128" y2="148" stroke="#c4a456" strokeWidth="1.5" />
+                  <line x1="82" y1="156" x2="126" y2="155" stroke="#c4a456" strokeWidth="1.5" />
+                  <line x1="88" y1="168" x2="129" y2="162" stroke="#c4a456" strokeWidth="1.5" />
+                  <line x1="212" y1="148" x2="255" y2="144" stroke="#c4a456" strokeWidth="1.5" />
+                  <line x1="214" y1="155" x2="258" y2="156" stroke="#c4a456" strokeWidth="1.5" />
+                  <line x1="211" y1="162" x2="252" y2="168" stroke="#c4a456" strokeWidth="1.5" />
                   {/* 앞발 */}
-                  <ellipse cx="105" cy={345 + s} rx="28" ry="16" fill="#f5d98a" />
-                  <ellipse cx="235" cy={345 + s} rx="28" ry="16" fill="#f5d98a" />
+                  <ellipse cx="105" cy={345 + s} rx="30" ry="18" fill="#f5d98a" />
+                  <ellipse cx="235" cy={345 + s} rx="30" ry="18" fill="#f5d98a" />
+                  {/* 발가락 패드 (왼발) */}
+                  <ellipse cx="93" cy={341 + s} rx="5" ry="4" fill="#e8937a" opacity="0.5" />
+                  <ellipse cx="105" cy={339 + s} rx="5" ry="4" fill="#e8937a" opacity="0.5" />
+                  <ellipse cx="117" cy={341 + s} rx="5" ry="4" fill="#e8937a" opacity="0.5" />
+                  <ellipse cx="105" cy={349 + s} rx="7" ry="5" fill="#e8937a" opacity="0.4" />
+                  {/* 발가락 패드 (오른발) */}
+                  <ellipse cx="223" cy={341 + s} rx="5" ry="4" fill="#e8937a" opacity="0.5" />
+                  <ellipse cx="235" cy={339 + s} rx="5" ry="4" fill="#e8937a" opacity="0.5" />
+                  <ellipse cx="247" cy={341 + s} rx="5" ry="4" fill="#e8937a" opacity="0.5" />
+                  <ellipse cx="235" cy={349 + s} rx="7" ry="5" fill="#e8937a" opacity="0.4" />
                 </svg>
               )
             })()}
@@ -338,17 +360,7 @@ export default function Home() {
           </div>
         )}
 
-        {/* 대화 모드에서는 Lottie 고양이 (항상 마운트, CSS로 토글) */}
-        <div className={`relative w-full max-w-md mx-auto h-60 mb-1 ${isLanding ? 'hidden' : ''}`} aria-hidden="true">
-          <div className="absolute inset-x-0 bottom-0 z-10 flex justify-center pointer-events-none">
-            <DotLottiePlayer
-              src="https://lottie.host/b4094ce0-eda0-4102-908c-9a2338c13b15/P877DJHYVx.lottie"
-              style={{ width: 'clamp(220px, 58vw, 300px)', height: 'clamp(220px, 58vw, 300px)' }}
-              autoplay
-              loop
-            />
-          </div>
-        </div>
+        {/* Lottie 제거 — SVG 고양이만 사용 */}
       </div>
 
       {/* 실시간 통계 */}

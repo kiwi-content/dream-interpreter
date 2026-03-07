@@ -280,10 +280,10 @@
   animation-delay: 0.5s;
 }
 
-/* 말풍선 3 - 초록색 (오른쪽 아래) */
+/* 말풍선 3 - 핑크 (왼쪽 아래) */
 .bubble-3 {
-  bottom: 12px;
-  right: -8%;
+  bottom: 18%;
+  left: -12%;
   animation: bubbleFloat3 3.8s ease-in-out infinite;
   animation-delay: 0.8s;
 }
@@ -349,7 +349,7 @@
   }
   .bubble-1 { right: 3%; }
   .bubble-2 { top: 104px; left: 0; }
-  .bubble-3 { bottom: 16px; right: 0; }
+  .bubble-3 { bottom: 18%; left: 0; }
   .char-item { transform: scale(0.7); }
   .char-center { transform: translateX(-50%) scale(0.8); }
   .char-side-l { left: 0%; }
