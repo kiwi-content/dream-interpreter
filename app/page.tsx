@@ -268,9 +268,6 @@ export default function Home() {
             <div className="bubble bubble-2 bg-amber-100 text-amber-800 border border-amber-200/60">
               해몽해줄게냥
             </div>
-            <div className="bubble bubble-3 bg-pink-100 text-pink-800 border border-pink-200/60">
-              츄르 먹고 싶다냥
-            </div>
             {/* 대형 뚱냥이 SVG — 입력량에 따라 늘어남 */}
             {(() => {
               const s = bellyExtra * 1.2
