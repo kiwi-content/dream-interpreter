@@ -357,7 +357,38 @@ export default function Home() {
           </div>
         )}
 
-        {/* Lottie 제거 — SVG 고양이만 사용 */}
+        {/* 대화 모드: 작은 고양이 얼굴 */}
+        {!isLanding && (
+          <div className="w-full flex justify-center mb-2">
+            <svg viewBox="0 0 200 160" className="w-28 h-auto" aria-hidden="true">
+              {/* 머리 */}
+              <ellipse cx="100" cy="90" rx="72" ry="50" fill="#f5d98a" />
+              {/* 귀 */}
+              <polygon points="48,58 22,8 72,48" fill="#f5d98a" />
+              <polygon points="152,58 178,8 128,48" fill="#f5d98a" />
+              <polygon points="52,56 30,18 68,50" fill="#fbbf9e" />
+              <polygon points="148,56 170,18 132,50" fill="#fbbf9e" />
+              {/* 이마 줄무늬 */}
+              <path d="M85 58 Q90 48 95 58" fill="none" stroke="#e0c060" strokeWidth="3" strokeLinecap="round" opacity="0.45" />
+              <path d="M100 53 Q105 43 110 53" fill="none" stroke="#e0c060" strokeWidth="3" strokeLinecap="round" opacity="0.45" />
+              {/* 볼터치 */}
+              <ellipse cx="58" cy="102" rx="14" ry="9" fill="#fbbf9e" opacity="0.45" />
+              <ellipse cx="142" cy="102" rx="14" ry="9" fill="#fbbf9e" opacity="0.45" />
+              {/* 눈 (^^) 행복한 표정 */}
+              <path d="M72 82 Q80 72 88 82" fill="none" stroke="#3a3226" strokeWidth="3" strokeLinecap="round" />
+              <path d="M112 82 Q120 72 128 82" fill="none" stroke="#3a3226" strokeWidth="3" strokeLinecap="round" />
+              {/* 코 + 입 */}
+              <path d="M96 98 L100 103 L104 98 Z" fill="#e8937a" />
+              <path d="M100 103 Q92 112 84 107" fill="none" stroke="#3a3226" strokeWidth="1.8" strokeLinecap="round" />
+              <path d="M100 103 Q108 112 116 107" fill="none" stroke="#3a3226" strokeWidth="1.8" strokeLinecap="round" />
+              {/* 수염 */}
+              <line x1="30" y1="94" x2="68" y2="98" stroke="#c4a456" strokeWidth="1.3" />
+              <line x1="28" y1="106" x2="66" y2="104" stroke="#c4a456" strokeWidth="1.3" />
+              <line x1="132" y1="98" x2="170" y2="94" stroke="#c4a456" strokeWidth="1.3" />
+              <line x1="134" y1="104" x2="172" y2="106" stroke="#c4a456" strokeWidth="1.3" />
+            </svg>
+          </div>
+        )}
       </div>
 
       {/* 실시간 통계 */}
