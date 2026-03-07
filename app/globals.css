@@ -245,6 +245,58 @@
   animation: reviewFadeOut 0.5s ease-in forwards;
 }
 
+/* ===== 고양이 해몽 로딩 애니메이션 ===== */
+
+.cat-mouth-talk {
+  animation: mouthTalk 0.4s ease-in-out infinite;
+}
+
+@keyframes mouthTalk {
+  0%, 100% { ry: 2; cy: 96; }
+  50% { ry: 5; cy: 98; }
+}
+
+.cat-blink {
+  animation: catBlink 3s ease-in-out infinite;
+}
+
+@keyframes catBlink {
+  0%, 90%, 100% { height: 0; y: 68; }
+  94%, 96% { height: 6; y: 62; }
+}
+
+.cat-speech-wave {
+  opacity: 0;
+}
+
+.cat-speech-1 {
+  animation: speechWave 1.8s ease-out infinite;
+}
+
+.cat-speech-2 {
+  animation: speechWave 1.8s ease-out 0.4s infinite;
+}
+
+.cat-speech-3 {
+  animation: speechWave 1.8s ease-out 0.8s infinite;
+}
+
+@keyframes speechWave {
+  0% { opacity: 0; transform: translateX(-6px); }
+  20% { opacity: 0.7; }
+  80% { opacity: 0.3; }
+  100% { opacity: 0; transform: translateX(10px); }
+}
+
+.cat-loading-text {
+  animation: loadingPulse 2s ease-in-out infinite;
+}
+
+@keyframes loadingPulse {
+  0%, 100% { opacity: 0.4; }
+  50% { opacity: 1; }
+}
+
 /* ===== 떠다니는 말풍선 히어로 ===== */
 
 .bubble {

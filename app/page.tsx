@@ -437,15 +437,43 @@ export default function Home() {
         ))}
 
         {isLoading && (
-          <div className="flex items-end gap-2 justify-start">
-            <div className="text-xl mb-1 shrink-0">😸</div>
-            <div className="bg-white border border-stone-200 shadow-sm px-4 py-3 rounded-2xl rounded-bl-md">
-              <div className="flex gap-1 items-center h-4">
-                <span className="w-2 h-2 bg-stone-300 rounded-full animate-bounce" style={{ animationDelay: '0ms' }} />
-                <span className="w-2 h-2 bg-stone-300 rounded-full animate-bounce" style={{ animationDelay: '150ms' }} />
-                <span className="w-2 h-2 bg-stone-300 rounded-full animate-bounce" style={{ animationDelay: '300ms' }} />
-              </div>
-            </div>
+          <div className="flex flex-col items-center py-6">
+            <svg viewBox="0 0 240 180" className="w-44 h-auto" aria-label="고양이가 해몽 중...">
+              {/* 머리 */}
+              <ellipse cx="120" cy="80" rx="62" ry="44" fill="#f5d98a" />
+              {/* 귀 */}
+              <polygon points="72,50 50,8 94,42" fill="#f5d98a" />
+              <polygon points="168,50 190,8 146,42" fill="#f5d98a" />
+              <polygon points="75,48 56,16 91,43" fill="#fbbf9e" />
+              <polygon points="165,48 184,16 149,43" fill="#fbbf9e" />
+              {/* 이마 줄무늬 */}
+              <path d="M108 48 Q112 40 116 48" fill="none" stroke="#e0c060" strokeWidth="2.5" strokeLinecap="round" opacity="0.45" />
+              <path d="M120 44 Q124 36 128 44" fill="none" stroke="#e0c060" strokeWidth="2.5" strokeLinecap="round" opacity="0.45" />
+              {/* 볼터치 */}
+              <ellipse cx="76" cy="90" rx="12" ry="8" fill="#fbbf9e" opacity="0.45" />
+              <ellipse cx="164" cy="90" rx="12" ry="8" fill="#fbbf9e" opacity="0.45" />
+              {/* 눈 — 집중하는 표정 (반쯤 감은 눈) */}
+              <ellipse cx="98" cy="72" rx="9" ry="10" fill="#3a3226" />
+              <ellipse cx="142" cy="72" rx="9" ry="10" fill="#3a3226" />
+              <ellipse cx="100" cy="69" rx="3.5" ry="4" fill="white" />
+              <ellipse cx="144" cy="69" rx="3.5" ry="4" fill="white" />
+              <rect x="85" y="62" width="30" height="6" fill="#f5d98a" rx="2" className="cat-blink" />
+              <rect x="129" y="62" width="30" height="6" fill="#f5d98a" rx="2" className="cat-blink" />
+              {/* 코 */}
+              <path d="M116 86 L120 90 L124 86 Z" fill="#e8937a" />
+              {/* 입 — 열렸다 닫혔다 */}
+              <ellipse cx="120" cy="98" rx="8" ry="4" fill="#c4706a" className="cat-mouth-talk" />
+              {/* 수염 */}
+              <line x1="52" y1="82" x2="84" y2="86" stroke="#c4a456" strokeWidth="1.3" />
+              <line x1="50" y1="94" x2="82" y2="92" stroke="#c4a456" strokeWidth="1.3" />
+              <line x1="156" y1="86" x2="188" y2="82" stroke="#c4a456" strokeWidth="1.3" />
+              <line x1="158" y1="92" x2="190" y2="94" stroke="#c4a456" strokeWidth="1.3" />
+              {/* 말풍선 효과 — 입에서 나오는 물결 */}
+              <path d="M136 96 Q148 90 158 96 Q168 102 178 96" fill="none" stroke="#e0c060" strokeWidth="2" strokeLinecap="round" className="cat-speech-wave cat-speech-1" />
+              <path d="M140 106 Q152 100 162 106 Q172 112 182 106" fill="none" stroke="#e0c060" strokeWidth="2" strokeLinecap="round" className="cat-speech-wave cat-speech-2" />
+              <path d="M144 116 Q154 110 164 116 Q174 122 184 116" fill="none" stroke="#e0c060" strokeWidth="2" strokeLinecap="round" className="cat-speech-wave cat-speech-3" />
+            </svg>
+            <p className="text-stone-400 text-xs mt-1 cat-loading-text">꿈을 읽고 있다냥...</p>
           </div>
         )}
 
