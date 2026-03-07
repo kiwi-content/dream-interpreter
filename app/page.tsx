@@ -277,10 +277,6 @@ export default function Home() {
             <div className="bubble bubble-2 bg-amber-100 text-amber-800 border border-amber-200/60">
               해몽해줄게냥
             </div>
-            <div className="bubble bubble-3 bg-emerald-100 text-emerald-800 border border-emerald-200/60">
-              시작하자냥!
-            </div>
-
             {/* 대형 뚱냥이 SVG — 입력량에 따라 늘어남 */}
             {(() => {
               const s = bellyExtra * 1.2
@@ -342,19 +338,17 @@ export default function Home() {
           </div>
         )}
 
-        {/* 대화 모드에서는 Lottie 고양이 */}
-        {!isLanding && (
-          <div className="relative w-full max-w-md mx-auto h-60 mb-1" aria-hidden="true">
-            <div className="absolute inset-x-0 bottom-0 z-10 flex justify-center pointer-events-none">
-              <DotLottiePlayer
-                src="https://lottie.host/b4094ce0-eda0-4102-908c-9a2338c13b15/P877DJHYVx.lottie"
-                style={{ width: 'clamp(220px, 58vw, 300px)', height: 'clamp(220px, 58vw, 300px)' }}
-                autoplay
-                loop
-              />
-            </div>
+        {/* 대화 모드에서는 Lottie 고양이 (항상 마운트, CSS로 토글) */}
+        <div className={`relative w-full max-w-md mx-auto h-60 mb-1 ${isLanding ? 'hidden' : ''}`} aria-hidden="true">
+          <div className="absolute inset-x-0 bottom-0 z-10 flex justify-center pointer-events-none">
+            <DotLottiePlayer
+              src="https://lottie.host/b4094ce0-eda0-4102-908c-9a2338c13b15/P877DJHYVx.lottie"
+              style={{ width: 'clamp(220px, 58vw, 300px)', height: 'clamp(220px, 58vw, 300px)' }}
+              autoplay
+              loop
+            />
           </div>
-        )}
+        </div>
       </div>
 
       {/* 실시간 통계 */}
