@@ -114,10 +114,11 @@ export default function Home() {
     setMessages(prev => [...prev, { role: 'user', content: userMessage }])
     setIsLoading(true)
     try {
+      const allMessages = [...messages, { role: 'user' as const, content: userMessage }]
       const response = await fetch('/api/interpret', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ dream: userMessage }),
+        body: JSON.stringify({ dream: userMessage, messages: allMessages }),
       })
       const data = await response.json()
       setMessages(prev => [...prev, { role: 'assistant', content: data.interpretation }])
@@ -291,27 +292,27 @@ export default function Home() {
                   <ellipse cx="170" cy={260 + s / 2} rx="130" ry={105 + s / 2} fill="#f5d98a" />
                   {/* 배 (크고 밝게 — 입력 영역) */}
                   <ellipse cx="170" cy={275 + s / 2} rx="100" ry={78 + s / 2} fill="#fef3c7" />
-                  {/* 머리 */}
-                  <circle cx="170" cy="130" r="68" fill="#f5d98a" />
+                  {/* 머리 (납작한 타원) */}
+                  <ellipse cx="170" cy="138" rx="88" ry="55" fill="#f5d98a" />
                   {/* 귀 */}
-                  <polygon points="118,88 95,28 145,72" fill="#f5d98a" />
-                  <polygon points="222,88 245,28 195,72" fill="#f5d98a" />
-                  <polygon points="122,85 105,40 142,74" fill="#fbbf9e" />
-                  <polygon points="218,85 235,40 198,74" fill="#fbbf9e" />
+                  <polygon points="105,100 78,45 130,88" fill="#f5d98a" />
+                  <polygon points="235,100 262,45 210,88" fill="#f5d98a" />
+                  <polygon points="110,98 88,55 128,90" fill="#fbbf9e" />
+                  <polygon points="230,98 252,55 212,90" fill="#fbbf9e" />
                   {/* 눈 */}
-                  <ellipse cx="143" cy="125" rx="11" ry="13" fill="#3a3226" />
-                  <ellipse cx="197" cy="125" rx="11" ry="13" fill="#3a3226" />
-                  <ellipse cx="145" cy="121" rx="4" ry="4.5" fill="white" />
-                  <ellipse cx="199" cy="121" rx="4" ry="4.5" fill="white" />
+                  <ellipse cx="138" cy="132" rx="11" ry="12" fill="#3a3226" />
+                  <ellipse cx="202" cy="132" rx="11" ry="12" fill="#3a3226" />
+                  <ellipse cx="140" cy="128" rx="4" ry="4.5" fill="white" />
+                  <ellipse cx="204" cy="128" rx="4" ry="4.5" fill="white" />
                   {/* 코 + 입 */}
-                  <ellipse cx="170" cy="148" rx="7" ry="5" fill="#e8937a" />
-                  <path d="M170 153 Q162 162 154 157" fill="none" stroke="#3a3226" strokeWidth="2" strokeLinecap="round" />
-                  <path d="M170 153 Q178 162 186 157" fill="none" stroke="#3a3226" strokeWidth="2" strokeLinecap="round" />
+                  <ellipse cx="170" cy="150" rx="7" ry="5" fill="#e8937a" />
+                  <path d="M170 155 Q162 164 154 159" fill="none" stroke="#3a3226" strokeWidth="2" strokeLinecap="round" />
+                  <path d="M170 155 Q178 164 186 159" fill="none" stroke="#3a3226" strokeWidth="2" strokeLinecap="round" />
                   {/* 수염 */}
-                  <line x1="98" y1="140" x2="136" y2="145" stroke="#c4a456" strokeWidth="1.5" />
-                  <line x1="95" y1="154" x2="134" y2="153" stroke="#c4a456" strokeWidth="1.5" />
-                  <line x1="204" y1="145" x2="242" y2="140" stroke="#c4a456" strokeWidth="1.5" />
-                  <line x1="206" y1="153" x2="245" y2="154" stroke="#c4a456" strokeWidth="1.5" />
+                  <line x1="88" y1="146" x2="130" y2="149" stroke="#c4a456" strokeWidth="1.5" />
+                  <line x1="85" y1="158" x2="128" y2="156" stroke="#c4a456" strokeWidth="1.5" />
+                  <line x1="210" y1="149" x2="252" y2="146" stroke="#c4a456" strokeWidth="1.5" />
+                  <line x1="212" y1="156" x2="255" y2="158" stroke="#c4a456" strokeWidth="1.5" />
                   {/* 앞발 */}
                   <ellipse cx="105" cy={345 + s} rx="28" ry="16" fill="#f5d98a" />
                   <ellipse cx="235" cy={345 + s} rx="28" ry="16" fill="#f5d98a" />

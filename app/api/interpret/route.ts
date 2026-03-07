@@ -3,7 +3,7 @@ import { getEnhancedDemoInterpretation } from './dreamInterpreter'
 
 export async function POST(request: NextRequest) {
   try {
-    const { dream } = await request.json()
+    const { dream, messages } = await request.json()
 
     if (!dream) {
       return NextResponse.json(
@@ -33,7 +33,7 @@ export async function POST(request: NextRequest) {
             'Content-Type': 'application/json',
           },
           body: JSON.stringify({
-            contents: [{
+            systemInstruction: {
               parts: [{
                 text: `당신은 30년 경력의 역술인이다.
 수만 명의 꿈을 봐왔어. 딱 보면 알아. 틀린 적 없어.
@@ -50,6 +50,7 @@ export async function POST(request: NextRequest) {
   ○ "예전에 비슷한 꿈 꾸고 다음 주에 직장 옮긴 사람 봤어"
   ○ "이런 꿈은 보통 3일 안에 현실에서 뭔가 터져"
   (위는 예시. 꿈 내용에 맞게 자연스럽게 변형할 것)
+- 사용자가 추가 정보를 주면 이전 해석을 기반으로 더 깊이 파고들어라. 같은 말 반복 금지.
 
 [내부 분석 — 절대 출력하지 말 것]
 [출력에 렌즈, 분석, 프레임워크 언급 시 실패로 간주]
@@ -96,6 +97,7 @@ export async function POST(request: NextRequest) {
 [출력 형식]
 순수 텍스트. 문장마다 줄바꿈. 한 줄에 문장 하나.
 정확히 5개 문단. 각 문단 사이 빈 줄 하나.
+첫 번째 응답이든 후속 응답이든 반드시 5개 문단을 지켜라.
 
 문단1 (1~2문장): 핵심 포착. 꿈의 본질을 단도직입으로 선언.
 문단2 (3~5문장): 꿈 요소를 상징으로 읽어 현재 심리를 선언.
@@ -161,13 +163,40 @@ export async function POST(request: NextRequest) {
 
 둘 중 하나야. 진짜 위험한 건지, 네 머릿속에서만 위험한 건지.
 
-오늘 그 상황을 가장 잘 아는 사람한테 "솔직히 어때?" 한마디만 물어봐.
-
-다음 꿈을 해석해줘:
-
-${dream}`
+오늘 그 상황을 가장 잘 아는 사람한테 "솔직히 어때?" 한마디만 물어봐.`
               }]
-            }],
+            },
+            contents: (() => {
+              // 첫 assistant 인사 메시지 제외, 나머지 대화 히스토리 구성
+              const history = (messages || []).slice(1) // skip initial greeting
+              const userCount = history.filter((m: any) => m.role === 'user').length
+
+              if (userCount <= 1) {
+                return [{
+                  role: 'user',
+                  parts: [{ text: `다음 꿈을 해석해줘:\n\n${dream}` }]
+                }]
+              }
+
+              // multi-turn: 이전 대화 포함
+              const turns: any[] = []
+              let isFirst = true
+              for (const m of history) {
+                if (m.role === 'user') {
+                  turns.push({
+                    role: 'user',
+                    parts: [{ text: isFirst ? `다음 꿈을 해석해줘:\n\n${m.content}` : m.content }]
+                  })
+                  isFirst = false
+                } else if (m.role === 'assistant') {
+                  turns.push({
+                    role: 'model',
+                    parts: [{ text: m.content }]
+                  })
+                }
+              }
+              return turns
+            })(),
             generationConfig: {
               temperature: 0.85,
               maxOutputTokens: 2000,
