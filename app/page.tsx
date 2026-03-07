@@ -479,24 +479,22 @@ export default function Home() {
 
         <div ref={bottomRef} />
 
-        {/* 입력창 - 대화 모드에서만 표시 (랜딩은 고양이 배 위 입력창 사용) */}
+        {/* 다른 꿈 풀어보기 버튼 - 해몽 완료 후 표시 */}
         {!isLoading && !isLanding && (
-          <div className="flex items-end gap-2 justify-end mt-2">
-            <textarea
-              ref={textareaRef}
-              value={input}
-              onChange={handleInput}
-              onKeyDown={handleKeyDown}
-              placeholder="꿈 얘기해봐냥..."
-              className="w-[72%] bg-white border-stone-200 focus:border-amber-400 border rounded-2xl rounded-br-md px-4 py-2.5 text-gray-900 text-sm placeholder:text-stone-400 resize-none outline-none transition-all overflow-hidden shadow-sm"
-              style={{ minHeight: '44px', maxHeight: '120px' }}
-            />
+          <div className="flex justify-center mt-4">
             <button
-              onClick={sendMessage}
-              disabled={!input.trim()}
-              className="w-10 h-10 rounded-full bg-amber-500 hover:bg-amber-400 disabled:opacity-40 disabled:cursor-not-allowed flex items-center justify-center text-base transition-colors shrink-0 shadow-md"
+              onClick={() => {
+                setMessages([{ role: 'assistant', content: INITIAL_MESSAGE }])
+                setInput('')
+                setBellyExtra(0)
+                setIsTypingDone(false)
+                setTypedText('')
+                if (textareaRef.current) textareaRef.current.style.height = '48px'
+                window.scrollTo({ top: 0, behavior: 'smooth' })
+              }}
+              className="px-6 py-3 rounded-full bg-amber-500 hover:bg-amber-400 text-white text-sm font-medium shadow-md transition-colors"
             >
-              😸
+              다른 꿈 풀어보기 🐾
             </button>
           </div>
         )}
