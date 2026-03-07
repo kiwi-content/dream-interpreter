@@ -6,12 +6,12 @@ export const metadata: Metadata = {
   metadataBase: new URL('https://kkumhaemong.xyz'),
 
   title: {
-    default: '무료 꿈해몽 | 그 꿈 꾸고 로또 산 사람 실화임',
-    template: '%s | 꿈 읽어주는 여자'
+    default: '뚱냥이의 신비로운 꿈풀이 가게 | 무료 꿈해몽',
+    template: '%s | 뚱냥이의 꿈풀이 가게'
   },
 
   description:
-    '뱀꿈 꾸면 진짜 돈 들어올까? 이빨 빠지는 꿈은 누가 아프다는 뜻? 모르고 넘기면 손해. 3초면 확인 가능.',
+    '뚱냥이가 너의 꿈을 읽어준다냥. 뱀꿈, 이빨 빠지는 꿈, 쫓기는 꿈 — 무료로 3초면 해몽 완료.',
 
   keywords: [
     '꿈해몽',
@@ -25,11 +25,11 @@ export const metadata: Metadata = {
   ],
 
   openGraph: {
-    title: '무료 꿈해몽 | 그 꿈 꾸고 로또 산 사람 실화임',
+    title: '뚱냥이의 신비로운 꿈풀이 가게 | 무료 꿈해몽',
     description:
-      '뱀꿈 꾸면 진짜 돈 들어올까? 이빨 빠지는 꿈은 누가 아프다는 뜻? 모르고 넘기면 손해.',
+      '뚱냥이가 너의 꿈을 읽어준다냥. 뱀꿈, 이빨 빠지는 꿈, 쫓기는 꿈 — 무료로 3초면 해몽 완료.',
     url: 'https://kkumhaemong.xyz',
-    siteName: '꿈 읽어주는 여자',
+    siteName: '뚱냥이의 신비로운 꿈풀이 가게',
     locale: 'ko_KR',
     type: 'website'
   },
@@ -74,8 +74,8 @@ export const viewport: Viewport = {
 const jsonLd = {
   '@context': 'https://schema.org',
   '@type': 'WebApplication',
-  name: '꿈 읽어주는 여자',
-  description: '그 꿈 꾸고 로또 산 사람 실화임. 모르고 넘기면 손해, 3초면 확인 가능.',
+  name: '뚱냥이의 신비로운 꿈풀이 가게',
+  description: '뚱냥이가 너의 꿈을 읽어준다냥. 무료로 3초면 해몽 완료.',
   url: 'https://kkumhaemong.xyz',
   applicationCategory: 'LifestyleApplication',
   offers: {
