@@ -273,10 +273,12 @@ export default function Home() {
               const s = bellyExtra * 1.2
               return (
                 <svg viewBox={`0 0 340 ${380 + s}`} className="w-full h-auto transition-all duration-200" aria-hidden="true">
-                  {/* 꼬리 (줄무늬) */}
-                  <path d={`M260 ${300 + s} Q310 ${275 + s} 300 ${230 + s * 0.5} Q295 ${205 + s * 0.3} 308 ${190}`} fill="none" stroke="#e8c67a" strokeWidth="16" strokeLinecap="round" />
-                  <path d={`M268 ${288 + s} Q305 ${268 + s} 300 ${240 + s * 0.5}`} fill="none" stroke="#d4a84a" strokeWidth="4" strokeLinecap="round" opacity="0.4" />
-                  <path d={`M274 ${276 + s * 0.8} Q300 ${260 + s * 0.6} 298 ${248 + s * 0.4}`} fill="none" stroke="#d4a84a" strokeWidth="4" strokeLinecap="round" opacity="0.4" />
+                  {/* 꼬리 (줄무늬 + 흔들기) */}
+                  <g className="cat-tail-sway">
+                    <path d={`M260 ${300 + s} Q310 ${275 + s} 300 ${230 + s * 0.5} Q295 ${205 + s * 0.3} 308 ${190}`} fill="none" stroke="#e8c67a" strokeWidth="16" strokeLinecap="round" />
+                    <path d={`M268 ${288 + s} Q305 ${268 + s} 300 ${240 + s * 0.5}`} fill="none" stroke="#d4a84a" strokeWidth="4" strokeLinecap="round" opacity="0.4" />
+                    <path d={`M274 ${276 + s * 0.8} Q300 ${260 + s * 0.6} 298 ${248 + s * 0.4}`} fill="none" stroke="#d4a84a" strokeWidth="4" strokeLinecap="round" opacity="0.4" />
+                  </g>
                   {/* 몸통 (뚱뚱) */}
                   <ellipse cx="170" cy={260 + s / 2} rx="130" ry={105 + s / 2} fill="#f5d98a" />
                   {/* 몸통 줄무늬 */}
@@ -284,40 +286,64 @@ export default function Home() {
                   <path d={`M120 ${210 + s * 0.15} Q145 ${198 + s * 0.15} 155 ${210 + s * 0.15}`} fill="none" stroke="#e0c060" strokeWidth="5" strokeLinecap="round" opacity="0.3" />
                   <path d={`M200 ${195 + s * 0.1} Q220 ${185 + s * 0.1} 230 ${195 + s * 0.1}`} fill="none" stroke="#e0c060" strokeWidth="5" strokeLinecap="round" opacity="0.35" />
                   <path d={`M190 ${210 + s * 0.15} Q215 ${198 + s * 0.15} 225 ${210 + s * 0.15}`} fill="none" stroke="#e0c060" strokeWidth="5" strokeLinecap="round" opacity="0.3" />
+                  {/* 등쪽 털 질감 */}
+                  <path d={`M85 ${220 + s * 0.2} Q80 ${215 + s * 0.2} 82 ${210 + s * 0.2}`} fill="none" stroke="#e0c060" strokeWidth="2" strokeLinecap="round" opacity="0.25" />
+                  <path d={`M255 ${220 + s * 0.2} Q260 ${215 + s * 0.2} 258 ${210 + s * 0.2}`} fill="none" stroke="#e0c060" strokeWidth="2" strokeLinecap="round" opacity="0.25" />
                   {/* 배 (크고 밝게 — 입력 영역) */}
                   <ellipse cx="170" cy={275 + s / 2} rx="100" ry={78 + s / 2} fill="#fef3c7" />
                   {/* 머리 (둥글게) */}
                   <ellipse cx="170" cy="135" rx="90" ry="60" fill="#f5d98a" />
-                  {/* 이마 줄무늬 */}
-                  <path d="M155 95 Q160 85 165 95" fill="none" stroke="#e0c060" strokeWidth="3.5" strokeLinecap="round" opacity="0.45" />
-                  <path d="M170 90 Q175 80 180 90" fill="none" stroke="#e0c060" strokeWidth="3.5" strokeLinecap="round" opacity="0.45" />
-                  <path d="M185 95 Q190 85 195 95" fill="none" stroke="#e0c060" strokeWidth="3.5" strokeLinecap="round" opacity="0.45" />
-                  {/* 귀 */}
-                  <polygon points="105,98 72,38 135,85" fill="#f5d98a" />
-                  <polygon points="235,98 268,38 205,85" fill="#f5d98a" />
-                  <polygon points="110,96 82,48 130,87" fill="#fbbf9e" />
-                  <polygon points="230,96 258,48 210,87" fill="#fbbf9e" />
+                  {/* 머리 옆 볼록한 턱선 (뚱뚱한 볼) */}
+                  <ellipse cx="100" cy="148" rx="22" ry="16" fill="#f5d98a" />
+                  <ellipse cx="240" cy="148" rx="22" ry="16" fill="#f5d98a" />
+                  {/* 이마 줄무늬 (M자 무늬) */}
+                  <path d="M145 98 Q152 82 160 95 Q168 80 176 95 Q184 82 192 98" fill="none" stroke="#e0c060" strokeWidth="3" strokeLinecap="round" opacity="0.5" />
+                  {/* 귀 (움찔 애니메이션) */}
+                  <g className="cat-ear-twitch-l">
+                    <polygon points="105,98 72,38 135,85" fill="#f5d98a" />
+                    <polygon points="110,96 82,48 130,87" fill="#fbbf9e" />
+                    {/* 귀 안쪽 털 */}
+                    <line x1="100" y1="80" x2="105" y2="70" stroke="#f0c8a0" strokeWidth="1.5" strokeLinecap="round" opacity="0.5" />
+                    <line x1="108" y1="78" x2="110" y2="66" stroke="#f0c8a0" strokeWidth="1.5" strokeLinecap="round" opacity="0.4" />
+                  </g>
+                  <g className="cat-ear-twitch-r">
+                    <polygon points="235,98 268,38 205,85" fill="#f5d98a" />
+                    <polygon points="230,96 258,48 210,87" fill="#fbbf9e" />
+                    {/* 귀 안쪽 털 */}
+                    <line x1="240" y1="80" x2="235" y2="70" stroke="#f0c8a0" strokeWidth="1.5" strokeLinecap="round" opacity="0.5" />
+                    <line x1="232" y1="78" x2="230" y2="66" stroke="#f0c8a0" strokeWidth="1.5" strokeLinecap="round" opacity="0.4" />
+                  </g>
                   {/* 볼터치 */}
                   <ellipse cx="118" cy="152" rx="16" ry="10" fill="#fbbf9e" opacity="0.45" />
                   <ellipse cx="222" cy="152" rx="16" ry="10" fill="#fbbf9e" opacity="0.45" />
-                  {/* 눈 */}
-                  <ellipse cx="140" cy="130" rx="12" ry="13" fill="#3a3226" />
-                  <ellipse cx="200" cy="130" rx="12" ry="13" fill="#3a3226" />
-                  <ellipse cx="143" cy="126" rx="4.5" ry="5" fill="white" />
-                  <ellipse cx="203" cy="126" rx="4.5" ry="5" fill="white" />
-                  <ellipse cx="137" cy="132" rx="2" ry="2" fill="white" opacity="0.5" />
-                  <ellipse cx="197" cy="132" rx="2" ry="2" fill="white" opacity="0.5" />
-                  {/* 코 + 입 */}
-                  <path d="M166 148 L170 153 L174 148 Z" fill="#e8937a" />
+                  {/* 눈 (세로 동공) */}
+                  <ellipse cx="140" cy="130" rx="12" ry="13" fill="#c8a84a" />
+                  <ellipse cx="200" cy="130" rx="12" ry="13" fill="#c8a84a" />
+                  <ellipse cx="140" cy="130" rx="4" ry="12" fill="#3a3226" />
+                  <ellipse cx="200" cy="130" rx="4" ry="12" fill="#3a3226" />
+                  <ellipse cx="143" cy="125" rx="3.5" ry="4" fill="white" opacity="0.85" />
+                  <ellipse cx="203" cy="125" rx="3.5" ry="4" fill="white" opacity="0.85" />
+                  <ellipse cx="137" cy="133" rx="2" ry="2" fill="white" opacity="0.4" />
+                  <ellipse cx="197" cy="133" rx="2" ry="2" fill="white" opacity="0.4" />
+                  {/* 눈 깜빡임 오버레이 */}
+                  <rect x="126" y="117" width="28" height="26" fill="#f5d98a" rx="4" className="cat-eye-blink" />
+                  <rect x="186" y="117" width="28" height="26" fill="#f5d98a" rx="4" className="cat-eye-blink" />
+                  {/* 코 + 입 (더 도톰하게) */}
+                  <ellipse cx="170" cy="149" rx="5" ry="3.5" fill="#e8937a" />
+                  <path d="M165 148 L170 153 L175 148 Z" fill="#e8937a" />
                   <path d="M170 153 Q161 163 152 157" fill="none" stroke="#3a3226" strokeWidth="2" strokeLinecap="round" />
                   <path d="M170 153 Q179 163 188 157" fill="none" stroke="#3a3226" strokeWidth="2" strokeLinecap="round" />
-                  {/* 수염 */}
-                  <line x1="85" y1="144" x2="128" y2="148" stroke="#c4a456" strokeWidth="1.5" />
-                  <line x1="82" y1="156" x2="126" y2="155" stroke="#c4a456" strokeWidth="1.5" />
-                  <line x1="88" y1="168" x2="129" y2="162" stroke="#c4a456" strokeWidth="1.5" />
-                  <line x1="212" y1="148" x2="255" y2="144" stroke="#c4a456" strokeWidth="1.5" />
-                  <line x1="214" y1="155" x2="258" y2="156" stroke="#c4a456" strokeWidth="1.5" />
-                  <line x1="211" y1="162" x2="252" y2="168" stroke="#c4a456" strokeWidth="1.5" />
+                  {/* 수염 (곡선 + 살짝 움직임) */}
+                  <g className="cat-whisker-left">
+                    <path d="M82 140 Q105 144 128 146" fill="none" stroke="#c4a456" strokeWidth="1.5" strokeLinecap="round" />
+                    <path d="M78 154 Q103 154 126 153" fill="none" stroke="#c4a456" strokeWidth="1.5" strokeLinecap="round" />
+                    <path d="M84 168 Q107 164 129 160" fill="none" stroke="#c4a456" strokeWidth="1.5" strokeLinecap="round" />
+                  </g>
+                  <g className="cat-whisker-right">
+                    <path d="M212 146 Q235 144 258 140" fill="none" stroke="#c4a456" strokeWidth="1.5" strokeLinecap="round" />
+                    <path d="M214 153 Q237 154 262 154" fill="none" stroke="#c4a456" strokeWidth="1.5" strokeLinecap="round" />
+                    <path d="M211 160 Q233 164 256 168" fill="none" stroke="#c4a456" strokeWidth="1.5" strokeLinecap="round" />
+                  </g>
                   {/* 앞발 */}
                   <ellipse cx="105" cy={345 + s} rx="30" ry="18" fill="#f5d98a" />
                   <ellipse cx="235" cy={345 + s} rx="30" ry="18" fill="#f5d98a" />
@@ -363,29 +389,45 @@ export default function Home() {
             <svg viewBox="0 0 200 160" className="w-28 h-auto" aria-hidden="true">
               {/* 머리 */}
               <ellipse cx="100" cy="90" rx="72" ry="50" fill="#f5d98a" />
-              {/* 귀 */}
-              <polygon points="48,58 22,8 72,48" fill="#f5d98a" />
-              <polygon points="152,58 178,8 128,48" fill="#f5d98a" />
-              <polygon points="52,56 30,18 68,50" fill="#fbbf9e" />
-              <polygon points="148,56 170,18 132,50" fill="#fbbf9e" />
-              {/* 이마 줄무늬 */}
-              <path d="M85 58 Q90 48 95 58" fill="none" stroke="#e0c060" strokeWidth="3" strokeLinecap="round" opacity="0.45" />
-              <path d="M100 53 Q105 43 110 53" fill="none" stroke="#e0c060" strokeWidth="3" strokeLinecap="round" opacity="0.45" />
+              {/* 통통한 볼 */}
+              <ellipse cx="45" cy="98" rx="16" ry="12" fill="#f5d98a" />
+              <ellipse cx="155" cy="98" rx="16" ry="12" fill="#f5d98a" />
+              {/* 귀 (움찔) */}
+              <g className="cat-ear-twitch-l">
+                <polygon points="48,58 22,8 72,48" fill="#f5d98a" />
+                <polygon points="52,56 30,18 68,50" fill="#fbbf9e" />
+                <line x1="45" y1="42" x2="48" y2="32" stroke="#f0c8a0" strokeWidth="1.2" strokeLinecap="round" opacity="0.5" />
+              </g>
+              <g className="cat-ear-twitch-r">
+                <polygon points="152,58 178,8 128,48" fill="#f5d98a" />
+                <polygon points="148,56 170,18 132,50" fill="#fbbf9e" />
+                <line x1="155" y1="42" x2="152" y2="32" stroke="#f0c8a0" strokeWidth="1.2" strokeLinecap="round" opacity="0.5" />
+              </g>
+              {/* 이마 M자 무늬 */}
+              <path d="M82 60 Q88 48 95 58 Q102 46 108 58 Q115 48 122 60" fill="none" stroke="#e0c060" strokeWidth="2.5" strokeLinecap="round" opacity="0.5" />
               {/* 볼터치 */}
               <ellipse cx="58" cy="102" rx="14" ry="9" fill="#fbbf9e" opacity="0.45" />
               <ellipse cx="142" cy="102" rx="14" ry="9" fill="#fbbf9e" opacity="0.45" />
               {/* 눈 (^^) 행복한 표정 */}
               <path d="M72 82 Q80 72 88 82" fill="none" stroke="#3a3226" strokeWidth="3" strokeLinecap="round" />
               <path d="M112 82 Q120 72 128 82" fill="none" stroke="#3a3226" strokeWidth="3" strokeLinecap="round" />
-              {/* 코 + 입 */}
+              {/* 코 (더 도톰하게) */}
+              <ellipse cx="100" cy="98" rx="4" ry="3" fill="#e8937a" />
               <path d="M96 98 L100 103 L104 98 Z" fill="#e8937a" />
+              {/* 입 */}
               <path d="M100 103 Q92 112 84 107" fill="none" stroke="#3a3226" strokeWidth="1.8" strokeLinecap="round" />
               <path d="M100 103 Q108 112 116 107" fill="none" stroke="#3a3226" strokeWidth="1.8" strokeLinecap="round" />
-              {/* 수염 */}
-              <line x1="30" y1="94" x2="68" y2="98" stroke="#c4a456" strokeWidth="1.3" />
-              <line x1="28" y1="106" x2="66" y2="104" stroke="#c4a456" strokeWidth="1.3" />
-              <line x1="132" y1="98" x2="170" y2="94" stroke="#c4a456" strokeWidth="1.3" />
-              <line x1="134" y1="104" x2="172" y2="106" stroke="#c4a456" strokeWidth="1.3" />
+              {/* 수염 (곡선) */}
+              <g className="cat-whisker-left">
+                <path d="M26 90 Q48 94 68 96" fill="none" stroke="#c4a456" strokeWidth="1.3" strokeLinecap="round" />
+                <path d="M24 104 Q46 104 66 102" fill="none" stroke="#c4a456" strokeWidth="1.3" strokeLinecap="round" />
+                <path d="M30 116 Q50 112 68 108" fill="none" stroke="#c4a456" strokeWidth="1.3" strokeLinecap="round" />
+              </g>
+              <g className="cat-whisker-right">
+                <path d="M132 96 Q152 94 174 90" fill="none" stroke="#c4a456" strokeWidth="1.3" strokeLinecap="round" />
+                <path d="M134 102 Q154 104 176 104" fill="none" stroke="#c4a456" strokeWidth="1.3" strokeLinecap="round" />
+                <path d="M132 108 Q150 112 170 116" fill="none" stroke="#c4a456" strokeWidth="1.3" strokeLinecap="round" />
+              </g>
             </svg>
           </div>
         )}
@@ -441,33 +483,50 @@ export default function Home() {
             <svg viewBox="0 0 240 180" className="w-44 h-auto" aria-label="고양이가 해몽 중...">
               {/* 머리 */}
               <ellipse cx="120" cy="80" rx="62" ry="44" fill="#f5d98a" />
-              {/* 귀 */}
-              <polygon points="72,50 50,8 94,42" fill="#f5d98a" />
-              <polygon points="168,50 190,8 146,42" fill="#f5d98a" />
-              <polygon points="75,48 56,16 91,43" fill="#fbbf9e" />
-              <polygon points="165,48 184,16 149,43" fill="#fbbf9e" />
-              {/* 이마 줄무늬 */}
-              <path d="M108 48 Q112 40 116 48" fill="none" stroke="#e0c060" strokeWidth="2.5" strokeLinecap="round" opacity="0.45" />
-              <path d="M120 44 Q124 36 128 44" fill="none" stroke="#e0c060" strokeWidth="2.5" strokeLinecap="round" opacity="0.45" />
+              {/* 통통한 볼 */}
+              <ellipse cx="72" cy="88" rx="14" ry="10" fill="#f5d98a" />
+              <ellipse cx="168" cy="88" rx="14" ry="10" fill="#f5d98a" />
+              {/* 귀 (움찔) */}
+              <g className="cat-ear-twitch-l">
+                <polygon points="72,50 50,8 94,42" fill="#f5d98a" />
+                <polygon points="75,48 56,16 91,43" fill="#fbbf9e" />
+                <line x1="70" y1="36" x2="73" y2="26" stroke="#f0c8a0" strokeWidth="1.2" strokeLinecap="round" opacity="0.5" />
+              </g>
+              <g className="cat-ear-twitch-r">
+                <polygon points="168,50 190,8 146,42" fill="#f5d98a" />
+                <polygon points="165,48 184,16 149,43" fill="#fbbf9e" />
+                <line x1="170" y1="36" x2="167" y2="26" stroke="#f0c8a0" strokeWidth="1.2" strokeLinecap="round" opacity="0.5" />
+              </g>
+              {/* 이마 M자 무늬 */}
+              <path d="M104 50 Q110 38 116 48 Q122 36 128 48 Q134 38 140 50" fill="none" stroke="#e0c060" strokeWidth="2.5" strokeLinecap="round" opacity="0.5" />
               {/* 볼터치 */}
               <ellipse cx="76" cy="90" rx="12" ry="8" fill="#fbbf9e" opacity="0.45" />
               <ellipse cx="164" cy="90" rx="12" ry="8" fill="#fbbf9e" opacity="0.45" />
-              {/* 눈 — 집중하는 표정 (반쯤 감은 눈) */}
-              <ellipse cx="98" cy="72" rx="9" ry="10" fill="#3a3226" />
-              <ellipse cx="142" cy="72" rx="9" ry="10" fill="#3a3226" />
-              <ellipse cx="100" cy="69" rx="3.5" ry="4" fill="white" />
-              <ellipse cx="144" cy="69" rx="3.5" ry="4" fill="white" />
+              {/* 눈 — 세로 동공 + 집중하는 표정 */}
+              <ellipse cx="98" cy="72" rx="9" ry="10" fill="#c8a84a" />
+              <ellipse cx="142" cy="72" rx="9" ry="10" fill="#c8a84a" />
+              <ellipse cx="98" cy="72" rx="3" ry="9" fill="#3a3226" />
+              <ellipse cx="142" cy="72" rx="3" ry="9" fill="#3a3226" />
+              <ellipse cx="100" cy="68" rx="2.5" ry="3.5" fill="white" opacity="0.8" />
+              <ellipse cx="144" cy="68" rx="2.5" ry="3.5" fill="white" opacity="0.8" />
               <rect x="85" y="62" width="30" height="6" fill="#f5d98a" rx="2" className="cat-blink" />
               <rect x="129" y="62" width="30" height="6" fill="#f5d98a" rx="2" className="cat-blink" />
-              {/* 코 */}
+              {/* 코 (더 도톰하게) */}
+              <ellipse cx="120" cy="86" rx="4" ry="2.5" fill="#e8937a" />
               <path d="M116 86 L120 90 L124 86 Z" fill="#e8937a" />
               {/* 입 — 열렸다 닫혔다 */}
               <ellipse cx="120" cy="98" rx="8" ry="4" fill="#c4706a" className="cat-mouth-talk" />
-              {/* 수염 */}
-              <line x1="52" y1="82" x2="84" y2="86" stroke="#c4a456" strokeWidth="1.3" />
-              <line x1="50" y1="94" x2="82" y2="92" stroke="#c4a456" strokeWidth="1.3" />
-              <line x1="156" y1="86" x2="188" y2="82" stroke="#c4a456" strokeWidth="1.3" />
-              <line x1="158" y1="92" x2="190" y2="94" stroke="#c4a456" strokeWidth="1.3" />
+              {/* 수염 (곡선 + 움직임) */}
+              <g className="cat-whisker-left">
+                <path d="M48 78 Q66 82 84 84" fill="none" stroke="#c4a456" strokeWidth="1.3" strokeLinecap="round" />
+                <path d="M46 92 Q64 92 82 90" fill="none" stroke="#c4a456" strokeWidth="1.3" strokeLinecap="round" />
+                <path d="M50 104 Q66 100 82 96" fill="none" stroke="#c4a456" strokeWidth="1.3" strokeLinecap="round" />
+              </g>
+              <g className="cat-whisker-right">
+                <path d="M156 84 Q174 82 192 78" fill="none" stroke="#c4a456" strokeWidth="1.3" strokeLinecap="round" />
+                <path d="M158 90 Q176 92 194 92" fill="none" stroke="#c4a456" strokeWidth="1.3" strokeLinecap="round" />
+                <path d="M158 96 Q174 100 190 104" fill="none" stroke="#c4a456" strokeWidth="1.3" strokeLinecap="round" />
+              </g>
               {/* 말풍선 효과 — 입에서 나오는 물결 */}
               <path d="M136 96 Q148 90 158 96 Q168 102 178 96" fill="none" stroke="#e0c060" strokeWidth="2" strokeLinecap="round" className="cat-speech-wave cat-speech-1" />
               <path d="M140 106 Q152 100 162 106 Q172 112 182 106" fill="none" stroke="#e0c060" strokeWidth="2" strokeLinecap="round" className="cat-speech-wave cat-speech-2" />

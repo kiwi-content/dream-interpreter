@@ -245,6 +245,79 @@
   animation: reviewFadeOut 0.5s ease-in forwards;
 }
 
+/* ===== 고양이 공통 애니메이션 ===== */
+
+/* 꼬리 흔들기 */
+.cat-tail-sway {
+  transform-origin: 260px 300px;
+  animation: tailSway 3s ease-in-out infinite;
+}
+
+@keyframes tailSway {
+  0%, 100% { transform: rotate(0deg); }
+  25% { transform: rotate(3deg); }
+  75% { transform: rotate(-2deg); }
+}
+
+/* 귀 움찔 */
+.cat-ear-twitch-l {
+  transform-origin: 110px 90px;
+  animation: earTwitchL 4s ease-in-out infinite;
+}
+
+.cat-ear-twitch-r {
+  transform-origin: 150px 90px;
+  animation: earTwitchR 4.5s ease-in-out infinite;
+}
+
+@keyframes earTwitchL {
+  0%, 85%, 100% { transform: rotate(0deg); }
+  88% { transform: rotate(-6deg); }
+  91% { transform: rotate(0deg); }
+  93% { transform: rotate(-3deg); }
+}
+
+@keyframes earTwitchR {
+  0%, 80%, 100% { transform: rotate(0deg); }
+  83% { transform: rotate(6deg); }
+  86% { transform: rotate(0deg); }
+  88% { transform: rotate(3deg); }
+}
+
+/* 수염 살짝 움직임 */
+.cat-whisker-left {
+  transform-origin: right center;
+  animation: whiskerTwitchL 3.5s ease-in-out infinite;
+}
+
+.cat-whisker-right {
+  transform-origin: left center;
+  animation: whiskerTwitchR 3.5s ease-in-out infinite;
+}
+
+@keyframes whiskerTwitchL {
+  0%, 70%, 100% { transform: rotate(0deg); }
+  75% { transform: rotate(-2deg) translateY(-1px); }
+  80% { transform: rotate(0deg); }
+}
+
+@keyframes whiskerTwitchR {
+  0%, 70%, 100% { transform: rotate(0deg); }
+  75% { transform: rotate(2deg) translateY(-1px); }
+  80% { transform: rotate(0deg); }
+}
+
+/* 랜딩 뚱냥이 눈 깜빡임 */
+.cat-eye-blink {
+  opacity: 0;
+  animation: eyeBlink 4s ease-in-out infinite;
+}
+
+@keyframes eyeBlink {
+  0%, 92%, 100% { opacity: 0; }
+  94%, 96% { opacity: 1; }
+}
+
 /* ===== 고양이 해몽 로딩 애니메이션 ===== */
 
 .cat-mouth-talk {
