@@ -17,16 +17,16 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Free Dream Interpreter | What Did Your Dream Mean?',
     description: 'AI-powered dream interpretation. Instant, personalized analysis. Free.',
-    url: 'https://kkumhaemong.xyz/en',
+    url: 'https://www.kkumhaemong.xyz/en',
     siteName: 'Dream Interpreter',
     locale: 'en_US',
     type: 'website',
   },
   alternates: {
-    canonical: 'https://kkumhaemong.xyz/en',
+    canonical: 'https://www.kkumhaemong.xyz/en',
     languages: {
-      'ko': 'https://kkumhaemong.xyz',
-      'en': 'https://kkumhaemong.xyz/en',
+      'ko': 'https://www.kkumhaemong.xyz',
+      'en': 'https://www.kkumhaemong.xyz/en',
     },
   },
 }

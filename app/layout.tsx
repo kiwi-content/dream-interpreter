@@ -3,7 +3,7 @@ import type { Metadata, Viewport } from 'next'
 import { headers } from 'next/headers'
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://kkumhaemong.xyz'),
+  metadataBase: new URL('https://www.kkumhaemong.xyz'),
 
   title: {
     default: '뚱냥이의 신비로운 꿈풀이 가게 | 무료 꿈해몽',
@@ -28,7 +28,7 @@ export const metadata: Metadata = {
     title: '뚱냥이의 신비로운 꿈풀이 가게 | 무료 꿈해몽',
     description:
       '뚱냥이가 너의 꿈을 읽어준다냥. 뱀꿈, 이빨 빠지는 꿈, 쫓기는 꿈 — 무료로 3초면 해몽 완료.',
-    url: 'https://kkumhaemong.xyz',
+    url: 'https://www.kkumhaemong.xyz',
     siteName: '뚱냥이의 신비로운 꿈풀이 가게',
     locale: 'ko_KR',
     type: 'website'
@@ -45,10 +45,10 @@ export const metadata: Metadata = {
   },
 
   alternates: {
-    canonical: 'https://kkumhaemong.xyz',
+    canonical: 'https://www.kkumhaemong.xyz',
     languages: {
-      'ko': 'https://kkumhaemong.xyz',
-      'en': 'https://kkumhaemong.xyz/en',
+      'ko': 'https://www.kkumhaemong.xyz',
+      'en': 'https://www.kkumhaemong.xyz/en',
     },
   },
 
@@ -76,7 +76,7 @@ const jsonLd = {
   '@type': 'WebApplication',
   name: '뚱냥이의 신비로운 꿈풀이 가게',
   description: '뚱냥이가 너의 꿈을 읽어준다냥. 무료로 3초면 해몽 완료.',
-  url: 'https://kkumhaemong.xyz',
+  url: 'https://www.kkumhaemong.xyz',
   applicationCategory: 'LifestyleApplication',
   offers: {
     '@type': 'Offer',

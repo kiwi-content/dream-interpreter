@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server'
 
-const PRIMARY_HOST = 'kkumhaemong.xyz'
+const PRIMARY_HOST = 'www.kkumhaemong.xyz'
 
 const EN_REDIRECT_HOSTS = (
   process.env.EN_REDIRECT_HOSTS ??
@@ -30,18 +30,24 @@ export function middleware(request: NextRequest) {
     request.headers.get('x-forwarded-host') ?? request.headers.get('host') ?? ''
   const host = normalizeHost(hostHeader)
 
-  if (!host || !isEnglishRedirectHost(host)) {
-    const response = NextResponse.next()
-    response.headers.set('x-lang', request.nextUrl.pathname.startsWith('/en') ? 'en' : 'ko')
-    return response
+  // Redirect English-specific hosts → kkumhaemong.xyz/en
+  if (isEnglishRedirectHost(host)) {
+    const pathname = request.nextUrl.pathname
+    const targetPath =
+      pathname === '/' ? '/en' : pathname.startsWith('/en') ? pathname : `/en${pathname}`
+    const redirectUrl = new URL(`https://${PRIMARY_HOST}${targetPath}${request.nextUrl.search}`)
+    return NextResponse.redirect(redirectUrl, 301)
   }
 
-  const pathname = request.nextUrl.pathname
-  const targetPath =
-    pathname === '/' ? '/en' : pathname.startsWith('/en') ? pathname : `/en${pathname}`
+  // Redirect non-primary hosts (e.g. dream-free.vercel.app) → kkumhaemong.xyz
+  if (host && host !== PRIMARY_HOST && host !== PRIMARY_HOST.replace('www.', '')) {
+    const redirectUrl = new URL(`https://${PRIMARY_HOST}${request.nextUrl.pathname}${request.nextUrl.search}`)
+    return NextResponse.redirect(redirectUrl, 301)
+  }
 
-  const redirectUrl = new URL(`https://${PRIMARY_HOST}${targetPath}${request.nextUrl.search}`)
-  return NextResponse.redirect(redirectUrl, 301)
+  const response = NextResponse.next()
+  response.headers.set('x-lang', request.nextUrl.pathname.startsWith('/en') ? 'en' : 'ko')
+  return response
 }
 
 export const config = {

@@ -31,7 +31,7 @@ type FAQItem = {
   answer: string
 }
 
-const BASE_URL = 'https://kkumhaemong.xyz'
+const BASE_URL = 'https://www.kkumhaemong.xyz'
 
 const coreDreamConfigs: DreamConfig[] = [
   {

@@ -2,7 +2,7 @@ import fs from 'node:fs'
 import path from 'node:path'
 import { MetadataRoute } from 'next'
 
-const BASE_URL = 'https://kkumhaemong.xyz'
+const BASE_URL = 'https://www.kkumhaemong.xyz'
 const APP_DIR = path.join(process.cwd(), 'app')
 const DREAM_PAGE_PATH_KO = path.join(APP_DIR, 'dream', '[slug]', 'page.tsx')
 const DREAM_PAGE_PATH_EN = path.join(APP_DIR, 'en', 'dream', '[slug]', 'page.tsx')

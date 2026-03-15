@@ -2014,8 +2014,8 @@ export async function generateMetadata({
   const dream = dreamData[slug]
   if (!dream) return {}
 
-  const canonical = `https://kkumhaemong.xyz/dream/${slug}`
-  const englishAlternate = `https://kkumhaemong.xyz/en/dream/${slug}`
+  const canonical = `https://www.kkumhaemong.xyz/dream/${slug}`
+  const englishAlternate = `https://www.kkumhaemong.xyz/en/dream/${slug}`
 
   return {
     title: dream.title,

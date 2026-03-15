@@ -9,6 +9,6 @@ export default function robots(): MetadataRoute.Robots {
         disallow: '/api/',
       },
     ],
-    sitemap: 'https://kkumhaemong.xyz/sitemap.xml',
+    sitemap: 'https://www.kkumhaemong.xyz/sitemap.xml',
   }
 }
